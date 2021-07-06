@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "cruzhacks-2022-development",
+    "production": "cruzhacks-2022-production"
+  }
+}
