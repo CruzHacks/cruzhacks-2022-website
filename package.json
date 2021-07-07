@@ -47,8 +47,8 @@
     "eject": "react-scripts eject",
     "lint:ts": "eslint 'src/**/*.{js, jsx, ts,tsx}'",
     "lint:css": "stylelint --allow-empty-input 'src/**/*.{css,scss}'",
-    "deploy:dev": "firebase deploy -P default --only hosting",
-    "deploy:prod": "firebase deploy -P production --only hosting"
+    "deploy:dev": "firebase deploy --only hosting:test",
+    "deploy:prod": "firebase deploy --only hosting:production"
   },
   "engines": {
     "node": "^14",
