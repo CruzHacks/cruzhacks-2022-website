@@ -1,15 +1,20 @@
 {
   "projects": {
-    "default": "cruzhacks-4a899"
+    "production": "cruzhacks-4a899",
+    "default": "cruzhacks-2022-development"
   },
   "targets": {
     "cruzhacks-4a899": {
       "hosting": {
-        "test": [
-          "cruzhacks-2022-website-test"
-        ],
         "production": [
           "cruzhacks-2022-website"
+        ]
+      }
+    },
+    "cruzhacks-2022-development": {
+      "hosting": {
+        "test": [
+          "cruzhacks-2022-development"
         ]
       }
     }
