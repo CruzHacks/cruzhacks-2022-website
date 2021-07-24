@@ -1,7 +1,8 @@
 name: cruzhacks-2022-website-production
 
 env:
-  REACT_APP_EXAMPLE: ${{ secrets.EXAMPLE_PROD }}
+  REACT_APP_AUTH0_DOMAIN: ${{ secrets.REACT_APP_AUTH0_DOMAIN_PROD }}
+  REACT_APP_AUTH0_CLIENT: ${{ secrets.REACT_APP_AUTH0_CLIENT_PROD }}
 
 on:
   push:

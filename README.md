@@ -4,7 +4,7 @@ How to Run
 =======
 
 1. Clone this repository 
-2. Set githooks with `git config --​global core.hooksPath ./.githooks`
+2. Set githooks with `git config core.hooksPath ./.githooks`
 3. Navigate to the root of the repository and run `yarn` which will install all the dependencies
 4. Running `yarn start` will begin a development server on `localhost:3000` where you can see the web app being served
 

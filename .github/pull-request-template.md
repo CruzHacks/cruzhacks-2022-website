@@ -1,6 +1,6 @@
 Problem
 =======
-What problem or issue does this pull request solve [Jira](https://cruzhacks-2022.atlassian.net/jira/core/projects/C2D/board)
+What problem or issue does this pull request solve [Jira](https://cruzhacks-dev.atlassian.net/jira/software/c/projects/C2D/issues/)
 
 
 
