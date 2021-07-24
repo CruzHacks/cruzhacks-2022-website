@@ -25,7 +25,8 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        REACT_APP_EXAMPLE: JSON.stringify(process.env.REACT_APP_EXAMPLE),
+        REACT_APP_AUTH0_DOMAIN: JSON.stringify(process.env.REACT_APP_AUTH0_DOMAIN),
+        REACT_APP_AUTH0_CLIENT: JSON.stringify(process.env.REACT_APP_AUTH0_CLIENT),
       },
     }),
   ],
