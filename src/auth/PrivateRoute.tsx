@@ -25,6 +25,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   <Route
     component={withAuthenticationRequired(component, {
       returnTo: path,
+      onRedirecting: () => <div>Redirecting...</div>,
     })}
     path={path}
     exact={exact}
