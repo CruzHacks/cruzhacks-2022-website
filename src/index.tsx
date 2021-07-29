@@ -1,7 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import "./index.scss"
-import { Auth0Provider } from "@auth0/auth0-react"
+import { BrowserRouter as Router } from "react-router-dom"
+import Auth0ProviderWithHistory from "./auth/Auth0ProviderWithHistory"
+import DebugBar from "./components/Debug/DebugBar"
 import Routes from "./routes/Routes"
 import reportWebVitals from "./reportWebVitals"
 
@@ -10,13 +12,16 @@ const AUTH0_DOMAIN = process.env.REACT_APP_AUTH0_DOMAIN || ""
 const AUTH0_CLIENT_ID = process.env.REACT_APP_AUTH0_CLIENTID || ""
 
 ReactDOM.render(
-  <Auth0Provider
-    domain={AUTH0_DOMAIN}
-    clientId={AUTH0_CLIENT_ID}
-    redirectUri={window.location.origin}
-  >
-    <Routes />
-  </Auth0Provider>,
+  <Router>
+    <Auth0ProviderWithHistory
+      domain={AUTH0_DOMAIN}
+      clientId={AUTH0_CLIENT_ID}
+      redirectUri={window.location.origin}
+    >
+      <DebugBar /> {/* TODO: remove once we have a design */}
+      <Routes />
+    </Auth0ProviderWithHistory>
+  </Router>,
   document.getElementById("root")
 )
 
