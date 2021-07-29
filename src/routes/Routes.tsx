@@ -1,15 +1,25 @@
 import * as React from "react"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import App from "../App"
+import { Route, Switch } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react"
+import PrivateRoute from "../auth/PrivateRoute"
+import HomeView from "../views/Home/index.view"
+import PortalView from "../views/Portal/index.view"
 
-const Routes: React.FC = () => (
-  <div className='Routes'>
-    <Router>
+const Routes: React.FC = () => {
+  const { isLoading } = useAuth0()
+
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+
+  return (
+    <div className='Routes'>
       <Switch>
-        <Route exact path='/' component={App} />
+        <Route exact path='/' component={HomeView} />
+        <PrivateRoute exact path='/portal' component={PortalView} />
       </Switch>
-    </Router>
-  </div>
-)
+    </div>
+  )
+}
 
 export default Routes
