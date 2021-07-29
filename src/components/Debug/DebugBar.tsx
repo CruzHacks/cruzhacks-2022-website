@@ -39,7 +39,7 @@ const DebugBar: React.FC = () => {
 
   return (
     <div className='DebugBar'>
-      <NavLink exact to='/' className='link' activeClassName='active'>
+      <NavLink exact to='/home' className='link' activeClassName='active'>
         Home
       </NavLink>
       <NavLink exact to='portal' className='link' activeClassName='active'>
