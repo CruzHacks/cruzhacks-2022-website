@@ -3,8 +3,7 @@ import ReactDOM from "react-dom"
 import "./index.scss"
 import { BrowserRouter as Router } from "react-router-dom"
 import Auth0ProviderWithHistory from "./auth/Auth0ProviderWithHistory"
-import DebugBar from "./components/Debug/DebugBar"
-import Routes from "./routes/Routes"
+import App from "./App"
 import reportWebVitals from "./reportWebVitals"
 
 // constants
@@ -18,8 +17,7 @@ ReactDOM.render(
       clientId={AUTH0_CLIENT_ID}
       redirectUri={window.location.origin}
     >
-      <DebugBar /> {/* TODO: remove once we have a design */}
-      <Routes />
+      <App />
     </Auth0ProviderWithHistory>
   </Router>,
   document.getElementById("root")
