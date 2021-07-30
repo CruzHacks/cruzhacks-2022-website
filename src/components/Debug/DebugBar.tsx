@@ -42,7 +42,7 @@ const DebugBar: React.FC = () => {
       <NavLink exact to='/' className='link' activeClassName='active'>
         Main
       </NavLink>
-      <NavLink exact to='home' className='link' activeClassName='active'>
+      <NavLink exact to='portal' className='link' activeClassName='active'>
         Home
       </NavLink>
       <div className='align-right'>{authButton}</div>

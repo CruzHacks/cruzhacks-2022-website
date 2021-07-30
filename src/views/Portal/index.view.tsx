@@ -5,9 +5,18 @@ import "./index.scss"
 const PortalView: React.FC = () => {
   const { user, getAccessTokenSilently } = useAuth0()
   const [token, setToken] = useState<string>("")
+  const [, setError] = useState<string>("")
   useEffect(() => {
     if (user?.email_verified) {
-      getAccessTokenSilently().then(accessToken => setToken(accessToken))
+      getAccessTokenSilently()
+        .then(accessToken => {
+          setError("")
+          setToken(accessToken)
+        })
+        .catch(err => {
+          setError(err)
+          setToken("")
+        })
     }
   })
   return (
