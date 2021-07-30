@@ -1,22 +1,16 @@
 import React from "react"
+import DebugBar from "./components/Debug/DebugBar"
+import Routes from "./routes/Routes"
+
 import "./App.scss"
 
 const App: React.FC = () => (
-  <div className='App'>
-    <header className='App-header'>
-      <p>
-        Edit <code>src/App.tsx</code> and save to reload.
-      </p>
-      <a
-        className='App-link'
-        href='https://reactjs.org'
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <>
+    <div className='App'>
+      <DebugBar /> {/* TODO: remove once we have a design */}
+      <Routes />
+    </div>
+  </>
 )
 
 export default App
