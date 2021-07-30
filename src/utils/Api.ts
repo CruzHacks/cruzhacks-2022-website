@@ -17,8 +17,13 @@ export default async function privateEndpointTest(authToken: string) {
     test: "api",
   }
   let status = 400
-  axios.post(endpoint, body, axiosConfig).then((res: AxiosResponse) => {
-    status = res.status
-  })
+  axios
+    .post(endpoint, body, axiosConfig)
+    .then((res: AxiosResponse) => {
+      status = res.status
+    })
+    .catch(err => {
+      status = err.statusCode
+    })
   return status
 }
