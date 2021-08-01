@@ -1,1 +1,1 @@
-jest.mock("../utils/api.ts")
+jest.mock("../utils/Api.ts")
