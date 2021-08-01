@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Route } from "react-router-dom"
 import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react"
-import Verified from "../views/Verify/index.view"
+import Verify from "../views/Verify/index.view"
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>
@@ -26,7 +26,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   const { user } = useAuth0()
   const route: React.ComponentType<any> = user?.email_verified
     ? component
-    : Verified
+    : Verify
   return (
     <Route
       component={withAuthenticationRequired(route, {

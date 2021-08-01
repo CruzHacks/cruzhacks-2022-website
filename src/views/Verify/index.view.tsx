@@ -7,7 +7,7 @@ const Verify: React.FC = () => {
   const { user } = useAuth0()
   return (
     <>
-      <div className='verified-container'>
+      <div className='verify-container'>
         You are not a verified user
         <button
           type='button'
