@@ -6,10 +6,10 @@ Debugging Private Endpoint
 Params: authToken -> string
 Return: statusCode -> integer
 */
-export default async function privateEndpointTest(authToken: string) {
+export async function privateEndpointTest() {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
-      Authentication: authToken,
+      Authentication: "apiKey",
       "Content-Type": "application/json",
     },
   }
@@ -26,4 +26,27 @@ export default async function privateEndpointTest(authToken: string) {
       status = err.statusCode
     })
   return status
+}
+
+/*
+Mock Auth0 Resend Verification Email
+Params: userId -> string | undefined
+Return: n/a
+*/
+
+const resendVerificationEmailEndpoint = ""
+export function resendVerificationEmail(userId: string | undefined) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authentication: "apiKey",
+      "Content-Type": "application/json",
+    },
+  }
+  const body = {
+    user_id: userId || "",
+  }
+  axios
+    .post(resendVerificationEmailEndpoint, body, axiosConfig)
+    .then((res: AxiosResponse) => res)
+    .catch(err => err)
 }

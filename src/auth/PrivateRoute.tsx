@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Route } from "react-router-dom"
-import { withAuthenticationRequired } from "@auth0/auth0-react"
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react"
+import Verified from "../views/Verify/index.view"
 
 interface PrivateRouteProps {
   component: React.ComponentType<any>
@@ -21,18 +22,24 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   exact,
   sensitive,
   strict,
-}: PrivateRouteProps) => (
-  <Route
-    component={withAuthenticationRequired(component, {
-      returnTo: path,
-      onRedirecting: () => <div>Redirecting...</div>,
-    })}
-    path={path}
-    exact={exact}
-    sensitive={sensitive}
-    strict={strict}
-  />
-)
+}: PrivateRouteProps) => {
+  const { user } = useAuth0()
+  const route: React.ComponentType<any> = user?.email_verified
+    ? component
+    : Verified
+  return (
+    <Route
+      component={withAuthenticationRequired(route, {
+        returnTo: path,
+        onRedirecting: () => <div>Redirecting...</div>,
+      })}
+      path={path}
+      exact={exact}
+      sensitive={sensitive}
+      strict={strict}
+    />
+  )
+}
 
 PrivateRoute.defaultProps = {
   exact: false,
