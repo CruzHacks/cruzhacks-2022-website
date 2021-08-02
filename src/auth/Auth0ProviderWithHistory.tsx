@@ -31,7 +31,7 @@ const Auth0ProviderWithHistory: React.FC<Auth0ProviderProps> = ({
       redirectUri={redirectUri}
       onRedirectCallback={onRedirectCallback}
       useRefreshTokens
-      cacheLocation='localstorage'
+      cacheLocation='memory'
     >
       {children}
     </Auth0Provider>
