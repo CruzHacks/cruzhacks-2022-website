@@ -2,13 +2,14 @@ import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 
 /*
 Mock Auth0 Resend Verification Email
-Params: userId -> string | undefined
+Params: userId -> string | undefined, authToken -> string
 Return: n/a
 */
 
 const resendVerificationEmailEndpoint =
-  process.env.REACT_APP_RESEND_VERIFICATION_ENDPOINT || ""
+  `${process.env.REACT_APP_AUTHENTICATION_ENDPOINT}/resend` || ""
 
+// Remove Once multiple Endpoints are made
 // eslint-disable-next-line
 export function resendVerificationEmail(
   userId: string | undefined,

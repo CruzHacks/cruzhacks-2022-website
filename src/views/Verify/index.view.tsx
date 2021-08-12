@@ -8,17 +8,15 @@ const Verify: React.FC = () => {
   const [token, setToken] = useState<string>("")
   const [, setError] = useState<string>("")
   useEffect(() => {
-    if (user?.email_verified) {
-      getAccessTokenSilently()
-        .then(accessToken => {
-          setError("")
-          setToken(accessToken)
-        })
-        .catch(err => {
-          setError(err)
-          setToken("")
-        })
-    }
+    getAccessTokenSilently()
+      .then(accessToken => {
+        setError("")
+        setToken(accessToken)
+      })
+      .catch(err => {
+        setError(err)
+        setToken("")
+      })
   })
 
   return (
