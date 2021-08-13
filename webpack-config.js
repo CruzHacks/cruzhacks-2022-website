@@ -27,6 +27,8 @@ module.exports = {
       "process.env": {
         REACT_APP_AUTH0_DOMAIN: JSON.stringify(process.env.REACT_APP_AUTH0_DOMAIN),
         REACT_APP_AUTH0_CLIENT: JSON.stringify(process.env.REACT_APP_AUTH0_CLIENT),
+        REACT_APP_AUTH0_AUDIENCE: JSON.stringify(process.env.REACT_APP_AUTH0_AUDIENCE),
+        REACT_APP_AUTHENTICATION_ENDPOINT: JSON.stringify(REACT_APP_AUTHENTICATION_ENDPOINT),
       },
     }),
   ],

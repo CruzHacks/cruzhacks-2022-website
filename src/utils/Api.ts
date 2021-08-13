@@ -1,49 +1,27 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 
-const endpoint = process.env.ENDPOINT || ""
-/*
-Debugging Private Endpoint
-Params: authToken -> string
-Return: statusCode -> integer
-*/
-export async function privateEndpointTest() {
-  const axiosConfig: AxiosRequestConfig = {
-    headers: {
-      Authentication: "apiKey",
-      "Content-Type": "application/json",
-    },
-  }
-  const body = {
-    test: "api",
-  }
-  let status = 400
-  axios
-    .post(endpoint, body, axiosConfig)
-    .then((res: AxiosResponse) => {
-      status = res.status
-    })
-    .catch(err => {
-      status = err.statusCode
-    })
-  return status
-}
-
 /*
 Mock Auth0 Resend Verification Email
-Params: userId -> string | undefined
+Params: userId -> string | undefined, authToken -> string
 Return: n/a
 */
 
-const resendVerificationEmailEndpoint = ""
-export function resendVerificationEmail(userId: string | undefined) {
+const resendVerificationEmailEndpoint =
+  `${process.env.REACT_APP_AUTHENTICATION_ENDPOINT}/resend` || ""
+
+// Remove Once multiple Endpoints are made
+// eslint-disable-next-line
+export function resendVerificationEmail(
+  userId: string | undefined,
+  authToken: string
+) {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
-      Authentication: "apiKey",
-      "Content-Type": "application/json",
+      Authorization: `Bearer ${authToken}`,
     },
   }
   const body = {
-    user_id: userId || "",
+    userId,
   }
   axios
     .post(resendVerificationEmailEndpoint, body, axiosConfig)
