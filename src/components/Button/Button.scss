@@ -1,0 +1,22 @@
+.Button {
+  margin: 0;
+  padding: 10px 18px;
+  min-width: 150px;
+
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  border-radius: 5px;
+  color: #2b2b2b;
+  background: #e6e6e6;
+  font-size: 1.2em;
+
+  &:hover {
+    background: darken(#d0d0d0, 5%);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: lighten(#d0d0d0, 10%);
+  }
+}

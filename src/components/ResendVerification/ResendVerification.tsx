@@ -1,5 +1,6 @@
 import React from "react"
 import "./ResendVerification.scss"
+import CoolDownButton from "../Button/CoolDownButton"
 import { resendVerificationEmail } from "../../utils/Api"
 import { VerificationEmailProps } from "../../Props/props"
 
@@ -9,12 +10,16 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
 }: VerificationEmailProps) => (
   <>
     <div className='reset-verification'>
-      <button
-        type='button'
-        onClick={() => resendVerificationEmail(user, token)}
+      <CoolDownButton
+        label='resend'
+        duration={1000 * 120}
+        localStorageKey='resend_verification'
+        onClick={() => {
+          resendVerificationEmail(user, token)
+        }}
       >
         Resend Verification Email
-      </button>
+      </CoolDownButton>
     </div>
   </>
 )
