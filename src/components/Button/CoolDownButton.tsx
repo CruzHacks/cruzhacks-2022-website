@@ -28,7 +28,8 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
   const [disabled, setDisabled] = useState<boolean>(rest.disabled || ttl > 0)
 
   useEffect(() => {
-    if (disabled) {
+    if (disabled && !rest.disabled) {
+      // re-enable the button after a set amount of time
       const timeout = setTimeout(
         () => {
           setDisabled(false)
@@ -46,11 +47,12 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
   }, [disabled])
 
   const handleOnClick = () => {
+    onClick()
+
     setDisabled(true)
     if (localStorageKey) {
       localStorage.setItem(localStorageKey, `${Date.now() + duration}`)
     }
-    onClick()
   }
 
   return (

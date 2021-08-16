@@ -12,7 +12,7 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
     <div className='reset-verification'>
       <CoolDownButton
         label='resend'
-        duration={1000 * 120}
+        duration={1000 * 30}
         localStorageKey='resend_verification'
         onClick={() => {
           resendVerificationEmail(user, token)
