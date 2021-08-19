@@ -1,7 +1,10 @@
 import React from "react"
 import "./ResendVerification.scss"
-import { resendVerificationEmail } from "../../utils/Api"
+import Recaptcha from "react-recaptcha"
+import { resendVerificationEmail, verifyToken } from "../../utils/Api"
 import { VerificationEmailProps } from "../../Props/props"
+
+const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || ""
 
 const ResendVerification: React.FC<VerificationEmailProps> = ({
   user,
@@ -9,6 +12,12 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
 }: VerificationEmailProps) => (
   <>
     <div className='reset-verification'>
+      <Recaptcha
+        sitekey={RECAPTCHA_SITE_KEY}
+        render='explicit'
+        verifyCallback={verifyToken}
+        onloadCallback={() => console.log("done!")}
+      />
       <button
         type='button'
         onClick={() => resendVerificationEmail(user, token)}

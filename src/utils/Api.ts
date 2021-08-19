@@ -9,6 +9,9 @@ Return: n/a
 const resendVerificationEmailEndpoint =
   process.env.REACT_APP_RESEND_VERIFICATION_ENDPOINT || ""
 
+const RECAPTCHA_VERIFICATION_ENDPOINT =
+  process.env.REACT_APP_RECAPTCHA_VERIFICATION_ENDPOINT || ""
+
 // eslint-disable-next-line
 export function resendVerificationEmail(
   userId: string | undefined,
@@ -25,5 +28,17 @@ export function resendVerificationEmail(
   axios
     .post(resendVerificationEmailEndpoint, body, axiosConfig)
     .then((res: AxiosResponse) => res)
+    .catch(err => err)
+}
+
+export function verifyToken(res: string) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      token: res,
+    },
+  }
+  axios
+    .post(`${RECAPTCHA_VERIFICATION_ENDPOINT}/submit`, {}, axiosConfig)
+    .then(response => response)
     .catch(err => err)
 }
