@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom"
 interface Auth0ProviderProps {
   domain: string
   clientId: string
+  audience: string
   redirectUri: string
   children: React.ReactNode
 }
@@ -15,6 +16,7 @@ interface Auth0ProviderProps {
 const Auth0ProviderWithHistory: React.FC<Auth0ProviderProps> = ({
   domain,
   clientId,
+  audience,
   redirectUri,
   children,
 }: Auth0ProviderProps) => {
@@ -29,6 +31,7 @@ const Auth0ProviderWithHistory: React.FC<Auth0ProviderProps> = ({
       domain={domain}
       clientId={clientId}
       redirectUri={redirectUri}
+      audience={audience}
       onRedirectCallback={onRedirectCallback}
       useRefreshTokens
       cacheLocation='memory'
