@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./ResendVerification.scss"
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
-import Recaptcha from "react-google-recaptcha"
+import ReCAPTCHA from "react-google-recaptcha"
 import { resendVerificationEmail } from "../../utils/Api"
 import { VerificationEmailProps } from "../../Props/props"
 
@@ -34,7 +34,7 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
     <>
       <div className='reset-verification'>
         <div className='recaptcha'>
-          <Recaptcha
+          <ReCAPTCHA
             sitekey={RECAPTCHA_SITE_KEY}
             onChange={verifyToken}
             onExpired={() => setVerified(false)}
