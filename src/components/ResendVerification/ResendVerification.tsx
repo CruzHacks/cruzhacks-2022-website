@@ -42,8 +42,10 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
           />
         </div>
         <p>{`verified? ${verified}`}</p>
+
         <CoolDownButton
           label='resend'
+          disabled={!verified}
           duration={1000 * 30}
           localStorageKey='resend_verification'
           onClick={() => {

@@ -17,6 +17,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    color: #aaa;
     background: lighten(#d0d0d0, 10%);
   }
 }

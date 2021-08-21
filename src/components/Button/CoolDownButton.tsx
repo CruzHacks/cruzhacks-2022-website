@@ -9,6 +9,7 @@ interface CoolDownButtonProps extends ButtonProps {
 const CoolDownButton: React.FC<CoolDownButtonProps> = ({
   duration,
   localStorageKey,
+  disabled: disabledProp,
   onClick,
   children,
   ...rest
@@ -25,26 +26,23 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
     }
   }
 
-  const [disabled, setDisabled] = useState<boolean>(rest.disabled || ttl > 0)
+  const [disabled, setDisabled] = useState<boolean>(false)
 
   useEffect(() => {
-    if (disabled && !rest.disabled) {
-      // re-enable the button after a set amount of time
-      const timeout = setTimeout(
-        () => {
-          setDisabled(false)
-          if (localStorageKey) localStorage.removeItem(localStorageKey)
-        },
-        ttl > 0 ? ttl : duration
-      )
+    setDisabled(disabledProp || ttl > 0)
 
-      return () => {
-        clearTimeout(timeout)
-      }
+    if (ttl > 0) {
+      // re-enable the button after a set amount of time
+      const timeout = setTimeout(() => {
+        setDisabled(false)
+        if (localStorageKey) localStorage.removeItem(localStorageKey)
+      }, ttl)
+
+      return () => clearTimeout(timeout)
     }
 
     return () => {}
-  }, [disabled])
+  }, [disabled, disabledProp])
 
   const handleOnClick = () => {
     onClick()
