@@ -8,12 +8,21 @@ interface CoolDownButtonProps extends ButtonProps {
 
 const CoolDownButton: React.FC<CoolDownButtonProps> = ({
   duration,
-  localStorageKey,
   disabled: disabledProp,
   onClick,
   children,
   ...rest
 }: CoolDownButtonProps) => {
+  let { localStorageKey } = rest
+
+  try {
+    const testKey = "_test_key_"
+    localStorage.setItem(testKey, testKey)
+    localStorage.removeItem(testKey)
+  } catch (e) {
+    localStorageKey = undefined
+  }
+
   // check localStorage to see if the cool down has passed
   let ttl = 0
   if (localStorageKey) {
