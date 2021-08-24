@@ -1,18 +1,39 @@
+@use "./stylesheets/responsiveness";
+@import "./stylesheets/fonts";
+@import "./stylesheets/variables";
+
+
+html,
+body,
+#root,
+#root > div {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overscroll-behavior: contain;
+}
+
 .App {
-  text-align: center;
-}
+  @include responsiveness.screen(smallest) {
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  }
+  @include responsiveness.screen(phone) {
 
-.App-link {
-  color: #61dafb;
+  }
+  @include responsiveness.screen(tablet) {
+
+  }
+  @include responsiveness.screen(large-tablet) {
+
+  }
+  @include responsiveness.screen(small-laptop) {
+
+  }
+  @include responsiveness.screen(desktop) {
+
+  }
+  @include responsiveness.screen(big-desktop) {
+
+  }
 }
