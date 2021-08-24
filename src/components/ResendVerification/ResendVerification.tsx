@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./ResendVerification.scss"
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 import ReCAPTCHA from "react-google-recaptcha"
+import CoolDownButton from "../Button/CoolDownButton"
 import { resendVerificationEmail } from "../../utils/Api"
 import { VerificationEmailProps } from "../../Props/props"
 
@@ -41,12 +42,18 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
           />
         </div>
         <p>{`verified? ${verified}`}</p>
-        <button
-          type='button'
-          onClick={() => resendVerificationEmail(user, token)}
+
+        <CoolDownButton
+          label='resend'
+          disabled={!verified}
+          duration={1000 * 30}
+          localStorageKey='resend_verification'
+          onClick={() => {
+            resendVerificationEmail(user, token)
+          }}
         >
           Resend Verification Email
-        </button>
+        </CoolDownButton>
       </div>
     </>
   )
