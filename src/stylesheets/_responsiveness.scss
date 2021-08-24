@@ -1,6 +1,3 @@
-
-$font-family-normal: "B612";
-
 @mixin screen($breakpoint) {
   @if ($breakpoint == smallest) {
     @media (max-width: 349px) {
