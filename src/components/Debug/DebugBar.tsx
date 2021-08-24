@@ -2,6 +2,7 @@ import * as React from "react"
 import "./DebugBar.scss"
 import { NavLink } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
+import Button from "../Button/Button"
 
 /**
  * A debug bar that may be useful during development.
@@ -10,30 +11,29 @@ const DebugBar: React.FC = () => {
   const { isLoading, isAuthenticated, loginWithRedirect, logout } = useAuth0()
 
   let authButton = (
-    <button type='button' disabled className='button'>
+    <Button label='loading' disabled>
       Loading
-    </button>
+    </Button>
   )
 
   if (!isLoading) {
     authButton = isAuthenticated ? (
-      <button
-        type='button'
-        className='button froly'
+      <Button
+        className='froly'
+        label='logout'
         onClick={() => logout({ returnTo: window.location.origin })}
       >
         Logout
-      </button>
+      </Button>
     ) : (
-      <button
-        type='button'
-        className='button'
+      <Button
+        label='login'
         onClick={() => {
           loginWithRedirect().then().catch()
         }}
       >
         Login
-      </button>
+      </Button>
     )
   }
 
