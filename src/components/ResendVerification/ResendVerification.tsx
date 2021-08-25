@@ -9,6 +9,7 @@ import { VerificationEmailProps } from "../../Props/props"
 const RECAPTCHA_SITE_KEY = process.env.REACT_APP_RECAPTCHA_SITE_KEY || ""
 const RECAPTCHA_VERIFICATION_ENDPOINT =
   `${process.env.REACT_APP_RECAPTCHA_VERIFICATION_ENDPOINT}/submit` || ""
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY || ""
 
 const ResendVerification: React.FC<VerificationEmailProps> = ({
   user,
@@ -18,6 +19,7 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
   const verifyToken = (res: string | null) => {
     const axiosConfig: AxiosRequestConfig = {
       headers: {
+        Authentication: REACT_APP_API_KEY,
         token: res,
       },
     }
