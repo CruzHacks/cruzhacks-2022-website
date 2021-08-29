@@ -39,8 +39,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({
   }
 
   // if admin route, redirect if not admin
-  const namespace = "https://example.com"
-  const roles = (user && user[`${namespace}/roles`]) || []
+  const roles = (user && user[`https://cruzhacks.com/roles`]) || []
   if (admin && roles.indexOf("Organizer") === -1) {
     route = ErrorView
   }
