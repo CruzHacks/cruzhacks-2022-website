@@ -9,8 +9,10 @@ Return: n/a
 const resendVerificationEmailEndpoint =
   `${process.env.REACT_APP_AUTHENTICATION_ENDPOINT}/resend` || ""
 
-// Remove Once multiple Endpoints are made
-// eslint-disable-next-line
+const subscriptionEndpoint = process.env.REACT_APP_MAILCHIMP_API || ""
+
+const API_KEY = process.env.REACT_APP_API_KEY
+
 export function resendVerificationEmail(
   userId: string | undefined,
   authToken: string
@@ -26,5 +28,30 @@ export function resendVerificationEmail(
   axios
     .post(resendVerificationEmailEndpoint, body, axiosConfig)
     .then((res: AxiosResponse) => res)
+    .catch(err => err)
+}
+
+export function subscribeMailchimp(userEmail: String) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authentication: API_KEY,
+      "Content-Type": "application/json",
+    },
+  }
+
+  return axios
+    .post(
+      subscriptionEndpoint,
+      {
+        email: userEmail,
+      },
+      axiosConfig
+    )
+    .then((response: AxiosResponse) => {
+      if (response.status === 200) {
+        return "Successfully Added User"
+      }
+      return "Unable to Add User"
+    })
     .catch(err => err)
 }
