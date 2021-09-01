@@ -3,7 +3,7 @@ import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
 import ResendVerification from "../../components/ResendVerification/ResendVerification"
 
-const Verify: React.FC = () => {
+const VerifyView: React.FC = () => {
   const { user, getAccessTokenSilently } = useAuth0()
   const [token, setToken] = useState<string>("")
   const [, setError] = useState<string>("")
@@ -29,4 +29,4 @@ const Verify: React.FC = () => {
   )
 }
 
-export default Verify
+export default VerifyView
