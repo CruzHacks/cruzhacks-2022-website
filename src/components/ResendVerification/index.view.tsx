@@ -12,16 +12,12 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
   token,
 }: VerificationEmailProps) => {
   const [verified, setVerified] = useState<boolean>(false)
-  const toggleVerified = () => {
-    const copy = verified
-    return setVerified(!copy)
-  }
   return (
     <div className='resendVerification-view/container'>
       <div className='recaptcha'>
         <ReCAPTCHA
           sitekey={RECAPTCHA_SITE_KEY}
-          onChange={res => verifyRecaptchaToken(res, toggleVerified)}
+          onChange={res => verifyRecaptchaToken(res, () => setVerified(true))}
           onExpired={() => setVerified(false)}
         />
       </div>
