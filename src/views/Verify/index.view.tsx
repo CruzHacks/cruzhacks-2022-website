@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
-import ResendVerification from "../../components/ResendVerification/index.view"
+import ResendVerification from "../../components/ResendVerification"
 
 const VerifyView: React.FC = () => {
   const { user, getAccessTokenSilently } = useAuth0()
@@ -21,7 +21,7 @@ const VerifyView: React.FC = () => {
 
   return (
     <>
-      <div className='verify-container'>
+      <div className='verify-view'>
         <p>You are not a verified user</p>
         <ResendVerification user={user ? user?.sub : ""} token={token} />
       </div>

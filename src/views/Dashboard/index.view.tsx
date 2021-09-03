@@ -2,7 +2,7 @@ import * as React from "react"
 import "./index.scss"
 
 const DashboardView: React.FC = () => (
-  <div className='dashboard-view/container'>
+  <div className='dashboard-view'>
     <p>Welcome, organizer.</p>
   </div>
 )

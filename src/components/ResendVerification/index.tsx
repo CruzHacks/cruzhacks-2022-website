@@ -13,7 +13,7 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
 }: VerificationEmailProps) => {
   const [verified, setVerified] = useState<boolean>(false)
   return (
-    <div className='resendVerification-view/container'>
+    <div className='resendVerification-component'>
       <div className='recaptcha'>
         <ReCAPTCHA
           sitekey={RECAPTCHA_SITE_KEY}
