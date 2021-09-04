@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
-import ResendVerification from "../../components/ResendVerification/ResendVerification"
+import ResendVerification from "../../components/ResendVerification"
 import "./index.scss"
 
 const PortalView: React.FC = () => {
@@ -21,11 +21,9 @@ const PortalView: React.FC = () => {
     }
   }, [])
   return (
-    <>
-      <pre>{JSON.stringify(user, null, 4)}</pre>
-      <div>{token}</div>
+    <div className='portal-view'>
       <ResendVerification user={user ? user?.sub : ""} token={token} />
-    </>
+    </div>
   )
 }
 
