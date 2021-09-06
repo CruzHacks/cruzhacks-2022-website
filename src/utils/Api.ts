@@ -11,6 +11,9 @@ const resendVerificationEmailEndpoint =
 
 const subscriptionEndpoint = process.env.REACT_APP_MAILCHIMP_API || ""
 
+const RECAPTCHA_VERIFICATION_ENDPOINT =
+  `${process.env.REACT_APP_RECAPTCHA_VERIFICATION_ENDPOINT}/submit` || ""
+
 const API_KEY = process.env.REACT_APP_API_KEY
 
 export function resendVerificationEmail(
@@ -53,5 +56,23 @@ export function subscribeMailchimp(userEmail: String) {
       }
       return "Unable to Add User"
     })
+    .catch(err => err)
+}
+
+export function verifyRecaptchaToken(res: string | null, callback: any) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authentication: API_KEY,
+      token: res,
+    },
+  }
+  axios
+    .post(RECAPTCHA_VERIFICATION_ENDPOINT, {}, axiosConfig)
+    .then((response: AxiosResponse) => {
+      if (response.status === 200) {
+        return callback()
+      }
+      return response
+    }) // after response 200, token validated: unlock verification button
     .catch(err => err)
 }

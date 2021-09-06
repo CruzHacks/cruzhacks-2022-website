@@ -1,5 +1,5 @@
 import * as React from "react"
-import "./DebugBar.scss"
+import "./NavBar.scss"
 import { NavLink } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 import Button from "../Button/Button"
@@ -7,7 +7,7 @@ import Button from "../Button/Button"
 /**
  * A debug bar that may be useful during development.
  */
-const DebugBar: React.FC = () => {
+const NavBar: React.FC = () => {
   const { isLoading, isAuthenticated, loginWithRedirect, logout } = useAuth0()
 
   let authButton = (
@@ -38,7 +38,7 @@ const DebugBar: React.FC = () => {
   }
 
   return (
-    <div className='DebugBar'>
+    <div className='NavBar'>
       <NavLink exact to='/' className='link' activeClassName='active'>
         Main
       </NavLink>
@@ -50,4 +50,4 @@ const DebugBar: React.FC = () => {
   )
 }
 
-export default DebugBar
+export default NavBar
