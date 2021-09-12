@@ -26,8 +26,7 @@ export function store(
 
     window.localStorage.setItem(key, JSON.stringify(data))
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(err)
+    // ignore errors
   }
 
   return value
@@ -69,8 +68,7 @@ export function retrieve(key: string, defaultValue?: any, user?: string): any {
       return data.value
     }
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(err)
+    // ignore errors
   }
 
   return defaultValue
