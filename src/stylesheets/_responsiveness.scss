@@ -82,9 +82,9 @@ Sample Usage::
 ///
 /// @example scss - 5vw font size (with 50px fallback),
 ///                 minumum of 35px and maximum of 150px
-///  @include responsive-font(5vw, 35px, 150px, 50px);
+///  @include font(5vw, 35px, 150px, 50px);
 ///
-@mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
+@mixin font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: $responsive / ($responsive - $responsive + 1);
   $dimension: if(unit($responsive) == "vh", "height", "width");
   $min-breakpoint: $min / $responsive-unitless * 100;
