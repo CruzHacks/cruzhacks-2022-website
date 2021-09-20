@@ -9,7 +9,6 @@ import Tracks from "./components/Tracks"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
-    <p>Home</p>
     <Landing />
     <About />
     <Milestones />
