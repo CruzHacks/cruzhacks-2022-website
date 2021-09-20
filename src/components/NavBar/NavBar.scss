@@ -1,37 +1,27 @@
+@use "~stylesheets/typography";
+
 .NavBar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 
-  padding: 20px 30px;
-  background: #fcfcfc;
-  border-radius: 0 0 25px 25px;
+  padding: 12px 30px;
+  background: var(--color-bg-primary);
 
   .align-right {
     margin-left: auto;
   }
 
   .link {
-    margin: 5px 10px;
-    padding: 10px 18px;
+    margin: 5px 18px;
 
-    color: #2b2b2b;
+    color: var(--color-text-primary);
     text-decoration: none;
-    font-size: 1.2em;
+    @include typography.button-text;
   }
 
   .link:hover, .active.link {
-    color: #f06c84;
-    border-bottom: 2px solid #f37e7e;
-  }
-
-  .froly {
-    color: #fff;
-    background: #f37e7e;
-
-    &:hover {
-      background: #f06c84;
-    }
+    color: var(--color-text-secondary);
   }
 }
