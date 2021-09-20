@@ -1,23 +1,43 @@
+@use "~stylesheets/typography";
+
 .Button {
   margin: 0;
-  padding: 10px 18px;
+  padding: 8px 10px;
   min-width: 150px;
 
   cursor: pointer;
   user-select: none;
-  border: none;
-  border-radius: 5px;
-  color: #2b2b2b;
-  background: #e6e6e6;
-  font-size: 1.2em;
+  border: 3px solid var(--color-bg-secondary);
+  box-sizing: border-box;
+  border-radius: 14px;
+  @include typography.button-text;
+
+  // default styling - transparent
+  color: #FFFFFF;
+  background: transparent;
 
   &:hover {
-    background: darken(#d0d0d0, 5%);
+    color: #D9Efff;
   }
 
   &:disabled {
     cursor: not-allowed;
-    color: #aaa;
-    background: lighten(#d0d0d0, 10%);
+    border: 3px solid #8C8C8C;
+    color: #8C8C8C;
+    background: #505050;
   }
+
+  &--primary {
+    background: var(--color-bg-secondary);
+  }
+
+  &--secondary {
+    color: var(--color-bg-primary);
+    background: var(--color-text-primary);
+
+    &:hover {
+      color: var(--color-bg-secondary);
+    }
+  }
+
 }

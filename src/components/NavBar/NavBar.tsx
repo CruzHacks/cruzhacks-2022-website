@@ -4,9 +4,6 @@ import { NavLink } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 import Button from "../Button/Button"
 
-/**
- * A debug bar that may be useful during development.
- */
 const NavBar: React.FC = () => {
   const { isLoading, isAuthenticated, loginWithRedirect, logout } = useAuth0()
 
@@ -19,7 +16,6 @@ const NavBar: React.FC = () => {
   if (!isLoading) {
     authButton = isAuthenticated ? (
       <Button
-        className='froly'
         label='logout'
         onClick={() => logout({ returnTo: window.location.origin })}
       >

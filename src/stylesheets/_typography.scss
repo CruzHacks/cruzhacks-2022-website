@@ -1,0 +1,24 @@
+@use "./responsiveness";
+
+@mixin title {
+  color: var(--color-text-primary);
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+
+  @include responsiveness.font($responsive: 3.8vw, $min: 32px, $max: 50px);
+}
+
+@mixin text {
+  color: var(--color-text-primary);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+
+  @include responsiveness.font($responsive: 2.3vw, $min: 14px, $max: 22px);
+}
+
+@mixin button-text {
+  @include text;
+  // separating this out in case we need to apply additional styling to the buttons.
+}
