@@ -1,5 +1,13 @@
+$color-bg-primary: #36628B;
+$color-bg-secondary: #72BFCF;
+$color-text-primary: #fff;
+$color-text-secondary: #D3E2EB;
+
+
 :root {
-    --black: #000;
-    --white: #fff;
-    --cyan-blue: #D3E2EB;
+    --color-bg-primary: #{$color-bg-primary};
+    --color-bg-secondary: #{$color-bg-secondary};
+
+    --color-text-primary: #{$color-text-primary};
+    --color-text-secondary: #{$color-text-secondary};
 }
