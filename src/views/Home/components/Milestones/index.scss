@@ -1,0 +1,89 @@
+@use "./stylesheets/responsiveness";
+
+.milestones-component {
+    margin: 14px 0 40px 0;
+    background: linear-gradient(#DE98DF, #B0B6F7,#3792C6); //TODO: Name Color
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .milestones-component-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .milestones-component-header-text {
+            margin: 2% 0 1% 0;
+            height: 371px;
+            width: 371px;
+            background: #385F9A;
+            border: 9px solid #385F9A;
+            box-sizing: border-box;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            border-radius: 50%;
+    
+            font-family: Source Sans Pro;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 60px;
+            line-height: 75px;
+            text-align: center;
+            
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 29px 0 29px;
+        }
+        .milestones-component-header-ellipse {
+            background: rgba(67, 113, 183, 0.67);
+            border-radius: 50%;
+            width: 236px;
+            height: 45px;
+        }
+    }
+    .milestones-component-achievements {
+        display:flex;
+        flex-direction: column;
+    }
+    .milestone {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1% 0 1% 0;
+        &.image {
+            min-width: 230px;
+        }
+
+        &.box {
+            width: 272px;
+            display: flex;
+            flex-direction: column;
+            border: 4px solid #FFFFFF;
+            box-sizing: border-box;
+            box-shadow: -2px 0px 16px #FFFFFF;
+            border-radius: 37px;
+            text-align: center;
+        }
+        &.stat {
+
+            font-family: Lato;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 75px;
+            line-height: 90px;
+            color: #FFFFFF
+        }
+
+        &.name {
+            font-family: B612;
+            font-style: italic;
+            font-weight: normal;
+            font-size: 42.5px;
+            line-height: 55px;
+            text-align: center;
+            color: #FFFFFF;
+            text-shadow: 0px 4px 8px rgba(70, 104, 135, 0.49);
+        }
+    }
+}
