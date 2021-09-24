@@ -1,89 +1,231 @@
 @use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+@mixin milestones-mobile {
+  .milestones-component-header {
+    height: 100px;
+    width: 100%;
+    align-items: flex-start;
+    .milestones-component-header-circle {
+      width: 374px;
+      height: 87px;
+      border: 0;
+      justify-content: left;
+      .milestones-component-header-text {
+        margin: 0;
+        padding: 0;
+        &.desktop {
+          display: none;
+        }
+        &.mobile {
+          display: flex;
+        }
+      }
+    }
+    .milestones-component-header-border {
+        position: relative;
+        bottom: 50px;
+        left: 210px;
+        display:block;
+      }
+    .milestones-component-header-ellipse {
+      &.desktop {
+        display: flex;
+      }
+      &.mobile {
+        display: none;
+      }
+    }
+  }
+  .milestone {
+    &.image {
+      min-width: 200px;
+      img {
+        width: 75%;
+        height: 60%;
+      }
+    }
+    &.box {
+      width: 180px;
+    }
+    &.stat {
+      line-height: 30px;
+      @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 50px);
+    }
+    &.name {
+      line-height: 25px;
+      @include responsiveness.font($responsive: 4.1vw, $min: 21px, $max: 30px);
+    }
+  }
+}
 
 .milestones-component {
-    margin: 14px 0 40px 0;
-    background: linear-gradient(#DE98DF, #B0B6F7,#3792C6); //TODO: Name Color
+  margin: 14px 0 40px 0;
+  background: linear-gradient(#de98df, #b0b6f7, #3792c6); //TODO: Name Color
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  .milestones-component-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3%;
+    .milestones-component-header-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 50%;
+      width: 401px;
+      height: 401px;
+      border-top: 20px solid var(--color-navy-blue);
+      border-left: 20px solid transparent;
+      border-right: 20px solid var(--color-navy-blue);
+      border-bottom: 20px solid var(--color-navy-blue);
+      margin-bottom: 3%;
+
+      .milestones-component-header-text {
+        margin: 2% 0 1% 0;
+        height: 371px;
+        width: 371px;
+        background: var(--color-navy-blue);
+        border: 9px solid var(--color-navy-blue);
+        box-sizing: border-box;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50%;
+        font-family: Source Sans Pro;
+        font-style: normal;
+        font-weight: bold;
+        @include responsiveness.font(
+          $responsive: 4.1vw,
+          $min: 35px,
+          $max: 60px
+        );
+        line-height: 75px;
+        text-align: center;
+        color: var(--color-text-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 29px 0 29px;
+        &.mobile {
+          display: none;
+          height: 67px;
+          width: 354px;
+          border-radius: 0%;
+          border-bottom-right-radius: 33.5px;
+          border-top-right-radius: 33.5px;
+        }
+      }
+    }
+    .milestones-component-header-border {
+        display:none;
+      }
+    .milestones-component-header-ellipse {
+      background: rgba(67, 113, 183, 0.67);
+      border-radius: 50%;
+      width: 236px;
+      height: 45px;
+    }
+  }
+  .milestones-component-achievements {
+    display: flex;
+    flex-direction: column;
+  }
+  .milestone {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 2% 0 2% 0;
+    &.image {
+      min-width: 230px;
+      img {
+        width: auto;
+        height: auto;
+      }
+    }
+
+    &.box {
+      width: 272px;
+      min-height: 125px;
+      display: flex;
+      flex-shrink: 0;
+      flex-direction: column;
+      border: 4px solid var(--color-text-primary);
+      box-sizing: border-box;
+      box-shadow: -2px 0px 16px var(--color-text-primary);
+      border-radius: 37px;
+      text-align: center;
+    }
+    &.stat {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: bold;
+      @include responsiveness.font($responsive: 4.1vw, $min: 50px, $max: 75px);
+      line-height: 90px;
+      color: var(--color-text-primary);
+    }
+
+    &.name {
+      font-family: B612;
+      font-style: italic;
+      font-weight: normal;
+      @include responsiveness.font(
+        $responsive: 4.1vw,
+        $min: 30px,
+        $max: 42.5px
+      );
+      line-height: 55px;
+      text-align: center;
+      color: var(--color-text-primary);
+      text-shadow: 0px 4px 8px rgba(70, 104, 135, 0.49);
+    }
+  }
+
+  @include responsiveness.screen(tablet) {
+    @include milestones-mobile;
+  }
+  @include responsiveness.screen(phone) {
+    @include milestones-mobile;
     .milestones-component-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .milestones-component-header-text {
-            margin: 2% 0 1% 0;
-            height: 371px;
-            width: 371px;
-            background: #385F9A;
-            border: 9px solid #385F9A;
-            box-sizing: border-box;
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            border-radius: 50%;
-    
-            font-family: Source Sans Pro;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 60px;
-            line-height: 75px;
-            text-align: center;
-            
-            color: #FFFFFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 29px 0 29px;
+        .milestones-component-header-border {
+            position: relative;
+            bottom: 40px;
+            left: 160px;
+            display:block;
         }
-        .milestones-component-header-ellipse {
-            background: rgba(67, 113, 183, 0.67);
-            border-radius: 50%;
-            width: 236px;
-            height: 45px;
+        .milestones-component-header-circle {
+            width: 320px;
+            .milestones-component-header-text {
+                width:320px;
+                &.mobile {
+                    width: 304px;
+                }
+            }
         }
     }
-    .milestones-component-achievements {
-        display:flex;
-        flex-direction: column;
-    }
-    .milestone {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        margin: 1% 0 1% 0;
-        &.image {
-            min-width: 230px;
+  }
+  @include responsiveness.screen(smallest) {
+    @include milestones-mobile;
+    .milestones-component-header {
+        .milestones-component-header-border {
+            position: relative;
+            bottom: 40px;
+            left: 155px;
+            display:block;
         }
-
-        &.box {
-            width: 272px;
-            display: flex;
-            flex-direction: column;
-            border: 4px solid #FFFFFF;
-            box-sizing: border-box;
-            box-shadow: -2px 0px 16px #FFFFFF;
-            border-radius: 37px;
-            text-align: center;
-        }
-        &.stat {
-
-            font-family: Lato;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 75px;
-            line-height: 90px;
-            color: #FFFFFF
-        }
-
-        &.name {
-            font-family: B612;
-            font-style: italic;
-            font-weight: normal;
-            font-size: 42.5px;
-            line-height: 55px;
-            text-align: center;
-            color: #FFFFFF;
-            text-shadow: 0px 4px 8px rgba(70, 104, 135, 0.49);
+        .milestones-component-header-circle {
+            width: 320px;
+            .milestones-component-header-text {
+                width:320px;
+                &.mobile {
+                    width: 304px;
+                }
+            }
         }
     }
+  }
 }
