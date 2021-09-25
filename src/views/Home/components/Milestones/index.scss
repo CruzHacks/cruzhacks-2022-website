@@ -6,30 +6,24 @@
     height: 100px;
     width: 100%;
     align-items: flex-start;
-    .milestones-component-header-circle {
-      width: 374px;
-      height: 87px;
-      border: 0;
-      justify-content: left;
-      .milestones-component-header-text {
-        margin: 0;
-        padding: 0;
-        &.desktop {
-          display: none;
-        }
-        &.mobile {
-          display: flex;
-        }
-      }
-    }
     .milestones-component-header-ellipse {
-      &.desktop {
-        display: flex;
-      }
-      &.mobile {
-        display: none;
-      }
+      display: none;
     }
+  }
+  .milestones-component-header-circle {
+    width: 374px;
+    height: 87px;
+    border: 0;
+    justify-content: left;
+  }
+  .milestones-component-header-text {
+    margin: 0;
+    padding: 0;
+    height: 67px;
+    width: 354px;
+    border-radius: 0%;
+    border-bottom-right-radius: 33.5px;
+    border-top-right-radius: 33.5px;
   }
   .milestones-component-header-border {
     position: relative;
@@ -105,7 +99,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-radius: 50%;
     width: 401px;
     height: 401px;
@@ -194,10 +187,7 @@
     }
     .milestones-component-header-circle {
       width: 320px;
-    }
-    .milestones-component-header-text {
-      width: 320px;
-      &.mobile {
+      .milestones-component-header-text {
         width: 304px;
       }
     }
@@ -212,10 +202,7 @@
     }
     .milestones-component-header-circle {
       width: 320px;
-    }
-    .milestones-component-header-text {
-      width: 320px;
-      &.mobile {
+      .milestones-component-header-text {
         width: 304px;
       }
     }

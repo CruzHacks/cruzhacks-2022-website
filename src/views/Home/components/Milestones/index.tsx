@@ -8,17 +8,14 @@ const Milestones: React.FC = () => (
   <div className='milestones-component'>
     <div className='milestones-component-header'>
       <div className='milestones-component-header-circle'>
-        <div className='milestones-component-header-text desktop'>
-          Milestones of 2021
-        </div>
-        <div className='milestones-component-header-text mobile'>
+        <div className='milestones-component-header-text'>
           Milestones of 2021
         </div>
       </div>
       <div className='milestones-component-header-border'>
         <img src={milestonesBorderMobile} alt='error' />
       </div>
-      <div className='milestones-component-header-ellipse mobile' />
+      <div className='milestones-component-header-ellipse' />
     </div>
 
     <div className='milestones-component-achievements'>
