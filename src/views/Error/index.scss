@@ -1,8 +1,27 @@
+@use "/src/stylesheets/responsiveness";
+
 .error-view {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background: linear-gradient(#8296D9,#BFACF0);
+    @include responsiveness.font(10vw, 72px, 144px);
+    .error-view-message {
+        color: var(--color-text-primary);
+        font-family: "Lato";
+        font-style: italic;
+        font-weight: 700;
+        text-align: center;
+    }
+    .error-button {
+        @include responsiveness.font(5vw, 16px, 48px);
+        height: 15vh;
+        width: 20vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+    }
 }
