@@ -1,9 +1,58 @@
-import * as React from "react"
+import React, { useEffect, useState } from "react"
+import { ReactComponent as Visual } from "images/home/landing/visual-laptop.svg"
+import { ReactComponent as VisualMobile } from "images/home/landing/visual-mobile.svg"
 import "./index.scss"
+import Button from "components/Button/Button"
+// import EmailSubscription from "components/EmailSubscription"
 
-const Landing: React.FC = () => (
-  <div className='landing-component'>
-    <h1>Cruzhacks 2022</h1>
-  </div>
-)
+const Landing: React.FC = () => {
+  const [mobile, setMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const resize = () => setMobile(window.innerWidth < 768)
+    window.addEventListener("resize", resize)
+    return () => window.removeEventListener("resize", resize)
+  })
+
+  // conditionally render the SVG based on screen size
+  let visual = <Visual className='landing-component__visual' />
+  if (mobile) {
+    visual = <VisualMobile className='landing-component__visual' />
+  }
+
+  return (
+    <div className='landing-component'>
+      <div className='landing-component__container'>{visual}</div>
+
+      <div className='landing-component__container'>
+        <div className='landing-component__text-box'>
+          <div className='landing-component__title'>CruzHacks 2022</div>
+          <div className='landing-component__textContainer'>
+            <p>
+              CruzHacks is the largest hackathon in Santa Cruz. Each year, we
+              invite hundreds of students to develop solutions to real-world
+              problems, pursue inclusion in tech, and kindle the spirit of
+              innovation.
+            </p>
+            <br />
+            <p>&#47;&#47; location coming soon</p>
+            <p>&#47;&#47; dates coming soon</p>
+          </div>
+          <div className='landing-component__buttonContainer'>
+            <Button
+              className='landing-component__button Button--primary'
+              label=''
+            >
+              become a sponsor
+            </Button>
+            <Button className='landing-component__button' label=''>
+              apps open in dec
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export default Landing
