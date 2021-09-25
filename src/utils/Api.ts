@@ -50,13 +50,14 @@ export function subscribeMailchimp(userEmail: String) {
       },
       axiosConfig
     )
-    .then((response: AxiosResponse) => {
-      if (response.status === 200) {
-        return "Successfully Added User"
-      }
-      return "Unable to Add User"
-    })
-    .catch(err => err)
+    .then((response: AxiosResponse) => ({
+      status: response.status,
+      data: response.data,
+    }))
+    .catch(err => ({
+      status: 500,
+      data: err,
+    }))
 }
 
 export function verifyRecaptchaToken(res: string | null, callback: any) {

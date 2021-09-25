@@ -22,3 +22,12 @@
   @include text;
   // separating this out in case we need to apply additional styling to the buttons.
 }
+
+@mixin description {
+  color: var(--color-text-secondary);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+
+  @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 18px);
+}
