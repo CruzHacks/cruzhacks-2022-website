@@ -6,19 +6,19 @@ import milestonesBorderMobile from "../../../../assets/milestones/milestone_head
 
 const Milestones: React.FC = () => (
   <div className='milestones-component'>
-    <div className='milestones-component-header'>
-      <div className='milestones-component-header-circle'>
-        <div className='milestones-component-header-text'>
+    <div className='milestones-component__header'>
+      <div className='milestones-component__header-circle'>
+        <div className='milestones-component__header-text'>
           Milestones of 2021
         </div>
       </div>
-      <div className='milestones-component-header-border'>
+      <div className='milestones-component__header-border'>
         <img src={milestonesBorderMobile} alt='error' />
       </div>
-      <div className='milestones-component-header-ellipse' />
+      <div className='milestones-component__header-ellipse' />
     </div>
 
-    <div className='milestones-component-achievements'>
+    <div className='milestones-component__achievements'>
       {milestoneResults.map(
         ({ image, milestoneName, milestoneStat, id }: MilestoneProps) => (
           <div className='milestone' key={id}>

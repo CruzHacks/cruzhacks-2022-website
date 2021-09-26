@@ -2,53 +2,63 @@
 @use "./stylesheets/typography";
 
 @mixin milestones-mobile {
-  .milestones-component-header {
-    height: 100px;
-    width: 100%;
-    align-items: flex-start;
-    .milestones-component-header-ellipse {
-      display: none;
+  .milestones-component {
+    &__header {
+      height: 100px;
+      width: 100%;
+      align-items: flex-start;
     }
-  }
-  .milestones-component-header-circle {
-    width: 374px;
-    height: 87px;
-    border: 0;
-    justify-content: left;
-  }
-  .milestones-component-header-text {
-    margin: 0;
-    padding: 0;
-    height: 67px;
-    width: 354px;
-    border-radius: 0%;
-    border-bottom-right-radius: 33.5px;
-    border-top-right-radius: 33.5px;
-  }
-  .milestones-component-header-border {
-    position: relative;
-    bottom: 50px;
-    left: 210px;
-    display: block;
-  }
-  .milestone {
-    &.image {
-      min-width: 200px;
-      img {
-        width: 75%;
-        height: 60%;
+    &__header-ellipse {
+        display: none;
       }
+    &__header-circle {
+      width: 374px;
+      height: 87px;
+      border: 0;
+      justify-content: left;
     }
-    &.box {
-      width: 180px;
+    &__header-text {
+      margin: 0;
+      padding: 0;
+      height: 67px;
+      width: 354px;
+      border-radius: 0%;
+      border-bottom-right-radius: 33.5px;
+      border-top-right-radius: 33.5px;
     }
-    &.stat {
-      line-height: 30px;
-      @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 50px);
+    &__header-border {
+      position: relative;
+      bottom: 50px;
+      left: 210px;
+      display: block;
     }
-    &.name {
-      line-height: 25px;
-      @include responsiveness.font($responsive: 4.1vw, $min: 21px, $max: 30px);
+    .milestone {
+      &.image {
+        min-width: 200px;
+        img {
+          width: 75%;
+          height: 60%;
+        }
+      }
+      &.box {
+        width: 180px;
+      }
+      &.stat {
+        line-height: 30px;
+        @include responsiveness.font(
+          $responsive: 4.1vw,
+          $min: 35px,
+          $max: 50px
+        );
+      }
+      &.name {
+        line-height: 25px;
+        @include responsiveness.font(
+          $responsive: 4.1vw,
+          $min: 21px,
+          $max: 30px
+        );
+      }
     }
   }
 }
@@ -60,13 +70,13 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  .milestones-component-header {
+  &__header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 3%;
   }
-  .milestones-component-header-text {
+  &__header-text {
     margin: 2% 0 1% 0;
     height: 371px;
     width: 371px;
@@ -95,7 +105,7 @@
       border-top-right-radius: 33.5px;
     }
   }
-  .milestones-component-header-circle {
+  &__header-circle {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,17 +118,17 @@
     border-bottom: 20px solid var(--color-navy-blue);
     margin-bottom: 3%;
   }
-  .milestones-component-header-border {
+  &__header-border {
     display: none;
   }
 
-  .milestones-component-header-ellipse {
+  &__header-ellipse {
     background: rgba(67, 113, 183, 0.67);
     border-radius: 50%;
     width: 236px;
     height: 45px;
   }
-  .milestones-component-achievements {
+  &__achievements {
     display: flex;
     flex-direction: column;
   }
@@ -179,32 +189,32 @@
   }
   @include responsiveness.screen(phone) {
     @include milestones-mobile;
-    .milestones-component-header-border {
-      position: relative;
-      bottom: 40px;
-      left: 160px;
-      display: block;
-    }
-    .milestones-component-header-circle {
-      width: 320px;
-      .milestones-component-header-text {
-        width: 304px;
+    .milestones-component__header-border {
+        position: relative;
+        bottom: 40px;
+        left: 160px;
+        display: block;
       }
+    .milestones-component__header-circle {
+        width: 320px;
+        .milestones-component__header-text {
+          width: 304px;
+        }
     }
   }
   @include responsiveness.screen(smallest) {
     @include milestones-mobile;
-    .milestones-component-header-border {
-      position: relative;
-      bottom: 40px;
-      left: 155px;
-      display: block;
-    }
-    .milestones-component-header-circle {
-      width: 320px;
-      .milestones-component-header-text {
-        width: 304px;
+    .milestones-component__header-border {
+        position: relative;
+        bottom: 40px;
+        left: 155px;
+        display: block;
       }
+      .milestones-component__header-circle {
+        width: 320px;
+        .milestones-component__header-text {
+          width: 304px;
+        }
     }
   }
 }
