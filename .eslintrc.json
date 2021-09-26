@@ -52,7 +52,8 @@
             "error",
             "last"
         ],
-        "prettier/prettier": ["error", {"endOfLine": "auto"}]
+        "prettier/prettier": ["error", {"endOfLine": "auto"}],
+        "eol-last": ["error", "always"]
     },
     "settings": {
         "import/resolver": {
