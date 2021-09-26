@@ -1,7 +1,10 @@
 @use "~stylesheets/typography";
 
-.team-body {
+.team-view {
   background-color: #34486B;
+}
+
+.team-body {
   display: flex;
   justify-content: center;
   padding-top: 50px;
@@ -16,8 +19,15 @@
   justify-content: center;
 }
 
+.small-message {
+  padding-top: 50px; 
+  text-align: center;
+  @include typography.our-team-message;
+}
+
 .our-team {
-  @include typography.text;
-  font-size: 32px;
-  display: flex;
+  @include typography.our-team-text;
+  width: 100%;
+  text-align: center;
+  padding-top: 50px;
 }
