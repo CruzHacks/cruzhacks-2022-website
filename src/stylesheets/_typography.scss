@@ -23,6 +23,23 @@
   // separating this out in case we need to apply additional styling to the buttons.
 }
 
+@mixin our-team-text {
+  color: var(--color-text-primary);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+}
+
+@mixin our-team-message {
+  color: var(--color-text-primary);
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+
+}
+
 @mixin card {
   color: var(--color-text-primary);
   font-family: "B612", sans-serif;
