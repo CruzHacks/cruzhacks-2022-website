@@ -1,0 +1,55 @@
+@use "~stylesheets/typography";
+
+.Card {
+  width: 292px;
+  height: 392px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 27px;
+  background:  
+    linear-gradient(#34486B, #34486B) padding-box,
+    linear-gradient(to right, #BD9BF3, #C0CAFC, #80B0F8) border-box;
+  border: 4px solid transparent;
+}
+
+.Name {
+  @include typography.card-names;
+  text-align: center;
+  padding: 10px;
+  margin: 0px;
+}
+
+.Image {
+  display: block;
+  margin-left: auto;
+  margin-top: 45px;
+  margin-right: auto;
+  height: 158px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.Title {
+  @include typography.card-titles;
+  text-align: center;
+  margin: 10px;
+}
+
+.LogoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.LogoBg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+}
+
