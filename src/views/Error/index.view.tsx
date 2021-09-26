@@ -11,13 +11,13 @@ const ErrorView: React.FC = () => {
   }
   return (
     <div className='error-view'>
-      <div className='error-view-text'>
-        <div className='error-view-message'>E R R O R</div>
-        <div className='error-view-message'>404</div>
+      <div>
+        <div className='error-view__message'>E R R O R</div>
+        <div className='error-view__message'>404</div>
       </div>
       <Button
         label='error-view'
-        className='error-button Button--primary'
+        className='error-view__button Button--primary'
         onClick={redirect}
       >
         Return Home
