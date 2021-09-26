@@ -1,0 +1,27 @@
+@use "~stylesheets/typography";
+
+* {
+  max-width: 100%;
+}
+
+.team-body {
+  background-color: #34486B;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.team-grid {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+  justify-content: center;
+}
+
+.our-team {
+  @include typography.text;
+  font-size: 32px;
+  display: flex;
+}

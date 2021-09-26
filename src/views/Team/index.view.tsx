@@ -1,12 +1,15 @@
-import * as React from "react"
+import React from "react"
 import "./index.scss"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
+import TeamGrid from "../../components/TeamCard/TeamCard"
 
 const TeamView: React.FC = () => (
   <div className='team-view'>
     <NavBar />
-    <p>Team Page Renders</p>
+    <div className='team-body'>
+      <TeamGrid />
+    </div>
     <Footer />
   </div>
 )
