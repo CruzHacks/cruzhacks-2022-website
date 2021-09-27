@@ -22,12 +22,12 @@ const Milestones: React.FC = () => (
       {milestoneResults.map(
         ({ image, milestoneName, milestoneStat, id }: MilestoneProps) => (
           <div className='milestone' key={id}>
-            <div className='milestone image'>
+            <div className='milestone__image'>
               <img src={image} alt='error' />
             </div>
-            <div className='milestone box'>
-              <div className='milestone stat'> {milestoneStat}</div>
-              <div className='milestone name'> {milestoneName}</div>
+            <div className='milestone__box'>
+              <div className='milestone__stat'> {milestoneStat}</div>
+              <div className='milestone__name'> {milestoneName}</div>
             </div>
           </div>
         )

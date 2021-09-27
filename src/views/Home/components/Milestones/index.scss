@@ -131,7 +131,7 @@
     justify-content: space-around;
     align-items: center;
     margin: 2% 0 2% 0;
-    &.image {
+    &__image {
       min-width: 230px;
       img {
         width: auto;
@@ -139,7 +139,7 @@
       }
     }
 
-    &.box {
+    &__box {
       width: 272px;
       min-height: 125px;
       display: flex;
@@ -151,7 +151,7 @@
       border-radius: 37px;
       text-align: center;
     }
-    &.stat {
+    &__stat {
       font-family: Lato;
       font-style: normal;
       font-weight: bold;
@@ -160,7 +160,7 @@
       color: var(--color-text-primary);
     }
 
-    &.name {
+    &__name {
       font-family: B612;
       font-style: italic;
       font-weight: normal;
