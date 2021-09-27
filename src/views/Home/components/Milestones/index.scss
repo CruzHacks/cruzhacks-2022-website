@@ -25,6 +25,7 @@
       border-radius: 0%;
       border-bottom-right-radius: 33.5px;
       border-top-right-radius: 33.5px;
+      @include responsiveness.font($responsive: 4.1vw, $min: 25px, $max: 35px);
     }
     &__header-border {
       position: relative;
@@ -32,40 +33,65 @@
       left: 210px;
       display: block;
     }
-    .milestone {
-      &.image {
-        min-width: 200px;
+    &__achievements {
+      .milestone {
+        &__image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-width: 200px;
+        }
         img {
           width: 75%;
           height: 60%;
         }
+        &__box {
+          width: 180px;
+          justify-content: space-evenly;
+        }
+        &__stat {
+          line-height: 30px;
+          @include responsiveness.font(
+            $responsive: 4.1vw,
+            $min: 35px,
+            $max: 50px
+          );
+        }
+        &__name {
+          line-height: 25px;
+          @include responsiveness.font(
+            $responsive: 4.1vw,
+            $min: 21px,
+            $max: 28px
+          );
+        }
       }
-      &.box {
-        width: 180px;
-      }
-      &.stat {
-        line-height: 30px;
-        @include responsiveness.font(
-          $responsive: 4.1vw,
-          $min: 35px,
-          $max: 50px
-        );
-      }
-      &.name {
-        line-height: 25px;
-        @include responsiveness.font(
-          $responsive: 4.1vw,
-          $min: 21px,
-          $max: 30px
-        );
-      }
+    }
+  }
+}
+
+@mixin milestone-small {
+  .milestones-component__header-border {
+    position: relative;
+    display: block;
+  }
+  .milestones-component__header-circle {
+    min-width: 240px;
+    max-width: 320px;
+    width: 80%;
+    .milestones-component__header-text {
+      width: 304px;
     }
   }
 }
 
 .milestones-component {
   margin: 14px 0 40px 0;
-  background: linear-gradient(#de98df, #b0b6f7, #3792c6); //TODO: Name Color
+  background: linear-gradient(
+    var(--color-light-pink),
+    var(--color-lavender),
+    var(--color-sky-blue)
+  ); //TODO: Name Color
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -83,7 +109,7 @@
     background: var(--color-navy-blue);
     border: 9px solid var(--color-navy-blue);
     box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 4px var(--color-gray);
     border-radius: 50%;
     font-family: Source Sans Pro;
     font-style: normal;
@@ -115,7 +141,7 @@
   }
 
   &__header-ellipse {
-    background: rgba(67, 113, 183, 0.67);
+    background: var(--color-light-navy-blue);
     border-radius: 50%;
     width: 236px;
     height: 45px;
@@ -172,41 +198,26 @@
       line-height: 55px;
       text-align: center;
       color: var(--color-text-primary);
-      text-shadow: 0px 4px 8px rgba(70, 104, 135, 0.49);
+      text-shadow: 0px 4px 8px var(--color-teal);
     }
   }
 
-  @include responsiveness.screen(tablet) {
+  @include responsiveness.screen(smallest, phone, tablet) {
     @include milestones-mobile;
   }
+  @include responsiveness.screen(smallest, phone) {
+    @include milestone-small;
+  }
   @include responsiveness.screen(phone) {
-    @include milestones-mobile;
     .milestones-component__header-border {
-      position: relative;
       bottom: 40px;
       left: 160px;
-      display: block;
-    }
-    .milestones-component__header-circle {
-      width: 320px;
-      .milestones-component__header-text {
-        width: 304px;
-      }
     }
   }
   @include responsiveness.screen(smallest) {
-    @include milestones-mobile;
     .milestones-component__header-border {
-      position: relative;
       bottom: 40px;
-      left: 155px;
-      display: block;
-    }
-    .milestones-component__header-circle {
-      width: 320px;
-      .milestones-component__header-text {
-        width: 304px;
-      }
+      left: 36%;
     }
   }
 }
