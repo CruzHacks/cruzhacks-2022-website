@@ -1,9 +1,9 @@
-import hackers from "../../assets/milestones/milestones_hackers.svg"
-import attendees from "../../assets/milestones/milestones_attendees.svg"
-import projects from "../../assets/milestones/milestones_projects.svg"
-import schools from "../../assets/milestones/milestones_schools.svg"
+import hackers from "assets/milestones/milestones_hackers.svg"
+import attendees from "assets/milestones/milestones_attendees.svg"
+import projects from "assets/milestones/milestones_projects.svg"
+import schools from "assets/milestones/milestones_schools.svg"
 
-import { MilestoneProps } from "../props"
+import { MilestoneProps } from "Props/props"
 
 const milestoneResults: MilestoneProps[] = [
   {
