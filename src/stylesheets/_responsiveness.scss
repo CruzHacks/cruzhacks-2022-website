@@ -10,25 +10,25 @@ Sample usage::
 @mixin screen($breakpoints...) {
   @each $breakpoint in $breakpoints {
     @if ($breakpoint == smallest) {
-      @media (max-width: 349px) {
+      @media (max-width: 350px) {
         @content;
       }
     }
 
     @if ($breakpoint == phone) {
-      @media (min-width: 350px) and (max-width: 499px) {
+      @media (min-width: 350px) and (max-width: 500px) {
         @content;
       }
     }
 
     @if ($breakpoint == tablet) {
-      @media (min-width: 500px) and (max-width: 767px) {
+      @media (min-width: 500px) and (max-width: 768px) {
         @content;
       }
     }
 
     @if ($breakpoint == large-tablet) {
-      @media (min-width: 768px) and (max-width: 991px) {
+      @media (min-width: 768px) and (max-width: 992px) {
         @content;
       }
     }
