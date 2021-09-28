@@ -28,26 +28,29 @@ const Landing: React.FC = () => {
         <div className='landing-component__text-box'>
           <div className='landing-component__title'>CruzHacks 2022</div>
           <div className='landing-component__textContainer'>
-            <p>
+            <div className='landing-component__description'>
               CruzHacks is the largest hackathon in Santa Cruz. Each year, we
               invite hundreds of students to develop solutions to real-world
               problems, pursue inclusion in tech, and kindle the spirit of
               innovation.
-            </p>
-            <br />
-            <p>&#47;&#47; location coming soon</p>
-            <p>&#47;&#47; dates coming soon</p>
-          </div>
-          <div className='landing-component__buttonContainer'>
-            <Button
-              className='landing-component__button Button--primary'
-              label=''
-            >
-              become a sponsor
-            </Button>
-            <Button className='landing-component__button' label=''>
-              apps open in dec
-            </Button>
+            </div>
+            <div className='landing-component__location'>
+              &#47;&#47; location coming soon
+            </div>
+            <div className='landing-component__dates'>
+              &#47;&#47; dates coming soon
+            </div>
+            <div className='landing-component__buttonContainer'>
+              <Button
+                className='landing-component__button Button--primary'
+                label='sponsor button'
+              >
+                become a sponsor
+              </Button>
+              <Button className='landing-component__button' label='apps button'>
+                apps open in dec
+              </Button>
+            </div>
           </div>
         </div>
       </div>

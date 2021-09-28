@@ -4,7 +4,7 @@
 .landing-component {
   display: flex;
   justify-content: center;
-  padding: 80px 5vw;
+  padding: 80px 4vw;
   background: linear-gradient(180deg, #81CBD6 0%, #E6F3FF 51.56%, #8194D6 100%);
 
   // use column view if the screen is smaller than 768px
@@ -44,51 +44,66 @@
     background: #36628B;
     border-radius: 30px;
 
-    > div {
-      margin-bottom: 12px;
-    }
-
     @include responsiveness.screen(smallest, phone, tablet) {
       margin-top: -40px;
       max-width: 100%;
-      padding: 12px 10px;
+      padding: 0;
+      background: unset;
     }
   }
 
   &__title {
+    margin-bottom: 15px;
     @include typography.title;
     text-shadow: 0 4px 8px #95B0FF;
 
     @include responsiveness.screen(smallest, phone, tablet) {
+      margin-bottom: 30px;
+      padding: 12px 10px;
+      background: #36628B;
+      border-radius: 15px;
       text-align: center;
     }
   }
 
   &__textContainer {
+    margin-bottom: 15px;
     @include typography.text;
 
-    > p {
-      margin: 0
+    @include responsiveness.screen(smallest, phone, tablet) {
+      padding: 25px 4vw;
+      background: #36628B;
+      border-radius: 30px;
     }
   }
 
-  &__emailSubscriptionContainer {
+  &__description {
+    margin-bottom: 20px;
+  }
+
+  &__subscriptionContainer {
+    margin-top: 20px;
   }
 
   &__buttonContainer {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    @include typography.text;
   }
 
   &__button {
     flex-grow: 1;
     min-width: unset;
+    min-height: 25px;
     font-size: 16px;
+    border-radius: 10px;
 
     &:first-child {
-      margin-right: 10px;
+      margin-right: 12px;
+    }
+
+    @include responsiveness.screen(smallest, phone) {
+      padding: 4px 2px;
     }
   }
 }
