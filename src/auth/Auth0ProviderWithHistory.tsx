@@ -33,7 +33,8 @@ const Auth0ProviderWithHistory: React.FC<Auth0ProviderProps> = ({
       redirectUri={redirectUri}
       audience={audience}
       onRedirectCallback={onRedirectCallback}
-      useRefreshTokens
+      // eslint-disable-next-line react/jsx-boolean-value
+      useRefreshTokens={true}
       cacheLocation='memory'
     >
       {children}
