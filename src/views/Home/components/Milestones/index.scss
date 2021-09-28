@@ -86,12 +86,12 @@
 }
 
 .milestones-component {
-  margin: 14px 0 40px 0;
+  padding: 14px 0 40px 0;
   background: linear-gradient(
     var(--color-light-pink),
     var(--color-lavender),
     var(--color-sky-blue)
-  ); //TODO: Name Color
+  );
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -111,7 +111,7 @@
     box-sizing: border-box;
     box-shadow: 0px 4px 4px var(--color-gray);
     border-radius: 50%;
-    font-family: Source Sans Pro;
+    font-family: Source Sans Pro, sans-serif;
     font-style: normal;
     font-weight: bold;
     @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 60px);
@@ -178,7 +178,7 @@
       text-align: center;
     }
     &__stat {
-      font-family: Lato;
+      font-family: Lato, sans-serif;
       font-style: normal;
       font-weight: bold;
       @include responsiveness.font($responsive: 4.1vw, $min: 50px, $max: 75px);
@@ -187,7 +187,7 @@
     }
 
     &__name {
-      font-family: B612;
+      font-family: B612, sans-serif;
       font-style: italic;
       font-weight: normal;
       @include responsiveness.font(
