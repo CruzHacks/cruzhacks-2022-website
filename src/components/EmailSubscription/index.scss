@@ -1,5 +1,5 @@
-@use "./stylesheets/responsiveness";
-@use "./stylesheets/typography";
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
 
 .emailSubscription-component {
   display: block;
