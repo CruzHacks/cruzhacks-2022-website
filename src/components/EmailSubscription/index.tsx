@@ -10,9 +10,7 @@ const SubmissionStates = {
   Errored: 3,
 }
 
-interface EmailSubscriptionProps {}
-
-export const EmailSubscription: React.FC<EmailSubscriptionProps> = () => {
+export const EmailSubscription: React.FC = () => {
   const [email, setEmail] = useState("")
   const [state, setState] = useState(SubmissionStates.NotSubmitted)
   const [message, setMessage] = useState("")
