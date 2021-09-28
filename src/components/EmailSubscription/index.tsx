@@ -23,18 +23,16 @@ export const EmailSubscription: React.FC<EmailSubscriptionProps> = () => {
     setMessage("Please wait while your message is being submitted...")
 
     subscribeMailchimp(email).then(res => {
-      setTimeout(() => {
-        if (res.status === 200) {
-          setState(SubmissionStates.Submitted)
-          setMessage(res.data)
-        } else {
-          setState(SubmissionStates.Errored)
-          setMessage(
-            "Oh no! We've got an error— please try your request again & contact " +
-              "us at dev@cruzhacks.com if this persists!"
-          )
-        }
-      }, 3000)
+      if (res.status === 200 || res.status === 201) {
+        setState(SubmissionStates.Submitted)
+        setMessage(res.data.message)
+      } else {
+        setState(SubmissionStates.Errored)
+        setMessage(
+          "Oh no! We've got an error— please try your request again & contact " +
+            "us at dev@cruzhacks.com if this persists!"
+        )
+      }
     })
   }
 

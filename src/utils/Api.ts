@@ -55,7 +55,7 @@ export function subscribeMailchimp(userEmail: String) {
       data: response.data,
     }))
     .catch(err => ({
-      status: 500,
+      status: null,
       data: err,
     }))
 }
