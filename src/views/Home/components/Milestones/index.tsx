@@ -2,7 +2,7 @@ import * as React from "react"
 import "./index.scss"
 import { MilestoneProps } from "Props/props"
 import milestoneResults from "Props/milestones/milestones"
-import milestonesBorderMobile from "assets/milestones/milestone_header_mobile.svg"
+import { ReactComponent as MilestonesBorderMobile } from "assets/milestones/milestone_header_mobile.svg"
 
 const Milestones: React.FC = () => (
   <div className='milestones-component'>
@@ -13,7 +13,8 @@ const Milestones: React.FC = () => (
         </div>
       </div>
       <div className='milestones-component__header-border'>
-        <img src={milestonesBorderMobile} alt='error' />
+        {/* <img src={milestonesBorderMobile} alt='error' /> */}
+        <MilestonesBorderMobile className='milestones-component__img' />
       </div>
       <div className='milestones-component__header-ellipse' />
     </div>

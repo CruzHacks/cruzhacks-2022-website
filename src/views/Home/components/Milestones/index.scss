@@ -150,6 +150,10 @@
     display: flex;
     flex-direction: column;
   }
+  &__img {
+    width: auto;
+    height: auto;
+  }
   .milestone {
     display: flex;
     flex-direction: row;
@@ -159,10 +163,6 @@
     margin: 2% 0 2% 0;
     &__image {
       min-width: 230px;
-      img {
-        width: auto;
-        height: auto;
-      }
     }
 
     &__box {
@@ -210,13 +210,13 @@
   }
   @include responsiveness.screen(phone) {
     .milestones-component__header-border {
-      bottom: 40px;
+      bottom: 30px;
       left: 160px;
     }
   }
   @include responsiveness.screen(smallest) {
     .milestones-component__header-border {
-      bottom: 40px;
+      bottom: 50px;
       left: 36%;
     }
   }
