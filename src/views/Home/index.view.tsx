@@ -8,6 +8,8 @@ import Landing from "./components/Landing"
 import Milestones from "./components/Milestones"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
+import footerProps from "../../Props/footer/footer"
+import footerTheme from "../../Props/footer/footerTheme"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
@@ -18,7 +20,7 @@ const HomeView: React.FC = () => (
     {/* <Tracks />
     <FAQ />
     <Sponsors /> */}
-    <Footer />
+    <Footer socials={footerProps} theme={footerTheme.homeFooter} />
   </div>
 )
 
