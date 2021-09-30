@@ -21,9 +21,14 @@
         min-width: 45px;
     }
     &__link--icon {
+        transition: all 0.5s ease;
         width: 80%;
         height: 80%;
         filter: drop-shadow(0px 1px 3px rgb(210, 213, 255));
+        
+    }
+    &__link--icon:hover {
+        filter: drop-shadow(0px 3px 5px rgb(210, 213, 255));
     }
 
     &__text {
