@@ -1,29 +1,32 @@
 import * as React from "react"
 import "./Footer.scss"
+import { FooterProps } from "Props/footer/props"
+import { ReactComponent as FooterHill } from "../../images/footerhill.svg"
 
-interface social {
-  link: string
-  icon: string
-  label: string
-}
-interface FooterProps {
-  socials: social[]
-}
-
-const Footer: React.FC<FooterProps> = ({ socials }: FooterProps) => (
-  <div className='footer-component'>
-    <div className='footer-icons'>
-      {socials.map(({ link, icon, label }) => (
+const Footer: React.FC<FooterProps> = ({ socials, theme }: FooterProps) => (
+  <div className='footer-component' style={{ background: theme.bgColor }}>
+    <div className='footer-component--icons'>
+      {socials.map(({ link, Icon, label }) => (
         <a
           key={label}
           href={link}
           target='_blank'
           rel='noreferrer'
-          className='footer_link-wrapper'
+          className='footer-component__link--wrapper'
         >
-          <img className='footer_link-icon' src={icon} alt={label} />
+          <Icon
+            className='footer-component__link--icon'
+            fill={theme.iconFill}
+            stroke={label === "email" ? theme.iconStroke : "#00000000"}
+          />
         </a>
       ))}
+    </div>
+    <div className='footer-component__text' style={{ color: theme.textColor }}>
+      <FooterHill className='hills' fill={theme.hillColor} />
+      <div className='footer-component__text--copyright'>
+        @ 2022 Cruzhacks. All rights reserved.
+      </div>
     </div>
   </div>
 )
