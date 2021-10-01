@@ -2,20 +2,29 @@
 @use "./stylesheets/typography";
 
 .landing-component {
-  display: flex;
-  justify-content: center;
-  padding: 80px 4vw;
+  position: relative;
   background: linear-gradient(180deg, #81CBD6 0%, #E6F3FF 51.56%, #8194D6 100%);
 
-  // use column view if the screen is smaller than 768px
   @include responsiveness.screen(smallest, phone, tablet) {
-    flex-direction: column;
-    padding: 50px 30px;
+    background: linear-gradient(180deg, #CDFCFF 13.21%, #7484D7 93.15%);
   }
 
   &__container {
+    display: flex;
+    justify-content: center;
+    padding: 80px 4vw;
+
+    // use column view if the screen is smaller than 768px
+    @include responsiveness.screen(smallest, phone, tablet) {
+      flex-direction: column;
+      padding: 40px 20px 30px;
+    }
+  }
+
+  &__section {
     width: 50%;
     max-width: 900px;
+    z-index: 2;
 
     @include responsiveness.screen(smallest, phone, tablet) {
       width: 100%;
@@ -28,11 +37,11 @@
     width: 85%;
     height: auto;
 
-    @include responsiveness.screen(smallest, phone) {
+    @include responsiveness.screen(smallest) {
       width: 90%;
     }
 
-    @include responsiveness.screen(tablet, big-desktop) {
+    @include responsiveness.screen(phone, tablet, big-desktop) {
       width: 55%;
     }
   }
@@ -105,5 +114,26 @@
     @include responsiveness.screen(smallest, phone) {
       padding: 4px 2px;
     }
+  }
+
+  &__hills {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+
+    @include responsiveness.screen(smallest, phone) {
+      //margin-top: -40px;
+      height: 100px;
+    }
+  }
+
+  &__hillsMobile {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    z-index: 0;
   }
 }
