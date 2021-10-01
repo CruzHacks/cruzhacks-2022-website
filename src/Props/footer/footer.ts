@@ -5,7 +5,7 @@ import { ReactComponent as LinkedInIcon } from "../../images/socialMedia/linkedi
 import { ReactComponent as InstagramIcon } from "../../images/socialMedia/insta.svg"
 import { ReactComponent as EmailIcon } from "../../images/socialMedia/mail.svg"
 
-const footerProps: social[] = [
+const socials: social[] = [
   {
     link: "https://www.facebook.com/CruzHacks/",
     Icon: FacebookIcon,
@@ -33,4 +33,4 @@ const footerProps: social[] = [
   },
 ]
 
-export default footerProps
+export default socials

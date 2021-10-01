@@ -13,6 +13,5 @@ export interface theme {
 
 }
 export interface FooterProps {
-    socials: social[]
     theme : theme
   }
