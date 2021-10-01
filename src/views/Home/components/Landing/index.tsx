@@ -5,7 +5,7 @@ import { ReactComponent as Hills } from "images/home/landing/hills.svg"
 import { ReactComponent as HillsMobile } from "images/home/landing/hills-mobile.svg"
 import "./index.scss"
 import Button from "components/Button/Button"
-import EmailSubscription from "components/EmailSubscription"
+// import EmailSubscription from "components/EmailSubscription"
 
 const Landing: React.FC = () => {
   const [mobile, setMobile] = useState(window.innerWidth < 768)
@@ -44,7 +44,7 @@ const Landing: React.FC = () => {
                 &#47;&#47; dates coming soon
               </div>
               <div className='landing-component__subscriptionContainer'>
-                <EmailSubscription />
+                <div />
               </div>
               <div className='landing-component__buttonContainer'>
                 <Button
