@@ -3,6 +3,8 @@ import "./index.scss"
 import { ReactComponent as RightArrow } from "images/icons/rightArrow.svg"
 import { subscribeMailchimp } from "utils/Api"
 
+const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
+
 const SubmissionStates = {
   NotSubmitted: 0,
   Loading: 1,
@@ -17,6 +19,13 @@ export const EmailSubscription: React.FC = () => {
 
   const submitEmail = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    if (!EMAIL_REGEX.test(email)) {
+      setState(SubmissionStates.Errored)
+      setMessage("Please enter a valid email address.")
+      return
+    }
+
     setState(SubmissionStates.Loading)
     setMessage("Please wait while your message is being submitted...")
 
