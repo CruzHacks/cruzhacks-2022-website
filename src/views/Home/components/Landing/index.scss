@@ -17,24 +17,26 @@
     // use column view if the screen is smaller than 768px
     @include responsiveness.screen(smallest, phone, tablet) {
       flex-direction: column;
-      padding: 40px 20px 30px;
+      padding: 40px 6vw 30px;
     }
   }
 
   &__section {
     width: 50%;
     max-width: 900px;
+    align-self: center;
     z-index: 2;
 
     @include responsiveness.screen(smallest, phone, tablet) {
       width: 100%;
+      align-self: unset;
     }
   }
 
   &__visual {
     display: block;
     margin: 0 auto;
-    width: 85%;
+    width: 80%;
     height: auto;
 
     @include responsiveness.screen(smallest) {
@@ -52,6 +54,12 @@
     max-width: 80%;
     background: var(--color-bg-primary);
     border-radius: 30px;
+
+    @include responsiveness.screen(large-tablet, small-laptop) {
+      margin-top: 0;
+      padding: 18px 20px;
+      max-width: 90%;
+    }
 
     @include responsiveness.screen(smallest, phone, tablet) {
       margin-top: -40px;
@@ -104,14 +112,13 @@
     flex-grow: 1;
     min-width: unset;
     min-height: 25px;
-    font-size: 16px;
     border-radius: 10px;
 
     &:first-child {
       margin-right: 12px;
     }
 
-    @include responsiveness.screen(smallest, phone) {
+    @include responsiveness.screen(smallest, phone, tablet) {
       padding: 4px 2px;
     }
   }
@@ -123,7 +130,7 @@
     height: auto;
     z-index: 1;
 
-    @include responsiveness.screen(smallest, phone) {
+    @include responsiveness.screen(smallest, phone, tablet) {
       height: 100px;
     }
   }
