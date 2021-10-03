@@ -7,15 +7,15 @@ import TeamGrid from "../../components/TeamCard/TeamCard"
 const TeamView: React.FC = () => (
   <div className='team-view'>
     <NavBar />
-    <div className='our-team'>OUR TEAM</div>
-    <div className='small-message'>
+    <div className='team-view__our-team'>OUR TEAM</div>
+    <div className='team-view__small-message'>
       Meet our team of creators, thinkers,
       <br />
       strategists, and believers, collaborating
       <br />
       together to create something amazing.
     </div>
-    <div className='team-body'>
+    <div className='team-view__team'>
       <TeamGrid />
     </div>
     <Footer />

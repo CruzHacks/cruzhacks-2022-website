@@ -2,32 +2,27 @@
 
 .team-view {
   background-color: #34486B;
+
+  &__our-team {
+    @include typography.our-team-text;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+  }
+
+  &__small-message {
+    padding-top: 50px; 
+    text-align: center;
+    @include typography.our-team-message;
+  }
+
+  &__team {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+  }
+
 }
 
-.team-body {
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.team-grid {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5rem;
-  justify-content: center;
-}
-
-.small-message {
-  padding-top: 50px; 
-  text-align: center;
-  @include typography.our-team-message;
-}
-
-.our-team {
-  @include typography.our-team-text;
-  width: 100%;
-  text-align: center;
-  padding-top: 50px;
-}
