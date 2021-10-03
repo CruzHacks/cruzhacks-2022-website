@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
   const classes = [className]
   classes.push("Button")
   if (modifier) {
-    classes.push(` Button--${modifier}`)
+    classes.push(`Button--${modifier}`)
   }
 
   if (href && !disabled) {
@@ -35,7 +35,6 @@ const Button: React.FC<ButtonProps> = ({
         className={classes.join(" ")}
         target='_blank'
         rel='noreferrer'
-        aria-disabled={disabled}
         onClick={onClick}
       >
         {children}
