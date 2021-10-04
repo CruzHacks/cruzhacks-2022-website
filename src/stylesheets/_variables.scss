@@ -10,6 +10,7 @@ $color-light-pink: #de98df;
 $color-lavender: #b0b6f7;
 $color-sky-blue: #3792c6;
 $color-light-navy-blue: rgba(67, 113, 183, 0.67);
+$color-dark-navy-blue: #325A89;
 
 :root {
   --color-bg-primary: #{$color-bg-primary};
@@ -25,4 +26,5 @@ $color-light-navy-blue: rgba(67, 113, 183, 0.67);
   --color-lavender: #{$color-lavender};
   --color-sky-blue: #{$color-sky-blue};
   --color-light-navy-blue: #{$color-light-navy-blue};
+  --color-dark-navy-blue: #{$color-dark-navy-blue};
 }
