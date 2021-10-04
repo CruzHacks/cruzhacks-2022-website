@@ -3,6 +3,7 @@ import "./index.scss"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import TeamGrid from "../../components/TeamCard/TeamCard"
+import footerTheme from "../../Props/footer/footerTheme"
 
 const TeamView: React.FC = () => (
   <div className='team-view'>
@@ -16,7 +17,7 @@ const TeamView: React.FC = () => (
     <div className='team-view__team'>
       <TeamGrid />
     </div>
-    <Footer />
+    <Footer theme={footerTheme.teamFooter} />
   </div>
 )
 
