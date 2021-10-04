@@ -11,6 +11,8 @@
   box-sizing: border-box;
   border-radius: 14px;
   @include typography.button-text;
+  text-align: center;
+  text-decoration: none;
 
   // default styling - transparent
   color: #FFFFFF;
