@@ -16,3 +16,8 @@ export interface MilestoneProps {
   milestoneStat: string
   id: string
 }
+
+export interface NavbarRouteProps {
+  route: string
+  name: string
+}

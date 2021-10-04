@@ -12,7 +12,7 @@ import footerTheme from "../../Props/footer/footerTheme"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
-    <NavBar />
+    <NavBar theme='home' />
     <Landing />
     <About />
     <Milestones />
