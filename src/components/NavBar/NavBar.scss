@@ -1,27 +1,96 @@
+@use "~stylesheets/responsiveness";
 @use "~stylesheets/typography";
 
 .NavBar {
+  overflow: visible;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-
+  justify-content: right;
   padding: 12px 30px;
-  background: var(--color-bg-primary);
-
-  .align-right {
-    margin-left: auto;
+  &__links {
+    position: relative;
+    &--link {
+      margin: 5px 18px;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      @include typography.button-text;
+      &:hover {
+        color: var(--color-text-secondary);
+      }
+    }
+    @include responsiveness.screen(phone) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 9%;
+      right: 0%;
+      width: 100vw;
+      height: 25%;
+      z-index: 10;
+    }
+    @include responsiveness.screen(smallest) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 8%;
+      right: 0%;
+      width: 100vw;
+      height: 25%;
+      z-index: 10;
+    }
   }
-
-  .link {
-    margin: 5px 18px;
-
-    color: var(--color-text-primary);
-    text-decoration: none;
-    @include typography.button-text;
+  @include responsiveness.screen(smallest, phone) {
+    padding: 10%;
   }
+}
+.Navbar__mobile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hamburgerButton {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: none;
+  right: 5%;
+  top: 3%;
+  transition: all .5s ease-in-out;
+}
+.hamburgerButton__open {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: none;
+  right: 5%;
+  top: 3%;
+  transition: all .5s ease-in-out;
+}
+.mid {
+  transition: all .5s ease-in-out;
+}
+.top {
+  transition: all .5s ease-in-out;
+}
+.bottom {
+  transition: all .5s ease-in-out;
+}
 
-  .link:hover, .active.link {
-    color: var(--color-text-secondary);
-  }
+.hamburgerButton__open svg rect.mid {
+  fill: #00000000;
+  transform: translateX(-20px);
+}
+.hamburgerButton__open svg rect.top {
+  transform: translate(4px, -12px)rotate(135deg);
+  transform-origin: center;
+}
+.hamburgerButton__open svg rect.bottom {
+  transform: translate(3px, 2px) rotate(-135deg);
+  transform-origin: center;
 }
