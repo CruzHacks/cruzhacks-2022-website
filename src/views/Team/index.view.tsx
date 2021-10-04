@@ -9,11 +9,9 @@ const TeamView: React.FC = () => (
     <NavBar />
     <div className='team-view__our-team'>OUR TEAM</div>
     <div className='team-view__small-message'>
-      Meet our team of creators, thinkers,
-      <br />
-      strategists, and believers, collaborating
-      <br />
-      together to create something amazing.
+      <div>Meet our team of creators, thinkers,</div>
+      <div>strategists, and believers, collaborating</div>
+      <div>together to create something amazing.</div>
     </div>
     <div className='team-view__team'>
       <TeamGrid />

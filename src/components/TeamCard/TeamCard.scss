@@ -2,8 +2,10 @@
 
 .Card {
   animation: fadeIn 1s;
-  width: 292px;
-  height: 392px;
+  width: 80%;
+  max-width: 292px;
+  min-height: 392px;
+  max-height: 500px;
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 27px;
@@ -16,7 +18,7 @@
   &__Image {
     display: block;
     margin-left: auto;
-    margin-top: 45px;
+    margin-top: 10%;
     margin-right: auto;
     height: 158px;
     object-fit: cover;
@@ -25,10 +27,10 @@
   }
   
   &__Name {
+    margin-top: 10px;
     @include typography.card-names;
     text-align: center;
-    padding: 10px;
-    margin: 0px;
+    margin-bottom: 10px;
   }
   &__Title {
     @include typography.card-titles;
@@ -65,6 +67,5 @@
   flex-wrap: wrap;
   gap: 4rem;
   justify-content: center;
+  width: 80%;
 }
-
-
