@@ -28,6 +28,7 @@ const TeamGrid: React.FC = () => (
   <div className='team-grid'>
     {cards.map(({ name, title, imgsrc, LinkedInLink }: CardProps) => (
       <TeamCard
+        key={name}
         name={name}
         imgsrc={imgsrc}
         title={title}
