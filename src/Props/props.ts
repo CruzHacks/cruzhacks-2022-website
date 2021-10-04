@@ -9,3 +9,10 @@ export interface CardProps {
   title: string
   LinkedInLink?: string
 }
+
+export interface MilestoneProps {
+  image: string,
+  milestoneName: string,
+  milestoneStat: string,
+  id: string
+}
