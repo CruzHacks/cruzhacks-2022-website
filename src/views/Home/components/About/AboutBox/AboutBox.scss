@@ -20,8 +20,8 @@
         border-top-left-radius: 33px;
         border-top-right-radius: 33px;
         @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 80px);
-        @include responsiveness.screen(smallest, phone, tablet) {
-            @include responsiveness.font($responsive: 5.1vw, $min: 22px, $max: 35px);
+        @include responsiveness.screen(smallest, phone) {
+            @include responsiveness.font($responsive: 7.1vw, $min: 22px, $max: 40px);
             padding: 0 26px 0 30px;
         }
     }
@@ -33,12 +33,16 @@
         height:100%;
         border-bottom-left-radius: 33px;
         border-bottom-right-radius: 33px;
-        padding: 0 2% 2% 2%;
-        @include responsiveness.font($responsive: 3.5vw, $min: 20px, $max: 45px);
+        padding: 1% 2% 2% 2%;
+        @include responsiveness.font($responsive: 3.5vw, $min: 20px, $max: 35px);
 
         @include responsiveness.screen(smallest, phone, tablet) {
             padding: 0 26px 20px 30px;
-            @include responsiveness.font($responsive: 5.1vw, $min: 22px, $max: 35px);
+            line-height: 31px;
+            @include responsiveness.font($responsive: 5.1vw, $min: 20px, $max: 25px);
+        }
+        @include responsiveness.screen(smallest, phone) {
+            padding-top: 10px;
         }
     }
 }
