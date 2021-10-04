@@ -3,6 +3,13 @@ export interface VerificationEmailProps {
   token: string
 }
 
+export interface CardProps {
+  name: string
+  imgsrc: string
+  title: string
+  LinkedInLink?: string
+}
+
 export interface MilestoneProps {
   image: string,
   milestoneName: string,

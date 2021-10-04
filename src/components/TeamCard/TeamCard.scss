@@ -1,0 +1,72 @@
+@use "~stylesheets/typography";
+
+.Card {
+  animation: fadeIn 1s;
+  width: 90%;
+  max-width: 292px;
+  min-height: 392px;
+  max-height: 500px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 27px;
+  padding-bottom: 10px;
+  background:  
+    linear-gradient(#34486B, #34486B) padding-box,
+    linear-gradient(to right, #BD9BF3, #C0CAFC, #80B0F8) border-box;
+  border: 4px solid transparent;
+  
+  &__Image {
+    display: block;
+    margin-left: auto;
+    margin-top: 10%;
+    margin-right: auto;
+    height: 158px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+  }
+  
+  &__Name {
+    margin: 10px; 
+    margin-top: 20px;
+    @include typography.card-names;
+    text-align: center;
+  }
+  &__Title {
+    @include typography.card-titles;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  &__Logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__LogoBg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 9px;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.team-grid {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+  width: 80%;
+}
