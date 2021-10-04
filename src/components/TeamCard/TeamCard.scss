@@ -2,7 +2,7 @@
 
 .Card {
   animation: fadeIn 1s;
-  width: 80%;
+  width: 90%;
   max-width: 292px;
   min-height: 392px;
   max-height: 500px;
@@ -42,7 +42,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     &__LogoBg {
       display: flex;
