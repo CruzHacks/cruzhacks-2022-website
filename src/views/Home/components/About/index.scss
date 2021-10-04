@@ -1,0 +1,35 @@
+@use "./stylesheets/responsiveness";
+
+.about-component {
+    background: linear-gradient(#8296D9,#BFACF0, #8F9ADD, #D99CE3);
+    position: relative;
+    z-index:-1;
+    &__background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index:-1;
+        &.mobile {
+            @include responsiveness.screen(smallest, phone, tablet) {
+                display:block;
+            }
+            @include responsiveness.screen(large-tablet, small-laptop, desktop, big-desktop) {
+                display: none;
+            }
+        }
+        &.desktop {
+            @include responsiveness.screen(smallest, phone, tablet) {
+                display: none;
+            }
+            @include responsiveness.screen(large-tablet, small-laptop, desktop, big-desktop) {
+                display: block;
+            }
+        }
+    }
+    &__information {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,46 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.about-box {
+    z-index: 1;
+    border-radius: 33px;
+    width: 80%;
+    min-height: 331px;
+    height: 100%;
+    background-color: var(--color-dark-navy-blue);
+    margin: 50px 0 50px 0;
+    &__title {
+        background-color: var(--color-text-primary);
+        color: var(--color-dark-navy-blue);
+        font-family: Source Sans Pro, "sans-serif";
+        font-style: normal;
+        font-weight: bold;
+        line-height: 75px;
+        padding: 0 2% 0 2%;
+        border-top-left-radius: 33px;
+        border-top-right-radius: 33px;
+        @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 80px);
+        @include responsiveness.screen(smallest, phone, tablet) {
+            @include responsiveness.font($responsive: 5.1vw, $min: 22px, $max: 35px);
+            padding: 0 26px 0 30px;
+        }
+    }
+
+    &__description {
+        font-family: Lato, "sans-serif";
+        font-style: normal;
+        font-weight: normal;
+        line-height: 42px;
+        color: var(--color-text-primary);
+        height:100%;
+        border-bottom-left-radius: 33px;
+        border-bottom-right-radius: 33px;
+        padding: 0 2% 2% 2%;
+        @include responsiveness.font($responsive: 3.5vw, $min: 20px, $max: 45px);
+
+        @include responsiveness.screen(smallest, phone, tablet) {
+            padding: 0 26px 20px 30px;
+            @include responsiveness.font($responsive: 5.1vw, $min: 22px, $max: 35px);
+        }
+    }
+}
