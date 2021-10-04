@@ -1,0 +1,55 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.footer-component {
+    &--icons {
+        display: flex;
+        justify-content: center;
+        gap: 2%;
+    }
+    &__link--wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        padding: 1%;
+        height: 6vw;
+        width: 6vw;
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 45px;
+        min-width: 45px;
+    }
+    &__link--icon {
+        transition: all 0.5s ease;
+        width: 80%;
+        height: 80%;
+        filter: drop-shadow(0px 1px 3px rgb(210, 213, 255));
+        
+    }
+    &__link--icon:hover {
+        filter: drop-shadow(-1px 1px 6px rgb(210, 213, 255));
+    }
+
+    &__text {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-family: Source Sans Pro, sans-serif;
+        font-style: italic;
+        @include responsiveness.font($responsive: 2.3vw, $min: 10px, $max: 28px);
+    }
+    &__text--copyright {
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        @include responsiveness.screen(smallest) {
+            right: 0;
+        }
+    }
+
+}
+.hills {
+    width: 100%;
+    height: 10%;
+}
