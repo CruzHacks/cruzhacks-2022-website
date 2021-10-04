@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react"
 import "./NavBar.scss"
-import { NavLink } from "react-router-dom"
-import { ReactComponent as MenuIcon } from "./icons/Menu.svg"
+import { NavLink, useLocation } from "react-router-dom"
+import { ReactComponent as MenuIcon } from "images/icons/menu.svg"
+import { NavbarRouteProps } from "Props/props"
+import NavbarRoutes from "Props/navbar/navbar"
 
 const NavThemes = {
   team: {
@@ -22,6 +24,7 @@ interface NavProps {
 const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   const [windowWidth, setWidth] = useState<number>(501)
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
+  const location = useLocation()
   const styling = theme === "team" ? NavThemes.team : NavThemes.home
   useEffect(() => {
     setWidth(window.innerWidth)
@@ -38,22 +41,21 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
         SPONSOR US
       </a>
-      {/* <NavLink
-        exact
-        to='/apply'
-        className='NavBar__links--link'
-        activeClassName='active'
-      >
-        APPLY
-      </NavLink> */}
-      <NavLink
-        exact
-        to='/team'
-        className='NavBar__links--link'
-        activeClassName='active'
-      >
-        TEAM
-      </NavLink>
+      {NavbarRoutes.map(({ name, route }: NavbarRouteProps) => {
+        if (location.pathname === route) {
+          return <> </>
+        }
+        return (
+          <NavLink
+            exact
+            to={route}
+            className='NavBar__links--link'
+            activeClassName='active'
+          >
+            {name}
+          </NavLink>
+        )
+      })}
     </div>
   )
   const mobileNavs = (
@@ -62,23 +64,21 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
         SPONSOR US
       </a>
       <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
-      {/* <NavLink
-        exact
-        to='/apply'
-        className='NavBar__links--link'
-        activeClassName='active'
-      >
-        APPLY
-      </NavLink> */}
-      {/* <hr style={{ width: "50px", color: "#E1E2FFBF" }} /> */}
-      <NavLink
-        exact
-        to='/team'
-        className='NavBar__links--link'
-        activeClassName='active'
-      >
-        TEAM
-      </NavLink>
+      {NavbarRoutes.map(({ name, route }: NavbarRouteProps) => {
+        if (location.pathname === route) {
+          return <> </>
+        }
+        return (
+          <NavLink
+            exact
+            to={route}
+            className='NavBar__links--link'
+            activeClassName='active'
+          >
+            {name}
+          </NavLink>
+        )
+      })}
     </div>
   )
 
