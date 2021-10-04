@@ -10,18 +10,18 @@
         height: 100%;
         z-index:-1;
         &.mobile {
-            @include responsiveness.screen(smallest, phone, tablet) {
+            @include responsiveness.screen(smallest, phone) {
                 display:block;
             }
-            @include responsiveness.screen(large-tablet, small-laptop, desktop, big-desktop) {
+            @include responsiveness.screen(tablet, large-tablet, small-laptop, desktop, big-desktop) {
                 display: none;
             }
         }
         &.desktop {
-            @include responsiveness.screen(smallest, phone, tablet) {
+            @include responsiveness.screen(smallest, phone) {
                 display: none;
             }
-            @include responsiveness.screen(large-tablet, small-laptop, desktop, big-desktop) {
+            @include responsiveness.screen(tablet, large-tablet, small-laptop, desktop, big-desktop) {
                 display: block;
             }
         }
