@@ -5,7 +5,7 @@ export interface VerificationEmailProps {
 
 export interface CardProps {
   name: string
-  imgsrc: string
+  imgSrc: string
   title: string
   LinkedInLink: string
 }

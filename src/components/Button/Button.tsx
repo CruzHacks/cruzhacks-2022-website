@@ -1,8 +1,11 @@
 import React from "react"
 import "./Button.scss"
 
+type Modifier = "primary" | "secondary"
+
 export interface ButtonProps {
   className?: string
+  modifier?: Modifier
   label: string
   disabled?: boolean
   href?: string
@@ -16,12 +19,33 @@ const Button: React.FC<ButtonProps> = ({
   disabled,
   href,
   onClick,
+  modifier,
   children,
 }: ButtonProps) => {
-  const button = (
+  const classes = [className]
+  classes.push("Button")
+  if (modifier) {
+    classes.push(`Button--${modifier}`)
+  }
+
+  if (href && !disabled) {
+    return (
+      <a
+        href={href}
+        className={classes.join(" ")}
+        target='_blank'
+        rel='noreferrer'
+        onClick={onClick}
+      >
+        {children}
+      </a>
+    )
+  }
+
+  return (
     <button
       type='button'
-      className={`${className} Button`}
+      className={classes.join(" ")}
       aria-label={label}
       disabled={disabled}
       onClick={onClick}
@@ -29,17 +53,6 @@ const Button: React.FC<ButtonProps> = ({
       {children}
     </button>
   )
-
-  // if a link is provided, we want to wrap the content inside an anchor tag
-  if (href) {
-    return (
-      <a href={href} target='_blank' rel='noreferrer'>
-        {button}
-      </a>
-    )
-  }
-
-  return button
 }
 
 Button.defaultProps = {

@@ -6,12 +6,12 @@ import LiLogo from "./fancylinkedin.svg"
 
 const TeamCard: React.FC<CardProps> = ({
   name,
-  imgsrc,
+  imgSrc,
   title,
   LinkedInLink,
-}) => (
+}: CardProps) => (
   <div className='Card'>
-    <img src={imgsrc} alt={name} className='Card__Image' />
+    <img src={imgSrc} alt={name} className='Card__Image' />
     <div className='Card__Name'>{name}</div>
     <div className='Card__Title'>{title}</div>
     <div className='Card__Logo'>
@@ -26,11 +26,11 @@ const TeamCard: React.FC<CardProps> = ({
 
 const TeamGrid: React.FC = () => (
   <div className='team-grid'>
-    {cards.map(({ name, title, imgsrc, LinkedInLink }: CardProps) => (
+    {cards.map(({ name, title, imgSrc, LinkedInLink }: CardProps) => (
       <TeamCard
         key={name}
         name={name}
-        imgsrc={imgsrc}
+        imgSrc={imgSrc}
         title={title}
         LinkedInLink={LinkedInLink}
       />
