@@ -16,3 +16,8 @@ export interface MilestoneProps {
   milestoneStat: string
   id: string
 }
+
+export interface AboutProps {
+  title: string,
+  description: string
+}
