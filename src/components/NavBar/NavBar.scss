@@ -1,27 +1,62 @@
+@use "~stylesheets/responsiveness";
 @use "~stylesheets/typography";
 
 .NavBar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
 
   padding: 12px 30px;
-  background: var(--color-bg-primary);
-
-  .align-right {
-    margin-left: auto;
+  &__links {
+    &--link {
+      margin: 5px 18px;
+      color: var(--color-text-primary);
+      text-decoration: none;
+      @include typography.button-text;
+      &:hover {
+        color: var(--color-text-secondary);
+      }
+    }
+    @include responsiveness.screen(phone) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 9%;
+      right: 0%;
+      width: 100vw;
+      height: 100px;
+    }
+    @include responsiveness.screen(smallest) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 8%;
+      right: 0%;
+      width: 100vw;
+      height: 120px;
+    }
   }
-
-  .link {
-    margin: 5px 18px;
-
-    color: var(--color-text-primary);
-    text-decoration: none;
-    @include typography.button-text;
-  }
-
-  .link:hover, .active.link {
-    color: var(--color-text-secondary);
+  @include responsiveness.screen(smallest, phone) {
+    padding: 10%;
   }
 }
+.Navbar__mobile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hamburgerButton {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: none;
+  right: 5%;
+  top: 3%;
+}
+

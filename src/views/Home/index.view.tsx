@@ -11,7 +11,7 @@ import Footer from "../../components/Footer/Footer"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
-    <NavBar />
+    <NavBar theme='home' />
     <Landing />
     <About />
     <Milestones />
