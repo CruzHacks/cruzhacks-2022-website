@@ -1,0 +1,43 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.emailSubscription-component {
+  display: block;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+
+    @include responsiveness.screen(smallest) {
+      height: 30px;
+    }
+  }
+
+  &__input {
+    width: 80%;
+    margin-right: 10px;
+    padding: 0 10px;
+
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    @include typography.description;
+    color: var(--color-bg-primary);
+  }
+
+  &__button {
+    width: 12%;
+    min-width: 40px;
+    padding: 8px;
+
+    background: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+  }
+
+  &__feedbackMessage {
+    margin-top: 10px;
+    @include typography.description;
+  }
+}
