@@ -15,19 +15,24 @@ const TeamCard: React.FC<CardProps> = ({
     <div className='Card__Name'>{name}</div>
     <div className='Card__Title'>{title}</div>
     <div className='Card__Logo'>
-      <div className='Card__Logo__LogoBg'>
-        <a href={LinkedInLink}>
+      <a href={LinkedInLink}>
+        <div className='Card__Logo__LogoBg'>
           <img src={LiLogo} alt='LinkedIn Logo' />
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   </div>
 )
 
 const TeamGrid: React.FC = () => (
   <div className='team-grid'>
-    {cards.map(({ name, title, imgsrc }: CardProps) => (
-      <TeamCard name={name} imgsrc={imgsrc} title={title} />
+    {cards.map(({ name, title, imgsrc, LinkedInLink }: CardProps) => (
+      <TeamCard
+        name={name}
+        imgsrc={imgsrc}
+        title={title}
+        LinkedInLink={LinkedInLink}
+      />
     ))}
   </div>
 )
