@@ -27,10 +27,10 @@
   }
   
   &__Name {
-    margin-top: 10px;
+    margin: 10px; 
+    margin-top: 20px;
     @include typography.card-names;
     text-align: center;
-    margin-bottom: 10px;
   }
   &__Title {
     @include typography.card-titles;
