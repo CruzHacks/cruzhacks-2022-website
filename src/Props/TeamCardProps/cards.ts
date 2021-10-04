@@ -74,7 +74,7 @@ const cards: CardProps[] = [
   },
   {
     name: "Glomarie Ramos",
-    title: "Engineering",
+    title: "Design",
     imgsrc: cat,
   },
   {
