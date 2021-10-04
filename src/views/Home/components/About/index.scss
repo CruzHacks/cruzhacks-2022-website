@@ -1,0 +1,23 @@
+@use "./stylesheets/responsiveness";
+
+.about-component_wrapper {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#dd9a5b, var(--color-light-pink));
+}
+.header {
+  font-family: Source Sans Pro, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 88px;
+  text-align: center;
+  margin: 40px;
+}
+.text {
+  font-family: Source Sans Pro, sans-serif;
+  //   font-style: normal;
+  //   font-weight: normal;
+  @include responsiveness.font($responsive: 4.1vw, $min: 20px, $max: 30px);
+  //   line-height: 69px;
+}
