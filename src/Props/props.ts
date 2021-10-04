@@ -17,6 +17,16 @@ export interface MilestoneProps {
   id: string
 }
 
+export interface AboutProps {
+  title: string,
+  description: string
+} 
+
+export interface NavbarRouteProps {
+  route: string
+  name: string
+}
+
 export interface NavbarRouteProps {
   route: string
   name: string
