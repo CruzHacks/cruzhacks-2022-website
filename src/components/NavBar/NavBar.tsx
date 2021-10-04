@@ -33,7 +33,6 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
-
   const navs = (
     <div className='NavBar__links'>
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
@@ -86,7 +85,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   const mobileView = (
     <div className='NavBar__mobile'>
       <button
-        className='hamburgerButton'
+        className={menuToggle ? "hamburgerButton__open" : "hamburgerButton"}
         type='button'
         onClick={() =>
           menuToggle ? setMenuToggle(false) : setMenuToggle(true)

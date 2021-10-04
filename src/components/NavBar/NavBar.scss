@@ -6,7 +6,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: right;
-
   padding: 12px 30px;
   &__links {
     &--link {
@@ -58,5 +57,36 @@
   background: none;
   right: 5%;
   top: 3%;
+  transition: all .5s ease-in-out;
+}
+.hamburgerButton__open {
+  position: absolute;
+  border: none;
+  cursor: pointer;
+  background: none;
+  right: 5%;
+  top: 3%;
+  transition: all .5s ease-in-out;
+}
+.mid {
+  transition: all .5s ease-in-out;
+}
+.top {
+  transition: all .5s ease-in-out;
+}
+.bottom {
+  transition: all .5s ease-in-out;
 }
 
+.hamburgerButton__open:focus svg rect.mid {
+  fill: #00000000;
+  transform: translateX(-20px);
+}
+.hamburgerButton__open:focus svg rect.top {
+  transform: translate(4px, -12px)rotate(135deg);
+  transform-origin: center;
+}
+.hamburgerButton__open:focus svg rect.bottom {
+  transform: translate(3px, 2px) rotate(-135deg);
+  transform-origin: center;
+}
