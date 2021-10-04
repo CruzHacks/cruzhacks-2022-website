@@ -3,7 +3,7 @@
 .about-component {
     background: linear-gradient(#8296D9,#BFACF0, #8F9ADD, #D99CE3);
     position: relative;
-    z-index:-1;
+    z-index: 0;
     &__background {
         position: absolute;
         width: 100%;
