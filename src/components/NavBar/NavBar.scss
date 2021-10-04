@@ -2,12 +2,14 @@
 @use "~stylesheets/typography";
 
 .NavBar {
+  overflow: visible;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: right;
   padding: 12px 30px;
   &__links {
+    position: relative;
     &--link {
       margin: 5px 18px;
       color: var(--color-text-primary);
@@ -26,7 +28,8 @@
       top: 9%;
       right: 0%;
       width: 100vw;
-      height: 100px;
+      height: 25%;
+      z-index: 10;
     }
     @include responsiveness.screen(smallest) {
       display: flex;
@@ -37,7 +40,8 @@
       top: 8%;
       right: 0%;
       width: 100vw;
-      height: 120px;
+      height: 25%;
+      z-index: 10;
     }
   }
   @include responsiveness.screen(smallest, phone) {
@@ -78,15 +82,15 @@
   transition: all .5s ease-in-out;
 }
 
-.hamburgerButton__open:focus svg rect.mid {
+.hamburgerButton__open svg rect.mid {
   fill: #00000000;
   transform: translateX(-20px);
 }
-.hamburgerButton__open:focus svg rect.top {
+.hamburgerButton__open svg rect.top {
   transform: translate(4px, -12px)rotate(135deg);
   transform-origin: center;
 }
-.hamburgerButton__open:focus svg rect.bottom {
+.hamburgerButton__open svg rect.bottom {
   transform: translate(3px, 2px) rotate(-135deg);
   transform-origin: center;
 }
