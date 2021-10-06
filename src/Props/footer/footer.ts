@@ -1,9 +1,9 @@
+import { ReactComponent as FacebookIcon } from "images/icons/facebook.svg"
+import { ReactComponent as TwitterIcon } from "images/icons/twitter.svg"
+import { ReactComponent as LinkedInIcon } from "images/icons/linkedin.svg"
+import { ReactComponent as InstagramIcon } from "images/icons/insta.svg"
+import { ReactComponent as EmailIcon } from "images/icons/mail.svg"
 import { social } from "./props"
-import { ReactComponent as FacebookIcon } from "../../images/socialMedia/facebook.svg"
-import { ReactComponent as TwitterIcon } from "../../images/socialMedia/twitter.svg"
-import { ReactComponent as LinkedInIcon } from "../../images/socialMedia/linkedin.svg"
-import { ReactComponent as InstagramIcon } from "../../images/socialMedia/insta.svg"
-import { ReactComponent as EmailIcon } from "../../images/socialMedia/mail.svg"
 
 const socials: social[] = [
   {
