@@ -31,3 +31,8 @@ export interface NavbarRouteProps {
   route: string
   name: string
 }
+
+export interface MessageProps {
+  message: string
+  key: string
+}

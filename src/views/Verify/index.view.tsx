@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
+import NavBar from "components/NavBar/NavBar"
 import ResendVerification from "../../components/ResendVerification"
+import VerifyMessages from "./VerifyMessages/VerifyMessage"
 
 const VerifyView: React.FC = () => {
   const { user, getAccessTokenSilently } = useAuth0()
@@ -22,7 +24,9 @@ const VerifyView: React.FC = () => {
   return (
     <>
       <div className='verify-view'>
-        <p>You are not a verified user</p>
+        <NavBar theme='home' />
+        <div className='verify-view__header'>Verification Screen</div>
+        <VerifyMessages />
         <ResendVerification user={user ? user?.sub : ""} token={token} />
       </div>
     </>
