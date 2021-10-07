@@ -93,6 +93,11 @@
     margin: 50px auto;
     padding: 0 4vw;
     max-width: 1800px;
+
+    @include responsiveness.screen(big-desktop) {
+      padding: 0 10vw;
+      justify-content: space-around;
+    }
   }
 
   &__header {
@@ -100,6 +105,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 3%;
+    margin-right: 3%;
   }
 
   &__header-text {
@@ -139,8 +145,8 @@
     margin-bottom: 3%;
 
     @include responsiveness.screen(large-tablet) {
-      width: 260px;
-      height: 260px;
+      width: 250px;
+      height: 250px;
     }
   }
 
@@ -153,6 +159,11 @@
     border-radius: 50%;
     width: 236px;
     height: 45px;
+
+    @include responsiveness.screen(large-tablet) {
+      width: 150px;
+      height: 30px;
+    }
   }
 
   &__achievements {
