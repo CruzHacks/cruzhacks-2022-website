@@ -22,7 +22,7 @@
       width: 100%;
       height: unset;
       border-radius: 0 33.5px 33.5px 0;
-      @include responsiveness.font($responsive: 4.1vw, $min: 25px, $max: 35px);
+      @include responsiveness.font($responsive: 4.1vw, $min: 22px, $max: 35px);
     }
 
     &__header-circle {
