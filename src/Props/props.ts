@@ -20,11 +20,6 @@ export interface MilestoneProps {
 export interface AboutProps {
   title: string,
   description: string
-} 
-
-export interface NavbarRouteProps {
-  route: string
-  name: string
 }
 
 export interface NavbarRouteProps {

@@ -1,128 +1,136 @@
 @use "./stylesheets/responsiveness";
 @use "./stylesheets/typography";
 
+
+// screen sizes smaller than tablet are considered mobile
 @mixin milestones-mobile {
   .milestones-component {
-    &__header {
-      height: 100px;
-      width: 100%;
-      align-items: flex-start;
+    &__container {
+      padding: 0;
     }
+
+    &__header {
+      align-items: flex-start;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    &__header-text {
+      margin: 0;
+      padding: 10px 15px;
+      // expand width to fill parent, but set height to text height
+      width: 100%;
+      height: unset;
+      border-radius: 0 33.5px 33.5px 0;
+      @include responsiveness.font($responsive: 4.1vw, $min: 22px, $max: 35px);
+    }
+
+    &__header-circle {
+      position: relative;
+      width: 374px;
+      height: unset;
+      border: 0;
+
+      @include responsiveness.screen(smallest, phone) {
+        width: 80%;
+      }
+    }
+
+    &__header-border {
+      display: block;
+      position: absolute;
+      bottom: -15px;
+      right: -15px;
+    }
+
     &__header-ellipse {
       display: none;
     }
-    &__header-circle {
-      width: 374px;
-      height: 87px;
-      border: 0;
-      justify-content: left;
-    }
-    &__header-text {
-      margin: 0;
-      padding: 0;
-      height: 67px;
-      width: 354px;
-      border-radius: 0%;
-      border-bottom-right-radius: 33.5px;
-      border-top-right-radius: 33.5px;
-      @include responsiveness.font($responsive: 4.1vw, $min: 25px, $max: 35px);
-    }
-    &__header-border {
-      position: relative;
-      bottom: 50px;
-      left: 210px;
-      display: block;
-    }
+
     &__achievements {
-      .milestone {
-        &__image {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-width: 200px;
+      padding: 0 10px;
+    }
+
+    &__milestone {
+      &__image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 200px;
+      }
+
+      &__box {
+        justify-content: space-evenly;
+        padding: 10px;
+        width: 195px;
+        border-radius: 22px;
+
+        @include responsiveness.screen(smallest, phone) {
+          width: 165px;
         }
-        img {
-          width: 75%;
-          height: 60%;
-        }
-        &__box {
-          width: 180px;
-          justify-content: space-evenly;
-        }
-        &__stat {
-          line-height: 30px;
-          @include responsiveness.font(
-            $responsive: 4.1vw,
-            $min: 35px,
-            $max: 50px
-          );
-        }
-        &__name {
-          line-height: 25px;
-          @include responsiveness.font(
-            $responsive: 4.1vw,
-            $min: 21px,
-            $max: 28px
-          );
-        }
+      }
+
+      &__stat {
+        @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 50px);
+      }
+
+      &__name {
+        @include responsiveness.font($responsive: 4.1vw, $min: 21px, $max: 28px);
       }
     }
   }
 }
 
-@mixin milestone-small {
-  .milestones-component__header-border {
-    position: relative;
-    display: block;
-  }
-  .milestones-component__header-circle {
-    min-width: 240px;
-    max-width: 320px;
-    width: 80%;
-    .milestones-component__header-text {
-      width: 304px;
+.milestones-component {
+  margin-top: -1px;
+  padding: 14px 0 40px 0;
+  background: linear-gradient(var(--color-light-pink), var(--color-lavender), var(--color-sky-blue));
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 0 4vw;
+    max-width: 1800px;
+
+    @include responsiveness.screen(big-desktop) {
+      padding: 0 10vw;
+      justify-content: space-around;
     }
   }
-}
 
-.milestones-component {
-  padding: 14px 0 40px 0;
-  background: linear-gradient(
-    var(--color-light-pink),
-    var(--color-lavender),
-    var(--color-sky-blue)
-  );
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
   &__header {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 3%;
+    margin-right: 3%;
   }
+
   &__header-text {
-    margin: 2% 0 1% 0;
-    height: 371px;
-    width: 371px;
-    background: var(--color-navy-blue);
-    border: 9px solid var(--color-navy-blue);
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px var(--color-gray);
-    border-radius: 50%;
-    font-family: Source Sans Pro, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 60px);
-    line-height: 75px;
-    text-align: center;
-    color: var(--color-text-primary);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 2% 0 1% 0;
     padding: 0 29px 0 29px;
+    width: 92.5%;
+    height: 92.5%;
+
+    background: var(--color-navy-blue);
+    border: 9px solid var(--color-navy-blue);
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px var(--color-gray);
+
+    font-family: "Source Sans Pro", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 60px);
+    text-align: center;
+    color: var(--color-text-primary);
   }
+
   &__header-circle {
     display: flex;
     justify-content: center;
@@ -135,7 +143,13 @@
     border-right: 20px solid var(--color-navy-blue);
     border-bottom: 20px solid var(--color-navy-blue);
     margin-bottom: 3%;
+
+    @include responsiveness.screen(large-tablet) {
+      width: 250px;
+      height: 250px;
+    }
   }
+
   &__header-border {
     display: none;
   }
@@ -145,79 +159,74 @@
     border-radius: 50%;
     width: 236px;
     height: 45px;
+
+    @include responsiveness.screen(large-tablet) {
+      width: 150px;
+      height: 30px;
+    }
   }
+
   &__achievements {
     display: flex;
     flex-direction: column;
   }
-  .milestone {
+
+  &__milestone {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     margin: 2% 0 2% 0;
+
     &__image {
-      min-width: 230px;
-      img {
-        width: auto;
-        height: auto;
+      width: 180px;
+
+      > img {
+        margin-right: 10px;
+        width: 75%;
+        float: right;
       }
     }
 
     &__box {
-      width: 272px;
-      min-height: 125px;
       display: flex;
       flex-shrink: 0;
       flex-direction: column;
+
+      padding: 20px 10px;
+      width: 272px;
+      min-height: 125px;
       border: 4px solid var(--color-text-primary);
+      border-radius: 37px;
       box-sizing: border-box;
       box-shadow: -2px 0px 16px var(--color-text-primary);
-      border-radius: 37px;
       text-align: center;
+
+      @include responsiveness.screen(large-tablet) {
+        width: 225px;
+      }
     }
+
     &__stat {
-      font-family: Lato, sans-serif;
+      font-family: "Lato", sans-serif;
       font-style: normal;
       font-weight: bold;
       @include responsiveness.font($responsive: 4.1vw, $min: 50px, $max: 75px);
-      line-height: 90px;
       color: var(--color-text-primary);
     }
 
     &__name {
-      font-family: B612, sans-serif;
+      font-family: "B612", sans-serif;
       font-style: italic;
       font-weight: normal;
-      @include responsiveness.font(
-        $responsive: 4.1vw,
-        $min: 30px,
-        $max: 42.5px
-      );
-      line-height: 55px;
+      @include responsiveness.font($responsive: 4.1vw, $min: 24px, $max: 36px);
       text-align: center;
       color: var(--color-text-primary);
-      text-shadow: 0px 4px 8px var(--color-teal);
+      text-shadow: 0 4px 8px var(--color-teal);
     }
   }
 
   @include responsiveness.screen(smallest, phone, tablet) {
     @include milestones-mobile;
-  }
-  @include responsiveness.screen(smallest, phone) {
-    @include milestone-small;
-  }
-  @include responsiveness.screen(phone) {
-    .milestones-component__header-border {
-      bottom: 40px;
-      left: 160px;
-    }
-  }
-  @include responsiveness.screen(smallest) {
-    .milestones-component__header-border {
-      bottom: 40px;
-      left: 36%;
-    }
   }
 }
