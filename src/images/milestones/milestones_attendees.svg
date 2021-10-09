@@ -1,5 +1,5 @@
 <svg width="192" height="185" viewBox="0 0 192 185" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
+<g filter="url(#milestones_attendees_filter0_d)">
 <path d="M48 123.697L63.7797 91H125.319L141.729 123.697H48Z" fill="#97DAFF"/>
 <path d="M141.729 123.697H48V176.982H94.8646H141.729V123.697Z" fill="#60A5CD"/>
 <path d="M150.708 -0.000244141H44.9284V71.4498H150.708V-0.000244141Z" fill="#85CBF3"/>
@@ -21,7 +21,7 @@
 <path d="M33.0143 77.574C21.5849 81.0579 20.4007 76.1474 10.5325 75.7012C0.664291 75.2551 5.12707 100.672 4.35529 111.234C3.58646 121.796 22.0208 118.287 31.889 118.736C41.7602 119.182 45.7369 73.6963 33.0143 77.574Z" fill="#80E7EE"/>
 </g>
 <defs>
-<filter id="filter0_d" x="0" y="-0.000244141" width="192" height="184.982" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_attendees_filter0_d" x="0" y="-0.000244141" width="192" height="184.982" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>

@@ -1,5 +1,5 @@
 <svg width="192" height="175" viewBox="0 0 192 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
+<g filter="url(#milestones_hackers_filter0_d)">
 <path d="M82.154 128.832C82.154 114.294 84.5369 116.184 96.037 116.184C107.541 116.184 146.769 91.0502 146.769 105.589C146.769 120.127 123.56 133.962 112.06 133.962C100.556 133.962 82.154 143.371 82.154 128.832Z" fill="#557DBF" stroke="#DAE8FF" stroke-width="3" stroke-miterlimit="10"/>
 <path d="M90.3963 136.515C89.4158 125.538 92.5298 126.525 106.947 124.418C121.364 122.311 168.845 96.1284 169.821 107.106C170.802 118.083 142.64 132.79 128.223 134.902C113.81 137.009 91.3767 147.492 90.3963 136.515Z" fill="#557DBF" stroke="#DAE8FF" stroke-width="3" stroke-miterlimit="10"/>
 <path d="M10.4961 158.062C6.53778 148.694 2.0817 99.5774 12.0753 100.623C38.4341 103.374 43.1303 89.4916 58.5 90.9674C62.1321 91.3192 77.6487 98.4821 90.2308 98.8193C100.272 99.088 94.9623 106.194 102.93 118.685C104.832 121.665 113.841 129.308 116.728 131.053C127.525 137.591 144.086 124.827 163.365 114.761C176.057 108.134 182.947 106.482 184.64 108.994C195.615 125.296 137.429 157.642 108.341 164.415C88.134 169.121 73.6492 150.5 49 150.5C24.3474 150.5 15.3469 169.536 10.4961 158.062Z" fill="#557DBF" stroke="#DAE8FF" stroke-width="3" stroke-miterlimit="10"/>
@@ -16,7 +16,7 @@
 </g>
 </g>
 <defs>
-<filter id="filter0_d" x="0.499969" y="-0.000244141" width="191.007" height="174.677" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_hackers_filter0_d" x="0.499969" y="-0.000244141" width="191.007" height="174.677" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
