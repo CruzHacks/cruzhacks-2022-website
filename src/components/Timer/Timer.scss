@@ -1,0 +1,74 @@
+@use "~stylesheets/typography";
+@use "~stylesheets/responsiveness";
+
+.timer-component {
+    @include typography.admin-card;
+    height: 261px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    &__time {
+        display: flex;
+        justify-content: space-around;
+        align-items: baseline;
+        width: 100%;
+    }
+    &__header {
+        font-family: Montserrat, "sans-serif";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 45px;
+        line-height: 55px;
+        text-align: center;
+        color: #FFFFFF;
+        @include responsiveness.screen(smallest, phone) {
+            padding: 0;
+            @include responsiveness.font(4.1vw, 20px, 45px);
+        }
+    }
+    &__clock {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+    }
+    &__remaining {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    &__field {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        color: #FFFFFF;
+        @include responsiveness.screen(smallest, phone) {
+            font-size: 12px;
+        }
+    }
+    &__char {
+        color: #233A59;
+        width: 35px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.91);
+        border-radius: 4px;
+        font-family: Montserrat, "sans-serif";
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 37px;
+        text-align: center;
+        margin: 0 6px 0 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include responsiveness.screen(smallest, phone) {
+            width:21px;
+            height:28px;
+        }
+    }
+}
