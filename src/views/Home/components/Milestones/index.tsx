@@ -2,7 +2,7 @@ import * as React from "react"
 import "./index.scss"
 import { MilestoneProps } from "Props/props"
 import milestoneResults from "Props/milestones/milestones"
-import milestonesBorderMobile from "assets/milestones/milestone_header_mobile.svg"
+import milestonesBorderMobile from "images/milestones/milestone_header_mobile.svg"
 
 const Milestones: React.FC = () => (
   <div className='milestones-component'>

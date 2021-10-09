@@ -1,8 +1,8 @@
 export interface social {
-    link: string
-    Icon: any
-    label: string
-  }
+  link: string
+  Icon: any
+  label: string
+}
 
 export interface theme {
   bgColor: string
@@ -10,8 +10,8 @@ export interface theme {
   iconStroke: string
   textColor: string
   hillColor: string
-
 }
+
 export interface FooterProps {
-    theme : theme
-  }
+  theme: theme
+}
