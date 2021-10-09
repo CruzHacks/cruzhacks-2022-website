@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./index.scss"
-import { ReactComponent as RightArrow } from "images/icons/rightArrow.svg"
+import { ReactComponent as RightArrow } from "images/icons/right-arrow.svg"
 import { subscribeMailchimp } from "utils/Api"
 
 const EMAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
