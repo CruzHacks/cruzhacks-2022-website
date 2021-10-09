@@ -1,8 +1,8 @@
 import React from "react"
 import "./TeamCard.scss"
 import { CardProps } from "Props/props"
-import cards from "Props/TeamCardProps/cards"
-import LiLogo from "./fancylinkedin.svg"
+import cards from "Props/teamCardProps/cards"
+import LiLogo from "images/icons/fancylinkedin.svg"
 
 const TeamCard: React.FC<CardProps> = ({
   name,

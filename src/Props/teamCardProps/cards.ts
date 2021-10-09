@@ -1,5 +1,5 @@
 import { CardProps } from "Props/props"
-import cat from "./cat.jpg"
+import cat from "images/team/cat.jpg"
 
 const cards: CardProps[] = [
   {
