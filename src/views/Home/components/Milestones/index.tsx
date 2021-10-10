@@ -25,7 +25,7 @@ const Milestones: React.FC = () => (
                 <img
                   src={image}
                   alt='error'
-                  className='milestones-component__milestone-img'
+                  className='milestones-component__milestone__img'
                 />
               </div>
               <div className='milestones-component__milestone__box'>
