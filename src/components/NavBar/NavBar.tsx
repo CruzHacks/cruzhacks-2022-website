@@ -8,7 +8,7 @@ import NavbarRoutes from "Props/navbar/navbar"
 const NavThemes = {
   team: {
     bgColor: "#233A59",
-    textShadow: "-.75px -.75px #A4E9ED, .75px 0px #7263CA",
+    textShadow: "0px 3px 2.5px #89B5F8",
     menuColor: "#203552",
   },
   home: {
