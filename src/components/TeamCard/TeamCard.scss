@@ -1,4 +1,5 @@
 @use "~stylesheets/typography";
+@use "~stylesheets/responsiveness";
 
 .Card {
   animation: fadeIn 1s;
@@ -70,7 +71,13 @@
   flex-wrap: wrap;
   justify-content: center;
   width: 80%;
+
+  @include responsiveness.screen(large-tablet) {
+    width: 100%;
+  }
+
   @media (max-width: 400px) {
     width: 90%;
+    margin-top: 0;
   }
 }
