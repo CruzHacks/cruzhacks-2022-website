@@ -143,7 +143,10 @@
     border-right: 20px solid var(--color-navy-blue);
     border-bottom: 20px solid var(--color-navy-blue);
     margin-bottom: 3%;
-
+    @include responsiveness.screen(big-desktop) {
+      width: 601px;
+      height: 601px;
+    }
     @include responsiveness.screen(large-tablet) {
       width: 250px;
       height: 250px;
@@ -160,6 +163,10 @@
     width: 236px;
     height: 45px;
 
+    @include responsiveness.screen(big-desktop) {
+      width: 339px;
+      height: 90px;
+    }
     @include responsiveness.screen(large-tablet) {
       width: 150px;
       height: 30px;
@@ -183,8 +190,12 @@
 
       > img {
         margin-right: 10px;
-        width: 75%;
+        width: 70%;
         float: right;
+        @include responsiveness.screen(big-desktop) {
+          width: 100%;
+          margin-right:50px;
+        }
       }
     }
 
