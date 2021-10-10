@@ -29,7 +29,7 @@ const cards: CardProps[] = [
     LinkedInLink: "https://linkedin.com/in/hannah-wong-76a604173/",
   },
   {
-    name: "Navy Rao",
+    name: "Navya Rao",
     title: "Director of Design",
     imgSrc: images.nRao,
     LinkedInLink: "https://www.linkedin.com/in/navya-rao-682140142/",
