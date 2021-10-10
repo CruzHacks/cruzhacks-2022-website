@@ -4,8 +4,9 @@ import AppAnalytics from './AppAnalytics';
 
 Enzyme.configure({ adapter: new Adapter() })
 
-describe('Testing Lising App Analytics', () => {
+describe('Testing App Analytics', () => {
   it('App Analytics Components renders without crashing', () => {
     shallow(<AppAnalytics />);
   });
 });
+
