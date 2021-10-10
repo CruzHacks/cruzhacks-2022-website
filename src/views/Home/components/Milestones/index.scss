@@ -52,7 +52,7 @@
     }
 
     &__milestone {
-      &__image {
+      &__image-container {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -143,7 +143,10 @@
     border-right: 20px solid var(--color-navy-blue);
     border-bottom: 20px solid var(--color-navy-blue);
     margin-bottom: 3%;
-
+    @include responsiveness.screen(big-desktop) {
+      width: 601px;
+      height: 601px;
+    }
     @include responsiveness.screen(large-tablet) {
       width: 250px;
       height: 250px;
@@ -160,6 +163,10 @@
     width: 236px;
     height: 45px;
 
+    @include responsiveness.screen(big-desktop) {
+      width: 339px;
+      height: 90px;
+    }
     @include responsiveness.screen(large-tablet) {
       width: 150px;
       height: 30px;
@@ -178,16 +185,20 @@
     align-items: center;
     margin: 2% 0 2% 0;
 
-    &__image {
+    &__image-container {
       width: 180px;
-
-      > img {
-        margin-right: 10px;
-        width: 75%;
-        float: right;
-      }
     }
 
+    &__img {
+      margin-right: 10px;
+      width: 70%;
+      float: right;
+      @include responsiveness.screen(big-desktop) {
+        width: 100%;
+        margin-right:50px;
+      }
+    }
+    
     &__box {
       display: flex;
       flex-shrink: 0;
