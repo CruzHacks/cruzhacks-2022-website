@@ -10,6 +10,10 @@
     background-color: var(--color-dark-navy-blue);
     margin: 50px 0 50px 0;
     &__title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 50px;
         background-color: var(--color-text-primary);
         color: var(--color-dark-navy-blue);
         font-family: Source Sans Pro, "sans-serif";
@@ -25,7 +29,7 @@
             padding: 0 26px 0 30px;
         }
         @include responsiveness.screen(smallest) {
-            padding: 0 0 0 0px;
+            padding: 0;
             @include responsiveness.font($responsive: 7.1vw, $min: 20px, $max: 40px);
             text-align: center;
         }
