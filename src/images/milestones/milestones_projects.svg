@@ -1,10 +1,10 @@
 <svg width="200" height="171" viewBox="0 0 200 171" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
-<g filter="url(#filter1_d)">
+<g filter="url(#milestones_projects_filter0_d)">
+<g filter="url(#milestones_projects_filter1_d)">
 <path d="M41.0788 106.007V1.17531C41.0788 0.525299 41.5308 -0.000244141 42.0897 -0.000244141H156.615C157.174 -0.000244141 157.626 0.525299 157.626 1.17531V106.007C157.626 106.657 157.174 107.183 156.615 107.183H42.0897C41.5308 107.183 41.0788 106.657 41.0788 106.007Z" fill="#C7B9FF"/>
 </g>
 <path d="M52.7338 86.8545V20.3317C52.7338 17.4394 54.8685 15.0961 57.5033 15.0961H142.497C145.131 15.0961 147.266 17.4394 147.266 20.3317V86.8511C147.266 89.7434 145.131 92.0867 142.497 92.0867H57.5033C54.8685 92.09 52.7338 89.7434 52.7338 86.8545Z" fill="#313551"/>
-<g filter="url(#filter2_d)">
+<g filter="url(#milestones_projects_filter2_d)">
 <path d="M10 157L40.303 107.182H158.485L190 157H10Z" fill="#C7B9FF"/>
 </g>
 <path d="M26 147L49.7723 107H148.743L173 147H26Z" fill="#7876CC"/>
@@ -14,7 +14,7 @@
 <path d="M116.5 77C122.299 77 127 72.7467 127 67.5C127 62.2533 122.299 58 116.5 58C110.701 58 106 62.2533 106 67.5C106 72.7467 110.701 77 116.5 77Z" fill="#313551"/>
 </g>
 <defs>
-<filter id="filter0_d" x="6" y="-0.000244141" width="188" height="165" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_projects_filter0_d" x="6" y="-0.000244141" width="188" height="165" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
@@ -24,7 +24,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
-<filter id="filter1_d" x="37.0788" y="-0.000244141" width="124.547" height="115.183" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_projects_filter1_d" x="37.0788" y="-0.000244141" width="124.547" height="115.183" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
@@ -34,7 +34,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
-<filter id="filter2_d" x="0" y="101.182" width="200" height="69.8175" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_projects_filter2_d" x="0" y="101.182" width="200" height="69.8175" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>
