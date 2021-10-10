@@ -27,8 +27,14 @@ const cards: CardProps[] = [
     LinkedInLink: "https://linkedin.com/in/hannah-wong-76a604173/",
   },
   {
-    name: "Tracy Rocha",
+    name: "Navy Rao",
     title: "Director of Design",
+    imgSrc: cat,
+    LinkedInLink: "https://www.linkedin.com/in/navya-rao-682140142/",
+  },
+  {
+    name: "Tracy Rocha",
+    title: "Director of Logistics",
     imgSrc: cat,
     LinkedInLink: "https://www.linkedin.com/in/tracy-a-rocha/",
   },
