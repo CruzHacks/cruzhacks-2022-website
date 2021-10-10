@@ -1,5 +1,5 @@
 <svg width="170" height="175" viewBox="0 0 170 175" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d)">
+<g filter="url(#milestones_schools_filter0_d)">
 <path d="M110.847 60.5832C106.211 50.696 109.177 45.8953 99.1603 35.2131L96.2387 37.8837C102.917 44.56 103.185 51.1047 104.586 59.248C105.838 66.5263 22.527 88.0012 4 102.867L11.6447 121.113C30.0187 106.525 115.482 70.4705 110.847 60.5832Z" fill="#DEB110"/>
 <path d="M82.9447 49.7615L33.4868 27.5845L85.9802 -0.000244141L135.438 22.1797L82.9447 49.7615Z" fill="#002F58"/>
 <path d="M126.147 43.5536C126.147 37.448 121.179 20.5277 116.487 13.8718L126.147 17.1098C130.022 24.3054 134.102 40.8553 134.714 43.5536C135.519 47.1035 134.714 50.5693 134.102 53.8074C133.613 56.3978 133.694 57.7649 131.042 60.8231L124.311 56.5057L127.255 53.3899C126.826 53.4262 126.147 49.4638 126.147 43.5536Z" fill="#FFD748"/>
@@ -12,7 +12,7 @@
 <path d="M91.9145 120.045C71.3829 130.289 24.75 112.576 4 102.439V120.045C4 127.728 62.6096 137.119 91.9145 140.853V120.045Z" fill="#FFD748"/>
 </g>
 <defs>
-<filter id="filter0_d" x="0" y="-0.000244141" width="156.483" height="165.258" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="milestones_schools_filter0_d" x="0" y="-0.000244141" width="156.483" height="165.258" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset dy="4"/>

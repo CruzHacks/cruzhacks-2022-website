@@ -1,17 +1,17 @@
 <svg preserveAspectRatio="none" viewBox="0 0 1440 241" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 162.002V23.5021C1.55348e-06 14.6754 24.3559 -3.38464 156.283 1.50203C245.273 4.79845 451.407 115.634 556.393 99.5974C1005.23 31.0171 1356.36 -8.35938 1440 1.50205V162.002H15.4947H0Z" fill="url(#landing_hill1)"/>
-    <path d="M0 206V67.5C1.55348e-06 58.6734 24.3559 40.6133 156.283 45.5C245.273 48.7964 451.407 159.632 556.393 143.595C1005.23 75.0151 1356.36 35.6385 1440 45.5V206H15.4947H0Z" fill="url(#landing_hill2)"/>
-    <path d="M0 241V175.539C1.55726e-06 166.739 21.6083 163.29 153.856 168.161C243.062 171.448 452.505 211.299 557.747 195.311C1007.67 126.942 1356.16 164.071 1440 173.902V241H16.9882L0 241Z" fill="url(#landing_hill3)"/>
+    <path d="M0 162.002V23.5021C1.55348e-06 14.6754 24.3559 -3.38464 156.283 1.50203C245.273 4.79845 451.407 115.634 556.393 99.5974C1005.23 31.0171 1356.36 -8.35938 1440 1.50205V162.002H15.4947H0Z" fill="url(#landing_hills_paint0_linear)"/>
+    <path d="M0 206V67.5C1.55348e-06 58.6734 24.3559 40.6133 156.283 45.5C245.273 48.7964 451.407 159.632 556.393 143.595C1005.23 75.0151 1356.36 35.6385 1440 45.5V206H15.4947H0Z" fill="url(#landing_hills_paint1_linear)"/>
+    <path d="M0 241V175.539C1.55726e-06 166.739 21.6083 163.29 153.856 168.161C243.062 171.448 452.505 211.299 557.747 195.311C1007.67 126.942 1356.16 164.071 1440 173.902V241H16.9882L0 241Z" fill="url(#landing_hills_paint2_linear)"/>
     <defs>
-        <linearGradient id="landing_hill1" x1="720" y1="0" x2="720" y2="162.002" gradientUnits="userSpaceOnUse">
+        <linearGradient id="landing_hills_paint0_linear" x1="720" y1="0" x2="720" y2="162.002" gradientUnits="userSpaceOnUse">
             <stop stop-color="#F8F9FE" stop-opacity="0.26"/>
             <stop offset="1" stop-color="#99ACF1" stop-opacity="0.76"/>
         </linearGradient>
-        <linearGradient id="landing_hill2" x1="720" y1="43.9979" x2="720" y2="206" gradientUnits="userSpaceOnUse">
+        <linearGradient id="landing_hills_paint1_linear" x1="720" y1="43.9979" x2="720" y2="206" gradientUnits="userSpaceOnUse">
             <stop stop-color="#F8F9FE" stop-opacity="0.69"/>
             <stop offset="1" stop-color="#99ACF1" stop-opacity="0.44"/>
         </linearGradient>
-        <linearGradient id="landing_hill3" x1="720" y1="175.905" x2="720" y2="228.5" gradientUnits="userSpaceOnUse">
+        <linearGradient id="landing_hills_paint2_linear" x1="720" y1="175.905" x2="720" y2="228.5" gradientUnits="userSpaceOnUse">
             <stop stop-color="#93A5E8"/>
             <stop offset="1" stop-color="#8295D8"/>
         </linearGradient>
