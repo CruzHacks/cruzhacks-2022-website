@@ -1,113 +1,115 @@
 import { CardProps } from "Props/props"
 import cat from "images/team/cat.jpg"
+import images from "./images"
+// const photos: string = "images/team/"
 
 const cards: CardProps[] = [
   {
     name: "Sonali Malik",
     title: "President",
-    imgSrc: cat,
+    imgSrc: images.sMalik,
     LinkedInLink: "https://www.linkedin.com/in/sonalimalik/",
   },
   {
     name: "Tony Ma",
     title: "President",
-    imgSrc: cat,
+    imgSrc: images.tMa,
     LinkedInLink: "https://www.linkedin.com/in/tonyma08/",
   },
   {
     name: "Krishna Pandian",
     title: "Director of Engineering",
-    imgSrc: cat,
+    imgSrc: images.kPandian,
     LinkedInLink: "https://www.linkedin.com/in/krishna-kumar-pandian/",
   },
   {
     name: "Hannah Wong",
     title: "Director of Marketing",
-    imgSrc: cat,
+    imgSrc: images.hWong,
     LinkedInLink: "https://linkedin.com/in/hannah-wong-76a604173/",
   },
   {
     name: "Navy Rao",
     title: "Director of Design",
-    imgSrc: cat,
+    imgSrc: images.nRao,
     LinkedInLink: "https://www.linkedin.com/in/navya-rao-682140142/",
   },
   {
     name: "Tracy Rocha",
     title: "Director of Logistics",
-    imgSrc: cat,
+    imgSrc: images.tRocha,
     LinkedInLink: "https://www.linkedin.com/in/tracy-a-rocha/",
   },
   {
     name: "Katie Allen",
     title: "Director of Sponsorship",
-    imgSrc: cat,
+    imgSrc: images.kAllen,
     LinkedInLink: "https://www.linkedin.com/in/kaitlynallen/",
   },
   {
     name: "Alper deCarion",
     title: "Engineering",
-    imgSrc: cat,
+    imgSrc: images.aDecarion,
     LinkedInLink: "https://www.linkedin.com/in/alper-decarion-9681161b6/",
   },
   {
     name: "Rahul Vaidun",
     title: "Engineering",
-    imgSrc: cat,
+    imgSrc: images.rVaidun,
     LinkedInLink: "https://www.linkedin.com/in/rahulvaidun/",
   },
   {
     name: "Sidhanta Sharma",
     title: "Engineering",
-    imgSrc: cat,
+    imgSrc: images.sSharma,
     LinkedInLink: "https://www.linkedin.com/in/sidhanta-sharma-739599156/",
   },
   {
     name: "William Gao",
     title: "Engineering",
-    imgSrc: cat,
+    imgSrc: images.wGao,
     LinkedInLink: "https://www.linkedin.com/in/wlgao/",
   },
   {
     name: "Avani Karkare",
     title: "Marketing",
-    imgSrc: cat,
+    imgSrc: images.aKarkare,
     LinkedInLink: "https://www.linkedin.com/in/avani-k-368354170/",
   },
   {
     name: "Chinmay Gowdru",
     title: "Marketing",
-    imgSrc: cat,
+    imgSrc: images.cGowdru,
     LinkedInLink: "https://www.linkedin.com/in/chinmaygowdru/",
   },
   {
     name: "Eric Duong",
     title: "Marketing",
-    imgSrc: cat,
+    imgSrc: images.eDuong,
     LinkedInLink: "https://www.linkedin.com/in/ericduong8/",
   },
   {
     name: "Eliot Winchell",
     title: "Design",
-    imgSrc: cat,
+    imgSrc: images.eWinchell,
     LinkedInLink: "https://www.linkedin.com/in/eliot-winchell/",
   },
   {
     name: "Glomarie Ramos",
     title: "Design",
-    imgSrc: cat,
+    imgSrc: images.gRamos,
     LinkedInLink: "https://linkedin.com/in/glomarie-ramos-a0083116b/",
   },
   {
     name: "Khushi Shah",
     title: "Design",
-    imgSrc: cat,
+    imgSrc: images.kShah,
     LinkedInLink: "https://www.linkedin.com/in/q-khushishah/",
   },
   {
     name: "Ajay Bhatia",
     title: "Logistics",
-    imgSrc: cat,
+    imgSrc: images.aBhatia,
     LinkedInLink: "https://www.linkedin.com/in/ajay--bhatia/",
   },
   {
@@ -125,19 +127,19 @@ const cards: CardProps[] = [
   {
     name: "Vince Guan",
     title: "Logistics",
-    imgSrc: cat,
+    imgSrc: images.vGuan,
     LinkedInLink: "https://www.linkedin.com/in/vince-guan/",
   },
   {
     name: "Jiewen Li",
     title: "Sponsorship",
-    imgSrc: cat,
+    imgSrc: images.jLi,
     LinkedInLink: "https://www.linkedin.com/in/boba/",
   },
   {
     name: "Michelle Sheu",
     title: "Sponsorship",
-    imgSrc: cat,
+    imgSrc: images.mSheu,
     LinkedInLink: "https://linkedin.com/in/michelle-sheu-625a5b149/",
   },
 ]
