@@ -40,7 +40,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    font-family: Source Sans Pro, sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
     font-style: italic;
     @include responsiveness.font($responsive: 2.3vw, $min: 10px, $max: 28px);
   }
