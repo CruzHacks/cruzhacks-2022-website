@@ -40,7 +40,7 @@ const cards: CardProps[] = [
   },
   {
     name: "Katie Allen",
-    title: "Director of Logistics",
+    title: "Director of Sponsorship",
     imgSrc: cat,
     LinkedInLink: "https://www.linkedin.com/in/kaitlynallen/",
   },
