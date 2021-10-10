@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Footer.scss"
 import socials from "Props/footer/footer"
 import { FooterProps } from "Props/footer/props"
-import { ReactComponent as FooterHill } from "../../images/footerhill.svg"
+import { ReactComponent as FooterHill } from "images/footer/footerhill.svg"
 
 const Footer: React.FC<FooterProps> = ({ theme }: FooterProps) => (
   <div className='footer-component' style={{ background: theme.bgColor }}>
