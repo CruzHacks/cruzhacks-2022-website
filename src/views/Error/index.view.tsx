@@ -1,6 +1,9 @@
 import * as React from "react"
 import "./index.scss"
 import { useHistory } from "react-router-dom"
+import { ReactComponent as Waves } from "images/error/waves.svg"
+import { ReactComponent as BiggerWaves } from "images/error/waves_dropshadow.svg"
+
 import Button from "../../components/Button/Button"
 
 const ErrorView: React.FC = () => {
@@ -11,6 +14,10 @@ const ErrorView: React.FC = () => {
   }
   return (
     <div className='error-view'>
+      <div className='error-view__waves-container'>
+        <Waves className='error-view__waves' />
+        <BiggerWaves className='error-view__wavesbig' />
+      </div>
       <div>
         <div className='error-view__message'>E R R O R</div>
         <div className='error-view__message'>404</div>
