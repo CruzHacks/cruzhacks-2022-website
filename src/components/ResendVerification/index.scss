@@ -1,0 +1,16 @@
+.resendVerification-component {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 8%;
+    &__recaptcha {
+        margin-bottom: 5%;
+    }
+    
+}
+
+// .g-recaptcha {
+//     transform:scale(0.77);
+//     transform-origin:0 0;
+// }
