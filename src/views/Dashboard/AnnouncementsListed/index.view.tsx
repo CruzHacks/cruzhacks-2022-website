@@ -19,7 +19,7 @@ const AnnouncementsListed: React.FC = () => {
           store(
             "announcements",
             JSON.parse(res.data.announcements),
-            5 * 60 * 1000
+            2 * 60 * 1000
           )
         }
       })
