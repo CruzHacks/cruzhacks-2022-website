@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import "./NavBar.scss"
 import { NavLink, useLocation } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react"
 import { ReactComponent as MenuIcon } from "images/icons/menu.svg"
 import { NavbarRouteProps } from "Props/props"
 import NavbarRoutes from "Props/navbar/navbar"
@@ -22,6 +23,7 @@ interface NavProps {
 }
 
 const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
+  const { isAuthenticated, logout } = useAuth0()
   const [windowWidth, setWidth] = useState<number>(501)
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
   const location = useLocation()
@@ -36,6 +38,16 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+  const logoutButton = (
+    <button
+      className='NavBar__logout'
+      type='button'
+      onClick={() => logout({ returnTo: window.location.origin })}
+      style={{ textShadow: styling.textShadow }}
+    >
+      logout
+    </button>
+  )
   const navs = (
     <div className='NavBar__links'>
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
@@ -56,6 +68,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
           </NavLink>
         )
       })}
+      {isAuthenticated ? logoutButton : ""}
     </div>
   )
   const mobileNavs = (
@@ -63,22 +76,26 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
         SPONSOR US
       </a>
-      <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
       {NavbarRoutes.map(({ name, route }: NavbarRouteProps) => {
         if (location.pathname === route) {
           return <> </>
         }
         return (
-          <NavLink
-            exact
-            to={route}
-            className='NavBar__links--link'
-            activeClassName='active'
-          >
-            {name}
-          </NavLink>
+          <>
+            <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
+            <NavLink
+              exact
+              to={route}
+              className='NavBar__links--link'
+              activeClassName='active'
+            >
+              {name}
+            </NavLink>
+          </>
         )
       })}
+      <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
+      {isAuthenticated ? logoutButton : ""}
     </div>
   )
 
@@ -96,7 +113,6 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       {menuToggle ? mobileNavs : ""}
     </div>
   )
-
   return (
     <div
       className='NavBar'
