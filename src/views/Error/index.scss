@@ -1,27 +1,50 @@
 @use "/src/stylesheets/responsiveness";
 
 .error-view {
-    height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background: linear-gradient(
+    #81cbd6,
+    #8194d6
+  ); //TODO: Use Update with vars once merged
+  @include responsiveness.font(10vw, 72px, 144px, 92px);
+  //   &__messagediv {
+  //     // position: relative;
+  //     // top: -20%;
+  //   }
+  &__message {
+    color: var(--color-text-primary);
+    font-family: "Lato", sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+    transform: translateY(30%);
+  }
+  &__button {
+    @include responsiveness.font(4vh, 16px, 64px, 24px);
+    border: 3px solid var(--color-text-primary);
+    transform: scale(1, 1);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    background: linear-gradient(#8296D9,#BFACF0);   //TODO: Use Update with vars once merged
-    @include responsiveness.font(10vw, 72px, 144px, 92px);
-    &__message {
-        color: var(--color-text-primary);
-        font-family: "Lato", sans-serif;
-        font-style: italic;
-        font-weight: 700;
-        text-align: center;
-    }
-    &__button {
-        @include responsiveness.font(4vh, 16px, 64px, 24px);
-        border: 3px solid var(--color-text-primary);
-        transform: scale(1, 1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-    }
+    justify-content: center;
+    font-weight: bold;
+    // position: relative;
+    // top: -20%;
+  }
+  &__wavesdiv {
+    width: 100%;
+  }
+  &__waves {
+    width: 100%;
+    top: 0;
+    position: absolute;
+  }
+  &__wavesbig {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
