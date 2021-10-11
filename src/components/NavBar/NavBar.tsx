@@ -53,22 +53,19 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
         SPONSOR US
       </a>
-      {NavbarRoutes.map(({ name, route }: NavbarRouteProps) => {
-        if (location.pathname === route) {
-          return <> </>
-        }
-        return (
-          <NavLink
-            exact
-            to={route}
-            className='NavBar__links--link'
-            activeClassName='active'
-            key={name}
-          >
-            {name}
-          </NavLink>
-        )
-      })}
+      {NavbarRoutes.filter(
+        ({ route }: NavbarRouteProps) => location.pathname !== route
+      ).map(({ name, route }: NavbarRouteProps) => (
+        <NavLink
+          key={name}
+          exact
+          to={route}
+          className='NavBar__links--link'
+          activeClassName='active'
+        >
+          {name}
+        </NavLink>
+      ))}
       {isAuthenticated ? logoutButton : ""}
     </div>
   )
@@ -77,25 +74,21 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
         SPONSOR US
       </a>
-      {NavbarRoutes.map(({ name, route }: NavbarRouteProps) => {
-        if (location.pathname === route) {
-          return <> </>
-        }
-        return (
-          <>
-            <hr style={{ width: "75px", color: "#E1E2FFBF" }} />
-            <NavLink
-              exact
-              to={route}
-              className='NavBar__links--link'
-              activeClassName='active'
-              key={name}
-            >
-              {name}
-            </NavLink>
-          </>
-        )
-      })}
+      {NavbarRoutes.filter(
+        ({ route }: NavbarRouteProps) => location.pathname !== route
+      ).map(({ name, route }: NavbarRouteProps) => (
+        <div key={name}>
+          <hr style={{ width: "75px", color: "#E1E2FFBF" }} />
+          <NavLink
+            exact
+            to={route}
+            className='NavBar__links--link'
+            activeClassName='active'
+          >
+            {name}
+          </NavLink>
+        </div>
+      ))}
       <hr style={{ width: "75px", color: "#E1E2FFBF" }} />
       {isAuthenticated ? logoutButton : ""}
     </div>
