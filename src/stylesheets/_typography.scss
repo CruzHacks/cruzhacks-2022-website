@@ -49,12 +49,12 @@
 
 @mixin card-names {
   @include card;
-  font-size: 32px;
+  @include responsiveness.font($responsive: 2.3vw, $min: 26px, $max: 32px);
 }
 
 @mixin card-titles {
   @include card;
-  font-size: 24px;
+  @include responsiveness.font($responsive: 2.1vw, $min: 19px, $max: 24px);
 }
 
 @mixin description {
