@@ -19,7 +19,7 @@
         color: var(--color-text-secondary);
       }
     }
-    @include responsiveness.screen(phone, smallest) {
+    @include responsiveness.screen(small-laptop, large-tablet, tablet, phone, smallest) {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -33,9 +33,15 @@
       box-shadow: -1px 5px 10px #233A59cD;
       z-index: 10;
     }
+    @include responsiveness.screen(small-laptop, large-tablet) {
+      top: 100px;
+    }
   }
-  @include responsiveness.screen(smallest, phone) {
+  @include responsiveness.screen(small-laptop, large-tablet, tablet, phone, smallest) {
     padding: 25px;
+  }
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    padding: 50px;
   }
 }
 .NavBar__logout {
@@ -62,6 +68,11 @@
   top: 0px;
   margin: 1%;
   padding: 10px;
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    top: 20px;
+    right: 6%;
+    transform: scale(150%);
+  }
 }
 .hamburgerButton__open {
   position: absolute;
@@ -72,6 +83,11 @@
   top: 0px;
   margin: 1%;
   padding: 10px;
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    top: 20px;
+    right: 6%;
+    transform: scale(150%);
+  }
 }
 .mid {
   transition: all .3s ease;
