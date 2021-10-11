@@ -7,11 +7,8 @@
   &__container {
     display: flex;
     justify-content: space-between;
-    height: 40px;
-
-    @include responsiveness.screen(smallest) {
-      height: 30px;
-    }
+    height: fit-content;
+    max-height: 40px;
   }
 
   &__input {
