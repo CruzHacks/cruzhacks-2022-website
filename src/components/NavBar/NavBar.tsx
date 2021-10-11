@@ -113,7 +113,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       className='NavBar'
       style={{ background: styling.bgColor, textShadow: styling.textShadow }}
     >
-      {windowWidthHeight[0] < windowWidthHeight[1] ? mobileView : navs}
+      {windowWidthHeight[0] < 1200 ? mobileView : navs}
     </div>
   )
 }
