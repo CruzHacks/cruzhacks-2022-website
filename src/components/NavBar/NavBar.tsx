@@ -63,6 +63,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
             to={route}
             className='NavBar__links--link'
             activeClassName='active'
+            key={name}
           >
             {name}
           </NavLink>
@@ -88,6 +89,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
               to={route}
               className='NavBar__links--link'
               activeClassName='active'
+              key={name}
             >
               {name}
             </NavLink>
