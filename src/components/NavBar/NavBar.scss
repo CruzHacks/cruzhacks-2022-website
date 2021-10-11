@@ -38,6 +38,15 @@
     padding: 25px;
   }
 }
+.NavBar__logout {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  @include typography.button-text;
+}
+.NavBar__logout:hover {
+  color: var(--color-text-secondary);
+}
 .Navbar__mobile {
   position: relative;
   display: flex;

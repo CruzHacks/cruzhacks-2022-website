@@ -11,7 +11,7 @@ const NavbarRoutes: NavbarRouteProps[] = [
   },
   //   {
   //     route: "/portal",
-  //     name: "Apply",
+  //     name: "APPLY",
   //   },
 ]
 
