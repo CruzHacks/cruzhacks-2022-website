@@ -48,6 +48,7 @@
   background: none;
   border: none;
   color: var(--color-text-primary);
+  margin: 0px 18px;
   @include typography.button-text;
 }
 .NavBar__logout:hover {
