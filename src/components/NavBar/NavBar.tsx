@@ -45,7 +45,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       onClick={() => logout({ returnTo: window.location.origin })}
       style={{ textShadow: styling.textShadow }}
     >
-      logout
+      LOGOUT
     </button>
   )
   const navs = (
