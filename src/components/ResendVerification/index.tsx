@@ -14,15 +14,14 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
   const [verified, setVerified] = useState<boolean>(false)
   return (
     <div className='resendVerification-component'>
-      <div className='recaptcha'>
+      <div className='resendVerification-component__recaptcha'>
         <ReCAPTCHA
           sitekey={RECAPTCHA_SITE_KEY}
           onChange={res => verifyRecaptchaToken(res, () => setVerified(true))}
+          theme='dark'
           onExpired={() => setVerified(false)}
         />
       </div>
-      <p>{`recaptcha verified? ${verified}`}</p>
-
       <CoolDownButton
         label='resend'
         disabled={!verified}

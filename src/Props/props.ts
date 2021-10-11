@@ -27,6 +27,12 @@ export interface NavbarRouteProps {
   name: string
 }
 
+
+export interface MessageProps {
+  message: string
+  key: string
+}
+
 export interface AnnouncementProps {
   title: string
   date: number
