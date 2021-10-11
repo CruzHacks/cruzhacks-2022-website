@@ -18,6 +18,7 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
         <ReCAPTCHA
           sitekey={RECAPTCHA_SITE_KEY}
           onChange={res => verifyRecaptchaToken(res, () => setVerified(true))}
+          theme='dark'
           onExpired={() => setVerified(false)}
         />
       </div>
