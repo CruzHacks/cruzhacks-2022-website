@@ -26,3 +26,10 @@ export interface NavbarRouteProps {
   route: string
   name: string
 }
+
+export interface AnnouncementProps {
+  title: string
+  date: number
+  message: string
+  id: string
+}

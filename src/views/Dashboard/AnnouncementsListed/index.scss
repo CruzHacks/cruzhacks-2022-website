@@ -1,0 +1,66 @@
+@use "~stylesheets/responsiveness";
+
+.announcements-listed-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  .announcement-box {
+    width: 40vw;
+    min-height: 100px;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    @include responsiveness.screen(smallest, phone, tablet) {
+        width: 60vw;
+    }
+    @include responsiveness.screen(large-tablet, small-laptop) {
+        width: 50vw;
+    }
+    &__title {
+      font-family: Source Sans Pro, "sans-serif";
+      font-style: normal;
+      font-weight: bold;
+      font-size: 35px;
+      line-height: 44px;
+      color: #ffffff;
+      @include responsiveness.screen(smallest, phone) {
+        @include responsiveness.font(3.1vw, 25px, 35px);
+        line-height: 2rem;
+      }
+    }
+    &__date {
+      font-family: Source Sans Pro, "sans-serif";
+      font-style: italic;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 31px;
+      color: #ffffff;
+      @include responsiveness.screen(smallest, phone) {
+        @include responsiveness.font(3.1vw, 15px, 25px);
+        line-height: 2rem;
+      }
+    }
+    &__message {
+      font-family: Source Sans Pro, "sans-serif";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 38px;
+      color: #ffffff;
+      @include responsiveness.screen(smallest, phone) {
+        @include responsiveness.font(3.1vw, 20px, 30px);
+        line-height: 2rem;
+      }
+    }
+  }
+  &__message {
+    font-family: Source Sans Pro, "sans-serif";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 38px;
+    color: #ffffff;
+  }
+}
