@@ -1,7 +1,7 @@
-import hackers from "assets/milestones/milestones_hackers.svg"
-import attendees from "assets/milestones/milestones_attendees.svg"
-import projects from "assets/milestones/milestones_projects.svg"
-import schools from "assets/milestones/milestones_schools.svg"
+import hackers from "images/milestones/milestones_hackers.svg"
+import attendees from "images/milestones/milestones_attendees.svg"
+import projects from "images/milestones/milestones_projects.svg"
+import schools from "images/milestones/milestones_schools.svg"
 
 import { MilestoneProps } from "Props/props"
 
