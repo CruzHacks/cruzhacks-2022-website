@@ -1,10 +1,8 @@
 import * as React from "react"
 import "./index.scss"
 import { useHistory } from "react-router-dom"
-// import { ReactComponent as Waves } from "images/error/waves.svg"
-import WavesImage from "images/error/waves.svg"
-// import { ReactComponent as BiggerWaves } from "images/error/waves_dropshadow.svg"
-import BiggerWavesImage from "images/error/waves_dropshadow.svg"
+import { ReactComponent as Waves } from "images/error/waves.svg"
+import { ReactComponent as BiggerWaves } from "images/error/waves_dropshadow.svg"
 
 import Button from "../../components/Button/Button"
 
@@ -16,15 +14,9 @@ const ErrorView: React.FC = () => {
   }
   return (
     <div className='error-view'>
-      <div className='error-view__wavesdiv'>
-        {/* <Waves className='error-view__waves' /> */}
-        {/* <BiggerWaves className='error-view__wavesbig' /> */}
-        <img src={WavesImage} alt='waves' className='error-view__waves' />
-        <img
-          src={BiggerWavesImage}
-          alt='wavesbig'
-          className='error-view__wavesbig'
-        />
+      <div className='error-view__waves-container'>
+        <Waves className='error-view__waves' />
+        <BiggerWaves className='error-view__wavesbig' />
       </div>
       <div>
         <div className='error-view__message'>E R R O R</div>
