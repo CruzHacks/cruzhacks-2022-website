@@ -11,10 +11,6 @@
     #8194d6
   ); //TODO: Use Update with vars once merged
   @include responsiveness.font(10vw, 72px, 144px, 92px);
-  //   &__messagediv {
-  //     // position: relative;
-  //     // top: -20%;
-  //   }
   &__message {
     color: var(--color-text-primary);
     font-family: "Lato", sans-serif;
@@ -31,8 +27,6 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    // position: relative;
-    // top: -20%;
   }
   &__wavesdiv {
     width: 100%;
