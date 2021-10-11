@@ -24,16 +24,16 @@ interface NavProps {
 
 const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   const { isAuthenticated, logout } = useAuth0()
-  const [windowWidth, setWidth] = useState<number>(501)
+  const [windowWidthHeight, setWidthHeight] = useState<number[]>([501, 500])
   const [menuToggle, setMenuToggle] = useState<boolean>(false)
   const location = useLocation()
   const styling = theme === "team" ? NavThemes.team : NavThemes.home
   useEffect(() => {
-    setWidth(window.innerWidth)
+    setWidthHeight([window.innerWidth, window.innerHeight])
   }, [])
   useEffect(() => {
     function handleResize() {
-      setWidth(window.innerWidth)
+      setWidthHeight([window.innerWidth, window.innerHeight])
     }
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
@@ -82,7 +82,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
         }
         return (
           <>
-            <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
+            <hr style={{ width: "75px", color: "#E1E2FFBF" }} />
             <NavLink
               exact
               to={route}
@@ -94,7 +94,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
           </>
         )
       })}
-      <hr style={{ width: "50px", color: "#E1E2FFBF" }} />
+      <hr style={{ width: "75px", color: "#E1E2FFBF" }} />
       {isAuthenticated ? logoutButton : ""}
     </div>
   )
@@ -118,7 +118,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       className='NavBar'
       style={{ background: styling.bgColor, textShadow: styling.textShadow }}
     >
-      {windowWidth <= 501 ? mobileView : navs}
+      {windowWidthHeight[0] < windowWidthHeight[1] ? mobileView : navs}
     </div>
   )
 }
