@@ -16,11 +16,7 @@ const AnnouncementsListed: React.FC = () => {
           setError("Unable to Fetch Announcements")
         } else {
           setAnnouncements(JSON.parse(res.data.announcements))
-          store(
-            "announcements",
-            JSON.parse(res.data.announcements),
-            2 * 60 * 1000
-          )
+          store("announcements", JSON.parse(res.data.announcements), 2 * 60)
         }
       })
     } else {
