@@ -1,26 +1,27 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios"
 
+const RESEND_VERIFICATION_EMAIL_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/auth/resend` || ""
+
+const SUBSCRIPTION_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/subscribe` || ""
+
+const RECAPTCHA_VERIFICATION_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/verifyRecaptcha/submit` || ""
+
+const ANNOUNCEMENT_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/announcements/` || ""
+
+const ANALYTICS_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/application/` || ""
+
+const API_KEY = process.env.REACT_APP_API_KEY
+
 /*
 Mock Auth0 Resend Verification Email
 Params: userId -> string | undefined, authToken -> string
 Return: n/a
 */
-
-const resendVerificationEmailEndpoint =
-  `${process.env.REACT_APP_AUTHENTICATION_ENDPOINT}/resend` || ""
-
-const subscriptionEndpoint = process.env.REACT_APP_MAILCHIMP_API || ""
-
-const RECAPTCHA_VERIFICATION_ENDPOINT =
-  `${process.env.REACT_APP_RECAPTCHA_VERIFICATION_ENDPOINT}/submit` || ""
-
-const AnnouncementEndpoint =
-  `${process.env.REACT_APP_ANNOUNCEMENTS_ENDPOINT}/` || ""
-
-const AnaltyicsEndpoint = `${process.env.REACT_APP_APPLICATION_ENDPOINT}/` || ""
-
-const API_KEY = process.env.REACT_APP_API_KEY
-
 export function resendVerificationEmail(
   userId: string | undefined,
   authToken: string
@@ -34,7 +35,7 @@ export function resendVerificationEmail(
     userId,
   }
   axios
-    .post(resendVerificationEmailEndpoint, body, axiosConfig)
+    .post(RESEND_VERIFICATION_EMAIL_ENDPOINT, body, axiosConfig)
     .then((res: AxiosResponse) => res)
     .catch(err => err)
 }
@@ -49,7 +50,7 @@ export function subscribeMailchimp(userEmail: String) {
 
   return axios
     .post(
-      subscriptionEndpoint,
+      SUBSCRIPTION_ENDPOINT,
       {
         email: userEmail,
       },
@@ -89,7 +90,7 @@ export function getAllAnnouncements() {
       Authentication: API_KEY,
     },
   }
-  return axios.get(AnnouncementEndpoint, axiosConfig)
+  return axios.get(ANNOUNCEMENT_ENDPOINT, axiosConfig)
 }
 
 export function postAnnouncement(
@@ -107,7 +108,7 @@ export function postAnnouncement(
     message,
   }
   return axios
-    .post(AnnouncementEndpoint, body, axiosConfig)
+    .post(ANNOUNCEMENT_ENDPOINT, body, axiosConfig)
     .then((response: AxiosResponse) => {
       if (response.status === 201) {
         return response
@@ -125,7 +126,7 @@ export function getAnalytics(authToken: string) {
   }
 
   return axios
-    .get(AnaltyicsEndpoint, axiosConfig)
+    .get(ANALYTICS_ENDPOINT, axiosConfig)
     .then((response: AxiosResponse) => {
       if (response.status === 200) {
         return response
