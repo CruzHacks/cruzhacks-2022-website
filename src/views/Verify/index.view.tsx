@@ -25,7 +25,7 @@ const VerifyView: React.FC = () => {
     <>
       <div className='verify-view'>
         <NavBar theme='team' />
-        <div className='verify-view__header'>Verification Screen</div>
+        <div className='verify-view__header'>Verify your email</div>
         <VerifyMessages />
         <ResendVerification user={user ? user?.sub : ""} token={token} />
       </div>
