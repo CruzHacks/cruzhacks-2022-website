@@ -41,7 +41,7 @@ const Landing: React.FC = () => {
                 &#47;&#47; location coming soon
               </div>
               <div className='landing-component__dates'>
-                &#47;&#47; dates coming soon
+                &#47;&#47; January 14-16, 2022
               </div>
               <div className='landing-component__subscriptionContainer'>
                 <EmailSubscription />
