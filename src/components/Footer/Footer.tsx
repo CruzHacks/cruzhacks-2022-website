@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ theme }: FooterProps) => (
         fill={theme.hillColor}
       />
       <div className='footer-component__text--copyright'>
-        @ 2022 CruzHacks. All rights reserved.
+        © 2022 CruzHacks. All rights reserved.
       </div>
     </div>
   </div>
