@@ -1,5 +1,4 @@
 import { CardProps } from "Props/props"
-import cat from "images/team/cat.jpg"
 import images from "./images"
 // const photos: string = "images/team/"
 
@@ -115,13 +114,13 @@ const cards: CardProps[] = [
   {
     name: "Brenden Teo",
     title: "Logistics",
-    imgSrc: cat,
+    imgSrc: images.bTeo,
     LinkedInLink: "https://www.linkedin.com/in/breteo/",
   },
   {
     name: "Shantelle Toh",
     title: "Logistics",
-    imgSrc: cat,
+    imgSrc: images.sToh,
     LinkedInLink: "https://linkedin.com/in/shantelletoh/",
   },
   {
