@@ -1,7 +1,7 @@
 @use "./stylesheets/responsiveness";
 
 .about-component {
-    background: linear-gradient(#8296D9, #8F9ADD,#BFACF0, #D99CE3);
+    background: linear-gradient(#8296D9, #8F9ADD,#BFACF0, #D99CE3, var(--color-light-pink));
     position: relative;
     z-index: 0;
     margin-top: -1px;
