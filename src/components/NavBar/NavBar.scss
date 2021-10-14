@@ -6,10 +6,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
   padding: 12px 30px;
   &__links {
-    position: relative;
     &--link {
       margin: 5px 18px;
       color: var(--color-text-primary);
