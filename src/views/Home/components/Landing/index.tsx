@@ -38,10 +38,7 @@ const Landing: React.FC = () => {
                 innovation.
               </div>
               <div className='landing-component__dates'>
-                &#47;&#47; Dates: January 14-16, 2022
-              </div>
-              <div className='landing-component__location'>
-                &#47;&#47; Location: Online
+                January 14-16, 2022 &#160;&#183;&#160; Virtual
               </div>
               <div className='landing-component__subscriptionContainer'>
                 <EmailSubscription />
