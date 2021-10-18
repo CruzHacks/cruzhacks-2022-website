@@ -44,6 +44,7 @@ const PortalView: React.FC = () => {
               break
             case "pending":
               setStatus(AppStatus.Pending)
+              store("applicationStatus", AppStatus.Pending, 12 * 60 * 60) // store for 12hrs
               break
             default:
               setStatus(AppStatus.Errored)
