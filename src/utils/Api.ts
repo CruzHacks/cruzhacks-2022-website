@@ -15,6 +15,9 @@ const ANNOUNCEMENT_ENDPOINT =
 const ANALYTICS_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/application/` || ""
 
+const CHECK_APPLICATION_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/application/checkApp` || ""
+
 const API_KEY = process.env.REACT_APP_API_KEY
 
 /*
@@ -40,7 +43,7 @@ export function resendVerificationEmail(
     .catch(err => err)
 }
 
-export function subscribeMailchimp(userEmail: String) {
+export function subscribeMailchimp(userEmail: string) {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
       Authentication: API_KEY,
@@ -134,4 +137,25 @@ export function getAnalytics(authToken: string) {
       return response
     })
     .catch(err => err.message)
+}
+
+// application endpoints
+
+export function checkApplication(authToken: string) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }
+
+  return axios
+    .get(CHECK_APPLICATION_ENDPOINT, axiosConfig)
+    .then((response: AxiosResponse) => ({
+      statusCode: response.status,
+      data: response.data,
+    }))
+    .catch(err => ({
+      statusCode: null,
+      data: err,
+    }))
 }
