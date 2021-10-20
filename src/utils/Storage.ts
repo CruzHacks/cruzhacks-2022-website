@@ -7,21 +7,23 @@
  *
  * @param key - A unique string.
  * @param value - The value to store. Can be anything that is JSON serializable.
- * @param timeout - The number of seconds from now for this value to be valid.
- *                  If undefined, this value will never expire.
+ * @param timeoutInSeconds - The number of seconds from now for this value to be
+ *                           valid. If undefined, this value will never expire.
  * @param user - If set, associate this value with a user.
  */
 export function store(
   key: string,
   value: any,
-  timeout?: number,
+  timeoutInSeconds?: number,
   user?: string
 ): any {
   try {
     const data = {
       value,
       user,
-      ...(timeout && { expiration: `${Date.now() + timeout * 1000}` }),
+      ...(timeoutInSeconds && {
+        expiration: `${Date.now() + timeoutInSeconds * 1000}`,
+      }),
     }
 
     window.localStorage.setItem(key, JSON.stringify(data))

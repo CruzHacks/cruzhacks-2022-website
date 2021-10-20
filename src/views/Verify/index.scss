@@ -3,17 +3,19 @@
 
 .verify-view {
     background-color: #34486B;
+    min-width: 320px;
     min-height: 100vh;
     color: #ffffff;
-    min-width: 320px;
+
     @include responsiveness.screen(smallest) {
         height: 120vh;
     }
+
     &__header {
-        margin-top: 2%;
+        margin-top: 5%;
         margin-bottom: 2%;
         text-align: center;
-        font-family: "Lato",sans-serif;
+        font-family: "Lato", sans-serif;
         font-style: normal;
         font-weight: 700;
         @include responsiveness.font(3.1vw, 30px, 50px);

@@ -6,10 +6,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: right;
+  justify-content: flex-end;
   padding: 12px 30px;
   &__links {
-    position: relative;
     &--link {
       margin: 5px 18px;
       color: var(--color-text-primary);
@@ -19,34 +18,40 @@
         color: var(--color-text-secondary);
       }
     }
-    @include responsiveness.screen(phone) {
+    @include responsiveness.screen(small-laptop, large-tablet, tablet, phone, smallest) {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: 9%;
-      right: 0%;
+      top: 50px;
+      right: 0px;
       width: 100vw;
       height: 25%;
+      border-radius: 0% 0% 10% 10%;
+      box-shadow: -1px 5px 10px #233A59cD;
       z-index: 10;
     }
-    @include responsiveness.screen(smallest) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      top: 8%;
-      right: 0%;
-      width: 100vw;
-      height: 25%;
-      z-index: 10;
+    @include responsiveness.screen(small-laptop, large-tablet) {
+      top: 100px;
     }
   }
-  @include responsiveness.screen(smallest, phone) {
-    padding: 10%;
+  @include responsiveness.screen(small-laptop, large-tablet, tablet, phone, smallest) {
+    padding: 25px;
   }
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    padding: 50px;
+  }
+}
+.NavBar__logout {
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  margin: 0px 18px;
+  @include typography.button-text;
+}
+.NavBar__logout:hover {
+  color: var(--color-text-secondary);
 }
 .Navbar__mobile {
   position: relative;
@@ -59,38 +64,50 @@
   border: none;
   cursor: pointer;
   background: none;
-  right: 5%;
-  top: 3%;
-  transition: all .5s ease-in-out;
+  right: 8%;
+  top: 0px;
+  margin: 1%;
+  padding: 10px;
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    top: 20px;
+    right: 6%;
+    transform: scale(150%);
+  }
 }
 .hamburgerButton__open {
   position: absolute;
   border: none;
   cursor: pointer;
   background: none;
-  right: 5%;
-  top: 3%;
-  transition: all .5s ease-in-out;
+  right: 8%;
+  top: 0px;
+  margin: 1%;
+  padding: 10px;
+  @include responsiveness.screen(small-laptop, large-tablet) {
+    top: 20px;
+    right: 6%;
+    transform: scale(150%);
+  }
 }
 .mid {
-  transition: all .5s ease-in-out;
+  transition: all .3s ease;
 }
 .top {
-  transition: all .5s ease-in-out;
+  transition: all .3s ease;
+  transform-origin: 0 0;
 }
 .bottom {
-  transition: all .5s ease-in-out;
+  transition: all .3s ease;
+  transform-origin: 0 100%;
 }
 
 .hamburgerButton__open svg rect.mid {
   fill: #00000000;
-  transform: translateX(-20px);
+  transform: scaleX(0%);
 }
 .hamburgerButton__open svg rect.top {
-  transform: translate(4px, -12px)rotate(135deg);
-  transform-origin: center;
+  transform: rotate(45deg) translate(6px, -5px);
 }
 .hamburgerButton__open svg rect.bottom {
-  transform: translate(3px, 2px) rotate(-135deg);
-  transform-origin: center;
+  transform: rotate(-45deg) translate(6px, 5px);
 }

@@ -2,7 +2,8 @@ import * as React from "react"
 import "./Footer.scss"
 import socials from "Props/footer/footer"
 import { FooterProps } from "Props/footer/props"
-import { ReactComponent as FooterHill } from "images/footer/footerhill.svg"
+import { ReactComponent as FooterHillDesktop } from "images/footer/footer-hills-desktop.svg"
+import { ReactComponent as FooterHillMobile } from "images/footer/footer-hills-mobile.svg"
 
 const Footer: React.FC<FooterProps> = ({ theme }: FooterProps) => (
   <div className='footer-component' style={{ background: theme.bgColor }}>
@@ -24,11 +25,19 @@ const Footer: React.FC<FooterProps> = ({ theme }: FooterProps) => (
       ))}
     </div>
     <div className='footer-component__text' style={{ color: theme.textColor }}>
-      <FooterHill className='hills' fill={theme.hillColor} />
+      <FooterHillDesktop
+        className='footer-component__hills footer-component__hills--desktop'
+        fill={theme.hillColor}
+      />
+      <FooterHillMobile
+        className='footer-component__hills footer-component__hills--mobile'
+        fill={theme.hillColor}
+      />
       <div className='footer-component__text--copyright'>
-        @ 2022 Cruzhacks. All rights reserved.
+        © 2022 CruzHacks. All rights reserved.
       </div>
     </div>
   </div>
 )
+
 export default Footer

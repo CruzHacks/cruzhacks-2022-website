@@ -94,6 +94,9 @@
     padding: 0 4vw;
     max-width: 1800px;
 
+    @include responsiveness.screen(desktop) {
+      justify-content: space-evenly;
+    }
     @include responsiveness.screen(big-desktop) {
       padding: 0 10vw;
       justify-content: space-around;
@@ -187,6 +190,7 @@
 
     &__image-container {
       width: 180px;
+      height: 80%;
     }
 
     &__img {
@@ -196,6 +200,13 @@
       @include responsiveness.screen(big-desktop) {
         width: 100%;
         margin-right:50px;
+      }
+      @include responsiveness.screen(desktop) {
+        width: 85%;
+        margin-right: 25px;
+      }
+      @include responsiveness.screen(smallest, mobile, tablet) {
+        height: 100%
       }
     }
     
@@ -216,6 +227,9 @@
       @include responsiveness.screen(large-tablet) {
         width: 225px;
       }
+      @include responsiveness.screen(desktop, big-desktop) {
+        margin-bottom: 20px;
+      }
     }
 
     &__stat {
@@ -230,7 +244,7 @@
       font-family: "B612", sans-serif;
       font-style: italic;
       font-weight: normal;
-      @include responsiveness.font($responsive: 4.1vw, $min: 24px, $max: 36px);
+      @include responsiveness.font($responsive: 4.1vw, $min: 24px, $max: 34px);
       text-align: center;
       color: var(--color-text-primary);
       text-shadow: 0 4px 8px var(--color-teal);
