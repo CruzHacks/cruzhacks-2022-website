@@ -39,3 +39,8 @@ export interface AnnouncementProps {
   message: string
   id: string
 }
+
+export interface FAQProps {
+  question: string
+  answer: string
+}

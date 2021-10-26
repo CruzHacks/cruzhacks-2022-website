@@ -1,0 +1,66 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.faq-component {
+  margin-top: -1px;
+  background-size: cover;
+  background: linear-gradient(
+    var(--color-light-pink),
+    var(--color-lavender),
+    var(--color-sky-blue)
+  );
+  &__box {
+    margin: auto;
+    width: 50%;
+    border: 7px solid rgba(255, 255, 255, 0.75);
+    border-radius: 37px;
+    padding: 10px;
+
+    @include responsiveness.screen(large-tablet) {
+      width: 225px;
+    }
+    @include responsiveness.screen(desktop, big-desktop) {
+      margin-bottom: 20px;
+    }
+  }
+  &__faqtitle {
+    font-family: "Source Sans Pro", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 60px);
+    text-align: center;
+    color: var(--color-text-primary);
+  }
+  &__line {
+    width: 390px;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.73);
+    margin: auto;
+  }
+  &__question {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff;
+  }
+  &__answer {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+  }
+  &__questionsandanswers:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &__column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+  }
+}
