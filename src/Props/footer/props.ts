@@ -9,7 +9,7 @@ export interface theme {
   iconFill: string
   iconStroke: string
   textColor: string
-  hillColor: string
+  hillColor?: string
 }
 
 export interface FooterProps {
