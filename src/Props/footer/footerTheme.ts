@@ -23,7 +23,7 @@ const footerThemes: FooterTheme = {
     iconFill: "#FFEAEA",
     iconStroke: "#3289BA",
     textColor: "#FFFFFF",
-    hillColor: "#70A8C8",
+    // hillColor: "#70A8C8",
   },
   homeFooterSponsors: {
     bgColor: "#020D51",
