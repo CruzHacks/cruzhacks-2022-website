@@ -39,3 +39,10 @@ export interface AnnouncementProps {
   message: string
   id: string
 }
+
+export interface FieldProps {
+  name: string
+  handleChange: any
+  fieldState: string
+  errorMessage: string
+}
