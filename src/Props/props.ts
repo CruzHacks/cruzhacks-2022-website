@@ -46,3 +46,10 @@ export interface ApplicationPagesProps {
   page: number
   setPage: Dispatch<SetStateAction<number>>
 }
+
+export interface FieldProps {
+  name: string
+  handleChange: any
+  fieldState: string
+  errorMessage: string
+}
