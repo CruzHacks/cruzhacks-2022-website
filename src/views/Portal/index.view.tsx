@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react"
 import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
 import AppStatus from "Props/portal/application"
+import ApplicationPages from "Props/portal/page"
 import { checkApplication } from "utils/Api"
 import ApplicationForm from "./components/ApplicationForm/index.view"
 import ApplicationStatus from "./components/ApplicationStatus/index.view"
+import ApplicationBackground from "./components/Background/index.view"
 import { retrieve, store } from "../../utils/Storage"
 
 const PortalView: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
   const [status, setStatus] = useState(AppStatus.Loading)
-
+  const [page, setPage] = useState<number>(0)
   useEffect(() => {
     try {
       const cachedStatus = retrieve("applicationStatus", undefined)
@@ -55,11 +57,19 @@ const PortalView: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
-  switch (status) {
-    case AppStatus.NotFound:
-      return <ApplicationForm />
+  switch (page) {
+    case ApplicationPages.Home:
+      return (
+        <ApplicationBackground>
+          <ApplicationStatus status={status} />
+        </ApplicationBackground>
+      )
     default:
-      return <ApplicationStatus status={status} />
+      return (
+        <ApplicationBackground>
+          <ApplicationForm page={page} setPage={setPage} />
+        </ApplicationBackground>
+      )
   }
 }
 

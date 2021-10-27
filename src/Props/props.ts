@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface VerificationEmailProps {
   user: string | undefined
   token: string
@@ -38,4 +40,9 @@ export interface AnnouncementProps {
   date: number
   message: string
   id: string
+}
+
+export interface ApplicationPagesProps {
+  page: number
+  setPage: Dispatch<SetStateAction<number>>
 }
