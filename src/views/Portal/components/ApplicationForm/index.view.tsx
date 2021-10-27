@@ -61,7 +61,6 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
       case ApplicationPages.MLH:
         return MLHForm
       default:
-        setPage(ApplicationPages.Contact)
         return ContactForm
     }
   }
