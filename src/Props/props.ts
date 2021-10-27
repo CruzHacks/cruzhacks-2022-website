@@ -52,4 +52,6 @@ export interface FieldProps {
   handleChange: any
   fieldState: string
   errorMessage: string
+  label: string 
+  maxLength: number
 }
