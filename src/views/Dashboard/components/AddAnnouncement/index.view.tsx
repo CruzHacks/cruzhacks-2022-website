@@ -28,7 +28,6 @@ const AddAnnouncement: React.FC = () => {
     }
 
     if (!/^[a-zA-Z0-9 ]+$/.test(title) || !/^[a-zA-Z0-9 ]+$/.test(message)) {
-      // TODO: we would want punctuations right?
       setNote("Alphanumeric characters only")
       setDisabled(false)
       return
@@ -46,8 +45,7 @@ const AddAnnouncement: React.FC = () => {
         setMessage("")
         setDisabled(false)
       })
-      // eslint-disable-next-line no-unused-vars,
-      .catch(err => {
+      .catch(() => {
         setNote("An error occurred while submitting")
         setDisabled(false)
       })
@@ -78,13 +76,13 @@ const AddAnnouncement: React.FC = () => {
           )}
 
           <input
-            className='add-announcement-component__title'
+            className='add-announcement-component__textbox'
             onChange={e => setTitle(e.target.value)}
             maxLength={25}
             placeholder='title'
           />
           <textarea
-            className='add-announcement-component__message'
+            className='add-announcement-component__textbox'
             onChange={e => setMessage(e.target.value)}
             maxLength={100}
             placeholder='message'

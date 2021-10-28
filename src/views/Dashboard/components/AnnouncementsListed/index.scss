@@ -8,20 +8,12 @@
 
   .announcement-box {
     padding: 10px;
-    width: 40vw;
+    width: 100%;
     min-height: 100px;
     border: 2px solid #ffffff;
     box-sizing: border-box;
     border-radius: 10px;
     margin-bottom: 20px;
-
-    @include responsiveness.screen(smallest, phone, tablet) {
-        width: 60vw;
-    }
-
-    @include responsiveness.screen(large-tablet, small-laptop) {
-        width: 100%;
-    }
 
     &__title {
       font-family: "Source Sans Pro", sans-serif;

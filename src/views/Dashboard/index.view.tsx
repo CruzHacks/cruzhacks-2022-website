@@ -11,10 +11,12 @@ const DashboardView: React.FC = () => (
     <div className='dashboard-view__container'>
       <div className='dashboard-view__header'>Organizer&apos;s View</div>
       <div className='dashboard-view__components'>
+        {/* left panel */}
         <div className='dashboard-view__announcements'>
           <AddAnnouncement />
           <AnnouncementsListed />
         </div>
+        {/* right panel */}
         <div className='dashboard-view__analytics'>
           <Analytics />
         </div>

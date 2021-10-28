@@ -4,20 +4,12 @@
 .add-announcement-component {
     display: flex;
     flex-direction: column;
-
-    &__form-note {
-        font-family: "Source Sans Pro", sans-serif;
-        font-style: italic;
-        font-weight: normal;
-        font-size: 25px;
-        color: #ffffff;
-    }
+    width: 100%;
 
     &__header {
         display: flex;
         justify-content: space-between;
-        //width: 100%;
-        margin-bottom: 5%;
+        margin-bottom: 20px;
     }
 
     &__header-box {
@@ -34,7 +26,7 @@
         font-family: "Lato", sans-serif;
         font-style: normal;
         font-weight: bold;
-        @include responsiveness.font(2.8vw, 22px, 42px);
+        @include responsiveness.font(2.1vw, 20px, 45px);
         color: #FFFFFF;
         @include responsiveness.screen(smallest, phone, tablet) {
             padding: 8px 10px;
@@ -60,7 +52,7 @@
             text-align: center;
             color: #FFFFFF;
             @include responsiveness.screen(smallest, phone, tablet) {
-                @include responsiveness.font(3.1vw, 12px, 20px);
+                @include responsiveness.font(3.1vw, 14px, 26px);
             }
         }
     }
@@ -71,36 +63,31 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-    }
 
-    &__title {
-        width: 85%;
-        height: 30px;
-        margin-bottom: 5px;
-
-        @include responsiveness.screen(smallest, phone, tablet) {
-            width: 100%;
+        input {
+            height: 30px;
         }
-    }
 
-    &__message {
-        width: 85%;
-        height: 120px;
-        margin-bottom: 5px;
-        resize: none;
-
-        @include responsiveness.screen(smallest, phone, tablet) {
-            width: 100%;
+        textarea {
+            height: 120px;
+            resize: none;
         }
-    }
-
-    &__submit {
-        background-color: #B8EDF9;
-        margin-bottom: 10px;
     }
 
     &__form-note {
-        margin-bottom: 10px;
         @include typography.text;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    &__textbox {
+        margin-bottom: 5px;
+        padding: 2px 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__submit {
+        margin-bottom: 20px;
+        background-color: #B8EDF9;
     }
 }

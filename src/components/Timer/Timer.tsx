@@ -24,8 +24,11 @@ const TimeRemaining: React.FC = () => {
       const minutes = Math.floor((difference / 1000 / 60) % 60)
       const seconds = Math.floor((difference / 1000) % 60)
       timeLeft = {
-        // (days < 100 ? "0" : "") +
-        days: ((days < 10 ? "0" : "") + days).toString(),
+        days: (
+          (days < 100 ? "0" : "") +
+          (days < 10 ? "0" : "") +
+          days
+        ).toString(),
         hours: ((hours < 10 ? "0" : "") + hours).toString(),
         minutes: ((minutes < 10 ? "0" : "") + minutes).toString(),
         seconds: ((seconds < 10 ? "0" : "") + seconds).toString(),

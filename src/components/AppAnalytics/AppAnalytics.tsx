@@ -21,16 +21,12 @@ const AppAnalytics: React.FC = () => {
           // the server responded successfully, now check our own status code
           const { status } = res.data
           if (status === 404) {
-            setError("There is no applicants :(")
+            setError("There are no applicants :(")
           } else {
             setData(res.data.message)
           }
-        } else if (res.status === 500) {
-          setError("An internal error occurred.")
         } else {
-          setError(
-            "Something went wrong! We couldn't retrieve the data from the server."
-          )
+          setError("Something went wrong!")
         }
       })
       .catch(err => setError(err))
@@ -47,7 +43,7 @@ const AppAnalytics: React.FC = () => {
         >
           Get Analytics
         </CoolDownButton>
-        {error && <div>{error}</div>}
+        {error && <div className='app-analytics-component__error'>{error}</div>}
       </div>
       <div className='app-analytics-component__results'>
         <div className='app-analytics-component__result'>
