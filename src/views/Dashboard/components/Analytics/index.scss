@@ -8,4 +8,13 @@
         box-sizing: border-box;
         width: 100%;
     }
+
+    @include responsiveness.screen(large-tablet) {
+        flex-direction: row;
+        gap: 20px;
+
+        > div {
+            width: 50%;
+        }
+    }
 }

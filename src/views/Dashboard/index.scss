@@ -47,11 +47,10 @@
     justify-content: space-between;
     flex-wrap: nowrap;
     flex-shrink: 0;
-    gap: 5%;
     margin-top: 5%;
     height: 100%;
 
-    @include responsiveness.screen(smallest, phone, tablet) {
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       flex-wrap: wrap;
     }
   }
@@ -59,7 +58,11 @@
   &__announcements {
     width: 60%;
 
-    @include responsiveness.screen(smallest, phone, tablet) {
+    @include responsiveness.screen(small-laptop) {
+      width: 55%;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       width: 100%;
     }
   }
@@ -67,7 +70,11 @@
   &__analytics {
     width: 35%;
 
-    @include responsiveness.screen(smallest, phone, tablet) {
+    @include responsiveness.screen(small-laptop) {
+      width: 40%;
+    }
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       width: 100%;
     }
   }

@@ -1,8 +1,6 @@
 @use "~stylesheets/typography";
 @use "~stylesheets/responsiveness";
 
-// TODO: responsiveness for large-tablet and small-laptop
-
 .timer-component {
     display: flex;
     flex-direction: column;
@@ -16,6 +14,8 @@
         justify-content: space-around;
         align-items: baseline;
         width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
     &__header {
@@ -26,7 +26,7 @@
         text-align: center;
         color: #FFFFFF;
 
-        @include responsiveness.screen(smallest, phone) {
+        @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
             font-size: 32px;
         }
     }
@@ -60,7 +60,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        margin: 0 6px 0 6px;
+        margin: 0 3px 0 3px;
         width: 35px;
         height: 48px;
         background: rgba(255, 255, 255, 0.91);

@@ -12,10 +12,10 @@ const TimeRemaining: React.FC = () => {
   const calculateTimeLeft = () => {
     const difference = +new Date(`1-14-2022`) - +new Date()
     let timeLeft = {
-      days: "0",
-      hours: "0",
-      minutes: "0",
-      seconds: "0",
+      days: "00",
+      hours: "00",
+      minutes: "00",
+      seconds: "00",
     }
 
     if (difference > 0) {
@@ -24,11 +24,8 @@ const TimeRemaining: React.FC = () => {
       const minutes = Math.floor((difference / 1000 / 60) % 60)
       const seconds = Math.floor((difference / 1000) % 60)
       timeLeft = {
-        days: (
-          (days < 100 ? "0" : "") +
-          (days < 10 ? "0" : "") +
-          days
-        ).toString(),
+        // (days < 100 ? "0" : "") +
+        days: ((days < 10 ? "0" : "") + days).toString(),
         hours: ((hours < 10 ? "0" : "") + hours).toString(),
         minutes: ((minutes < 10 ? "0" : "") + minutes).toString(),
         seconds: ((seconds < 10 ? "0" : "") + seconds).toString(),
@@ -39,10 +36,10 @@ const TimeRemaining: React.FC = () => {
   }
 
   const [timeLeft, setTimeLeft] = useState<Timer>({
-    days: "0",
-    hours: "0",
-    minutes: "0",
-    seconds: "0",
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
   })
 
   useEffect(() => {
@@ -65,7 +62,7 @@ const TimeRemaining: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className='timer-component__field'>Days</div>
+          <div className='timer-component__field'>days</div>
         </div>
         :
         <div className='timer-component__clock'>
@@ -77,7 +74,7 @@ const TimeRemaining: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className='timer-component__field'>Hours</div>
+          <div className='timer-component__field'>hours</div>
         </div>
         :
         <div className='timer-component__clock'>
@@ -89,7 +86,7 @@ const TimeRemaining: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className='timer-component__field'>Minutes</div>
+          <div className='timer-component__field'>minutes</div>
         </div>
         :
         <div className='timer-component__clock'>
@@ -100,7 +97,7 @@ const TimeRemaining: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className='timer-component__field'>Seconds</div>
+          <div className='timer-component__field'>seconds</div>
         </div>
       </div>
 

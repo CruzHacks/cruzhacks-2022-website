@@ -24,6 +24,7 @@ const AppAnalytics: React.FC = () => {
             setError("There are no applicants :(")
           } else {
             setData(res.data.message)
+            setError("")
           }
         } else {
           setError("Something went wrong!")

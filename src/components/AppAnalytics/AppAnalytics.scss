@@ -3,14 +3,15 @@
 
 .app-analytics-component {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    height: 261px;
+    min-height: 261px;
     @include typography.admin-card;
 
     &__button {
         button {
-            background-color: #B8EDF9;
+            border: 3px solid #B8EDF9;
         }
     }
 

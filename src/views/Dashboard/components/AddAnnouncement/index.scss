@@ -54,6 +54,10 @@
             @include responsiveness.screen(smallest, phone, tablet) {
                 @include responsiveness.font(3.1vw, 14px, 26px);
             }
+
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 
@@ -88,6 +92,6 @@
 
     &__submit {
         margin-bottom: 20px;
-        background-color: #B8EDF9;
+        border: 3px solid #B8EDF9;
     }
 }
