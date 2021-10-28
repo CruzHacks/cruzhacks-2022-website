@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react"
 
 export interface VerificationEmailProps {
   user: string | undefined
@@ -20,7 +20,7 @@ export interface MilestoneProps {
 }
 
 export interface AboutProps {
-  title: string,
+  title: string
   description: string
 }
 
@@ -28,7 +28,6 @@ export interface NavbarRouteProps {
   route: string
   name: string
 }
-
 
 export interface MessageProps {
   message: string
@@ -52,6 +51,19 @@ export interface FieldProps {
   handleChange: any
   fieldState: string
   errorMessage: string
-  label: string 
+  label: string
   maxLength: number
+}
+
+export interface RadioButtonProps {
+  label: string
+  name?: string
+}
+
+export interface RadioFormProps {
+  question: string
+  name: string
+  inputs: {
+    label: string
+  }[]
 }
