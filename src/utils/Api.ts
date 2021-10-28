@@ -12,11 +12,11 @@ const RECAPTCHA_VERIFICATION_ENDPOINT =
 const ANNOUNCEMENT_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/announcements/` || ""
 
-const ANALYTICS_ENDPOINT =
-  `${process.env.REACT_APP_ENDPOINT_URL}/application/` || ""
+const APPLICATION_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/application` || ""
 
-const CHECK_APPLICATION_ENDPOINT =
-  `${process.env.REACT_APP_ENDPOINT_URL}/application/checkApp` || ""
+const ANALYTICS_ENDPOINT = `${APPLICATION_ENDPOINT}/analytics` || ""
+const CHECK_APPLICATION_ENDPOINT = `${APPLICATION_ENDPOINT}/checkApp` || ""
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -121,26 +121,13 @@ export function postAnnouncement(
     .catch(err => err.message)
 }
 
-export function getAnalytics(authToken: string) {
-  const axiosConfig: AxiosRequestConfig = {
-    headers: {
-      Authorization: `Bearer ${authToken}`,
-    },
-  }
-
-  return axios
-    .get(ANALYTICS_ENDPOINT, axiosConfig)
-    .then((response: AxiosResponse) => {
-      if (response.status === 200) {
-        return response
-      }
-      return response
-    })
-    .catch(err => err.message)
-}
-
 // application endpoints
 
+// TODO: submit endpoint
+
+/**
+ * Check the application status for the given authenticated user.
+ */
 export function checkApplication(authToken: string) {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
@@ -156,6 +143,28 @@ export function checkApplication(authToken: string) {
     }))
     .catch(err => ({
       statusCode: null,
+      data: err,
+    }))
+}
+
+/**
+ * Get applicant analytics. Only accessible by admins.
+ */
+export function getAnalytics(authToken: string) {
+  const axiosConfig: AxiosRequestConfig = {
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }
+
+  return axios
+    .get(ANALYTICS_ENDPOINT, axiosConfig)
+    .then((response: AxiosResponse) => ({
+      status: response.status,
+      data: response.data,
+    }))
+    .catch(err => ({
+      status: null,
       data: err,
     }))
 }

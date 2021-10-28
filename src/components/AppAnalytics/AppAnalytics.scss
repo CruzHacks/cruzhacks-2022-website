@@ -1,39 +1,39 @@
 @use "~stylesheets/typography";
 @use "~stylesheets/responsiveness";
+
 .app-analytics-component {
-    @include typography.admin-card;
-    height: 261px;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    height: 261px;
+    @include typography.admin-card;
 
     &__button {
         button {
             background-color: #B8EDF9;
         }
     }
+
     &__results {
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
     }
+
     &__result {
-        text-align: center;
-        font-family: Montserrat;
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 17px;
-        line-height: 21px;
         text-align: center;
         color: #FFFFFF;
     }
+
     &__data {
-        font-family: Montserrat;
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 45px;
-        line-height: 55px;
         text-align: center;
         color: #FFFFFF;
     }

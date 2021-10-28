@@ -16,27 +16,31 @@ const AddAnnouncement: React.FC = () => {
     // event.preventDefault()
     setDisabled(true)
     if (title.length <= 0 || title.length >= 50) {
-      setNote("Invalid Title")
+      setNote("Invalid title")
       setDisabled(false)
       return
     }
+
     if (message.length <= 0 || message.length >= 200) {
-      setNote("Invalid Message")
+      setNote("Invalid message")
       setDisabled(false)
       return
     }
+
     if (!/^[a-zA-Z0-9 ]+$/.test(title) || !/^[a-zA-Z0-9 ]+$/.test(message)) {
-      setNote("Alphanumeric Characters Only")
+      // TODO: we would want punctuations right?
+      setNote("Alphanumeric characters only")
       setDisabled(false)
       return
     }
+
     const token = await getAccessTokenSilently()
     postAnnouncement(token, title, message)
       .then(res => {
         if (res.status !== 201) {
-          setNote("Unable to Submit Announcement")
+          setNote("Unable to submit announcement")
         } else {
-          setNote("You have Submitted an Announcement")
+          setNote("You have submitted an announcement")
         }
         setTitle("")
         setMessage("")
@@ -67,40 +71,33 @@ const AddAnnouncement: React.FC = () => {
       </div>
       {display && (
         <div className='add-announcement-component__form'>
-          <div className='add-announcement-component__field'>
-            <input
-              className='add-announcement-component__textbox'
-              onChange={e => setTitle(e.target.value)}
-              maxLength={25}
-              placeholder='title'
-            />
-          </div>
-          <div className='add-announcement-component__field'>
-            <textarea
-              className='add-announcement-component__textbox'
-              onChange={e => setMessage(e.target.value)}
-              maxLength={100}
-              placeholder='message'
-            />
-          </div>
-          <div className='add-announcement-component__field'>
-            <CoolDownButton
-              disabled={disabled}
-              onClick={onSubmit}
-              label='submit'
-              className='add-announcement-component__submit'
-              duration={30 * 1000}
-            >
-              Submit
-            </CoolDownButton>
-            {/* <button type='submit' disabled={disabled}>
-                Submit
-              </button> */}
-          </div>
-
           {note && (
-            <div className='add-announcement-component__form-note'>{note}</div>
+            <div className='add-announcement-component__form-note'>
+              &bull; {note}
+            </div>
           )}
+
+          <input
+            className='add-announcement-component__title'
+            onChange={e => setTitle(e.target.value)}
+            maxLength={25}
+            placeholder='title'
+          />
+          <textarea
+            className='add-announcement-component__message'
+            onChange={e => setMessage(e.target.value)}
+            maxLength={100}
+            placeholder='message'
+          />
+          <CoolDownButton
+            disabled={disabled}
+            onClick={onSubmit}
+            label='submit'
+            className='add-announcement-component__submit'
+            duration={30 * 1000}
+          >
+            Submit
+          </CoolDownButton>
         </div>
       )}
     </div>

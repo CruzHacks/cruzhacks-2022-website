@@ -3,30 +3,50 @@
 .dashboard-view {
   background: linear-gradient(#7eb6cd, #8189ce);
   min-height: 100vh;
-  &__header {
-    font-family: Lato, "sans-serif";
-    font-style: normal;
-    font-weight: bold;
-    // font-size: 70px;
-    line-height: 84px;
-    color: #FFFFFF;
-    border-bottom: 7px solid #fff;
-    width: fit-content;
-    margin-left: 8%;
-    @include responsiveness.font(4.1vw, 30px, 70px);
-    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
-        width: 100%;
-        border-bottom: 0;
-        text-align: center;
-        margin-left: 0;
+
+  &__container {
+    margin: 0 auto;
+    padding: 30px 80px;
+    max-width: 1800px;
+
+    @include responsiveness.screen(smallest) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    @include responsiveness.screen(phone) {
+      padding: 10px 30px;
     }
   }
+
+  &__header {
+    width: fit-content;
+    border-bottom: 7px solid #fff;
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #FFFFFF;
+
+    @include responsiveness.font(4.1vw, 30px, 70px);
+    @include responsiveness.screen(smallest, phone, tablet) {
+      margin-left: 0;
+      width: 100%;
+      border-bottom: 0;
+      text-align: center;
+    }
+  }
+
   &__components {
-      margin-top: 5%;
-      display: flex;
-      justify-content: space-around;
-      height: 100%;
-      flex-shrink: 0;
-      flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    gap: 5%;
+    margin-top: 5%;
+    height: 100%;
+
+    > div {
+      //background: #8C8C8C;
+    }
   }
 }

@@ -48,12 +48,12 @@ const AnnouncementsListed: React.FC = () => {
         })}
       {!error && announcements.length === 0 && (
         <div className='announcements-listed-component__message'>
-          There are no Viewable Announcements!
+          There are no viewable announcements!
         </div>
       )}
       {error && (
         <div className='announcements-listed-component__message'>
-          Unable to Fetch Announcements
+          Unable to fetch announcements :(
         </div>
       )}
     </div>
