@@ -1,0 +1,10 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+.text_field {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 155px;
+    height: 40px;
+    @include typography.form-prompts;
+}

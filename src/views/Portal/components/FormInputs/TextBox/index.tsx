@@ -1,5 +1,6 @@
 import React from "react"
 import { FieldProps } from "Props/props"
+import "./index.scss"
 
 const TextBox: React.FC<FieldProps> = ({
   name,
@@ -9,7 +10,7 @@ const TextBox: React.FC<FieldProps> = ({
   label,
   maxLength,
 }: FieldProps) => (
-  <div className='input-box'>
+  <div className='text_box'>
     {name}
     {errorMessage.length > 0 ? errorMessage : ""}
     <textarea

@@ -1,5 +1,6 @@
 import React from "react"
 import { FieldProps } from "Props/props"
+import "./index.scss"
 
 const TextField: React.FC<FieldProps> = ({
   name,
@@ -9,7 +10,7 @@ const TextField: React.FC<FieldProps> = ({
   label,
   maxLength,
 }: FieldProps) => (
-  <div className='input-field'>
+  <div className='text_field'>
     {name}
     {errorMessage.length > 0 ? errorMessage : ""}
     <input
