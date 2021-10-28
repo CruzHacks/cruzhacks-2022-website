@@ -57,6 +57,7 @@
         align-items: center;
         justify-content: center;
         min-width: 200px;
+        height: unset;
       }
 
       &__box {
@@ -199,14 +200,11 @@
       float: right;
       @include responsiveness.screen(big-desktop) {
         width: 100%;
-        margin-right:50px;
+        margin-right: 50px;
       }
       @include responsiveness.screen(desktop) {
         width: 85%;
         margin-right: 25px;
-      }
-      @include responsiveness.screen(smallest, mobile, tablet) {
-        height: 100%
       }
     }
     
