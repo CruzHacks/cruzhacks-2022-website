@@ -6,19 +6,21 @@ import "./index.scss"
 
 const AnnouncementsListed: React.FC = () => {
   const [announcements, setAnnouncements] = useState([])
-  const [error, setError] = useState<string>("")
+  const [error, setError] = useState<boolean>(false)
   useEffect(() => {
     const storageAnnouncements = retrieve("announcements", "")
 
     if (storageAnnouncements === "") {
-      getAllAnnouncements().then(res => {
-        if (res.status !== 200) {
-          setError("Unable to Fetch Announcements")
-        } else {
-          setAnnouncements(JSON.parse(res.data.announcements))
-          store("announcements", JSON.parse(res.data.announcements), 2 * 60)
-        }
-      })
+      getAllAnnouncements()
+        .then(res => {
+          if (res.status !== 200) {
+            setError(true)
+          } else {
+            setAnnouncements(JSON.parse(res.data.announcements))
+            store("announcements", JSON.parse(res.data.announcements), 2 * 60)
+          }
+        })
+        .catch(() => setError(true))
     } else {
       setAnnouncements(storageAnnouncements)
     }

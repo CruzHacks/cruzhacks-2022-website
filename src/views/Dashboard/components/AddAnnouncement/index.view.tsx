@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { postAnnouncement } from "utils/Api"
 import CoolDownButton from "components/Button/CoolDownButton"
@@ -6,14 +6,25 @@ import "./index.scss"
 
 const AddAnnouncement: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
-  const [message, setMessage] = useState<string>("")
-  const [title, setTitle] = useState<string>("")
+
   const [note, setNote] = useState<string>("")
   const [disabled, setDisabled] = useState<boolean>(false)
   const [display, setDisplay] = useState<boolean>(false)
 
+  // references
+  const titleRef = useRef<HTMLInputElement>(null)
+  const messageRef = useRef<HTMLTextAreaElement>(null)
+
   const onSubmit = async () => {
     // event.preventDefault()
+    if (!titleRef.current || !messageRef.current) {
+      setNote("We lost your input box...")
+      return
+    }
+
+    const title = titleRef.current.value
+    const message = messageRef.current.value
+
     setDisabled(true)
     if (title.length <= 0 || title.length >= 50) {
       setNote("Invalid title")
@@ -27,6 +38,7 @@ const AddAnnouncement: React.FC = () => {
       return
     }
 
+    // TODO: we need punctuations and line breaks right?
     if (!/^[a-zA-Z0-9 ]+$/.test(title) || !/^[a-zA-Z0-9 ]+$/.test(message)) {
       setNote("Alphanumeric characters only")
       setDisabled(false)
@@ -39,10 +51,13 @@ const AddAnnouncement: React.FC = () => {
         if (res.status !== 201) {
           setNote("Unable to submit announcement")
         } else {
-          setNote("You have submitted an announcement")
+          setNote("Your announcement has been submitted")
         }
-        setTitle("")
-        setMessage("")
+
+        // clear the input boxes
+        if (titleRef.current) titleRef.current.value = ""
+        if (messageRef.current) messageRef.current.value = ""
+
         setDisabled(false)
       })
       .catch(() => {
@@ -76,14 +91,14 @@ const AddAnnouncement: React.FC = () => {
           )}
 
           <input
+            ref={titleRef}
             className='add-announcement-component__textbox'
-            onChange={e => setTitle(e.target.value)}
             maxLength={25}
             placeholder='title'
           />
           <textarea
+            ref={messageRef}
             className='add-announcement-component__textbox'
-            onChange={e => setMessage(e.target.value)}
             maxLength={100}
             placeholder='message'
           />

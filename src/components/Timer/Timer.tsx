@@ -10,29 +10,24 @@ interface Timer {
 
 const TimeRemaining: React.FC = () => {
   const calculateTimeLeft = () => {
-    const difference = +new Date(`1-14-2022`) - +new Date()
-    let timeLeft = {
-      days: "00",
-      hours: "00",
-      minutes: "00",
-      seconds: "00",
+    const difference = +new Date(`1-14-2022 15:00`) - +new Date()
+
+    if (difference < 0) {
+      return undefined
     }
 
-    if (difference > 0) {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
-      const minutes = Math.floor((difference / 1000 / 60) % 60)
-      const seconds = Math.floor((difference / 1000) % 60)
-      timeLeft = {
-        // (days < 100 ? "0" : "") +
-        days: ((days < 10 ? "0" : "") + days).toString(),
-        hours: ((hours < 10 ? "0" : "") + hours).toString(),
-        minutes: ((minutes < 10 ? "0" : "") + minutes).toString(),
-        seconds: ((seconds < 10 ? "0" : "") + seconds).toString(),
-      }
-    }
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24))
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24)
+    const minutes = Math.floor((difference / 1000 / 60) % 60)
+    const seconds = Math.floor((difference / 1000) % 60)
 
-    return timeLeft
+    return {
+      // (days < 100 ? "0" : "") +
+      days: ((days < 10 ? "0" : "") + days).toString(),
+      hours: ((hours < 10 ? "0" : "") + hours).toString(),
+      minutes: ((minutes < 10 ? "0" : "") + minutes).toString(),
+      seconds: ((seconds < 10 ? "0" : "") + seconds).toString(),
+    }
   }
 
   const [timeLeft, setTimeLeft] = useState<Timer>({
@@ -43,10 +38,18 @@ const TimeRemaining: React.FC = () => {
   })
 
   useEffect(() => {
-    setTimeout(() => {
-      setTimeLeft(calculateTimeLeft())
+    const timer = setInterval(() => {
+      const val = calculateTimeLeft()
+      if (!val) {
+        clearInterval(timer)
+        return
+      }
+
+      setTimeLeft(val)
     }, 1000)
-  })
+
+    return () => clearInterval(timer)
+  }, [])
 
   // const keys = ["days", "hours", "minutes", "seconds"]
 

@@ -24,6 +24,7 @@
         font-weight: 500;
         font-size: 40px;
         text-align: center;
+        text-transform: uppercase;
         color: #FFFFFF;
 
         @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
