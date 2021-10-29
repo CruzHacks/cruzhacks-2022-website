@@ -1,21 +1,45 @@
-import React from "react"
+import React, { useState } from "react"
 import { DropDownProps } from "Props/props"
 import "./index.scss"
 
 const DropDown: React.FC<DropDownProps> = ({
   question,
   inputs,
-}: DropDownProps) => (
-  <div className='dropdown'>
-    <div className='dropdown__question'>{question}</div>
-    <form>
-      <select className='dropdown__select'>
+}: DropDownProps) => {
+  const [isInvisible, setIsVisible] = useState(false)
+  const [active, setActive] = useState("select")
+  return (
+    <div className='dropdown'>
+      <div className='dropdown__question'>{question}</div>
+      <div className='dropdown__wrapper'>
+        <button
+          type='button'
+          className='dropdown__wrapper__button'
+          onClick={() => setIsVisible(!isInvisible)}
+        >
+          {active}
+        </button>
+      </div>
+      <ul className='dropdown__select'>
         {inputs.map(({ label }) => (
-          <option value={label}>{label}</option>
+          <li
+            value={label}
+            className={`dropdown--items ${
+              isInvisible ? "dropdown--invisible" : ""
+            }`}
+          >
+            <button
+              className='dropdown--items--opt'
+              type='button'
+              onClick={() => setActive(`${label}`)}
+            >
+              {label}
+            </button>
+          </li>
         ))}
-      </select>
-    </form>
-  </div>
-)
+      </ul>
+    </div>
+  )
+}
 
 export default DropDown

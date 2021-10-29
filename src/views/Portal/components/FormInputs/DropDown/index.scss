@@ -6,15 +6,42 @@
   flex-wrap: wrap;
   margin: 0 10px 10px 10px;
   min-width: 155px;
+  justify-content: center;
   @include typography.form-prompts;
-  &__question {
+
+  &__wrapper {
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    &__button {
+      background-color: #4CAF50;
+      border: none;
+      color: black;
+      max-width: 100px;
+    }
+  }
     
+  &__question {
     min-width: 155px;
     flex-basis: 100%; 
   }
+  &--invisible {
+    display: none;
+  }
+  &--items {
+    flex-basis: 100%;
+    &--opt {
+      background-color: white;
+      color: black;
+      border: none;
+    }
+  } 
   &__select {
-    
+    overflow: scroll;
     min-width: 155px;
+    max-height: 50px;
+    overflow-x: hidden;
+    list-style-type: none;
     @include typography.form-prompts;
   }
 }
