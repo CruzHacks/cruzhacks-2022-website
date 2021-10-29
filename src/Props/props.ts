@@ -67,3 +67,16 @@ export interface RadioFormProps {
     label: string
   }[]
 }
+
+export interface DropDownListProps {
+  inputs: {
+    label: string
+  }[]
+}
+
+export interface DropDownProps {
+  question: string
+  inputs: {
+    label: string
+  }[]
+}

@@ -1,0 +1,20 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 10px 10px 10px;
+  min-width: 155px;
+  @include typography.form-prompts;
+  &__question {
+    
+    min-width: 155px;
+    flex-basis: 100%; 
+  }
+  &__select {
+    
+    min-width: 155px;
+    @include typography.form-prompts;
+  }
+}
