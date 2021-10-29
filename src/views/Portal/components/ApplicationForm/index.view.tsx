@@ -49,19 +49,19 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
   const renderPage = (pageNumber: number) => {
     switch (pageNumber) {
       case ApplicationPages.Contact:
-        return ContactForm
+        return <ContactForm />
       case ApplicationPages.Demographic:
-        return DemographicForm
+        return <DemographicForm />
       case ApplicationPages.ShortAnswer:
-        return ShortAnswerForm
+        return <ShortAnswerForm />
       case ApplicationPages.PriorExperience:
-        return ExperienceForm
+        return <ExperienceForm />
       case ApplicationPages.Connected:
-        return ConnectedForm
+        return <ConnectedForm />
       case ApplicationPages.MLH:
         return MLHForm
       default:
-        return ContactForm
+        return <ContactForm />
     }
   }
 
@@ -69,6 +69,7 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
     <div className='application-form-component'>
       Application Form
       {renderPage(page)}
+      {page}
       <button type='button' onClick={saveData}>
         Save
       </button>
