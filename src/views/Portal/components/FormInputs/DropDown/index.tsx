@@ -20,24 +20,26 @@ const DropDown: React.FC<DropDownProps> = ({
           {active}
         </button>
       </div>
-      <ul className='dropdown__select'>
-        {inputs.map(({ label }) => (
-          <li
-            value={label}
-            className={`dropdown--items ${
-              isInvisible ? "dropdown--invisible" : ""
-            }`}
-          >
-            <button
-              className='dropdown--items--opt'
-              type='button'
-              onClick={() => setActive(`${label}`)}
+      <div className='dropdown__container'>
+        <ul className='dropdown__container__select'>
+          {inputs.map(({ label }) => (
+            <li
+              value={label}
+              className={`dropdown--items ${
+                isInvisible ? "dropdown--invisible" : ""
+              }`}
             >
-              {label}
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button
+                className='dropdown--items--opt'
+                type='button'
+                onClick={() => setActive(`${label}`)}
+              >
+                {label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
