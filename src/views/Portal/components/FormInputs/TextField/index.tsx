@@ -3,6 +3,7 @@ import { FieldProps } from "Props/props"
 import "./index.scss"
 
 const TextField: React.FC<FieldProps> = ({
+  className,
   name,
   handleChange,
   fieldState,
@@ -10,15 +11,16 @@ const TextField: React.FC<FieldProps> = ({
   label,
   maxLength,
 }: FieldProps) => (
-  <div className='text_field'>
+  <div className={className}>
     {name}
-    {errorMessage.length > 0 ? errorMessage : ""}
+    {errorMessage}
     <input
       type='text'
       aria-label={label}
       value={fieldState}
       maxLength={maxLength}
       onChange={handleChange}
+      className={`${className}--input`}
     />
   </div>
 )

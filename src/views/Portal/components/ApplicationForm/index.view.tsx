@@ -69,7 +69,6 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
     <div className='application-form-component'>
       Application Form
       {renderPage(page)}
-      {page}
       <button type='button' onClick={saveData}>
         Save
       </button>
