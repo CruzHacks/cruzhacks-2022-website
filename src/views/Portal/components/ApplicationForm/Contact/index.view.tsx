@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react"
 import TextField from "../../FormInputs/TextField"
 
 // TO DO:
-// --ContactPage: 
+// --ContactPage:
 //     should take props from ApplicationForm to handleChange/ elevate state to ApplicationForm
 //
 // --Possibly refactor:
