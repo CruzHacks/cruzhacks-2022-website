@@ -10,8 +10,8 @@ interface Timer {
 
 const TimeRemaining: React.FC = () => {
   const calculateTimeLeft = () => {
-    // 1-14-2022 15:00
-    const eventDate = new Date(2022, 0, 14, 15, 0)
+    // Fri Jan 14 2022 15:00:00 GMT-0800 (Pacific Standard Time)
+    const eventDate = new Date("2022-01-14T15:00-08:00")
 
     const difference = +eventDate - Date.now()
 
@@ -49,7 +49,7 @@ const TimeRemaining: React.FC = () => {
       }
 
       setTimeLeft(val)
-    }, 1000)
+    }, 500)
 
     return () => clearInterval(timer)
   }, [])
