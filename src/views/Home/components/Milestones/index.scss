@@ -52,6 +52,8 @@
     }
 
     &__milestone {
+      gap: 20px;
+
       &__image-container {
         display: flex;
         align-items: center;
@@ -61,7 +63,7 @@
       }
 
       &__img {
-        width: 100%;
+        width: 95%;
       }
 
       &__box {
