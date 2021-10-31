@@ -53,7 +53,7 @@ export interface FieldProps {
   fieldState: string | undefined
   errorMessage: string | undefined
   label: string
-  maxLength: number
+  maxLength?: number
 }
 
 export interface RadioButtonProps {

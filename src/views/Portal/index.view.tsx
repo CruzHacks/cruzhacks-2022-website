@@ -13,6 +13,10 @@ const PortalView: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
   const [status, setStatus] = useState(AppStatus.Loading)
   const [page, setPage] = useState<number>(0)
+
+  const startApp = () => {
+    setPage(1)
+  }
   useEffect(() => {
     try {
       const cachedStatus = retrieve("applicationStatus", undefined)
@@ -61,7 +65,7 @@ const PortalView: React.FC = () => {
     case ApplicationPages.Home:
       return (
         <ApplicationBackground>
-          <ApplicationStatus status={status} />
+          <ApplicationStatus status={status} onClick={startApp} />
         </ApplicationBackground>
       )
     default:

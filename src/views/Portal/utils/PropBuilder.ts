@@ -1,6 +1,10 @@
-import { ContactProps } from "Props/application/props"
+import {
+  ContactProps,
+  ShortAnswerProps,
+  PriorExperienceProps,
+} from "Props/application/props"
 
-const generateContactProps = (
+export const generateContactProps = (
   fname: string,
   lname: string,
   phone: string,
@@ -15,4 +19,26 @@ const generateContactProps = (
   return newObj
 }
 
-export default generateContactProps
+export const generateShortAnswerProps = () => {
+  const newObj: ShortAnswerProps = {
+    whyCruzHacks: "",
+    newThisYear: "",
+    grandestInvention: "",
+    whyCruzHacksErr: "",
+    newThisYearErr: "",
+    grandestInventionErr: "",
+  }
+  return newObj
+}
+
+export const generatePriorExperienceProps = () => {
+  const newObj: PriorExperienceProps = {
+    firstCruzHacks: true,
+    hackathonCount: 0,
+    priorExperience: "",
+    firstCruzHacksErr: "",
+    hackathonCountErr: "",
+    priorExperienceErr: "",
+  }
+  return newObj
+}
