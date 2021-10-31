@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import "./index.scss"
 import { useAuth0 } from "@auth0/auth0-react"
-import { ApplicationPagesProps } from "Props/props"
 import ApplicationPages from "Props/portal/page"
+import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import {
   ContactProps,
   //   DemographicProps,
@@ -23,11 +23,9 @@ import MLHForm from "./MLH/index.view"
 import ExperienceForm from "./PriorExperience/index.view"
 import ShortAnswerForm from "./ShortAnswer/index.view"
 
-const ApplicationForm: React.FC<ApplicationPagesProps> = ({
-  page,
-  setPage,
-}: ApplicationPagesProps) => {
+const ApplicationForm: React.FC = () => {
   const { user } = useAuth0()
+  const { page, prevPage, nextPage } = useApplication()!
   const [contactFormData, setContactFormData] = useState<ContactProps>(
     generateContactProps("", "", "", user ? user.email : "")
   )
@@ -39,17 +37,6 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
     useState<PriorExperienceProps>(generatePriorExperienceProps())
   // const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
   // const [mlhFormData, setmlhFormData] = useState<MLHProps>()
-
-  const prevPage = () => {
-    if (page > 1) {
-      setPage(page - 1)
-    }
-  }
-  const nextPage = () => {
-    if (page < 6) {
-      setPage(page + 1)
-    }
-  }
 
   const saveData = () => {}
 
