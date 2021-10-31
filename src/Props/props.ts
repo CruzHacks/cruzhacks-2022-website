@@ -50,8 +50,8 @@ export interface FieldProps {
   className: string
   name: string
   handleChange: any
-  fieldState: string
-  errorMessage: string
+  fieldState: string | undefined
+  errorMessage: string | undefined
   label: string
   maxLength: number
 }

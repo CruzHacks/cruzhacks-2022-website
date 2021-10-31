@@ -13,7 +13,9 @@ const TextField: React.FC<FieldProps> = ({
 }: FieldProps) => (
   <div className={className}>
     {name}
-    {errorMessage}
+    <div className={`${className}--error-message`} style={{ color: "#FF0000" }}>
+      {errorMessage}
+    </div>
     <input
       type='text'
       aria-label={label}
