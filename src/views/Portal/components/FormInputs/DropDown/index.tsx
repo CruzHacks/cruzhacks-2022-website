@@ -6,40 +6,19 @@ const DropDown: React.FC<DropDownProps> = ({
   question,
   inputs,
 }: DropDownProps) => {
-  const [isInvisible, setIsVisible] = useState(false)
+  // const [isInvisible, setIsVisible] = useState(false)
   const [active, setActive] = useState("select")
+
   return (
     <div className='dropdown'>
       <div className='dropdown__question'>{question}</div>
-      <div className='dropdown__wrapper'>
-        <button
-          type='button'
-          className='dropdown__wrapper__button'
-          onClick={() => setIsVisible(!isInvisible)}
-        >
-          {active}
-        </button>
-      </div>
-      <div className='dropdown__container'>
-        <ul className='dropdown__container__select'>
-          {inputs.map(({ label }) => (
-            <li
-              value={label}
-              className={`dropdown--items ${
-                isInvisible ? "dropdown--invisible" : ""
-              }`}
-            >
-              <button
-                className='dropdown--items--opt'
-                type='button'
-                onClick={() => setActive(`${label}`)}
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <select name={active}>
+        {inputs.map(({ label }) => (
+          <option value={label} onClick={() => setActive(`${label}`)}>
+            {label}
+          </option>
+        ))}
+      </select>
     </div>
   )
 }

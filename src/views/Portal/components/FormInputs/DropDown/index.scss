@@ -5,54 +5,34 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 10px 10px 10px;
-  min-width: 155px;
+  width: 155px;
   justify-content: center;
   @include typography.form-prompts;
-  &__wrapper {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
-    width: 155px;
-    height: 20px;
-    &__button {
-      background-color: #4CAF50;
-      border: none;
-      color: black;
-      width: 155px;
-    }
-  }
-    
+
+  
   &__question {
     min-width: 155px;
     flex-basis: 100%; 
   }
-  &--invisible {
-    display: none;
-  }
   
-  &__container {
-    padding: 0;
-    background-color: green;
-    z-index: 50;
-    position: absolute;
-    top: 90px;
-    &__select {
-      margin: 0;
-      padding: 0;
-      overflow: scroll;
-      min-width: 155px;
-      max-height: 200px;
-      overflow-x: hidden;
-      list-style-type: none;
-    }
-  }
-
   &--items {
     flex-basis: 100%;
+    width: 100%;
+    margin: 0;
+    height: 18px;
+    background-color: green;
+    
     &--opt {
+      cursor: pointer;
       background-color: green;
+      height: 18px;
+      width: 100%;
+      margin: 0;
       color: black;
       border: none;
+    }
+    &--opt:hover {
+      background-color: blue;
     }
   }
 }
