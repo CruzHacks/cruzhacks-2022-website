@@ -56,8 +56,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-width: 200px;
+        width: 126px;
         height: unset;
+      }
+
+      &__img {
+        width: 100%;
       }
 
       &__box {
