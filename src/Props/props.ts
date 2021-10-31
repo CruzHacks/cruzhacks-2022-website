@@ -82,4 +82,6 @@ export interface DropDownProps {
   inputs: {
     label: string
   }[]
+  name: any
+  handleChange: any
 }
