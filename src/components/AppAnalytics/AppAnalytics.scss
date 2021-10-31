@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    min-height: 261px;
+    height: 261px;
     @include typography.admin-card;
 
     &__button {
@@ -45,5 +45,9 @@
         font-size: 45px;
         text-align: center;
         color: #FFFFFF;
+
+        @include responsiveness.screen(smallest, phone) {
+            font-size: 30px;
+        }
     }
 }

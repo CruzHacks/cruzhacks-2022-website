@@ -75,6 +75,7 @@
     }
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      margin-top: 30px;
       width: 100%;
     }
   }

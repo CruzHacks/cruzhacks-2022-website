@@ -19,11 +19,11 @@ const AppAnalytics: React.FC = () => {
       .then(res => {
         if (res.status === 200 || res.status === 201) {
           // the server responded successfully, now check our own status code
-          const { status } = res.data
-          if (status === 404) {
+          const { message } = res.data
+          if (message === "No Document") {
             setError("There are no applicants :(")
           } else {
-            setData(res.data.message)
+            setData(message)
             setError("")
           }
         } else {
