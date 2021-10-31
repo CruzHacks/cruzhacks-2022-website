@@ -6,33 +6,17 @@
   flex-wrap: wrap;
   margin: 0 10px 10px 10px;
   width: 155px;
-  justify-content: center;
+  justify-content: left;
   @include typography.form-prompts;
 
-  
   &__question {
     min-width: 155px;
     flex-basis: 100%; 
   }
-  
-  &--items {
-    flex-basis: 100%;
-    width: 100%;
-    margin: 0;
-    height: 18px;
-    background-color: green;
-    
-    &--opt {
-      cursor: pointer;
-      background-color: green;
-      height: 18px;
-      width: 100%;
-      margin: 0;
-      color: black;
-      border: none;
-    }
-    &--opt:hover {
-      background-color: blue;
-    }
+  &--selector {
+    background-color: white;
+    width: 155px;
+    outline: none;
   }
+  
 }
