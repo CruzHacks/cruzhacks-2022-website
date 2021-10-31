@@ -67,6 +67,8 @@ export interface RadioFormProps {
   inputs: {
     label: string
   }[]
+  handleChange: any
+  checkedState: any
 }
 
 export interface DropDownListProps {
