@@ -13,9 +13,10 @@
     margin: auto;
     width: 50%;
     border: 7px solid rgba(255, 255, 255, 0.75);
-    border-radius: 37px;
+    border-radius: 59px;
     padding: 10px;
-
+    height: 1100px;
+    width: 1300px;
     @include responsiveness.screen(large-tablet) {
       width: 225px;
     }
@@ -42,7 +43,7 @@
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
-    line-height: 29px;
+    line-height: auto;
     color: #ffffff;
   }
   &__answer {
@@ -50,17 +51,22 @@
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
-    line-height: 22px;
+    line-height: auto;
     color: #ffffff;
   }
+
   &__questionsandanswers:after {
-    content: "";
     display: table;
     clear: both;
   }
   &__column {
     float: left;
     width: 33.33%;
-    padding: 10px;
+    // margin: 10px;
+    // padding: 10px;
+  }
+  &__questionsandanswersitems {
+    width: 30vh;
+    margin: 10px;
   }
 }
