@@ -3,14 +3,6 @@ import "./index.scss"
 import { ContactHandlers } from "Props/application/props"
 import TextField from "../../FormInputs/TextField"
 
-// TO DO:
-// --Possibly refactor:
-//     TextField into an array and render via array.map()
-//
-//
-// --Form Validation and error handling
-//
-
 const ContactPage: React.FC<ContactHandlers> = ({
   parentState,
   setParentState,

@@ -5,13 +5,16 @@ import { ApplicationPagesProps } from "Props/props"
 import ApplicationPages from "Props/portal/page"
 import {
   ContactProps,
-  //   DemographicProps,
+  DemographicProps,
   //   ShortAnswerProps,
   //   PriorExperienceProps,
   //   ConnectedProps,
   //   MLHProps,
 } from "Props/application/props"
-import generateConactProps from "views/Portal/utils/PropBuilder"
+import {
+  generateContactProps,
+  generateDemographicProps,
+} from "views/Portal/utils/PropBuilder"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -25,10 +28,10 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
 }: ApplicationPagesProps) => {
   const { user } = useAuth0()
   const [contactFormData, setContactFormData] = useState<ContactProps>(
-    generateConactProps("", "", "", user ? user.email : "")
+    generateContactProps("", "", "", user ? user.email : "")
   )
-  // const [demographicFormData, setDemographicFormData] =
-  //   useState<DemographicProps>()
+  const [demographicFormData, setDemographicFormData] =
+    useState<DemographicProps>(generateDemographicProps())
   // const [shortAnswerFormData, setShortAnswerFormData] =
   //   useState<ShortAnswerProps>()
   // const [priorExperienceFormData, setPriorExperienceFormData] =
@@ -58,11 +61,17 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
           <ContactForm
             parentState={contactFormData}
             setParentState={setContactFormData}
-            validationErrors={generateConactProps("", "", "", "")}
+            validationErrors={generateContactProps()}
           />
         )
       case ApplicationPages.Demographic:
-        return <DemographicForm />
+        return (
+          <DemographicForm
+            parentState={demographicFormData}
+            setParentState={setDemographicFormData}
+            validationErrors={generateDemographicProps()}
+          />
+        )
       case ApplicationPages.ShortAnswer:
         return <ShortAnswerForm />
       case ApplicationPages.PriorExperience:
@@ -76,7 +85,7 @@ const ApplicationForm: React.FC<ApplicationPagesProps> = ({
           <ContactForm
             parentState={contactFormData}
             setParentState={setContactFormData}
-            validationErrors={generateConactProps("", "", "", "")}
+            validationErrors={generateContactProps()}
           />
         )
     }

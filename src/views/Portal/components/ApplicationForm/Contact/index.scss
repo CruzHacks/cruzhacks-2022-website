@@ -26,8 +26,12 @@
       &--input {
         width: 500px;
         height: 25px;
-        @include responsiveness.screen(smallest, phone) {
+        @include responsiveness.screen(phone) {
           width: 300px;
+          height: 25px;
+        }
+        @include responsiveness.screen(smallest) {
+          width: 200px;
           height: 25px;
         }
       }

@@ -6,7 +6,18 @@ export interface ContactProps {
 }
 
 export interface DemographicProps {
-    
+    age: string
+    pronounCount: number
+    pronouns: string[]
+    race: string
+    sexualityCount: number
+    sexuality: string[]
+    school: string
+    collegeAffiliation: string
+    eventLocation: string
+    major: string
+    currentStanding: string
+    country: string
 }
 
 export interface ShortAnswerProps {

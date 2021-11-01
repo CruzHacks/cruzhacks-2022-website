@@ -4,8 +4,7 @@
 .dropdown {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 10px 10px 10px;
-  width: 155px;
+  width:300px;
   justify-content: left;
   @include typography.form-prompts;
 
@@ -15,7 +14,7 @@
   }
   &--selector {
     background-color: white;
-    width: 155px;
+    width: 300px;
     outline: none;
   }
   

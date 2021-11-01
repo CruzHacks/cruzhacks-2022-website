@@ -19,6 +19,7 @@ const TextField: React.FC<FieldProps> = ({
     <input
       type='text'
       aria-label={label}
+      name={label}
       value={fieldState}
       maxLength={maxLength}
       onChange={handleChange}
