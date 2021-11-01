@@ -69,6 +69,7 @@ export interface RadioFormProps {
   }[]
   handleChange: any
   checkedState: any
+  errorMessage: any
 }
 
 export interface DropDownListProps {
@@ -84,4 +85,5 @@ export interface DropDownProps {
   }[]
   name: any
   handleChange: any
+  errorMessage: any
 }

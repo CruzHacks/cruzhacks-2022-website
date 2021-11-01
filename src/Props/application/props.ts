@@ -5,9 +5,37 @@ export interface ContactProps {
   lname: string
   phone: string
   email: string | undefined
+  fnameErr: string
+  lnameErr: string
+  phoneErr: string
+  emailErr: string
 }
 
-export interface DemographicProps {}
+export interface DemographicProps {
+    age: string
+    pronounCount: number
+    pronouns: string[]
+    race: string
+    sexualityCount: number
+    sexuality: string[]
+    school: string
+    collegeAffiliation: string
+    eventLocation: string
+    major: string
+    currentStanding: string
+    country: string
+
+    ageErr: string
+    pronounsErr: string
+    raceErr: string
+    sexualityErr: string
+    schoolErr: string
+    collegeAffiliationErr: string
+    eventLocationErr: string
+    majorErr: string
+    currentStandingErr: string
+    countryErr: string
+}
 
 export interface ShortAnswerProps {
   whyCruzHacks: string

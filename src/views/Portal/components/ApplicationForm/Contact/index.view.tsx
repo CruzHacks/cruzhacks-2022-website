@@ -1,26 +1,16 @@
 import React from "react"
 import "./index.scss"
-import { ContactHandlers } from "Props/application/props"
+import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import TextField from "../../FormInputs/TextField"
 
-// TO DO:
-// --Possibly refactor:
-//     TextField into an array and render via array.map()
-//
-//
-// --Form Validation and error handling
-//
+const ContactPage: React.FC = () => {
+  const { contactFormData, setContactFormData } = useApplication()!
 
-const ContactPage: React.FC<ContactHandlers> = ({
-  parentState,
-  setParentState,
-  validationErrors,
-}: ContactHandlers) => {
   const handleChange = (event: any) => {
     const name = event.target.getAttribute("aria-label")
-    if (Object.keys(parentState).includes(name)) {
-      const copy = { ...parentState, [name]: event.target.value }
-      setParentState(copy)
+    if (Object.keys(contactFormData).includes(name)) {
+      const copy = { ...contactFormData, [name]: event.target.value }
+      setContactFormData(copy)
     }
   }
   return (
@@ -34,8 +24,8 @@ const ContactPage: React.FC<ContactHandlers> = ({
             className='contact-page__container--textfield'
             name='First Name'
             handleChange={handleChange}
-            fieldState={parentState.fname}
-            errorMessage={validationErrors.fname}
+            fieldState={contactFormData.fname}
+            errorMessage={contactFormData.fnameErr}
             label='fname'
             maxLength={25}
           />
@@ -43,8 +33,8 @@ const ContactPage: React.FC<ContactHandlers> = ({
             className='contact-page__container--textfield'
             name='Last Name'
             handleChange={handleChange}
-            fieldState={parentState.lname}
-            errorMessage={validationErrors.lname}
+            fieldState={contactFormData.lname}
+            errorMessage={contactFormData.lnameErr}
             label='lname'
             maxLength={25}
           />
@@ -52,8 +42,8 @@ const ContactPage: React.FC<ContactHandlers> = ({
             className='contact-page__container--textfield'
             name='Phone Number'
             handleChange={handleChange}
-            fieldState={parentState.phone}
-            errorMessage={validationErrors.phone}
+            fieldState={contactFormData.phone}
+            errorMessage={contactFormData.phoneErr}
             label='phone'
             maxLength={10}
           />
@@ -61,8 +51,8 @@ const ContactPage: React.FC<ContactHandlers> = ({
             className='contact-page__container--textfield'
             name='Email Address'
             handleChange={handleChange}
-            fieldState={parentState.email}
-            errorMessage={validationErrors.email}
+            fieldState={contactFormData.email}
+            errorMessage={contactFormData.emailErr}
             label='email'
             maxLength={50}
           />

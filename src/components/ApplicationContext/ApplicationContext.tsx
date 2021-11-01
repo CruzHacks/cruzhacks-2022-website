@@ -18,6 +18,7 @@ import {
 } from "Props/application/props"
 import {
   generateContactProps,
+  generateDemographicProps,
   generateShortAnswerProps,
   generatePriorExperienceProps,
 } from "views/Portal/utils/PropBuilder"
@@ -31,11 +32,12 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
-  contactFormData: ContactProps
-  setContactFormData: any
 
-  demographicFormData: any
-  setDemographicFormData: any
+  contactFormData: ContactProps
+  setContactFormData: Dispatch<SetStateAction<ContactProps>>
+
+  demographicFormData: DemographicProps
+  setDemographicFormData: Dispatch<SetStateAction<DemographicProps>>
 
   shortAnswerFormData: ShortAnswerProps
   setShortAnswerFormData: Dispatch<SetStateAction<ShortAnswerProps>>
@@ -63,7 +65,7 @@ export const ApplicationProvider: React.FC = () => {
     generateContactProps("", "", "", user ? user.email : "")
   )
   const [demographicFormData, setDemographicFormData] =
-    useState<DemographicProps>()
+    useState<DemographicProps>(generateDemographicProps())
   const [shortAnswerFormData, setShortAnswerFormData] =
     useState<ShortAnswerProps>(generateShortAnswerProps())
   const [priorExperienceFormData, setPriorExperienceFormData] =

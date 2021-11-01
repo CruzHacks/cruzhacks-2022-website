@@ -1,15 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import "./index.scss"
-import { useAuth0 } from "@auth0/auth0-react"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
-import {
-  ContactProps,
-  //   DemographicProps,
-  //   ConnectedProps,
-  //   MLHProps,
-} from "Props/application/props"
-import { generateContactProps } from "views/Portal/utils/PropBuilder"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -18,15 +10,7 @@ import ExperienceForm from "./PriorExperience/index.view"
 import ShortAnswerForm from "./ShortAnswer/index.view"
 
 const ApplicationForm: React.FC = () => {
-  const { user } = useAuth0()
   const { page, prevPage, nextPage } = useApplication()!
-  const [contactFormData, setContactFormData] = useState<ContactProps>(
-    generateContactProps("", "", "", user ? user.email : "")
-  )
-  // const [demographicFormData, setDemographicFormData] =
-  //   useState<DemographicProps>()
-  // const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
-  // const [mlhFormData, setmlhFormData] = useState<MLHProps>()
 
   const saveData = () => {}
 
@@ -35,13 +19,7 @@ const ApplicationForm: React.FC = () => {
   const renderPage = (pageNumber: number) => {
     switch (pageNumber) {
       case ApplicationPages.Contact:
-        return (
-          <ContactForm
-            parentState={contactFormData}
-            setParentState={setContactFormData}
-            validationErrors={generateContactProps("", "", "", "")}
-          />
-        )
+        return <ContactForm />
       case ApplicationPages.Demographic:
         return <DemographicForm />
       case ApplicationPages.ShortAnswer:
@@ -53,13 +31,7 @@ const ApplicationForm: React.FC = () => {
       case ApplicationPages.MLH:
         return MLHForm
       default:
-        return (
-          <ContactForm
-            parentState={contactFormData}
-            setParentState={setContactFormData}
-            validationErrors={generateContactProps("", "", "", "")}
-          />
-        )
+        return <ContactForm />
     }
   }
 
