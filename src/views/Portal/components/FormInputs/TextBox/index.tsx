@@ -12,7 +12,7 @@ const TextBox: React.FC<FieldProps> = ({
 }: FieldProps) => (
   <div className='text_box'>
     {name}
-    {errorMessage ? errorMessage : ""}
+    {errorMessage}
     <textarea
       aria-label={label}
       value={fieldState}

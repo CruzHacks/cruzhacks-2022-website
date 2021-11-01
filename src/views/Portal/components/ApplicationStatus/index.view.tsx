@@ -1,36 +1,67 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "./index.scss"
+import { useHistory } from "react-router-dom"
+import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import AppStatus from "Props/portal/application"
+import Button from "components/Button/Button"
 
-interface IProps {
-  status: number
-}
-
-const ApplicationStatus: React.FC<IProps> = ({ status }: IProps) => {
+const ApplicationStatus: React.FC = () => {
   // TODO: Update messages according to design.
   //  We might also need to split this into more components if they don't have a similar layout.
-  let message
-  switch (status) {
-    case AppStatus.Loading:
-      message = "Loading..."
-      break
-    case AppStatus.Pending:
-      message =
-        "We've received your application! You will be notified once we process your application."
-      break
-    case AppStatus.Accepted:
-      // TODO: This might have to be its own component if the layout differs
-      message = "Congratulations! Your application has been accepted."
-      break
-    case AppStatus.Rejected:
-      message = "Unfortunately, your application has been rejected."
-      break
-    default:
-      message = "An error occurred."
-      break
+
+  const { nextPage, appStatus } = useApplication()!
+  const [statusMessage, setStatusMessage] = useState<String>("")
+
+  useEffect(() => {
+    switch (appStatus) {
+      case AppStatus.Loading:
+        setStatusMessage("Loading...")
+        break
+      case AppStatus.Pending:
+        setStatusMessage("Pending")
+        break
+      case AppStatus.Accepted:
+        // TODO: This might have to be its own component if the layout differs
+        setStatusMessage("Accepted")
+        break
+      case AppStatus.Rejected:
+        setStatusMessage("Rejected")
+        break
+      case AppStatus.NotFound:
+        setStatusMessage("Open")
+        break
+      default:
+        setStatusMessage("Error")
+        break
+    }
+  }, [appStatus])
+
+  const history = useHistory()
+
+  const onRedirect = () => {
+    history.push("/")
   }
 
-  return <div className='application-status-component'>{message}</div>
+  const startApp = () => {
+    nextPage()
+  }
+
+  return (
+    <div className='application-status-component'>
+      <div className='application-status-component__header'>
+        Welcome, Hacker
+      </div>
+      <div className='application-status-component__status'>
+        Status {statusMessage}
+      </div>
+      <Button label='hello' onClick={onRedirect}>
+        Return Home
+      </Button>
+      <Button label='hello' onClick={startApp}>
+        Start App
+      </Button>
+    </div>
+  )
 }
 
 export default ApplicationStatus
