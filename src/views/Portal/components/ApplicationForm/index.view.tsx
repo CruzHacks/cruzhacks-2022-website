@@ -6,16 +6,10 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import {
   ContactProps,
   //   DemographicProps,
-  ShortAnswerProps,
-  PriorExperienceProps,
   //   ConnectedProps,
   //   MLHProps,
 } from "Props/application/props"
-import {
-  generateContactProps,
-  generateShortAnswerProps,
-  generatePriorExperienceProps,
-} from "views/Portal/utils/PropBuilder"
+import { generateContactProps } from "views/Portal/utils/PropBuilder"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -31,10 +25,6 @@ const ApplicationForm: React.FC = () => {
   )
   // const [demographicFormData, setDemographicFormData] =
   //   useState<DemographicProps>()
-  const [shortAnswerFormData, setShortAnswerFormData] =
-    useState<ShortAnswerProps>(generateShortAnswerProps())
-  const [priorExperienceFormData, setPriorExperienceFormData] =
-    useState<PriorExperienceProps>(generatePriorExperienceProps())
   // const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
   // const [mlhFormData, setmlhFormData] = useState<MLHProps>()
 
@@ -55,19 +45,9 @@ const ApplicationForm: React.FC = () => {
       case ApplicationPages.Demographic:
         return <DemographicForm />
       case ApplicationPages.ShortAnswer:
-        return (
-          <ShortAnswerForm
-            parentState={shortAnswerFormData}
-            setParentState={setShortAnswerFormData}
-          />
-        )
+        return <ShortAnswerForm />
       case ApplicationPages.PriorExperience:
-        return (
-          <ExperienceForm
-            parentState={priorExperienceFormData}
-            setParentState={setPriorExperienceFormData}
-          />
-        )
+        return <ExperienceForm />
       case ApplicationPages.Connected:
         return <ConnectedForm />
       case ApplicationPages.MLH:

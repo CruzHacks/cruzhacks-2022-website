@@ -34,7 +34,7 @@ const ApplicationStatus: React.FC = () => {
         setStatusMessage("Error")
         break
     }
-  }, [])
+  }, [appStatus])
 
   const history = useHistory()
 

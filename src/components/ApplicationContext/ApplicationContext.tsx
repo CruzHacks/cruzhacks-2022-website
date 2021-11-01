@@ -1,4 +1,10 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  Dispatch,
+  SetStateAction,
+} from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { store, retrieve } from "utils/Storage"
 import { checkApplication } from "utils/Api"
@@ -32,10 +38,10 @@ interface ApplicationContextProps {
   setDemographicFormData: any
 
   shortAnswerFormData: ShortAnswerProps
-  setShortAnswerFormData: any
+  setShortAnswerFormData: Dispatch<SetStateAction<ShortAnswerProps>>
 
   priorExperienceFormData: PriorExperienceProps
-  setPriorExperienceFormData: any
+  setPriorExperienceFormData: Dispatch<SetStateAction<PriorExperienceProps>>
 
   connectedFormData: any
   setConnectedFormData: any
