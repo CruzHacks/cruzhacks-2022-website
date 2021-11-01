@@ -49,20 +49,20 @@ const AppAnalytics: React.FC = () => {
       <div className='app-analytics-component__results'>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
-            {data.applicantCount ?? "X"}{" "}
+            {data.applicantCount !== undefined ? data.applicantCount : "X"}{" "}
           </div>
           <div className='app-analytics-component__field'>Applicants</div>
         </div>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
-            {data.firstTime ?? "X"}{" "}
+            {data.ucscApplicants !== undefined ? data.ucscApplicants : "X"}{" "}
           </div>
           <div className='app-analytics-component__field'>UCSC Students</div>
         </div>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
             {" "}
-            {data.ucscApplicants ?? "X"}
+            {data.firstTime !== undefined ? data.firstTime : "X"}
           </div>
           <div className='app-analytics-component__field'>
             First Time Hackers
