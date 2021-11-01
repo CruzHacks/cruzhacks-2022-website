@@ -2,6 +2,19 @@ import React, { useState, useEffect, useContext } from "react"
 import { useAuth0 } from "@auth0/auth0-react"
 import { store, retrieve } from "utils/Storage"
 import { checkApplication } from "utils/Api"
+import {
+  ContactProps,
+  DemographicProps,
+  ShortAnswerProps,
+  PriorExperienceProps,
+  ConnectedProps,
+  MLHProps,
+} from "Props/application/props"
+import {
+  generateContactProps,
+  generateShortAnswerProps,
+  generatePriorExperienceProps,
+} from "views/Portal/utils/PropBuilder"
 import AppStatus from "Props/portal/application"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
 import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.view"
@@ -12,6 +25,23 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+  contactFormData: ContactProps
+  setContactFormData: any
+
+  demographicFormData: any
+  setDemographicFormData: any
+
+  shortAnswerFormData: ShortAnswerProps
+  setShortAnswerFormData: any
+
+  priorExperienceFormData: PriorExperienceProps
+  setPriorExperienceFormData: any
+
+  connectedFormData: any
+  setConnectedFormData: any
+
+  mlhFormData: any
+  setmlhFormData: any
 }
 
 export const ApplicationContext =
@@ -21,8 +51,19 @@ export const ApplicationProvider: React.FC = () => {
   const [token, setToken] = useState<string>("")
   const [page, setPage] = useState<number>(0)
   const [status, setStatus] = useState<number>(0)
-  const { getAccessTokenSilently } = useAuth0()
+  const { user, getAccessTokenSilently } = useAuth0()
 
+  const [contactFormData, setContactFormData] = useState<ContactProps>(
+    generateContactProps("", "", "", user ? user.email : "")
+  )
+  const [demographicFormData, setDemographicFormData] =
+    useState<DemographicProps>()
+  const [shortAnswerFormData, setShortAnswerFormData] =
+    useState<ShortAnswerProps>(generateShortAnswerProps())
+  const [priorExperienceFormData, setPriorExperienceFormData] =
+    useState<PriorExperienceProps>(generatePriorExperienceProps())
+  const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
+  const [mlhFormData, setmlhFormData] = useState<MLHProps>()
   useEffect(() => {
     try {
       const cachedStatus = retrieve("applicationStatus", undefined)
@@ -89,10 +130,20 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        contactFormData,
+        demographicFormData,
+        shortAnswerFormData,
+        priorExperienceFormData,
+        connectedFormData,
+        mlhFormData,
+        setContactFormData,
+        setDemographicFormData,
+        setShortAnswerFormData,
+        setPriorExperienceFormData,
+        setConnectedFormData,
+        setmlhFormData,
       }}
     >
-      Children
-      {page}
       {page === 0 && <ApplicationStatus />}
       {page !== 0 && <ApplicationForm />}
     </ApplicationContext.Provider>
