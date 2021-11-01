@@ -39,6 +39,7 @@ const SearchBox: React.FC<SearchProps> = ({
     returnValues.length < maxReturn ? (
       <DropDown
         question=''
+        errorMessage=''
         inputs={returnValues.map(item => ({ label: item }))}
         name={name}
         handleChange={handleSelection}
@@ -48,6 +49,7 @@ const SearchBox: React.FC<SearchProps> = ({
     )
   const nulldropdown = (
     <DropDown
+      errorMessage=''
       question=''
       inputs={[{ label: "Not Listed" }]}
       name={name}

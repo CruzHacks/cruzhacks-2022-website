@@ -7,12 +7,14 @@ const RadioForm: React.FC<RadioFormProps> = ({
   inputs,
   name,
   handleChange,
+  errorMessage,
 }: RadioFormProps) => (
   <div className='radio-form'>
-    <div className='question'>{question}</div>
-    <div className='inputs'>
+    <div className='radio-form__question'>{question}</div>
+    <div className='radio-form__error'>{errorMessage}</div>
+    <div className='radio-form__inputs'>
       {inputs.map(({ label }: RadioButtonProps) => (
-        <div className='radio-button'>
+        <div className='radop-form__inputs--radio-button'>
           <input
             type='radio'
             onChange={handleChange}

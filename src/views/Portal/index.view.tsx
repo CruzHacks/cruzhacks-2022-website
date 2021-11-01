@@ -4,6 +4,8 @@ import { useAuth0 } from "@auth0/auth0-react"
 import AppStatus from "Props/portal/application"
 import ApplicationPages from "Props/portal/page"
 import { checkApplication } from "utils/Api"
+import Connected from "./components/ApplicationForm/Connected/index.view"
+// import Demographic from "./components/ApplicationForm/Demographic/index.view"
 import ApplicationForm from "./components/ApplicationForm/index.view"
 import ApplicationStatus from "./components/ApplicationStatus/index.view"
 import ApplicationBackground from "./components/Background/index.view"
@@ -62,6 +64,7 @@ const PortalView: React.FC = () => {
       return (
         <ApplicationBackground>
           <ApplicationStatus status={status} />
+          <Connected />
         </ApplicationBackground>
       )
     default:

@@ -35,6 +35,7 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
             maxLength={3}
           />
           <RadioForm
+            errorMessage={undefined}
             question='Pronouns'
             name='pronouns'
             inputs={[
@@ -49,6 +50,7 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
           />
           <DropDown
             question='Race / Ethnicity'
+            errorMessage={undefined}
             inputs={[
               { label: "American Indian or Alaskan Native" },
               { label: "Asian / Pacific Islander" },
@@ -62,6 +64,7 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
             handleChange={handleChange}
           />
           <RadioForm
+            errorMessage={undefined}
             question='Sexuality / Gender Identity'
             name='sexuality'
             inputs={[
@@ -88,6 +91,7 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
             maxReturn={100}
           />
           <DropDown
+            errorMessage={undefined}
             question='Where will you be located at the time of the event (January 14-16)?'
             inputs={[
               { label: "On-campus at UC Santa Cruz" },
@@ -109,6 +113,7 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
           />
           <DropDown
             question='Current Level of Study'
+            errorMessage={undefined}
             inputs={[
               { label: "N/A" },
               { label: "Freshman" },
