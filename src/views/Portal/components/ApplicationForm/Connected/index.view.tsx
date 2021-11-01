@@ -18,6 +18,7 @@ const ConnectedPage: React.FC = () => {
           Want to share your resume with our sponsors? Fill out our resume drop
           form here.
         </div>
+        <input type='file' />
         <div className='connected-page__container--body'>
           <TextField
             className='connected-page__container--textfield'
