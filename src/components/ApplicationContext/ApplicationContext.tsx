@@ -125,7 +125,7 @@ export const ApplicationProvider: React.FC = () => {
   }
 
   const prevPage = () => {
-    if (page > 2) {
+    if (page > 1) {
       setPage(page - 1)
     }
   }

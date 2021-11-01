@@ -39,7 +39,7 @@ export const generateShortAnswerProps = () => {
 export const generatePriorExperienceProps = () => {
   const newObj: PriorExperienceProps = {
     firstCruzHacks: true,
-    hackathonCount: 0,
+    hackathonCount: "0",
     priorExperience: "",
     firstCruzHacksErr: "",
     hackathonCountErr: "",

@@ -48,7 +48,7 @@ export interface ShortAnswerProps {
 
 export interface PriorExperienceProps {
   firstCruzHacks: boolean
-  hackathonCount: number
+  hackathonCount: string 
   priorExperience: string
   firstCruzHacksErr: string
   hackathonCountErr: string

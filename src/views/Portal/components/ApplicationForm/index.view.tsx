@@ -29,7 +29,7 @@ const ApplicationForm: React.FC = () => {
       case ApplicationPages.Connected:
         return <ConnectedForm />
       case ApplicationPages.MLH:
-        return MLHForm
+        return <MLHForm />
       default:
         return <ContactForm />
     }
