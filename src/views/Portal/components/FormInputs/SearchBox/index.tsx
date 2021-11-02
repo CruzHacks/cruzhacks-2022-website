@@ -23,7 +23,6 @@ const SearchBox: React.FC<SearchProps> = ({
 }) => {
   const [query, setQuery] = useState<string>("")
   const [returnValues, setReturnValues] = useState<string[]>(items)
-  console.log(query)
   const handleQuery = () => {
     const copy = items.filter(item =>
       item.toLowerCase().includes(query.toLowerCase())

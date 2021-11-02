@@ -1,4 +1,9 @@
-import { ContactProps, DemographicProps } from "Props/application/props"
+import {
+  ContactProps,
+  ShortAnswerProps,
+  PriorExperienceProps,
+  DemographicProps,
+} from "Props/application/props"
 
 export function generateContactProps(
   fname: string = "",
@@ -11,6 +16,34 @@ export function generateContactProps(
     lname,
     phone,
     email,
+    fnameErr: "",
+    lnameErr: "",
+    phoneErr: "",
+    emailErr: "",
+  }
+  return newObj
+}
+
+export const generateShortAnswerProps = () => {
+  const newObj: ShortAnswerProps = {
+    whyCruzHacks: "",
+    newThisYear: "",
+    grandestInvention: "",
+    whyCruzHacksErr: "",
+    newThisYearErr: "",
+    grandestInventionErr: "",
+  }
+  return newObj
+}
+
+export const generatePriorExperienceProps = () => {
+  const newObj: PriorExperienceProps = {
+    firstCruzHacks: true,
+    hackathonCount: "0",
+    priorExperience: "",
+    firstCruzHacksErr: "",
+    hackathonCountErr: "",
+    priorExperienceErr: "",
   }
   return newObj
 }
@@ -42,6 +75,16 @@ export function generateDemographicProps(
     major,
     currentStanding,
     country,
+    ageErr: "",
+    pronounsErr: "",
+    raceErr: "",
+    sexualityErr: "",
+    schoolErr: "",
+    collegeAffiliationErr: "",
+    eventLocationErr: "",
+    majorErr: "",
+    currentStandingErr: "",
+    countryErr: "",
   }
   return newObj
 }

@@ -1,28 +1,59 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface ContactProps {
   fname: string
   lname: string
   phone: string
   email: string | undefined
+  fnameErr: string
+  lnameErr: string
+  phoneErr: string
+  emailErr: string
 }
 
 export interface DemographicProps {
-  age: string
-  pronounCount: number
-  pronouns: string[]
-  race: string
-  sexualityCount: number
-  sexuality: string[]
-  school: string
-  collegeAffiliation: string
-  eventLocation: string
-  major: string
-  currentStanding: string
-  country: string
+    age: string
+    pronounCount: number
+    pronouns: string[]
+    race: string
+    sexualityCount: number
+    sexuality: string[]
+    school: string
+    collegeAffiliation: string
+    eventLocation: string
+    major: string
+    currentStanding: string
+    country: string
+
+    ageErr: string
+    pronounsErr: string
+    raceErr: string
+    sexualityErr: string
+    schoolErr: string
+    collegeAffiliationErr: string
+    eventLocationErr: string
+    majorErr: string
+    currentStandingErr: string
+    countryErr: string
 }
 
-export interface ShortAnswerProps {}
+export interface ShortAnswerProps {
+  whyCruzHacks: string
+  newThisYear: string
+  grandestInvention: string
+  whyCruzHacksErr: string
+  newThisYearErr: string
+  grandestInventionErr: string
+}
 
-export interface PriorExperienceProps {}
+export interface PriorExperienceProps {
+  firstCruzHacks: boolean
+  hackathonCount: string 
+  priorExperience: string
+  firstCruzHacksErr: string
+  hackathonCountErr: string
+  priorExperienceErr: string
+}
 
 export interface ConnectedProps {}
 
@@ -38,4 +69,14 @@ export interface DemographicHandlers {
   parentState: DemographicProps
   setParentState: any
   validationErrors: DemographicProps
+}
+
+export interface ShortAnswerHandlerProps {
+  parentState: ShortAnswerProps
+  setParentState: Dispatch<SetStateAction<ShortAnswerProps>>
+}
+
+export interface PriorExperienceHandlerProps {
+    parentState: PriorExperienceProps
+    setParentState: Dispatch<SetStateAction<PriorExperienceProps>>
 }

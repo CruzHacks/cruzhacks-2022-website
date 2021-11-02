@@ -1,22 +1,22 @@
 import React from "react"
 import "./index.scss"
+import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
-import { DemographicHandlers } from "Props/application/props"
 import TextField from "../../FormInputs/TextField"
 import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
 import SearchBox from "../../FormInputs/SearchBox"
 
-const DemographicPage: React.FC<DemographicHandlers> = ({
-  parentState,
-  setParentState,
-  validationErrors,
-}: DemographicHandlers) => {
+const DemographicPage: React.FC = () => {
+  const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
-    console.log(event.target.getAttribute("name"))
-    setParentState(parentState)
+    const name = event.target.getAttribute("aria-label")
+    if (Object.keys(demographicFormData).includes(name)) {
+      const copy = { ...demographicFormData, [name]: event.target.value }
+      setDemographicFormData(copy)
+    }
   }
   return (
     <div className='demographic-page'>
@@ -29,8 +29,8 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
             className='demographic-page__form-container__inputs--textfield'
             name='Age'
             handleChange={handleChange}
-            fieldState={parentState.age}
-            errorMessage={validationErrors.age}
+            fieldState={demographicFormData.age}
+            errorMessage={demographicFormData.ageErr}
             label='age'
             maxLength={3}
           />
@@ -140,5 +140,4 @@ const DemographicPage: React.FC<DemographicHandlers> = ({
     </div>
   )
 }
-
 export default DemographicPage

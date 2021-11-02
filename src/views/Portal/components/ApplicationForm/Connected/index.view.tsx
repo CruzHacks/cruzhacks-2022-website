@@ -53,7 +53,7 @@ const ConnectedPage: React.FC = () => {
             inputs={[{ label: "Yes" }, { label: "No" }]}
             handleChange={handleChange}
             checkedState={() => {}}
-            errorMessage=''
+            errorMessage={errors}
           />
           <TextBox
             className='connected-page__container--textbox'
