@@ -1,0 +1,97 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.add-announcement-component {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    &__header-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 20px;
+        text-align: center;
+
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        font-family: "Lato", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        @include responsiveness.font(2.1vw, 20px, 45px);
+        color: #FFFFFF;
+        @include responsiveness.screen(smallest, phone, tablet) {
+            padding: 8px 10px;
+            border-radius: 5px;
+            @include responsiveness.font(3.1vw, 16px, 26px);
+        }
+
+        &.large {
+            width: 65%;
+        }
+
+        &.small {
+            width: 30%
+        }
+
+        button {
+            border: 0;
+            background-color: transparent;
+            font-family: Lato, "sans-serif";
+            font-style: normal;
+            font-weight: bold;
+            @include responsiveness.font(2.1vw, 20px, 45px);
+            text-align: center;
+            color: #FFFFFF;
+            @include responsiveness.screen(smallest, phone, tablet) {
+                @include responsiveness.font(3.1vw, 14px, 26px);
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        input {
+            height: 30px;
+        }
+
+        textarea {
+            height: 120px;
+            resize: none;
+        }
+    }
+
+    &__form-note {
+        @include typography.text;
+        font-family: "Source Sans Pro", sans-serif;
+    }
+
+    &__textbox {
+        margin-bottom: 5px;
+        padding: 2px 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    &__submit {
+        margin-bottom: 20px;
+        border: 3px solid #B8EDF9;
+    }
+}
