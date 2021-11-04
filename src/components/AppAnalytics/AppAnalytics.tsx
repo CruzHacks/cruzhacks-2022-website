@@ -6,50 +6,63 @@ import CoolDownButton from "components/Button/CoolDownButton"
 
 const AppAnalytics: React.FC = () => {
   const { getAccessTokenSilently } = useAuth0()
-  const [data, setData] = useState("")
+  const [data, setData] = useState({
+    applicantCount: undefined,
+    firstTime: undefined,
+    ucscApplicants: undefined,
+  })
   const [error, setError] = useState("")
+
   const onClick = async () => {
     const token = await getAccessTokenSilently()
     getAnalytics(token)
       .then(res => {
-        if (res.status !== 201) {
-          setError("Unable to Retrieve")
+        if (res.status === 200 || res.status === 201) {
+          // the server responded successfully, now check our own status code
+          const { message } = res.data
+          if (message === "No Document") {
+            setError("There are no applicants :(")
+          } else {
+            setData(message)
+            setError("")
+          }
         } else {
-          setData("string")
+          setError("Something went wrong!")
         }
       })
       .catch(err => setError(err))
   }
+
   return (
     <div className='app-analytics-component'>
       <div className='app-analytics-component__button'>
         <CoolDownButton
-          className='button__secondary'
+          modifier='secondary'
           duration={30 * 60 * 100}
           label='analytics'
           onClick={onClick}
         >
           Get Analytics
         </CoolDownButton>
-        {error && <div>Unable to Fetch Data</div>}
+        {error && <div className='app-analytics-component__error'>{error}</div>}
       </div>
       <div className='app-analytics-component__results'>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
-            {data !== "" ? data : "X"}{" "}
+            {data.applicantCount !== undefined ? data.applicantCount : "X"}{" "}
           </div>
           <div className='app-analytics-component__field'>Applicants</div>
         </div>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
-            {data !== "" ? data : "X"}{" "}
+            {data.ucscApplicants !== undefined ? data.ucscApplicants : "X"}{" "}
           </div>
           <div className='app-analytics-component__field'>UCSC Students</div>
         </div>
         <div className='app-analytics-component__result'>
           <div className='app-analytics-component__data'>
             {" "}
-            {data !== "" ? data : "X"}
+            {data.firstTime !== undefined ? data.firstTime : "X"}
           </div>
           <div className='app-analytics-component__field'>
             First Time Hackers

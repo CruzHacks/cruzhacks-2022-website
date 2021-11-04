@@ -2,73 +2,86 @@
 @use "~stylesheets/responsiveness";
 
 .timer-component {
-    @include typography.admin-card;
-    height: 261px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    height: 261px;
+    @include typography.admin-card;
+
     &__time {
         display: flex;
         justify-content: space-around;
         align-items: baseline;
         width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
+
     &__header {
-        font-family: Montserrat, "sans-serif";
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 500;
-        font-size: 45px;
-        line-height: 55px;
+        font-size: 40px;
         text-align: center;
+        text-transform: uppercase;
         color: #FFFFFF;
-        @include responsiveness.screen(smallest, phone) {
-            padding: 0;
-            @include responsiveness.font(4.1vw, 20px, 45px);
+
+        @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+            font-size: 32px;
         }
     }
+
     &__clock {
         display: flex;
         align-items: center;
         flex-direction: column;
-
     }
+
     &__remaining {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
     }
+
     &__field {
-        font-family: Montserrat;
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
-        line-height: 24px;
         text-align: center;
         color: #FFFFFF;
         @include responsiveness.screen(smallest, phone) {
             font-size: 12px;
         }
     }
+
     &__char {
-        color: #233A59;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin: 0 3px 0 3px;
         width: 35px;
         height: 48px;
         background: rgba(255, 255, 255, 0.91);
         border-radius: 4px;
-        font-family: Montserrat, "sans-serif";
+        font-family: "Montserrat", sans-serif;
         font-style: normal;
         font-weight: normal;
         font-size: 30px;
-        line-height: 37px;
-        text-align: center;
-        margin: 0 6px 0 6px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        color: #233A59;
+
         @include responsiveness.screen(smallest, phone) {
-            width:21px;
-            height:28px;
+            margin: 0 3px 0 3px;
+            padding: 3px;
+            width: 21px;
+            height: 28px;
+        }
+
+        @include responsiveness.screen(smallest, phone) {
+            margin: 0 2px 0 2px;
+            padding: 2px;
         }
     }
 }
