@@ -32,8 +32,9 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+
   contactFormData: ContactProps
-  setContactFormData: any
+  setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
   demographicFormData: DemographicProps
   setDemographicFormData: Dispatch<SetStateAction<DemographicProps>>
@@ -124,7 +125,7 @@ export const ApplicationProvider: React.FC = () => {
   }
 
   const prevPage = () => {
-    if (page > 2) {
+    if (page > 1) {
       setPage(page - 1)
     }
   }

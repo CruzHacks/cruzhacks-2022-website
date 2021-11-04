@@ -1,9 +1,16 @@
 import React from "react"
 import "./index.scss"
+<<<<<<< HEAD
 // import universityList from "views/Portal/utils/Universities"
 // import majors from "views/Portal/utils/Majors"
 // import Countries from "views/Portal/utils/Countries"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
+=======
+import { useApplication } from "components/ApplicationContext/ApplicationContext"
+import universityList from "views/Portal/utils/Universities"
+import majors from "views/Portal/utils/Majors"
+import Countries from "views/Portal/utils/Countries"
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
 import TextField from "../../FormInputs/TextField"
 import DropDown from "../../FormInputs/DropDown"
 import CheckBox from "../../FormInputs/CheckBox"
@@ -11,10 +18,18 @@ import CheckBox from "../../FormInputs/CheckBox"
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
+<<<<<<< HEAD
     const { name } = event.target.name
     console.log(name)
     const copy = { ...demographicFormData, [name]: event.target.value }
     setDemographicFormData(copy)
+=======
+    const name = event.target.getAttribute("aria-label")
+    if (Object.keys(demographicFormData).includes(name)) {
+      const copy = { ...demographicFormData, [name]: event.target.value }
+      setDemographicFormData(copy)
+    }
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
   }
   console.log(demographicFormData)
   const collegeAffiliation = (
@@ -48,13 +63,22 @@ const DemographicPage: React.FC = () => {
           <TextField
             className='demographic-page__form-container__inputs--textfield'
             name='Age'
+<<<<<<< HEAD
             handleChange={() => {}}
+=======
+            handleChange={handleChange}
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
             fieldState={demographicFormData.age}
             errorMessage={demographicFormData.ageErr}
             label='age'
             maxLength={3}
           />
+<<<<<<< HEAD
           <CheckBox
+=======
+          <RadioForm
+            errorMessage={undefined}
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
             question='Pronouns'
             name='pronouns'
             inputs={[
@@ -68,6 +92,7 @@ const DemographicPage: React.FC = () => {
           />
           <DropDown
             question='Race / Ethnicity'
+            errorMessage={undefined}
             inputs={[
               { label: "American Indian or Alaskan Native" },
               { label: "Asian / Pacific Islander" },
@@ -80,7 +105,12 @@ const DemographicPage: React.FC = () => {
             name='race'
             handleChange={() => {}}
           />
+<<<<<<< HEAD
           <CheckBox
+=======
+          <RadioForm
+            errorMessage={undefined}
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
             question='Sexuality / Gender Identity'
             name='sexuality'
             inputs={[
@@ -107,6 +137,7 @@ const DemographicPage: React.FC = () => {
           />
           {demographicFormData.school === "UCSC" ? collegeAffiliation : ""}
           <DropDown
+            errorMessage={undefined}
             question='Where will you be located at the time of the event (January 14-16)?'
             inputs={[
               { label: "On-campus at UC Santa Cruz" },
@@ -128,6 +159,7 @@ const DemographicPage: React.FC = () => {
           />
           <DropDown
             question='Current Level of Study'
+            errorMessage={undefined}
             inputs={[
               { label: "N/A" },
               { label: "Freshman" },

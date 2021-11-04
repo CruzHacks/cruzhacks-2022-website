@@ -8,7 +8,11 @@ export interface ContactProps {
   fnameErr: string
   lnameErr: string
   phoneErr: string
+<<<<<<< HEAD
   emailErr: string 
+=======
+  emailErr: string
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
 }
 
 export interface DemographicProps {
@@ -24,6 +28,10 @@ export interface DemographicProps {
     major: string
     currentStanding: string
     country: string
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
     ageErr: string
     pronounsErr: string
     raceErr: string
@@ -47,7 +55,11 @@ export interface ShortAnswerProps {
 
 export interface PriorExperienceProps {
   firstCruzHacks: boolean
+<<<<<<< HEAD
   hackathonCount: number
+=======
+  hackathonCount: string 
+>>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
   priorExperience: string
   firstCruzHacksErr: string
   hackathonCountErr: string

@@ -24,34 +24,6 @@ export const generateContactProps = (
   return newObj
 }
 
-export const generateDemographicProps = () => {
-  const newObj: DemographicProps = {
-    age: "",
-    pronounsCount: 0,
-    pronouns: [],
-    race: "",
-    sexualityCount: 0,
-    sexuality: [],
-    school: "",
-    collegeAffiliation: "",
-    eventLocation: "",
-    major: "",
-    currentStanding: "",
-    country: "",
-    ageErr: "",
-    pronounsErr: "",
-    raceErr: "",
-    sexualityErr: "",
-    schoolErr: "",
-    collegeAffiliationErr: "",
-    eventLocationErr: "",
-    majorErr: "",
-    currentStandingErr: "",
-    countryErr: "",
-  }
-  return newObj
-}
-
 export const generateShortAnswerProps = () => {
   const newObj: ShortAnswerProps = {
     whyCruzHacks: "",
@@ -67,11 +39,39 @@ export const generateShortAnswerProps = () => {
 export const generatePriorExperienceProps = () => {
   const newObj: PriorExperienceProps = {
     firstCruzHacks: true,
-    hackathonCount: 0,
+    hackathonCount: "0",
     priorExperience: "",
     firstCruzHacksErr: "",
     hackathonCountErr: "",
     priorExperienceErr: "",
+  }
+  return newObj
+}
+
+export const generateDemographicProps = () => {
+  const newObj: DemographicProps = {
+    age,
+    pronounCount,
+    pronouns,
+    race,
+    sexualityCount,
+    sexuality,
+    school,
+    collegeAffiliation,
+    eventLocation,
+    major,
+    currentStanding,
+    country,
+    ageErr: "",
+    pronounsErr: "",
+    raceErr: "",
+    sexualityErr: "",
+    schoolErr: "",
+    collegeAffiliationErr: "",
+    eventLocationErr: "",
+    majorErr: "",
+    currentStandingErr: "",
+    countryErr: "",
   }
   return newObj
 }
