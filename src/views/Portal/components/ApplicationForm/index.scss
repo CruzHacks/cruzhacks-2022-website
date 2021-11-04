@@ -1,0 +1,14 @@
+.application-form-component {
+  &__box {
+    padding: 20px;
+
+    background: rgba(255, 251, 241, 0.83);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.41);
+    border-radius: 18px;
+  }
+
+  textarea {
+    //box-sizing: border-box;
+    //max-width: 100%;
+  }
+}

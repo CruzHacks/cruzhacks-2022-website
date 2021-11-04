@@ -54,10 +54,10 @@ const ApplicationStatus: React.FC = () => {
       <div className='application-status-component__status'>
         Status {statusMessage}
       </div>
-      <Button label='hello' onClick={onRedirect}>
+      <Button modifier='secondary' label='hello' onClick={onRedirect}>
         Return Home
       </Button>
-      <Button label='hello' onClick={startApp}>
+      <Button modifier='secondary' label='hello' onClick={startApp}>
         Start App
       </Button>
     </div>

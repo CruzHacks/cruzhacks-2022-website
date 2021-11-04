@@ -20,7 +20,7 @@ const SearchBox: React.FC<SearchProps> = ({
   handleSelection,
   maxLength,
   maxReturn,
-}) => {
+}: SearchProps) => {
   const [query, setQuery] = useState<string>("")
   const [returnValues, setReturnValues] = useState<string[]>(items)
   const handleQuery = () => {
