@@ -50,7 +50,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
       Not Listed
     </div>
   )
-  console.log(isNoMatch)
+
   return (
     <div className='SearchBox-container'>
       <div className='SearchBox-container__question'>{question}</div>

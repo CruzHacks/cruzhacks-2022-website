@@ -3,6 +3,8 @@ import {
   ShortAnswerProps,
   PriorExperienceProps,
   DemographicProps,
+  ConnectedProps,
+  MLHProps,
 } from "Props/application/props"
 
 export const generateContactProps = (
@@ -50,7 +52,7 @@ export const generatePriorExperienceProps = () => {
 
 export const generateDemographicProps = () => {
   const newObj: DemographicProps = {
-    age: "",
+    age: "0",
     pronounsCount: 0,
     pronouns: [],
     race: "",
@@ -72,6 +74,31 @@ export const generateDemographicProps = () => {
     majorErr: "",
     currentStandingErr: "",
     countryErr: "",
+  }
+  return newObj
+}
+
+export const generateConnectedProps = () => {
+  const newObj: ConnectedProps = {
+    resume: null,
+    linkedin: "",
+    github: "",
+    cruzCoins: "",
+    anythingElse: "",
+    resumeErr: "",
+    linkedinErr: "",
+    githubErr: "",
+    cruzCoinsErr: "",
+    anythingElseErr: "",
+  }
+  return newObj
+}
+
+export const generateMLHProps = () => {
+  const newObj: MLHProps = {
+    conductAgree: false,
+    tosAgree: false,
+    agreementErr: "",
   }
   return newObj
 }

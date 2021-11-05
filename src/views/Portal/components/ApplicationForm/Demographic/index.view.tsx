@@ -4,22 +4,22 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
-import SearchBox from "../../FormInputs/SearchBox"
-import TextField from "../../FormInputs/TextField"
+// import TextField from "../../FormInputs/TextField"
+// import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
+import SearchBox from "../../FormInputs/SearchBox"
+import NumberField from "../../FormInputs/NumberBox/index"
 import CheckBox from "../../FormInputs/CheckBox"
 
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
-    console.log(event)
     const name = event.target.getAttribute("name")
     if (Object.keys(demographicFormData).includes(name)) {
       const copy = { ...demographicFormData, [name]: event.target.value }
       setDemographicFormData(copy)
     }
   }
-  console.log("formdata", demographicFormData)
   const collegeAffiliation = (
     <DropDown
       question='College Affiliation'
@@ -49,14 +49,20 @@ const DemographicPage: React.FC = () => {
           Demographic Information
         </div>
         <div className='demographic-page__form-container__inputs'>
-          <TextField
+          <NumberField
             className='demographic-page__form-container__inputs--textfield'
             name='Age'
-            handleChange={handleChange}
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                whyCruzHacks: e.target.value,
+              }))
+            }}
             fieldState={demographicFormData.age}
             errorMessage={demographicFormData.ageErr}
             label='age'
-            maxLength={3}
+            min={0}
+            max={100}
           />
           <CheckBox
             errorMessage={demographicFormData.pronounsErr}

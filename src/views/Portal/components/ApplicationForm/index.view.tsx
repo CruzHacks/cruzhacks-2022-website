@@ -20,20 +20,67 @@ import DemographicForm from "./Demographic/index.view"
 import MLHForm from "./MLH/index.view"
 import ExperienceForm from "./PriorExperience/index.view"
 import ShortAnswerForm from "./ShortAnswer/index.view"
+import {
+  validateContactForm,
+  validatedemographicForm,
+  validateshortAnswerForm,
+  validateConnectedForm,
+  validatepriorExperienceForm,
+} from "../../utils/validation"
 
 const ApplicationForm: React.FC = () => {
-  const { page, prevPage, nextPage } = useApplication()!
-  // const [contactFormData, setContactFormData] = useState<ContactProps>(
-  //  generateContactProps("", "", "", user ? user.email : "")
-  // )
-  // const [demographicFormData, setDemographicFormData] =
-  //  useState<DemographicProps>(generateDemographicProps())
-  // const [shortAnswerFormData, setShortAnswerFormData] =
-  //   useState<ShortAnswerProps>()
-  // const [priorExperienceFormData, setPriorExperienceFormData] =
-  //   useState<PriorExperienceProps>()
-  // const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
-  // const [mlhFormData, setmlhFormData] = useState<MLHProps>()
+  const {
+    page,
+    prevPage,
+    nextPage,
+    contactFormData,
+    setContactFormData,
+    demographicFormData,
+    setDemographicFormData,
+    shortAnswerFormData,
+    setShortAnswerFormData,
+    priorExperienceFormData,
+    setPriorExperienceFormData,
+    connectedFormData,
+    setConnectedFormData,
+  } = useApplication()!
+
+  const viewNextPage = () => {
+    if (page === ApplicationPages.Contact) {
+      if (validateContactForm(contactFormData, setContactFormData)) {
+        nextPage()
+      }
+    } else if (page === ApplicationPages.Demographic) {
+      if (
+        validatedemographicForm(demographicFormData, setDemographicFormData)
+      ) {
+        nextPage()
+      }
+    } else if (page === ApplicationPages.ShortAnswer) {
+      if (
+        validateshortAnswerForm(shortAnswerFormData, setShortAnswerFormData)
+      ) {
+        nextPage()
+      }
+    } else if (page === ApplicationPages.PriorExperience) {
+      if (
+        validatepriorExperienceForm(
+          priorExperienceFormData,
+          setPriorExperienceFormData
+        )
+      ) {
+        nextPage()
+      }
+    } else if (page === ApplicationPages.Connected) {
+      if (validateConnectedForm(connectedFormData, setConnectedFormData)) {
+        nextPage()
+      }
+    }
+  }
+
+  const viewPrevPage = () => {
+    prevPage()
+  }
 
   const saveData = () => {}
 
@@ -65,10 +112,10 @@ const ApplicationForm: React.FC = () => {
       <button type='button' onClick={saveData}>
         Save
       </button>
-      <button type='button' onClick={prevPage}>
+      <button type='button' onClick={viewPrevPage}>
         Prev
       </button>
-      <button type='button' onClick={nextPage}>
+      <button type='button' onClick={viewNextPage}>
         Next
       </button>
       <button type='button' onClick={submitData}>

@@ -56,6 +56,18 @@ export interface FieldProps {
   maxLength?: number
 }
 
+export interface NumberFieldProps {
+  className: string
+  name: string
+  handleChange: any
+  fieldState: string | undefined
+  errorMessage: string | undefined
+  label: string
+  min?: number
+  max?: number
+  maxLength?: number
+}
+
 export interface RadioButtonProps {
   label: string
   name?: string
