@@ -21,22 +21,42 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
 const MainPage: React.FC<MainPageProps> = ({
   status,
   progress,
-}: MainPageProps) => (
-  <div className='main-page'>
-    <div className='main-page__container'>
-      <div className='main-page__container--welcome'>WELCOME, HACKER</div>
-      <div className='main-page__container--status-message'>
-        <div className='main-page__container--status-message--stat'>
-          STATUS&nbsp;
+}: MainPageProps) => {
+  const statColor = (stat: string) => {
+    switch (stat) {
+      case "NOT STARTED":
+        return "#CF907A"
+      case "IN PROGRESS":
+        return "#B8AD4A"
+      case "SUBMITTED":
+        return "#4AA4B8"
+      case "ACCEPTED":
+        return "#4AB855"
+      default:
+        return "#000000"
+    }
+  }
+
+  return (
+    <div className='main-page'>
+      <div className='main-page__container'>
+        <div className='main-page__container--welcome'>WELCOME, HACKER</div>
+        <div className='main-page__container--status-message'>
+          <div className='main-page__container--status-message--stat'>
+            STATUS&nbsp;
+          </div>
+          <div
+            className='main-page__container--status-message--curr-stat'
+            style={{ color: `${statColor(status)}` }}
+          >
+            {status}
+          </div>
         </div>
-        <div className='main-page__container--status-message--curr-stat'>
-          {status}
-        </div>
+        <div className='main-page__container--progress'>PROGRESS</div>
+        <ProgressBar progress={progress} />
       </div>
-      <div className='main-page__container--progress'>PROGRESS</div>
-      <ProgressBar progress={progress} />
     </div>
-  </div>
-)
+  )
+}
 
 export default MainPage
