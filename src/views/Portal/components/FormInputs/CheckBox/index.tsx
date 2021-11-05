@@ -2,6 +2,7 @@ import React from "react"
 
 interface CheckBoxProps {
   question: string
+  errorMessage: string
   inputs: { label: string }[]
   name: string
   handleChange: any
@@ -9,12 +10,14 @@ interface CheckBoxProps {
 
 const CheckBox: React.FC<CheckBoxProps> = ({
   question,
+  errorMessage,
   inputs,
   name,
   handleChange,
 }: CheckBoxProps) => (
   <div className='checkbox-form'>
-    <div className='question'>{question}</div>
+    <div className='checkbox-form__question'>{question}</div>
+    <div className='checkbox-form__errorMessage'>{errorMessage}</div>
     <div className='inputs'>
       {inputs.map(({ label }) => (
         <div className='checkbox-button'>

@@ -2,7 +2,6 @@ import React from "react"
 import "./index.scss"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
-<<<<<<< HEAD
 // import {
 // ContactProps,
 // DemographicProps,
@@ -15,8 +14,6 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 //  generateContactProps,
 //  generateDemographicProps,
 // } from "views/Portal/utils/PropBuilder"
-=======
->>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -26,7 +23,6 @@ import ShortAnswerForm from "./ShortAnswer/index.view"
 
 const ApplicationForm: React.FC = () => {
   const { page, prevPage, nextPage } = useApplication()!
-<<<<<<< HEAD
   // const [contactFormData, setContactFormData] = useState<ContactProps>(
   //  generateContactProps("", "", "", user ? user.email : "")
   // )
@@ -38,8 +34,6 @@ const ApplicationForm: React.FC = () => {
   //   useState<PriorExperienceProps>()
   // const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
   // const [mlhFormData, setmlhFormData] = useState<MLHProps>()
-=======
->>>>>>> 14f5af27284da2eb9b4e2ff2b88b74e94a4cf981
 
   const saveData = () => {}
 

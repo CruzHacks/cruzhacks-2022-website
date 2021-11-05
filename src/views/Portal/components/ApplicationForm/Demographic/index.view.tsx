@@ -4,6 +4,7 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
+import SearchBox from "../../FormInputs/SearchBox"
 import TextField from "../../FormInputs/TextField"
 import DropDown from "../../FormInputs/DropDown"
 import CheckBox from "../../FormInputs/CheckBox"
@@ -11,16 +12,18 @@ import CheckBox from "../../FormInputs/CheckBox"
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
-    const name = event.target.getAttribute("aria-label")
+    console.log(event)
+    const name = event.target.getAttribute("name")
     if (Object.keys(demographicFormData).includes(name)) {
       const copy = { ...demographicFormData, [name]: event.target.value }
       setDemographicFormData(copy)
     }
   }
-  console.log(demographicFormData)
+  console.log("formdata", demographicFormData)
   const collegeAffiliation = (
     <DropDown
       question='College Affiliation'
+      errorMessage={demographicFormData.collegeAffiliationErr}
       inputs={[
         { label: "College 9" },
         { label: "College 10" },
@@ -38,7 +41,7 @@ const DemographicPage: React.FC = () => {
       handleChange={handleChange}
     />
   )
-  console.log(demographicFormData)
+
   return (
     <div className='demographic-page'>
       <div className='demographic-page__form-container'>
@@ -66,7 +69,7 @@ const DemographicPage: React.FC = () => {
               { label: "Other" },
               { label: "Prefer not to answer" },
             ]}
-            handleChange={() => {}}
+            handleChange={handleChange}
           />
           <DropDown
             question='Race / Ethnicity'
@@ -81,7 +84,7 @@ const DemographicPage: React.FC = () => {
               { label: "Prefer not to answer" },
             ]}
             name='race'
-            handleChange={() => {}}
+            handleChange={handleChange}
           />
           <CheckBox
             errorMessage={demographicFormData.sexualityErr}
@@ -98,18 +101,20 @@ const DemographicPage: React.FC = () => {
               { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
-            handleChange={() => {}}
+            handleChange={handleChange}
           />
-          <TextField
-            className='demographic-page__form-container__inputs--textfield'
-            name='School'
-            handleChange={() => {}}
-            fieldState={demographicFormData.school}
-            errorMessage={demographicFormData.schoolErr}
+          <SearchBox
+            question='School'
+            data={universityList.map(item => item.institution)}
             label='school'
-            maxLength={100}
+            fieldState={demographicFormData.school}
+            maxReturn={25}
+            errorMessage={demographicFormData.schoolErr}
+            handleChange={handleChange}
           />
-          {demographicFormData.school === "UCSC" ? collegeAffiliation : ""}
+          {demographicFormData.school === "University of California-Santa Cruz"
+            ? collegeAffiliation
+            : ""}
           <DropDown
             errorMessage={demographicFormData.collegeAffiliationErr}
             question='Where will you be located at the time of the event (January 14-16)?'
@@ -120,16 +125,16 @@ const DemographicPage: React.FC = () => {
               { label: "Unsure" },
             ]}
             name='eventLocation'
-            handleChange={() => {}}
+            handleChange={handleChange}
           />
-          <TextField
-            className='demographic-page__form-container__inputs--textfield'
-            name='Major'
-            handleChange={() => {}}
-            fieldState={demographicFormData.major}
-            errorMessage={demographicFormData.majorErr}
+          <SearchBox
+            question='Major'
+            data={majors.map(item => item.major)}
             label='major'
-            maxLength={50}
+            fieldState={demographicFormData.major}
+            maxReturn={25}
+            errorMessage={demographicFormData.majorErr}
+            handleChange={handleChange}
           />
           <DropDown
             question='Current Level of Study'
@@ -144,16 +149,16 @@ const DemographicPage: React.FC = () => {
               { label: "Post-Graduate" },
             ]}
             name='currentStanding'
-            handleChange={() => {}}
+            handleChange={handleChange}
           />
-          <TextField
-            className='demographic-page__form-container__inputs--textfield'
-            name='Country'
-            handleChange={() => {}}
+          <SearchBox
+            question='Country'
+            data={Countries.map(item => item.name)}
+            label='country'
             fieldState={demographicFormData.country}
+            maxReturn={25}
             errorMessage={demographicFormData.countryErr}
-            label='age'
-            maxLength={50}
+            handleChange={handleChange}
           />
         </div>
       </div>
