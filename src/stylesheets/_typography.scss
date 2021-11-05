@@ -66,6 +66,24 @@
   @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 18px);
 }
 
+@mixin form-prompts {
+  color: var(--color-black);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: lighter;
+
+  @include responsiveness.font($responsive: 2.3vw, $min: 18px, $max: 28px);
+}
+
+@mixin form-titles {
+  color: var(--color-black);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+
+  @include responsiveness.font($responsive: 2.3vw, $min: 24px, $max: 36px);
+}
+
 @mixin admin-card {
   padding: 20px;
   background: rgba(242, 250, 255, 0.21);

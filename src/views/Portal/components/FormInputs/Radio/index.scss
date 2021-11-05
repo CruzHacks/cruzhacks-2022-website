@@ -1,0 +1,13 @@
+.inputs {
+  display:flex;
+  flex-wrap: wrap; 
+}
+.radio-form {
+  
+  &__inputs {
+    &__radio-button {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+}

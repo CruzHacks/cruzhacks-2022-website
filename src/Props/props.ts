@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react"
+
 export interface VerificationEmailProps {
   user: string | undefined
   token: string
@@ -18,7 +20,7 @@ export interface MilestoneProps {
 }
 
 export interface AboutProps {
-  title: string,
+  title: string
   description: string
 }
 
@@ -26,7 +28,6 @@ export interface NavbarRouteProps {
   route: string
   name: string
 }
-
 
 export interface MessageProps {
   message: string
@@ -38,4 +39,51 @@ export interface AnnouncementProps {
   date: number
   message: string
   id: string
+}
+
+export interface ApplicationPagesProps {
+  page: number
+  setPage: Dispatch<SetStateAction<number>>
+}
+
+export interface FieldProps {
+  className: string
+  name: string
+  handleChange: any
+  fieldState: string | undefined
+  errorMessage: string | undefined
+  label: string
+  maxLength?: number
+}
+
+export interface RadioButtonProps {
+  label: string
+  name?: string
+}
+
+export interface RadioFormProps {
+  question: string
+  name: string
+  errorMessage: string | undefined
+  inputs: {
+    label: string
+  }[]
+  handleChange: any
+  checkedState: any
+}
+
+export interface DropDownListProps {
+  inputs: {
+    label: string
+  }[]
+}
+
+export interface DropDownProps {
+  question: string
+  errorMessage: string | undefined
+  inputs: {
+    label: string
+  }[]
+  name: any
+  handleChange: any
 }

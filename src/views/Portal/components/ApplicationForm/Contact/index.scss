@@ -1,0 +1,40 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.contact-page {
+  display: flex;
+  justify-content: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    &--title {
+      align-self: center;
+      @include typography.form-titles;
+      padding-bottom: 15px;
+    }
+    &--fields {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+    // &--textfield {
+    //   width: 100%;
+    //   display: flex;
+    //   flex-direction: column;
+    //   @include typography.form-prompts;
+    //   &--input {
+    //     width: 500px;
+    //     height: 25px;
+    //     @include responsiveness.screen(phone) {
+    //       width: 300px;
+    //       height: 25px;
+    //     }
+    //     @include responsiveness.screen(smallest) {
+    //       width: 200px;
+    //       height: 25px;
+    //     }
+    //   }
+    // }
+  }
+}

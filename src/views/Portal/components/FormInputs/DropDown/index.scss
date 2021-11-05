@@ -1,0 +1,21 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  width:300px;
+  justify-content: left;
+  @include typography.form-prompts;
+
+  &__question {
+    min-width: 155px;
+    flex-basis: 100%; 
+  }
+  &--selector {
+    background-color: white;
+    width: 300px;
+    outline: none;
+  }
+  
+}
