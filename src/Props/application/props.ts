@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from "react"
-
 export interface ContactProps {
   fname: string
   lname: string
@@ -55,28 +53,22 @@ export interface PriorExperienceProps {
   priorExperienceErr: string
 }
 
-export interface ConnectedProps {}
+export interface ConnectedProps {
+    resume: any
+    linkedin: string
+    github: string
+    cruzCoins: string
+    anythingElse: string
 
-export interface MLHProps {}
-
-export interface ContactHandlers {
-  parentState: ContactProps
-  setParentState: any
-  validationErrors: ContactProps
+    resumeErr: string
+    linkedinErr: string
+    githubErr: string
+    cruzCoinsErr: string
+    anythingElseErr: string
 }
 
-export interface DemographicHandlers {
-  parentState: DemographicProps
-  setParentState: any
-  validationErrors: DemographicProps
-}
-
-export interface ShortAnswerHandlerProps {
-  parentState: ShortAnswerProps
-  setParentState: Dispatch<SetStateAction<ShortAnswerProps>>
-}
-
-export interface PriorExperienceHandlerProps {
-    parentState: PriorExperienceProps
-    setParentState: Dispatch<SetStateAction<PriorExperienceProps>>
+export interface MLHProps {
+    conductAgree: boolean 
+    tosAgree: boolean
+    agreementErr: string
 }
