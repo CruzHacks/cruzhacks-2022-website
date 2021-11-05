@@ -15,7 +15,7 @@ const DropDown: React.FC<DropDownProps> = ({
     {errorMessage}
     <select className='dropdown--selector' name={name}>
       {inputs.map(({ label }) => (
-        <option value={label} onClick={handleChange}>
+        <option value={label} onClick={handleChange} key={label}>
           {label}
         </option>
       ))}

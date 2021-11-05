@@ -51,7 +51,7 @@ export const generatePriorExperienceProps = () => {
 }
 
 export function generateDemographicProps(
-  age: string = "",
+  age: string = "0",
   pronounCount: number = 0,
   pronouns: string[] = [],
   race: string = "",

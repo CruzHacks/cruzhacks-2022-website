@@ -4,10 +4,11 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
-import TextField from "../../FormInputs/TextField"
+// import TextField from "../../FormInputs/TextField"
 import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
 import SearchBox from "../../FormInputs/SearchBox"
+import NumberField from "../../FormInputs/NumberBox/index"
 
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
@@ -25,14 +26,20 @@ const DemographicPage: React.FC = () => {
           Demographic Information
         </div>
         <div className='demographic-page__form-container__inputs'>
-          <TextField
+          <NumberField
             className='demographic-page__form-container__inputs--textfield'
             name='Age'
-            handleChange={handleChange}
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                whyCruzHacks: e.target.value,
+              }))
+            }}
             fieldState={demographicFormData.age}
             errorMessage={demographicFormData.ageErr}
             label='age'
-            maxLength={3}
+            min={0}
+            max={100}
           />
           <RadioForm
             errorMessage={undefined}
