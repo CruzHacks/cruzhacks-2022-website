@@ -13,7 +13,7 @@ export interface ContactProps {
 
 export interface DemographicProps {
     age: string
-    pronounCount: number
+    pronounsCount: number
     pronouns: string[]
     race: string
     sexualityCount: number
@@ -24,7 +24,6 @@ export interface DemographicProps {
     major: string
     currentStanding: string
     country: string
-
     ageErr: string
     pronounsErr: string
     raceErr: string
@@ -67,7 +66,7 @@ export interface ContactHandlers {
 
 export interface DemographicHandlers {
   parentState: DemographicProps
-  setParentState: any
+  setParentState:  Dispatch<SetStateAction<DemographicProps>>
   validationErrors: DemographicProps
 }
 

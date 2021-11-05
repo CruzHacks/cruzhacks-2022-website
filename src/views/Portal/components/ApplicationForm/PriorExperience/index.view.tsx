@@ -22,7 +22,7 @@ const ExperiencePage: React.FC = () => {
         }
         fieldState={priorExperienceFormData.hackathonCount}
         errorMessage={priorExperienceFormData.hackathonCountErr}
-        label='age'
+        label='hackathonCount'
         maxLength={3}
       />
       <RadioForm

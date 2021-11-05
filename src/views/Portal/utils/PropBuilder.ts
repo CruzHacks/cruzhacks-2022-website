@@ -5,12 +5,12 @@ import {
   DemographicProps,
 } from "Props/application/props"
 
-export function generateContactProps(
+export const generateContactProps = (
   fname: string = "",
   lname: string = "",
   phone: string = "",
   email: string | undefined = ""
-) {
+) => {
   const newObj: ContactProps = {
     fname,
     lname,
@@ -48,33 +48,20 @@ export const generatePriorExperienceProps = () => {
   return newObj
 }
 
-export function generateDemographicProps(
-  age: string = "",
-  pronounCount: number = 0,
-  pronouns: string[] = [],
-  race: string = "",
-  sexualityCount: number = 0,
-  sexuality: string[] = [],
-  school: string = "",
-  collegeAffiliation: string = "",
-  eventLocation: string = "",
-  major: string = "",
-  currentStanding: string = "",
-  country: string = ""
-) {
+export const generateDemographicProps = () => {
   const newObj: DemographicProps = {
-    age,
-    pronounCount,
-    pronouns,
-    race,
-    sexualityCount,
-    sexuality,
-    school,
-    collegeAffiliation,
-    eventLocation,
-    major,
-    currentStanding,
-    country,
+    age: "",
+    pronounsCount: 0,
+    pronouns: [],
+    race: "",
+    sexualityCount: 0,
+    sexuality: [],
+    school: "",
+    collegeAffiliation: "",
+    eventLocation: "",
+    major: "",
+    currentStanding: "",
+    country: "",
     ageErr: "",
     pronounsErr: "",
     raceErr: "",
