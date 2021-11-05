@@ -1,72 +1,71 @@
 import React, { useState } from "react"
-import TextField from "../TextField"
-import DropDown from "../DropDown"
 
-interface SearchProps {
-  className: string
+interface SearchBoxProps {
   question: string
-  name: string
-  items: string[]
-  handleSelection: any
-  maxLength: number
+  data: string[]
+  label: string
+  fieldState: string
   maxReturn: number
+  errorMessage: string
+  handleChange: any
 }
 
-const SearchBox: React.FC<SearchProps> = ({
-  className,
+const SearchBox: React.FC<SearchBoxProps> = ({
   question,
-  name,
-  items,
-  handleSelection,
-  maxLength,
+  data,
+  label,
+  fieldState,
   maxReturn,
-}) => {
-  const [query, setQuery] = useState<string>("")
-  const [returnValues, setReturnValues] = useState<string[]>(items)
+  errorMessage,
+  handleChange,
+}: SearchBoxProps) => {
+  const [query, setQuery] = useState<string>(fieldState)
+  const [matchedItems, setMatchedItems] = useState<string[]>(data)
+  const [isNoMatch, setIsNoMatch] = useState<boolean>(false)
   const handleQuery = () => {
-    const copy = items.filter(item =>
-      item.toLowerCase().includes(query.toLowerCase())
+    const Matches = data.filter(entry =>
+      entry.toLowerCase().includes(query.toLowerCase())
     )
-    setReturnValues(copy)
-  }
-  const handleChange = (event: any) => {
-    setQuery(event.target.value)
-    handleQuery()
+    setMatchedItems(Matches)
   }
 
-  const dropdown =
-    returnValues.length < maxReturn ? (
-      <DropDown
-        question=''
-        errorMessage=''
-        inputs={returnValues.map(item => ({ label: item }))}
-        name={name}
-        handleChange={handleSelection}
-      />
-    ) : (
-      ""
-    )
-  const nulldropdown = (
-    <DropDown
-      errorMessage=''
-      question=''
-      inputs={[{ label: "Not Listed" }]}
-      name={name}
-      handleChange={handleSelection}
-    />
+  const handleQueryChange = isNoMatch
+    ? handleChange
+    : (e: any) => {
+        setQuery(e.target.value)
+        handleQuery()
+      }
+  const dropdown = (toDisplay: string[], onChange: any) => (
+    <div className='SearchBox-container__dropdown'>
+      <select onChange={onChange} name={label}>
+        {toDisplay.map(item => (
+          <option value={item}>{item}</option>
+        ))}
+      </select>
+    </div>
   )
+  const notListed = (
+    <div className='SearchBox-container__notListed'>
+      <input type='checkbox' onChange={() => setIsNoMatch(!isNoMatch)} />
+      Not Listed
+    </div>
+  )
+
   return (
-    <div className={className}>
-      <TextField
-        className={className}
-        name={question}
-        handleChange={handleChange}
-        fieldState={query}
-        errorMessage=''
-        label={name}
-        maxLength={maxLength}
-      />
-      {returnValues.length === 0 ? nulldropdown : dropdown}
+    <div className='SearchBox-container'>
+      <div className='SearchBox-container__question'>{question}</div>
+      <div className='SearchBox-container__errorMessage'>{errorMessage}</div>
+      <div className='SearchBox-container__input'>
+        <input
+          type='text'
+          name={label}
+          value={isNoMatch ? fieldState : query}
+          onChange={handleQueryChange}
+        />
+      </div>
+      {matchedItems.length > 0 && matchedItems.length < maxReturn
+        ? dropdown(matchedItems, handleChange)
+        : notListed}
     </div>
   )
 }

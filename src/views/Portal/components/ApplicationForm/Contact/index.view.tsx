@@ -5,9 +5,8 @@ import TextField from "../../FormInputs/TextField"
 
 const ContactPage: React.FC = () => {
   const { contactFormData, setContactFormData } = useApplication()!
-
   const handleChange = (event: any) => {
-    const name = event.target.getAttribute("aria-label")
+    const name = event.target.getAttribute("name")
     if (Object.keys(contactFormData).includes(name)) {
       const copy = { ...contactFormData, [name]: event.target.value }
       setContactFormData(copy)

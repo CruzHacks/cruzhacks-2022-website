@@ -5,20 +5,43 @@ import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
 // import TextField from "../../FormInputs/TextField"
-import RadioForm from "../../FormInputs/Radio"
+// import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
 import SearchBox from "../../FormInputs/SearchBox"
 import NumberField from "../../FormInputs/NumberBox/index"
+import CheckBox from "../../FormInputs/CheckBox"
 
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
-    const name = event.target.getAttribute("aria-label")
+    const name = event.target.getAttribute("name")
     if (Object.keys(demographicFormData).includes(name)) {
       const copy = { ...demographicFormData, [name]: event.target.value }
       setDemographicFormData(copy)
     }
   }
+  const collegeAffiliation = (
+    <DropDown
+      question='College Affiliation'
+      errorMessage={demographicFormData.collegeAffiliationErr}
+      inputs={[
+        { label: "College 9" },
+        { label: "College 10" },
+        { label: "Cowell" },
+        { label: "Crown" },
+        { label: "Kresge" },
+        { label: "Merrill" },
+        { label: "Oakes" },
+        { label: "Porter" },
+        { label: "Rachel Carson" },
+        { label: "Stevenson" },
+        { label: "Graduate Student, no affiliation" },
+      ]}
+      name='collegeAffiliation'
+      handleChange={handleChange}
+    />
+  )
+
   return (
     <div className='demographic-page'>
       <div className='demographic-page__form-container'>
@@ -41,8 +64,8 @@ const DemographicPage: React.FC = () => {
             min={0}
             max={100}
           />
-          <RadioForm
-            errorMessage={undefined}
+          <CheckBox
+            errorMessage={demographicFormData.pronounsErr}
             question='Pronouns'
             name='pronouns'
             inputs={[
@@ -53,11 +76,10 @@ const DemographicPage: React.FC = () => {
               { label: "Prefer not to answer" },
             ]}
             handleChange={handleChange}
-            checkedState={() => {}}
           />
           <DropDown
             question='Race / Ethnicity'
-            errorMessage={undefined}
+            errorMessage={demographicFormData.raceErr}
             inputs={[
               { label: "American Indian or Alaskan Native" },
               { label: "Asian / Pacific Islander" },
@@ -70,8 +92,8 @@ const DemographicPage: React.FC = () => {
             name='race'
             handleChange={handleChange}
           />
-          <RadioForm
-            errorMessage={undefined}
+          <CheckBox
+            errorMessage={demographicFormData.sexualityErr}
             question='Sexuality / Gender Identity'
             name='sexuality'
             inputs={[
@@ -86,19 +108,21 @@ const DemographicPage: React.FC = () => {
               { label: "Prefer not to answer" },
             ]}
             handleChange={handleChange}
-            checkedState={() => {}}
           />
           <SearchBox
-            className='demographic-page__form-container__inputs'
             question='School'
-            name='school'
-            items={universityList.map(x => x.institution)}
-            handleSelection={handleChange}
-            maxLength={100}
-            maxReturn={100}
+            data={universityList.map(item => item.institution)}
+            label='school'
+            fieldState={demographicFormData.school}
+            maxReturn={25}
+            errorMessage={demographicFormData.schoolErr}
+            handleChange={handleChange}
           />
+          {demographicFormData.school === "University of California-Santa Cruz"
+            ? collegeAffiliation
+            : ""}
           <DropDown
-            errorMessage={undefined}
+            errorMessage={demographicFormData.collegeAffiliationErr}
             question='Where will you be located at the time of the event (January 14-16)?'
             inputs={[
               { label: "On-campus at UC Santa Cruz" },
@@ -110,17 +134,17 @@ const DemographicPage: React.FC = () => {
             handleChange={handleChange}
           />
           <SearchBox
-            className='demographic-page__form-container__inputs'
             question='Major'
-            name='major'
-            items={majors.map(x => x.major)}
-            handleSelection={handleChange}
-            maxLength={100}
+            data={majors.map(item => item.major)}
+            label='major'
+            fieldState={demographicFormData.major}
             maxReturn={25}
+            errorMessage={demographicFormData.majorErr}
+            handleChange={handleChange}
           />
           <DropDown
             question='Current Level of Study'
-            errorMessage={undefined}
+            errorMessage={demographicFormData.currentStandingErr}
             inputs={[
               { label: "N/A" },
               { label: "Freshman" },
@@ -134,13 +158,13 @@ const DemographicPage: React.FC = () => {
             handleChange={handleChange}
           />
           <SearchBox
-            className='demographic-page__form-container__inputs'
             question='Country'
-            name='major'
-            items={Countries.map(x => x.name)}
-            handleSelection={handleChange}
-            maxLength={100}
-            maxReturn={10}
+            data={Countries.map(item => item.name)}
+            label='country'
+            fieldState={demographicFormData.country}
+            maxReturn={25}
+            errorMessage={demographicFormData.countryErr}
+            handleChange={handleChange}
           />
         </div>
       </div>
