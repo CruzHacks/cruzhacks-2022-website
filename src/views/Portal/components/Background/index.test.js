@@ -6,6 +6,6 @@ Enzyme.configure({ adapter: new Adapter() })
 
 describe('Testing Portal View Background Component', () => {
   it('Background Component renders without crashing', () => {
-    shallow(<ApplicationBackground />);
+    shallow(<ApplicationBackground>Children</ApplicationBackground>);
   });
 });

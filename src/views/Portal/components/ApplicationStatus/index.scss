@@ -1,0 +1,17 @@
+@use "./stylesheets/responsiveness";
+
+.application-status-component {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(255, 251, 241, 0.83);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.41);
+  border-radius: 18px;
+
+  @include responsiveness.screen(smallest, phone) {
+    width: 100%;
+    padding: 10px;
+  }
+}
