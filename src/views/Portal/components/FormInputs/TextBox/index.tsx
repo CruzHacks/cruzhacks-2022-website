@@ -10,8 +10,8 @@ const TextBox: React.FC<FieldProps> = ({
   label,
   maxLength,
 }: FieldProps) => (
-  <div className='text_box'>
-    {name}
+  <div className='text_box__container'>
+    <div className='text_box__container--question'>{name}</div>
     {errorMessage}
     <textarea
       aria-label={label}

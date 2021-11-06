@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "./index.scss"
 
 interface SearchBoxProps {
   question: string
@@ -36,8 +37,12 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         handleQuery()
       }
   const dropdown = (toDisplay: string[], onChange: any) => (
-    <div className='SearchBox-container__dropdown'>
-      <select onChange={onChange} name={label}>
+    <div className='SearchBox__component--dropdown'>
+      <select
+        onChange={onChange}
+        name={label}
+        className='SearchBox__component--dropdown__select'
+      >
         {toDisplay.map(item => (
           <option value={item}>{item}</option>
         ))}
@@ -45,24 +50,27 @@ const SearchBox: React.FC<SearchBoxProps> = ({
     </div>
   )
   const notListed = (
-    <div className='SearchBox-container__notListed'>
-      <input type='checkbox' onChange={() => setIsNoMatch(!isNoMatch)} />
+    <div className='SearchBox__component--checkbox'>
+      <input
+        type='checkbox'
+        onChange={() => setIsNoMatch(!isNoMatch)}
+        className='SearchBox__component--checkbox__box'
+      />
       Not Listed
     </div>
   )
 
   return (
-    <div className='SearchBox-container'>
-      <div className='SearchBox-container__question'>{question}</div>
-      <div className='SearchBox-container__errorMessage'>{errorMessage}</div>
-      <div className='SearchBox-container__input'>
-        <input
-          type='text'
-          name={label}
-          value={isNoMatch ? fieldState : query}
-          onChange={handleQueryChange}
-        />
-      </div>
+    <div className='SearchBox__component'>
+      <div className='SearchBox__component--question'>{question}</div>
+      <div className='SearchBox__component--errorMessage'>{errorMessage}</div>
+      <input
+        type='text'
+        name={label}
+        value={isNoMatch ? fieldState : query}
+        onChange={handleQueryChange}
+        className='SearchBox__component--input'
+      />
       {matchedItems.length > 0 && matchedItems.length < maxReturn
         ? dropdown(matchedItems, handleChange)
         : notListed}

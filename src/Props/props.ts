@@ -47,7 +47,6 @@ export interface ApplicationPagesProps {
 }
 
 export interface FieldProps {
-  className: string
   name: string
   handleChange: any
   fieldState: string | undefined
@@ -57,7 +56,6 @@ export interface FieldProps {
 }
 
 export interface NumberFieldProps {
-  className: string
   name: string
   handleChange: any
   fieldState: string | undefined

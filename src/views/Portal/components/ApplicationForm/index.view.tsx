@@ -106,21 +106,23 @@ const ApplicationForm: React.FC = () => {
   }
 
   return (
-    <div className='application-form-component'>
+    <div className='application-form__component'>
       Application Form
       {renderPage(page)}
-      <button type='button' onClick={saveData}>
-        Save
-      </button>
-      <button type='button' onClick={viewPrevPage}>
-        Prev
-      </button>
-      <button type='button' onClick={viewNextPage}>
-        Next
-      </button>
-      <button type='button' onClick={submitData}>
-        Submit
-      </button>
+      <div className='application-form__component--buttons'>
+        <button type='button' onClick={saveData}>
+          Save
+        </button>
+        <button type='button' onClick={viewPrevPage}>
+          {"< Prev"}
+        </button>
+        <button type='button' onClick={viewNextPage}>
+          {"Next >"}
+        </button>
+        <button type='button' onClick={submitData}>
+          Submit
+        </button>
+      </div>
     </div>
   )
 }

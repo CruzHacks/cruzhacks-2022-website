@@ -1,0 +1,16 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.short-answer-page {
+  display: flex;
+  justify-content: center;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    &--title {
+      @include typography.form-titles;
+      text-align: center;
+    }
+  }
+}

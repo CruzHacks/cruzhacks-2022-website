@@ -1,9 +1,7 @@
 import React from "react"
 import { NumberFieldProps } from "Props/props"
-import "./index.scss"
 
 const NumberField: React.FC<NumberFieldProps> = ({
-  className,
   name,
   handleChange,
   fieldState,
@@ -13,11 +11,9 @@ const NumberField: React.FC<NumberFieldProps> = ({
   max,
   maxLength,
 }: NumberFieldProps) => (
-  <div className={className}>
-    {name}
-    <div className={`${className}--error-message`} style={{ color: "#FF0000" }}>
-      {errorMessage}
-    </div>
+  <div className='textField__component'>
+    <div className='textField__component--fieldName'>{name}</div>
+    <div className='textField__component--errorMessage'>{errorMessage}</div>
     <input
       type='number'
       aria-label={label}
@@ -27,7 +23,7 @@ const NumberField: React.FC<NumberFieldProps> = ({
       max={max}
       maxLength={maxLength}
       onChange={handleChange}
-      className={`${className}--input`}
+      className='textField__component--input'
     />
   </div>
 )

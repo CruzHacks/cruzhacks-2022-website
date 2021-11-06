@@ -20,7 +20,6 @@ const ContactPage: React.FC = () => {
         </div>
         <div className='contact-page__container--fields'>
           <TextField
-            className='contact-page__container--textfield'
             name='First Name'
             handleChange={handleChange}
             fieldState={contactFormData.fname}
@@ -29,7 +28,6 @@ const ContactPage: React.FC = () => {
             maxLength={25}
           />
           <TextField
-            className='contact-page__container--textfield'
             name='Last Name'
             handleChange={handleChange}
             fieldState={contactFormData.lname}
@@ -38,7 +36,6 @@ const ContactPage: React.FC = () => {
             maxLength={25}
           />
           <TextField
-            className='contact-page__container--textfield'
             name='Phone Number'
             handleChange={handleChange}
             fieldState={contactFormData.phone}
@@ -47,7 +44,6 @@ const ContactPage: React.FC = () => {
             maxLength={10}
           />
           <TextField
-            className='contact-page__container--textfield'
             name='Email Address'
             handleChange={handleChange}
             fieldState={contactFormData.email}

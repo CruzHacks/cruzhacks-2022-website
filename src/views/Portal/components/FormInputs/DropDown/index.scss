@@ -1,21 +1,27 @@
 @use "~stylesheets/responsiveness";
 @use "~stylesheets/typography";
 
-.dropdown {
-  display: flex;
-  flex-wrap: wrap;
-  width:300px;
-  justify-content: left;
+.dropdown__component {
   @include typography.form-prompts;
-
-  &__question {
-    min-width: 155px;
-    flex-basis: 100%; 
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  flex-wrap: wrap;
+  &--errorMessage {
+    color: #FF0000;
   }
   &--selector {
-    background-color: white;
-    width: 300px;
-    outline: none;
+    @include typography.form-prompts;
+    width: 508px;
+    height: 40px;
+    @include responsiveness.screen(phone) {
+      width: 308px;
+      height: 30px;
+      }
+      @include responsiveness.screen(smallest) {
+      width: 208px;
+      height: 30px;
+      @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 16px);
+      }
   }
-  
 }

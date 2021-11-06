@@ -1,0 +1,9 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.application-form__component {
+  &--buttons {
+    display: flex;
+    justify-content: center;
+  }
+}
