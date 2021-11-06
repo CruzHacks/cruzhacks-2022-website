@@ -11,10 +11,8 @@ export interface ContactProps {
 
 export interface DemographicProps {
     age: string
-    pronounsCount: number
     pronouns: string[]
     race: string
-    sexualityCount: number
     sexuality: string[]
     school: string
     collegeAffiliation: string
@@ -44,7 +42,7 @@ export interface ShortAnswerProps {
 }
 
 export interface PriorExperienceProps {
-  firstCruzHacks: boolean
+  firstCruzHacks: string
   hackathonCount: string 
   priorExperience: string
   firstCruzHacksErr: string
@@ -67,7 +65,7 @@ export interface ConnectedProps {
 }
 
 export interface MLHProps {
-    conductAgree: boolean 
-    tosAgree: boolean
+    conductAgree: string 
+    tosAgree: string
     agreementErr: string
 }

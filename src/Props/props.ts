@@ -76,12 +76,12 @@ export interface RadioButtonProps {
 export interface RadioFormProps {
   question: string
   name: string
+  value: string
   errorMessage: string | undefined
   inputs: {
     label: string
   }[]
   handleChange: any
-  checkedState: any
 }
 
 export interface DropDownListProps {
@@ -98,4 +98,12 @@ export interface DropDownProps {
   }[]
   name: any
   handleChange: any
+}
+
+export interface FileProps {
+  question: string
+  name: string
+  handleChange: any
+  errorMessage: string 
+  className: string
 }

@@ -2,18 +2,6 @@ import React from "react"
 import "./index.scss"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
-// import {
-// ContactProps,
-// DemographicProps,
-//   ShortAnswerProps,
-//   PriorExperienceProps,
-//   ConnectedProps,
-//   MLHProps,
-// } from "Props/application/props"
-// import {
-//  generateContactProps,
-//  generateDemographicProps,
-// } from "views/Portal/utils/PropBuilder"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -47,18 +35,26 @@ const ApplicationForm: React.FC = () => {
 
   const viewNextPage = () => {
     if (page === ApplicationPages.Contact) {
-      if (validateContactForm(contactFormData, setContactFormData)) {
+      if (validateContactForm(contactFormData, setContactFormData, true)) {
         nextPage()
       }
     } else if (page === ApplicationPages.Demographic) {
       if (
-        validatedemographicForm(demographicFormData, setDemographicFormData)
+        validatedemographicForm(
+          demographicFormData,
+          setDemographicFormData,
+          true
+        )
       ) {
         nextPage()
       }
     } else if (page === ApplicationPages.ShortAnswer) {
       if (
-        validateshortAnswerForm(shortAnswerFormData, setShortAnswerFormData)
+        validateshortAnswerForm(
+          shortAnswerFormData,
+          setShortAnswerFormData,
+          true
+        )
       ) {
         nextPage()
       }
@@ -76,6 +72,7 @@ const ApplicationForm: React.FC = () => {
         nextPage()
       }
     }
+    nextPage()
   }
 
   const viewPrevPage = () => {

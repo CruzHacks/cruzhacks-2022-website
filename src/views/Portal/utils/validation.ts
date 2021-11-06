@@ -8,11 +8,7 @@ import {
 } from "Props/application/props"
 
 import { Dispatch, SetStateAction } from "react"
-// import {
-//   phoneRegex,
-//   alphanumericPunctuationRegex,
-//   alphanumericRegex,
-// } from "utils/regex"
+import { phoneRegex, alphanumericPunctuationRegex } from "utils/regex"
 
 function updateErrorMessage(
   message: string,
@@ -46,14 +42,14 @@ export const validateContactForm = (
         if (onSubmit && fname.length === 0) {
           isValid = false
           updateErrorMessage("Input your First Name", "fnameErr", dispatchError)
-        } else if (fname.length > 50) {
+        } else if (fname.length > 25) {
           isValid = false
           updateErrorMessage(
             "First Name is Too Long",
             "fnameErr",
             dispatchError
           )
-        } else if (!fname) {
+        } else if (alphanumericPunctuationRegex(fname)) {
           isValid = false
           updateErrorMessage(
             "First Name contains Invalid Character",
@@ -68,10 +64,10 @@ export const validateContactForm = (
         if (onSubmit && lname.length === 0) {
           isValid = false
           updateErrorMessage("Input your Last Name", "lnameErr", dispatchError)
-        } else if (lname.length > 50) {
+        } else if (lname.length > 25) {
           isValid = false
           updateErrorMessage("Last Name is Too Long", "lnameErr", dispatchError)
-        } else if (!lname) {
+        } else if (alphanumericPunctuationRegex(lname)) {
           isValid = false
           updateErrorMessage(
             "Last Name contains Invalid Character",
@@ -90,14 +86,14 @@ export const validateContactForm = (
             "phoneErr",
             dispatchError
           )
-        } else if (phone.length > 50) {
+        } else if (phone.length > 12) {
           isValid = false
           updateErrorMessage(
             "Phone Number is Too Long",
             "phoneErr",
             dispatchError
           )
-        } else if (!phone) {
+        } else if (phoneRegex(phone)) {
           isValid = false
           updateErrorMessage(
             "Please Input a Valid Phone Number",
@@ -147,17 +143,19 @@ export const validatedemographicForm = (
   } = pageData
   const pronounCount = pronouns.length
   const sexaulityCount = sexuality.length
+  const ageInt = parseInt(age, 10)
+
   fields.forEach(field => {
     switch (field) {
       case "age":
-        if (age <= "5") {
+        if (ageInt < 5) {
           isValid = false
           updateErrorMessage(
             "Participant must be older than 5",
             "ageErr",
             dispatchError
           )
-        } else if (age >= "100") {
+        } else if (ageInt > 99) {
           isValid = false
           updateErrorMessage(
             "Participant must be younger than 100",
@@ -173,28 +171,35 @@ export const validatedemographicForm = (
           isValid = false
           updateErrorMessage(
             "Please input your pronouns",
-            "pronounErr",
+            "pronounsErr",
             dispatchError
           )
         } else if (pronounCount > 5) {
           isValid = false
           updateErrorMessage(
             "Too many pronouns inputted",
-            "pronounErr",
+            "pronounsErr",
             dispatchError
           )
         } else {
+          let pronounValid = true
           for (let i = 0; i < pronounCount; i += 1) {
-            if (pronouns[i]) {
+            if (
+              alphanumericPunctuationRegex(pronouns[i]) ||
+              pronouns[i].length > 50
+            ) {
               isValid = false
+              pronounValid = false
               updateErrorMessage(
                 "Inputted pronouns is not Alphanumeric",
-                "pronounErr",
+                "pronounsErr",
                 dispatchError
               )
             }
           }
-          updateErrorMessage("", "pronounErr", dispatchError)
+          if (pronounValid) {
+            updateErrorMessage("", "pronounsErr", dispatchError)
+          }
         }
         break
       case "sexuality":
@@ -213,9 +218,14 @@ export const validatedemographicForm = (
             dispatchError
           )
         } else {
+          let sexualityValid = true
           for (let i = 0; i < sexaulityCount; i += 1) {
-            if (sexuality[i]) {
+            if (
+              alphanumericPunctuationRegex(sexuality[i]) ||
+              sexuality[i].length > 50
+            ) {
               isValid = false
+              sexualityValid = false
               updateErrorMessage(
                 "Inputted Identity is not Alphanumeric",
                 "sexualityErr",
@@ -223,17 +233,26 @@ export const validatedemographicForm = (
               )
             }
           }
-          updateErrorMessage("", "sexualityErr", dispatchError)
+          if (sexualityValid) {
+            updateErrorMessage("", "sexualityErr", dispatchError)
+          }
         }
         break
       case "race":
         if (onSubmit && race.length <= 0) {
           isValid = false
           updateErrorMessage("Please input your race", "raceErr", dispatchError)
-        } else if (race.length >= 100) {
+        } else if (race.length > 50) {
           isValid = false
           updateErrorMessage(
             "Inputted Race is Too Long",
+            "raceErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(race)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted Race Should be alphanumeric",
             "raceErr",
             dispatchError
           )
@@ -249,10 +268,17 @@ export const validatedemographicForm = (
             "schoolErr",
             dispatchError
           )
-        } else if (school.length >= 100) {
+        } else if (school.length > 100) {
           isValid = false
           updateErrorMessage(
             "Inputted School Name is Too Long",
+            "schoolErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(school)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted School Should be alphanumeric",
             "schoolErr",
             dispatchError
           )
@@ -268,10 +294,17 @@ export const validatedemographicForm = (
             "collegeAffiliationErr",
             dispatchError
           )
-        } else if (collegeAffiliation.length >= 100) {
+        } else if (collegeAffiliation.length > 100) {
           isValid = false
           updateErrorMessage(
             "College Affiliation Response is too Long",
+            "collegeAffiliationErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(collegeAffiliation)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted College Affiliation Should be alphanumeric",
             "collegeAffiliationErr",
             dispatchError
           )
@@ -287,10 +320,17 @@ export const validatedemographicForm = (
             "eventLocationErr",
             dispatchError
           )
-        } else if (eventLocation.length >= 100) {
+        } else if (eventLocation.length > 100) {
           isValid = false
           updateErrorMessage(
             "Inputted Location Length is too Long",
+            "eventLocationErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(eventLocation)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted Location Should be alphanumeric",
             "eventLocationErr",
             dispatchError
           )
@@ -306,10 +346,17 @@ export const validatedemographicForm = (
             "majorErr",
             dispatchError
           )
-        } else if (major.length >= 100) {
+        } else if (major.length > 50) {
           isValid = false
           updateErrorMessage(
             "Inputted Major is too Long",
+            "majorErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(major)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted major Should be alphanumeric",
             "majorErr",
             dispatchError
           )
@@ -325,10 +372,17 @@ export const validatedemographicForm = (
             "currentStandingErr",
             dispatchError
           )
-        } else if (currentStanding.length >= 100) {
+        } else if (currentStanding.length > 50) {
           isValid = false
           updateErrorMessage(
             "Inputted Standing is too Long",
+            "currentStandingErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(currentStanding)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted Standing Should be alphanumeric",
             "currentStandingErr",
             dispatchError
           )
@@ -344,10 +398,17 @@ export const validatedemographicForm = (
             "countryErr",
             dispatchError
           )
-        } else if (country.length >= 100) {
+        } else if (country.length > 50) {
           isValid = false
           updateErrorMessage(
             "Inputted Country is Too Long",
+            "countryErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(country)) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted country Should be alphanumeric",
             "countryErr",
             dispatchError
           )
@@ -387,6 +448,13 @@ export const validateshortAnswerForm = (
             "whyCruzHacksErr",
             dispatchError
           )
+        } else if (alphanumericPunctuationRegex(whyCruzHacks)) {
+          isValid = false
+          updateErrorMessage(
+            "Response Should be alphanumeric",
+            "whyCruzHacksErr",
+            dispatchError
+          )
         } else {
           updateErrorMessage("", "whyCruzHacksErr", dispatchError)
         }
@@ -403,6 +471,13 @@ export const validateshortAnswerForm = (
           isValid = false
           updateErrorMessage(
             "Response is Too Long",
+            "newThisYearErr",
+            dispatchError
+          )
+        } else if (alphanumericPunctuationRegex(newThisYear)) {
+          isValid = false
+          updateErrorMessage(
+            "Response Should be alphanumeric",
             "newThisYearErr",
             dispatchError
           )
@@ -425,6 +500,13 @@ export const validateshortAnswerForm = (
             "grandestInventionErr",
             dispatchError
           )
+        } else if (alphanumericPunctuationRegex(grandestInvention)) {
+          isValid = false
+          updateErrorMessage(
+            "Response Should be alphanumeric",
+            "grandestInventionErr",
+            dispatchError
+          )
         } else {
           updateErrorMessage("", "grandestInventionErr", dispatchError)
         }
@@ -442,32 +524,49 @@ export const validatepriorExperienceForm = (
 ) => {
   const fields = ["firstCruzHacks", "hackathonCount", "priorExperience"]
   let isValid = true
-  const { hackathonCount, priorExperience } = pageData
+  const { firstCruzHacks, hackathonCount, priorExperience } = pageData
+  const hackathonsCountInt = parseInt(hackathonCount, 10)
   fields.forEach(field => {
     switch (field) {
+      case "firstCruzHacks":
+        if (firstCruzHacks !== "yes" && firstCruzHacks !== "no") {
+          isValid = false
+          updateErrorMessage(
+            "Please Input a response",
+            "firstCruzHacksErr",
+            dispatchError
+          )
+        } else {
+          updateErrorMessage("", "firstCruzHacksErr", dispatchError)
+        }
+        break
       case "hackathonCount":
-        if (hackathonCount <= "5") {
+        if (hackathonsCountInt < 0) {
           isValid = false
-          updateErrorMessage("", "hackathnoCountErr", dispatchError)
-        } else if (hackathonCount >= "100") {
+          updateErrorMessage(
+            "Invalid Hackathon Count",
+            "hackathonCountErr",
+            dispatchError
+          )
+        } else if (hackathonsCountInt > 100) {
           isValid = false
-          updateErrorMessage("", "hackathonCountErr", dispatchError)
+          updateErrorMessage("Limit is 99", "hackathonCountErr", dispatchError)
         } else {
           updateErrorMessage("", "hackathonCountErr", dispatchError)
         }
         break
       case "priorExperience":
-        if (priorExperience.length > 250) {
+        if (priorExperience.length > 100) {
           isValid = false
           updateErrorMessage(
             "Response is Too Long",
             "priorExperienceErr",
             dispatchError
           )
-        } else if (priorExperience) {
+        } else if (alphanumericPunctuationRegex(priorExperience)) {
           isValid = false
           updateErrorMessage(
-            "Response should be alphanumeric characters only",
+            "Response Should be alphanumeric",
             "priorExperienceErr",
             dispatchError
           )
@@ -492,14 +591,14 @@ export const validateConnectedForm = (
   fields.forEach(field => {
     switch (field) {
       case "linkedin":
-        if (linkedin.length > 250) {
+        if (linkedin.length > 100) {
           isValid = false
           updateErrorMessage(
             "LinkedIn Id is too Long",
             "linkedinErr",
             dispatchError
           )
-        } else if (linkedin) {
+        } else if (alphanumericPunctuationRegex(linkedin)) {
           isValid = false
           updateErrorMessage(
             "LinkedIn Id is Invalid",
@@ -511,14 +610,14 @@ export const validateConnectedForm = (
         }
         break
       case "github":
-        if (github.length > 250) {
+        if (github.length > 100) {
           isValid = false
           updateErrorMessage(
             "Github username is too Long",
             "githubErr",
             dispatchError
           )
-        } else if (github) {
+        } else if (alphanumericPunctuationRegex(github)) {
           isValid = false
           updateErrorMessage(
             "Github username is Invalid",
@@ -530,14 +629,14 @@ export const validateConnectedForm = (
         }
         break
       case "cruzCoins":
-        if (cruzCoins.length > 250) {
+        if (cruzCoins.length > 100) {
           isValid = false
           updateErrorMessage(
             "Response is Too Long",
             "cruzCoinsErr",
             dispatchError
           )
-        } else if (cruzCoins) {
+        } else if (alphanumericPunctuationRegex(cruzCoins)) {
           isValid = false
           updateErrorMessage(
             "Response should be alphanumeric characters only",
@@ -549,14 +648,14 @@ export const validateConnectedForm = (
         }
         break
       case "anythingElse":
-        if (anythingElse.length > 250) {
+        if (anythingElse.length > 100) {
           isValid = false
           updateErrorMessage(
             "Response is Too Long",
             "anythingElseErr",
             dispatchError
           )
-        } else if (anythingElse) {
+        } else if (alphanumericPunctuationRegex(anythingElse)) {
           isValid = false
           updateErrorMessage(
             "Response should be alphanumeric characters only",

@@ -5,8 +5,8 @@ interface SearchBoxProps {
   data: string[]
   label: string
   fieldState: string
-  maxReturn: number
   errorMessage: string
+  maxReturn: number
   handleChange: any
 }
 
@@ -15,41 +15,51 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   data,
   label,
   fieldState,
-  maxReturn,
   errorMessage,
+  maxReturn,
   handleChange,
 }: SearchBoxProps) => {
-  const [query, setQuery] = useState<string>(fieldState)
   const [matchedItems, setMatchedItems] = useState<string[]>(data)
-  const [isNoMatch, setIsNoMatch] = useState<boolean>(false)
   const handleQuery = () => {
     const Matches = data.filter(entry =>
-      entry.toLowerCase().includes(query.toLowerCase())
+      entry.toLowerCase().includes(fieldState.toLowerCase())
     )
     setMatchedItems(Matches)
   }
 
-  const handleQueryChange = isNoMatch
-    ? handleChange
-    : (e: any) => {
-        setQuery(e.target.value)
-        handleQuery()
-      }
-  const dropdown = (toDisplay: string[], onChange: any) => (
+  const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleChange(e.target.value)
+    handleQuery()
+  }
+
+  const onClick = (val: string) => {
+    handleChange(val)
+    setMatchedItems([])
+  }
+
+  const dropdown = () => (
     <div className='SearchBox-container__dropdown'>
-      <select onChange={onChange} name={label}>
-        {toDisplay.map(item => (
-          <option value={item}>{item}</option>
+      {fieldState &&
+        matchedItems.slice(0, maxReturn).map(item => (
+          <div className='SearchBox-container__dropdown' key={item}>
+            <button
+              type='button'
+              onClick={() => onClick(item)}
+              aria-label={item}
+            >
+              {item}
+            </button>
+          </div>
         ))}
-      </select>
     </div>
   )
-  const notListed = (
-    <div className='SearchBox-container__notListed'>
-      <input type='checkbox' onChange={() => setIsNoMatch(!isNoMatch)} />
-      Not Listed
-    </div>
-  )
+  // const notListed = (
+  //   <div className='SearchBox-container__notListed'>
+  //       <button type='button' onClick={onChange}>
+  //         "Not"
+  //       </button>
+  //   </div>
+  // )
 
   return (
     <div className='SearchBox-container'>
@@ -59,13 +69,11 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         <input
           type='text'
           name={label}
-          value={isNoMatch ? fieldState : query}
+          value={fieldState}
           onChange={handleQueryChange}
         />
       </div>
-      {matchedItems.length > 0 && matchedItems.length < maxReturn
-        ? dropdown(matchedItems, handleChange)
-        : notListed}
+      {dropdown()}
     </div>
   )
 }
