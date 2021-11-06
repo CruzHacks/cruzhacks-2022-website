@@ -4,8 +4,6 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
-// import TextField from "../../FormInputs/TextField"
-// import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
 import SearchBox from "../../FormInputs/SearchBox"
 import NumberField from "../../FormInputs/NumberBox/index"
@@ -20,27 +18,6 @@ const DemographicPage: React.FC = () => {
       setDemographicFormData(copy)
     }
   }
-  const collegeAffiliation = (
-    <DropDown
-      question='College Affiliation'
-      errorMessage={demographicFormData.collegeAffiliationErr}
-      inputs={[
-        { label: "College 9" },
-        { label: "College 10" },
-        { label: "Cowell" },
-        { label: "Crown" },
-        { label: "Kresge" },
-        { label: "Merrill" },
-        { label: "Oakes" },
-        { label: "Porter" },
-        { label: "Rachel Carson" },
-        { label: "Stevenson" },
-        { label: "Graduate Student, no affiliation" },
-      ]}
-      name='collegeAffiliation'
-      handleChange={handleChange}
-    />
-  )
   return (
     <div className='demographic-page'>
       <div className='demographic-page__form-container'>
@@ -66,6 +43,7 @@ const DemographicPage: React.FC = () => {
             errorMessage={demographicFormData.pronounsErr}
             question='Pronouns'
             name='pronouns'
+            value={demographicFormData.pronouns}
             inputs={[
               { label: "He / him / his" },
               { label: "She / her / hers" },
@@ -73,9 +51,10 @@ const DemographicPage: React.FC = () => {
               { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
-            handleChange={handleChange}
+            setViewData={setDemographicFormData}
           />
           <DropDown
+            value={demographicFormData.race}
             question='Race / Ethnicity'
             errorMessage={demographicFormData.raceErr}
             inputs={[
@@ -94,6 +73,7 @@ const DemographicPage: React.FC = () => {
             errorMessage={demographicFormData.sexualityErr}
             question='Sexuality / Gender Identity'
             name='sexuality'
+            value={demographicFormData.sexuality}
             inputs={[
               { label: "Bisexual" },
               { label: "Heterosexual" },
@@ -105,22 +85,45 @@ const DemographicPage: React.FC = () => {
               { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
-            handleChange={handleChange}
+            setViewData={setDemographicFormData}
           />
           <SearchBox
             question='School'
             data={universityList.map(item => item.institution)}
             label='school'
             fieldState={demographicFormData.school}
-            maxReturn={25}
+            maxReturn={10}
             errorMessage={demographicFormData.schoolErr}
+            handleChange={(value: string) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                school: value,
+              }))
+            }}
+          />
+          <DropDown
+            value={demographicFormData.collegeAffiliation}
+            question='College Affiliation'
+            errorMessage={demographicFormData.collegeAffiliationErr}
+            inputs={[
+              { label: "College 9" },
+              { label: "College 10" },
+              { label: "Cowell" },
+              { label: "Crown" },
+              { label: "Kresge" },
+              { label: "Merrill" },
+              { label: "Oakes" },
+              { label: "Porter" },
+              { label: "Rachel Carson" },
+              { label: "Stevenson" },
+              { label: "Graduate Student, no affiliation" },
+            ]}
+            name='collegeAffiliation'
             handleChange={handleChange}
           />
-          {demographicFormData.school === "University of California-Santa Cruz"
-            ? collegeAffiliation
-            : ""}
           <DropDown
-            errorMessage={demographicFormData.collegeAffiliationErr}
+            value={demographicFormData.eventLocation}
+            errorMessage={demographicFormData.eventLocationErr}
             question='Where will you be located at the time of the event (January 14-16)?'
             inputs={[
               { label: "On-campus at UC Santa Cruz" },
@@ -136,12 +139,18 @@ const DemographicPage: React.FC = () => {
             data={majors.map(item => item.major)}
             label='major'
             fieldState={demographicFormData.major}
-            maxReturn={25}
+            maxReturn={10}
             errorMessage={demographicFormData.majorErr}
-            handleChange={handleChange}
+            handleChange={(value: string) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                major: value,
+              }))
+            }}
           />
           <DropDown
             question='Current Level of Study'
+            value={demographicFormData.currentStanding}
             errorMessage={demographicFormData.currentStandingErr}
             inputs={[
               { label: "N/A" },
@@ -160,9 +169,14 @@ const DemographicPage: React.FC = () => {
             data={Countries.map(item => item.name)}
             label='country'
             fieldState={demographicFormData.country}
-            maxReturn={25}
+            maxReturn={10}
             errorMessage={demographicFormData.countryErr}
-            handleChange={handleChange}
+            handleChange={(value: string) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                country: value,
+              }))
+            }}
           />
         </div>
       </div>

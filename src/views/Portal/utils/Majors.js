@@ -48,9 +48,6 @@ const majors = [
     major: "Classical Studies B.A.",
   },
   {
-    major: "Cognitive Science B.S.",
-  },
-  {
     major: "Community Studies B.A.",
   },
   {

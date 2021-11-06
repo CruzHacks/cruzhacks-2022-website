@@ -8,6 +8,7 @@ const DropDown: React.FC<DropDownProps> = ({
   name,
   handleChange,
   errorMessage,
+  value,
 }: DropDownProps) => (
   // const [isInvisible, setIsVisible] = useState(false)
   <div className='dropdown__component'>
@@ -17,7 +18,11 @@ const DropDown: React.FC<DropDownProps> = ({
       className='dropdown__component--selector'
       name={name}
       onChange={handleChange}
+      value={value}
     >
+      <option value='' className='dropdown__component--option'>
+        {" "}
+      </option>
       {inputs.map(({ label }) => (
         <option value={label} className='dropdown__component--option'>
           {label}

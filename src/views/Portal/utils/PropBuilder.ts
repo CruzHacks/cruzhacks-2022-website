@@ -40,7 +40,7 @@ export const generateShortAnswerProps = () => {
 
 export const generatePriorExperienceProps = () => {
   const newObj: PriorExperienceProps = {
-    firstCruzHacks: true,
+    firstCruzHacks: "No",
     hackathonCount: "0",
     priorExperience: "",
     firstCruzHacksErr: "",
@@ -53,10 +53,8 @@ export const generatePriorExperienceProps = () => {
 export const generateDemographicProps = () => {
   const newObj: DemographicProps = {
     age: "0",
-    pronounsCount: 0,
     pronouns: [],
     race: "",
-    sexualityCount: 0,
     sexuality: [],
     school: "",
     collegeAffiliation: "",
@@ -96,8 +94,8 @@ export const generateConnectedProps = () => {
 
 export const generateMLHProps = () => {
   const newObj: MLHProps = {
-    conductAgree: false,
-    tosAgree: false,
+    conductAgree: "No",
+    tosAgree: "No",
     agreementErr: "",
   }
   return newObj

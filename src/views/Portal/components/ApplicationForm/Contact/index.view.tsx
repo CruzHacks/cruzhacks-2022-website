@@ -41,7 +41,7 @@ const ContactPage: React.FC = () => {
             fieldState={contactFormData.phone}
             errorMessage={contactFormData.phoneErr}
             label='phone'
-            maxLength={10}
+            maxLength={20}
           />
           <TextField
             name='Email Address'

@@ -8,6 +8,7 @@ const RadioForm: React.FC<RadioFormProps> = ({
   name,
   handleChange,
   errorMessage,
+  value,
 }: RadioFormProps) => (
   <div className='radio-form__component'>
     <div className='radio-form__component--question'>{question}</div>
@@ -20,6 +21,7 @@ const RadioForm: React.FC<RadioFormProps> = ({
             onChange={handleChange}
             value={label}
             name={name}
+            checked={value === label}
             className='radio-form__component--inputs__radio-button--input'
           />
           {label}

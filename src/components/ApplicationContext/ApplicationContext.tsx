@@ -120,7 +120,6 @@ export const ApplicationProvider: React.FC = () => {
       })
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
-  // eslint-disable-next-line
 
   const nextPage = () => {
     if (page < 6) {

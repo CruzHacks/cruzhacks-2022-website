@@ -11,11 +11,23 @@ const ExperiencePage: React.FC = () => {
   return (
     <div className='experience-page'>
       <div className='experience-page__container'>
-        <div className='experience-page__container--title'>
-          Prior Experience
-        </div>
+        Prior Experience
+        <RadioForm
+          question='Will this be your first time attending CruzHacks?'
+          name='firstCruzHacks'
+          inputs={[{ label: "Yes" }, { label: "No" }]}
+          handleChange={(e: any) =>
+            setPriorExperienceFormData(prev => ({
+              ...prev,
+              firstCruzHacks: e.target.value,
+            }))
+          }
+          errorMessage={priorExperienceFormData.firstCruzHacksErr}
+          value={priorExperienceFormData.firstCruzHacks}
+        />
         <TextField
-          name='hackathonCount'
+          // className='demographic-page__form-container__inputs--textfield'
+          name='Have you attended any hackathons before? If so, how many?'
           handleChange={(e: any) =>
             setPriorExperienceFormData(prev => ({
               ...prev,
@@ -27,20 +39,8 @@ const ExperiencePage: React.FC = () => {
           label='hackathonCount'
           maxLength={3}
         />
-        <RadioForm
-          question='Will this be your first time attending CruzHacks?'
-          name='firstCruzHacks'
-          inputs={[{ label: "Yes" }, { label: "No" }]}
-          handleChange={(e: any) =>
-            setPriorExperienceFormData(prev => ({
-              ...prev,
-              firstCruzHacks: e.target.value,
-            }))
-          }
-          checkedState={() => {}}
-          errorMessage={priorExperienceFormData.hackathonCountErr}
-        />
         <TextBox
+          // className='short-answer-page__inputs--textfield'
           name='Do you have prior tech experience? If so, in what context (i.e., classes, internships, personal projects)?'
           handleChange={(e: any) =>
             setPriorExperienceFormData(prev => ({
