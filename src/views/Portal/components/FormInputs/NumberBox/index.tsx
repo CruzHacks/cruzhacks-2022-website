@@ -1,23 +1,26 @@
 import React from "react"
-import { FieldProps } from "Props/props"
-import "./index.scss"
+import { NumberFieldProps } from "Props/props"
 
-const TextField: React.FC<FieldProps> = ({
+const NumberField: React.FC<NumberFieldProps> = ({
   name,
   handleChange,
   fieldState,
   errorMessage,
   label,
+  min,
+  max,
   maxLength,
-}: FieldProps) => (
+}: NumberFieldProps) => (
   <div className='textField__component'>
     <div className='textField__component--fieldName'>{name}</div>
     <div className='textField__component--errorMessage'>{errorMessage}</div>
     <input
-      type='text'
+      type='number'
       aria-label={label}
       name={label}
       value={fieldState}
+      min={min}
+      max={max}
       maxLength={maxLength}
       onChange={handleChange}
       className='textField__component--input'
@@ -25,4 +28,4 @@ const TextField: React.FC<FieldProps> = ({
   </div>
 )
 
-export default TextField
+export default NumberField

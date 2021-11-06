@@ -1,0 +1,20 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.demographic-page {
+  display: flex;
+  justify-content: center;
+
+  &__form-container {
+    display: flex;
+    flex-direction: column;
+    &--title {
+      @include typography.form-titles;
+    }
+    &--inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  }
+}

@@ -4,22 +4,22 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import universityList from "views/Portal/utils/Universities"
 import majors from "views/Portal/utils/Majors"
 import Countries from "views/Portal/utils/Countries"
-import SearchBox from "../../FormInputs/SearchBox"
-import TextField from "../../FormInputs/TextField"
+// import TextField from "../../FormInputs/TextField"
+// import RadioForm from "../../FormInputs/Radio"
 import DropDown from "../../FormInputs/DropDown"
+import SearchBox from "../../FormInputs/SearchBox"
+import NumberField from "../../FormInputs/NumberBox/index"
 import CheckBox from "../../FormInputs/CheckBox"
 
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
   const handleChange = (event: any) => {
-    console.log(event)
     const name = event.target.getAttribute("name")
     if (Object.keys(demographicFormData).includes(name)) {
       const copy = { ...demographicFormData, [name]: event.target.value }
       setDemographicFormData(copy)
     }
   }
-  console.log("formdata", demographicFormData)
   const collegeAffiliation = (
     <DropDown
       question='College Affiliation'
@@ -41,22 +41,26 @@ const DemographicPage: React.FC = () => {
       handleChange={handleChange}
     />
   )
-
   return (
     <div className='demographic-page'>
       <div className='demographic-page__form-container'>
         <div className='demographic-page__form-container--title'>
-          Demographic Information
+          Demographics Information
         </div>
-        <div className='demographic-page__form-container__inputs'>
-          <TextField
-            className='demographic-page__form-container__inputs--textfield'
+        <div className='demographic-page__form-container--inputs'>
+          <NumberField
             name='Age'
-            handleChange={handleChange}
+            handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setDemographicFormData(prev => ({
+                ...prev,
+                age: e.target.value,
+              }))
+            }}
             fieldState={demographicFormData.age}
             errorMessage={demographicFormData.ageErr}
             label='age'
-            maxLength={3}
+            min={0}
+            max={100}
           />
           <CheckBox
             errorMessage={demographicFormData.pronounsErr}
@@ -66,7 +70,7 @@ const DemographicPage: React.FC = () => {
               { label: "He / him / his" },
               { label: "She / her / hers" },
               { label: "They / them / theirs" },
-              { label: "Other" },
+              { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
             handleChange={handleChange}

@@ -1,4 +1,5 @@
 import React from "react"
+import "./index.scss"
 
 interface CheckBoxProps {
   question: string
@@ -15,19 +16,20 @@ const CheckBox: React.FC<CheckBoxProps> = ({
   name,
   handleChange,
 }: CheckBoxProps) => (
-  <div className='checkbox-form'>
-    <div className='checkbox-form__question'>{question}</div>
-    <div className='checkbox-form__errorMessage'>{errorMessage}</div>
-    <div className='inputs'>
+  <div className='checkbox__component'>
+    <div className='checkbox__component--question'>{question}</div>
+    <div className='checkbox__component--errorMessage'>{errorMessage}</div>
+    <div className='checkbox__component--inputContainer'>
       {inputs.map(({ label }) => (
-        <div className='checkbox-button'>
+        <div className='checkbox__component--button'>
           <input
             type='checkbox'
             onChange={handleChange}
             value={label}
             name={name}
+            className='checkbox__component--input'
           />
-          {label}
+          <div className='checkbox__component--label'>{label}</div>
         </div>
       ))}
     </div>

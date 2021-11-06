@@ -21,7 +21,6 @@ const ConnectedPage: React.FC = () => {
         <input type='file' />
         <div className='connected-page__container--body'>
           <TextField
-            className='connected-page__container--textfield'
             name='LinkedIn'
             label='LinkedIn'
             maxLength={50}
@@ -30,7 +29,6 @@ const ConnectedPage: React.FC = () => {
             errorMessage={errors}
           />
           <TextField
-            className='connected-page__container--textfield'
             name='GitHub'
             label='GitHub'
             maxLength={100}
@@ -39,7 +37,6 @@ const ConnectedPage: React.FC = () => {
             errorMessage={errors}
           />
           <TextBox
-            className='connected-page__container--textbox'
             label='Reference'
             name='How did you hear about CruzHacks? If someone specific referred you, let us know their name so they can earn CruzCoins!'
             maxLength={100}
@@ -56,7 +53,6 @@ const ConnectedPage: React.FC = () => {
             errorMessage={errors}
           />
           <TextBox
-            className='connected-page__container--textbox'
             label='OtherInfo'
             name='Is there anything else you would like us to know?'
             maxLength={100}

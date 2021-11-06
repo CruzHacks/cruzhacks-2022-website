@@ -21,6 +21,8 @@ import {
   generateDemographicProps,
   generateShortAnswerProps,
   generatePriorExperienceProps,
+  generateConnectedProps,
+  generateMLHProps,
 } from "views/Portal/utils/PropBuilder"
 import AppStatus from "Props/portal/application"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
@@ -45,11 +47,11 @@ interface ApplicationContextProps {
   priorExperienceFormData: PriorExperienceProps
   setPriorExperienceFormData: Dispatch<SetStateAction<PriorExperienceProps>>
 
-  connectedFormData: any
-  setConnectedFormData: any
+  connectedFormData: ConnectedProps
+  setConnectedFormData: Dispatch<SetStateAction<ConnectedProps>>
 
-  mlhFormData: any
-  setmlhFormData: any
+  mlhFormData: MLHProps
+  setmlhFormData: Dispatch<SetStateAction<MLHProps>>
 }
 
 export const ApplicationContext =
@@ -70,8 +72,10 @@ export const ApplicationProvider: React.FC = () => {
     useState<ShortAnswerProps>(generateShortAnswerProps())
   const [priorExperienceFormData, setPriorExperienceFormData] =
     useState<PriorExperienceProps>(generatePriorExperienceProps())
-  const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>()
-  const [mlhFormData, setmlhFormData] = useState<MLHProps>()
+  const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>(
+    generateConnectedProps()
+  )
+  const [mlhFormData, setmlhFormData] = useState<MLHProps>(generateMLHProps())
   useEffect(() => {
     try {
       const cachedStatus = retrieve("applicationStatus", undefined)

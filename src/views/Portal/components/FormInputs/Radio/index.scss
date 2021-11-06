@@ -1,13 +1,43 @@
-.inputs {
-  display:flex;
-  flex-wrap: wrap; 
-}
-.radio-form {
-  
-  &__inputs {
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.radio-form__component {
+  @include typography.form-prompts;
+  &--question {
+    @include typography.form-prompts;
+  }
+  &--error {
+    color: #FF0000;
+  }
+  &--inputs {
     &__radio-button {
-      margin-left: 10px;
-      margin-right: 10px;
+      display: flex;
+      gap: 1em;
+      &--input {
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+        width: 1.5em;
+        height: 1.5em;
+        border: 0.15em solid grey;
+        border-radius: 50%;
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+        &::before {
+          content: "";
+          width: .95em;
+          height: .95em;
+          transform: scale(0);
+          background-color: #FE375B;
+          transform-origin: center;
+          transition: 120ms transform ease-in-out;
+          clip-path: circle(40%);
+        }
+        &:checked::before {
+          transform: scale(1);
+        }
+      }
     }
   }
 }

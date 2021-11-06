@@ -47,12 +47,22 @@ export interface ApplicationPagesProps {
 }
 
 export interface FieldProps {
-  className: string
   name: string
   handleChange: any
   fieldState: string | undefined
   errorMessage: string | undefined
   label: string
+  maxLength?: number
+}
+
+export interface NumberFieldProps {
+  name: string
+  handleChange: any
+  fieldState: string | undefined
+  errorMessage: string | undefined
+  label: string
+  min?: number
+  max?: number
   maxLength?: number
 }
 

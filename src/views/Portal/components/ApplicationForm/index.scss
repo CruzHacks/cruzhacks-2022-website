@@ -1,4 +1,7 @@
-.application-form-component {
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.application-form__component {
   &__box {
     padding: 20px;
 
@@ -7,8 +10,8 @@
     border-radius: 18px;
   }
 
-  textarea {
-    //box-sizing: border-box;
-    //max-width: 100%;
+  &--buttons {
+    display: flex;
+    justify-content: center;
   }
 }
