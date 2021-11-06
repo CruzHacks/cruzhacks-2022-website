@@ -1,0 +1,17 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.application-form__component {
+  &__box {
+    padding: 20px;
+
+    background: rgba(255, 251, 241, 0.83);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.41);
+    border-radius: 18px;
+  }
+
+  &--buttons {
+    display: flex;
+    justify-content: center;
+  }
+}

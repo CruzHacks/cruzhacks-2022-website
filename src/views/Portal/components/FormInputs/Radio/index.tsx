@@ -10,18 +10,19 @@ const RadioForm: React.FC<RadioFormProps> = ({
   errorMessage,
   value,
 }: RadioFormProps) => (
-  <div className='radio-form'>
-    <div className='radio-form__question'>{question}</div>
-    <div className='radio-form__error'>{errorMessage}</div>
-    <div className='radio-form__inputs'>
+  <div className='radio-form__component'>
+    <div className='radio-form__component--question'>{question}</div>
+    <div className='radio-form__component--error'>{errorMessage}</div>
+    <div className='radio-form__component--inputs'>
       {inputs.map(({ label }: RadioButtonProps) => (
-        <div className='radio-form__inputs--radio-button' key={label}>
+        <div className='radio-form__component--inputs__radio-button'>
           <input
             type='radio'
             onChange={handleChange}
             value={label}
             name={name}
             checked={value === label}
+            className='radio-form__component--inputs__radio-button--input'
           />
           {label}
         </div>

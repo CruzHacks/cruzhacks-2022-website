@@ -18,16 +18,14 @@ const DemographicPage: React.FC = () => {
       setDemographicFormData(copy)
     }
   }
-
   return (
     <div className='demographic-page'>
       <div className='demographic-page__form-container'>
         <div className='demographic-page__form-container--title'>
-          Demographic Information
+          Demographics Information
         </div>
-        <div className='demographic-page__form-container__inputs'>
+        <div className='demographic-page__form-container--inputs'>
           <NumberField
-            className='demographic-page__form-container__inputs--textfield'
             name='Age'
             handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setDemographicFormData(prev => ({
@@ -50,12 +48,13 @@ const DemographicPage: React.FC = () => {
               { label: "He / him / his" },
               { label: "She / her / hers" },
               { label: "They / them / theirs" },
-              { label: "Other" },
+              { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
             setViewData={setDemographicFormData}
           />
           <DropDown
+            value={demographicFormData.race}
             question='Race / Ethnicity'
             errorMessage={demographicFormData.raceErr}
             inputs={[
@@ -103,6 +102,7 @@ const DemographicPage: React.FC = () => {
             }}
           />
           <DropDown
+            value={demographicFormData.collegeAffiliation}
             question='College Affiliation'
             errorMessage={demographicFormData.collegeAffiliationErr}
             inputs={[
@@ -122,7 +122,8 @@ const DemographicPage: React.FC = () => {
             handleChange={handleChange}
           />
           <DropDown
-            errorMessage={demographicFormData.collegeAffiliationErr}
+            value={demographicFormData.eventLocation}
+            errorMessage={demographicFormData.eventLocationErr}
             question='Where will you be located at the time of the event (January 14-16)?'
             inputs={[
               { label: "On-campus at UC Santa Cruz" },
@@ -149,6 +150,7 @@ const DemographicPage: React.FC = () => {
           />
           <DropDown
             question='Current Level of Study'
+            value={demographicFormData.currentStanding}
             errorMessage={demographicFormData.currentStandingErr}
             inputs={[
               { label: "N/A" },
