@@ -8,6 +8,7 @@ import DemographicForm from "./Demographic/index.view"
 import MLHForm from "./MLH/index.view"
 import ExperienceForm from "./PriorExperience/index.view"
 import ShortAnswerForm from "./ShortAnswer/index.view"
+import MainPage from "./MainPage/index.view"
 
 const ApplicationForm: React.FC = () => {
   const { page, prevPage, nextPage } = useApplication()!
@@ -31,7 +32,7 @@ const ApplicationForm: React.FC = () => {
       case ApplicationPages.MLH:
         return <MLHForm />
       default:
-        return <ContactForm />
+        return <MainPage status='In progress' progress={50} />
     }
   }
 
