@@ -1,5 +1,5 @@
 .application-background {
-    position: relative;
+    position: absolute;
     width: 100%;
     min-height: 100vh;
     height: fit-content;
@@ -26,6 +26,7 @@
     }
 
     &__context {
+        margin-top: 20px;
         z-index: 1;
     }
 }
