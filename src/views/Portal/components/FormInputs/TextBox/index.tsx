@@ -14,6 +14,7 @@ const TextBox: React.FC<FieldProps> = ({
     <div className='text_box__container--question'>{name}</div>
     {errorMessage}
     <textarea
+      name={label}
       aria-label={label}
       value={fieldState}
       maxLength={maxLength}

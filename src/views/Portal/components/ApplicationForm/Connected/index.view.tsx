@@ -28,7 +28,7 @@ const ConnectedPage: React.FC = () => {
         <div className='connected-page__container--body'>
           <TextField
             name='LinkedIn'
-            label='LinkedIn'
+            label='linkedin'
             maxLength={50}
             handleChange={handleChange}
             fieldState={connectedFormData.linkedin}
@@ -36,7 +36,7 @@ const ConnectedPage: React.FC = () => {
           />
           <TextField
             name='GitHub'
-            label='GitHub'
+            label='github'
             maxLength={100}
             handleChange={handleChange}
             fieldState={connectedFormData.github}
@@ -63,7 +63,7 @@ const ConnectedPage: React.FC = () => {
             Are you part of CruzCoins? And if not, would you like to register?
           </div>
           <TextBox
-            label='OtherInfo'
+            label='anythingElse'
             name='Is there anything else you would like us to know?'
             maxLength={100}
             handleChange={handleChange}

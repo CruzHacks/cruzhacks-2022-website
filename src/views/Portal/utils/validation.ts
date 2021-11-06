@@ -529,7 +529,7 @@ export const validatepriorExperienceForm = (
   fields.forEach(field => {
     switch (field) {
       case "firstCruzHacks":
-        if (firstCruzHacks !== "yes" && firstCruzHacks !== "no") {
+        if (firstCruzHacks !== "Yes" && firstCruzHacks !== "No") {
           isValid = false
           updateErrorMessage(
             "Please Input a response",
