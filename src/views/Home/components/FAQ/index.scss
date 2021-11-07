@@ -16,7 +16,7 @@
     padding: 10px;
     display: table;
     // height: 1400px;
-    width: 90%;
+    width: 85%;
     @include responsiveness.screen(large-tablet, phone) {
       width: 50%;
     }
@@ -62,14 +62,15 @@
     clear: both;
   }
   &__column {
+    vertical-align: middle;
     float: left;
-    width: 33.33%;
-    @include responsiveness.screen(phone) {
+    width: 23%;
+    @include responsiveness.screen(smallest, phone, tablet) {
       width: 100%;
     }
   }
   &__questionsandanswersitems {
-    width: 30vh;
+    // width: 30vh;
     margin: 10px;
   }
 }
