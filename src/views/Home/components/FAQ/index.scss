@@ -11,18 +11,14 @@
   );
   &__box {
     margin: auto;
-    width: 50%;
     border: 7px solid rgba(255, 255, 255, 0.75);
     border-radius: 59px;
     padding: 10px;
     display: table;
     // height: 1400px;
-    width: 1000px;
-    @include responsiveness.screen(large-tablet) {
-      width: 225px;
-    }
-    @include responsiveness.screen(desktop, big-desktop) {
-      margin-bottom: 20px;
+    width: 100%;
+    @include responsiveness.screen(large-tablet, phone) {
+      width: 50%;
     }
   }
   &__faqtitle {
@@ -34,10 +30,13 @@
     color: var(--color-text-primary);
   }
   &__line {
-    width: 390px;
+    width: 20px;
     height: 11px;
     background: rgba(255, 255, 255, 0.73);
     margin: auto;
+    @include responsiveness.screen(desktop, big-desktop) {
+      width: 20px;
+    }
   }
   &__question {
     font-family: Lato;
@@ -65,8 +64,9 @@
   &__column {
     float: left;
     width: 33.33%;
-    // margin: 10px;
-    // padding: 10px;
+    @include responsiveness.screen(phone) {
+      width: 100%;
+    }
   }
   &__questionsandanswersitems {
     width: 30vh;
