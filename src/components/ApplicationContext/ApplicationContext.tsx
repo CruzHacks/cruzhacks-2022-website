@@ -15,6 +15,7 @@ import {
   PriorExperienceProps,
   ConnectedProps,
   MLHProps,
+  SavedApplication,
 } from "Props/application/props"
 import {
   generateContactProps,
@@ -34,6 +35,7 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+  saveData: () => void
 
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
@@ -63,19 +65,35 @@ export const ApplicationProvider: React.FC = () => {
   const [status, setStatus] = useState<number>(0)
   const { user, getAccessTokenSilently } = useAuth0()
 
+  const savedFormData: SavedApplication = retrieve(
+    "application",
+    {},
+    user?.email
+  )
+
   const [contactFormData, setContactFormData] = useState<ContactProps>(
-    generateContactProps("", "", "", user ? user.email : "")
+    savedFormData.contact ||
+      generateContactProps("", "", "", user ? user.email : "")
   )
   const [demographicFormData, setDemographicFormData] =
-    useState<DemographicProps>(generateDemographicProps())
+    useState<DemographicProps>(
+      savedFormData.demographic || generateDemographicProps()
+    )
   const [shortAnswerFormData, setShortAnswerFormData] =
-    useState<ShortAnswerProps>(generateShortAnswerProps())
+    useState<ShortAnswerProps>(
+      savedFormData.shortAnswer || generateShortAnswerProps()
+    )
   const [priorExperienceFormData, setPriorExperienceFormData] =
-    useState<PriorExperienceProps>(generatePriorExperienceProps())
+    useState<PriorExperienceProps>(
+      savedFormData.priorExperience || generatePriorExperienceProps()
+    )
   const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>(
-    generateConnectedProps()
+    savedFormData.connected || generateConnectedProps()
   )
-  const [mlhFormData, setmlhFormData] = useState<MLHProps>(generateMLHProps())
+  const [mlhFormData, setmlhFormData] = useState<MLHProps>(
+    savedFormData.MLH || generateMLHProps()
+  )
+
   useEffect(() => {
     try {
       const cachedStatus = retrieve("applicationStatus", undefined)
@@ -133,6 +151,18 @@ export const ApplicationProvider: React.FC = () => {
     }
   }
 
+  const saveData = () => {
+    const data: SavedApplication = {
+      contact: contactFormData,
+      demographic: demographicFormData,
+      shortAnswer: shortAnswerFormData,
+      priorExperience: priorExperienceFormData,
+      connected: connectedFormData,
+      MLH: mlhFormData,
+    }
+    store("application", data, undefined, user?.email)
+  }
+
   return (
     <ApplicationContext.Provider
       value={{
@@ -141,6 +171,7 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        saveData,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,

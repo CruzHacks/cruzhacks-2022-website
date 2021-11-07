@@ -22,6 +22,7 @@ const ApplicationForm: React.FC = () => {
     page,
     prevPage,
     nextPage,
+    saveData,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -79,8 +80,6 @@ const ApplicationForm: React.FC = () => {
   const viewPrevPage = () => {
     prevPage()
   }
-
-  const saveData = () => {}
 
   const submitData = () => {}
 

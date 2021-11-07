@@ -10,26 +10,26 @@ export interface ContactProps {
 }
 
 export interface DemographicProps {
-    age: string
-    pronouns: string[]
-    race: string
-    sexuality: string[]
-    school: string
-    collegeAffiliation: string
-    eventLocation: string
-    major: string
-    currentStanding: string
-    country: string
-    ageErr: string
-    pronounsErr: string
-    raceErr: string
-    sexualityErr: string
-    schoolErr: string
-    collegeAffiliationErr: string
-    eventLocationErr: string
-    majorErr: string
-    currentStandingErr: string
-    countryErr: string
+  age: string
+  pronouns: string[]
+  race: string
+  sexuality: string[]
+  school: string
+  collegeAffiliation: string
+  eventLocation: string
+  major: string
+  currentStanding: string
+  country: string
+  ageErr: string
+  pronounsErr: string
+  raceErr: string
+  sexualityErr: string
+  schoolErr: string
+  collegeAffiliationErr: string
+  eventLocationErr: string
+  majorErr: string
+  currentStandingErr: string
+  countryErr: string
 }
 
 export interface ShortAnswerProps {
@@ -43,7 +43,7 @@ export interface ShortAnswerProps {
 
 export interface PriorExperienceProps {
   firstCruzHacks: string
-  hackathonCount: string 
+  hackathonCount: string
   priorExperience: string
   firstCruzHacksErr: string
   hackathonCountErr: string
@@ -51,21 +51,30 @@ export interface PriorExperienceProps {
 }
 
 export interface ConnectedProps {
-    resume: any
-    linkedin: string
-    github: string
-    cruzCoins: string
-    anythingElse: string
+  resume: any
+  linkedin: string
+  github: string
+  cruzCoins: string
+  anythingElse: string
 
-    resumeErr: string
-    linkedinErr: string
-    githubErr: string
-    cruzCoinsErr: string
-    anythingElseErr: string
+  resumeErr: string
+  linkedinErr: string
+  githubErr: string
+  cruzCoinsErr: string
+  anythingElseErr: string
 }
 
 export interface MLHProps {
-    conductAgree: string 
-    tosAgree: string
-    agreementErr: string
+  conductAgree: string
+  tosAgree: string
+  agreementErr: string
+}
+
+export interface SavedApplication {
+  contact?: ContactProps
+  demographic?: DemographicProps
+  shortAnswer?: ShortAnswerProps
+  priorExperience?: PriorExperienceProps
+  connected?: ConnectedProps
+  MLH?: MLHProps
 }
