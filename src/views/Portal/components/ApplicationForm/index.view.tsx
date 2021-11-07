@@ -2,6 +2,7 @@ import React from "react"
 import "./index.scss"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
+import ProgressBar from "components/ProgressBar/ProgressBar"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -103,23 +104,52 @@ const ApplicationForm: React.FC = () => {
   }
 
   return (
-    <div className='application-form__component'>
-      Application Form
-      <div className='application-form__component__box'>
+    <div className='application-form-component'>
+      <div className='application-form-component__progress'>
+        <div className='application-form-component__progress-text'>
+          Section {page} / {ApplicationPages.MLH}
+        </div>
+        <ProgressBar
+          current={page - 1}
+          limit={ApplicationPages.MLH}
+          className='__header'
+        />
+      </div>
+      <div className='application-form-component__box'>
         {renderPage(page)}
-        <div className='application-form__component--buttons'>
-          <button type='button' onClick={saveData}>
+        <div className='application-form-component__buttons'>
+          <button
+            className='application-form-component__button'
+            type='button'
+            onClick={saveData}
+          >
             Save
           </button>
-          <button type='button' onClick={viewPrevPage}>
+          <button
+            className='application-form-component__button'
+            type='button'
+            onClick={viewPrevPage}
+          >
             {"< Prev"}
           </button>
-          <button type='button' onClick={viewNextPage}>
-            {"Next >"}
-          </button>
-          <button type='button' onClick={submitData}>
-            Submit
-          </button>
+          {page !== ApplicationPages.MLH && (
+            <button
+              className='application-form-component__button'
+              type='button'
+              onClick={viewNextPage}
+            >
+              {"Next >"}
+            </button>
+          )}
+          {page === ApplicationPages.MLH && (
+            <button
+              className='application-form-component__button'
+              type='button'
+              onClick={submitData}
+            >
+              Submit
+            </button>
+          )}
         </div>
       </div>
     </div>

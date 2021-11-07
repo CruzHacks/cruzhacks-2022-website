@@ -1,0 +1,17 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.number-field-component {
+  @include typography.form-component-width;
+  &__fieldName {
+    @include typography.form-prompts;
+  }
+
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+
+  &__input {
+    @include typography.form-input-box;
+  }
+}

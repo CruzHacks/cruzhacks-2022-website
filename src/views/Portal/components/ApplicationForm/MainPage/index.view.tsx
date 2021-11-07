@@ -1,26 +1,16 @@
 import React from "react"
 import "./index.scss"
+import ProgressBar from "components/ProgressBar/ProgressBar"
+import ApplicationPages from "Props/portal/page"
 
 interface MainPageProps {
   status: string
-  progress: number
+  children: React.ReactNode
 }
-
-interface ProgressBarProps {
-  progress: number
-}
-
-const ProgressBar: React.FC<ProgressBarProps> = ({
-  progress,
-}: ProgressBarProps) => (
-  <div className='progress-bar'>
-    <div className='progress-bar--fill' style={{ width: `${progress}%` }} />
-  </div>
-)
 
 const MainPage: React.FC<MainPageProps> = ({
   status,
-  progress,
+  children,
 }: MainPageProps) => {
   const statColor = (stat: string) => {
     switch (stat) {
@@ -53,7 +43,12 @@ const MainPage: React.FC<MainPageProps> = ({
           </div>
         </div>
         <div className='main-page__container--progress'>PROGRESS</div>
-        <ProgressBar progress={progress} />
+        <ProgressBar
+          current={0}
+          limit={ApplicationPages.MLH}
+          className='__main'
+        />
+        {children}
       </div>
     </div>
   )

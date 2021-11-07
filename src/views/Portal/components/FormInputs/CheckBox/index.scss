@@ -1,24 +1,40 @@
 @use "./stylesheets/responsiveness";
 @use "./stylesheets/typography";
 
-.checkbox__component {
-  @include typography.form-prompts;
-
-  &--errorMessage {
-    color: #FF0000;
+.checkbox-component {
+  &__question {
+    @include typography.form-prompts;
   }
 
-  &--inputContainer {
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+
+  &__input {
+    @include typography.form-input-box;
+  }
+
+  &__selected-option {
+    border: 1px solid #000000;
+  }
+
+  &__selected-options {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
   }
 
-  &--button {
-    padding: 5px;
-    display: flex;
-    gap: .5em;
+  &__selected {
+    @include typography.form-input-box;
   }
-  &--input {
+  &__options {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  &__option {
     appearance: none;
     width: 1.5em;
     height: 1.5em; 

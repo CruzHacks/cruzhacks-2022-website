@@ -1,20 +1,15 @@
-@use "./stylesheets/responsiveness";
-@use "./stylesheets/typography";
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
 
-.demographic-page {
-  display: flex;
-  justify-content: center;
-
-  &__form-container {
-    display: flex;
-    flex-direction: column;
-    &--title {
-      @include typography.form-titles;
-    }
-    &--inputs {
-      display: flex;
-      flex-direction: column;
-      gap: 1em;
-    }
+.demographic-page-container {
+  @include typography.form-page-container-styles;
+  &__questions {
+    @include typography.form-page-container-question;
+  }
+  &__title {
+    @include typography.form-page-container-title;
+  }
+  &__fields {
+    @include typography.form-page-container-fields;
   }
 }

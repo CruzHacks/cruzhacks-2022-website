@@ -53,6 +53,7 @@ export interface FieldProps {
   errorMessage: string | undefined
   label: string
   maxLength?: number
+  className?: string
 }
 
 export interface NumberFieldProps {

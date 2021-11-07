@@ -39,14 +39,18 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   }
 
   const dropdown = () => (
-    <div className='SearchBox-container__dropdown'>
+    <div className='search-box-component__dropdown'>
       {fieldState &&
         matchedItems.slice(0, maxReturn).map(item => (
-          <div className='SearchBox-container__dropdown' key={item}>
+          <div
+            className='search-box-component__dropdown-button-container'
+            key={item}
+          >
             <button
               type='button'
               onClick={() => onClick(item)}
               aria-label={item}
+              className='search-box-component__dropdown-button'
             >
               {item}
             </button>
@@ -54,27 +58,23 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         ))}
     </div>
   )
-  // const notListed = (
-  //   <div className='SearchBox-container__notListed'>
-  //       <button type='button' onClick={onChange}>
-  //         "Not"
-  //       </button>
-  //   </div>
-  // )
 
   return (
-    <div className='SearchBox-container'>
-      <div className='SearchBox-container__question'>{question}</div>
-      <div className='SearchBox-container__errorMessage'>{errorMessage}</div>
-      <div className='SearchBox-container__input'>
-        <input
-          type='text'
-          name={label}
-          value={fieldState}
-          onChange={handleQueryChange}
-        />
+    <div className='search-box-component'>
+      <div className='search-box-component__question'>{question}</div>
+      <div className='search-box-component__errorMessage'>{errorMessage}</div>
+      <div className='search-box-component__input'>
+        <div>
+          <input
+            type='text'
+            name={label}
+            value={fieldState}
+            onChange={handleQueryChange}
+            className='search-box-component__input-box'
+          />
+        </div>
+        {dropdown()}
       </div>
-      {dropdown()}
     </div>
   )
 }

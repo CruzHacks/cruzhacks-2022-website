@@ -1,14 +1,37 @@
 @use "~stylesheets/responsiveness";
 @use "~stylesheets/typography";
 
-.SearchBox__component {
-  @include typography.form-prompts;
-  &--fieldName{
-    padding-bottom: 1%;
+.search-box-component {
+  &__question {
+    @include typography.form-prompts;
   }
-  &--errorMessage {
-    color: #FF0000;
+
+  &__errorMessage {
+    @include typography.form-error-message;
   }
+
+  &__input-box {
+    @include typography.form-input-box;
+  }
+
+  // &__dropdown {
+  //   @include typography.form-input-box;
+  //   z-index: 2;
+  // }
+
+  &__dropdown-button {
+    @include typography.form-input-box;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+  }
+
+  &__dropdown-button-container {
+    @include typography.form-input-box;
+    width: 100%;
+    background-color: transparent;
+  }
+
   &--input {
     width: 500px;
     height: 30px;

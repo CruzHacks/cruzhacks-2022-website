@@ -10,9 +10,9 @@ const TextField: React.FC<FieldProps> = ({
   label,
   maxLength,
 }: FieldProps) => (
-  <div className='textField__component'>
-    <div className='textField__component--fieldName'>{name}</div>
-    <div className='textField__component--errorMessage'>{errorMessage}</div>
+  <div className='text-field-component'>
+    <div className='text-field-component__fieldName'>{name}</div>
+    <div className='text-field-component__errorMessage'>{errorMessage}</div>
     <input
       type='text'
       aria-label={label}
@@ -20,7 +20,7 @@ const TextField: React.FC<FieldProps> = ({
       value={fieldState}
       maxLength={maxLength}
       onChange={handleChange}
-      className='textField__component--input'
+      className='text-field-component__input'
     />
   </div>
 )

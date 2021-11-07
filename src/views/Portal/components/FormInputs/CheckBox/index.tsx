@@ -30,32 +30,42 @@ const CheckBox: React.FC<CheckBoxProps> = ({
     }))
   }
   return (
-    <div className='checkbox-form'>
-      <div className='checkbox-form__question'>{question}</div>
-      <div className='checkbox-form__errorMessage'>{errorMessage}</div>
-      <button type='button' onClick={() => setViewSelected(!viewSelected)}>
-        <div className='checkbox-form__selected'>
+    <div className='checkbox-component'>
+      <div className='checkbox-component__question'>{question}</div>
+      <div className='checkbox-component__errorMessage'>{errorMessage}</div>
+      <button
+        type='button'
+        className='checkbox-component__input'
+        onClick={() => setViewSelected(!viewSelected)}
+      >
+        <div className='checkbox-component__selected-options'>
           {value.length === 0
-            ? "Select"
+            ? " "
             : value.map((selected: string) => (
-                <div className='checkbox-form__selected_option' key={selected}>
+                <div
+                  className='checkbox-component__selected-option'
+                  key={selected}
+                >
                   {selected}
                 </div>
               ))}
         </div>
       </button>
       {viewSelected && (
-        <div className='checkbox-form__inputs'>
+        <div className='checkbox-component__inputs'>
           {inputs.map(({ label }) => (
-            <div className='checkbox-button' key={label}>
-              <input
-                type='checkbox'
-                onChange={handleChange}
-                value={label}
-                name={name}
-                defaultChecked={value.includes(label)}
-              />
-              {label}
+            <div className='checkbox-component__options' key={label}>
+              <div>
+                <input
+                  type='checkbox'
+                  onChange={handleChange}
+                  value={label}
+                  name={name}
+                  defaultChecked={value.includes(label)}
+                  className='checkbox-component__option'
+                />
+              </div>
+              <div>{label}</div>
             </div>
           ))}
         </div>

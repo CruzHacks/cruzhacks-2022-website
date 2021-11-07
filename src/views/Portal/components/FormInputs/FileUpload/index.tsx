@@ -19,15 +19,17 @@ const FileUpload: React.FC<FileProps> = ({
   const onDrop = () => {}
   return (
     <div className='file-upload-component'>
-      {question}
+      <div className='file-upload-component__fieldName'>{question}</div>
       <div className='file-upload-component__error'>{errorMessage}</div>
-      <input
-        type='file'
-        accept='application/pdf'
-        onChange={onChange}
-        onDrop={onDrop}
-        className={`file-upload-component-${className}`}
-      />
+      <div className='file-upload-component__input'>
+        <input
+          type='file'
+          accept='application/pdf'
+          onChange={onChange}
+          onDrop={onDrop}
+          className={`file-upload-component-${className}`}
+        />
+      </div>
     </div>
   )
 }

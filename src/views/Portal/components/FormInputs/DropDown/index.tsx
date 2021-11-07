@@ -11,20 +11,20 @@ const DropDown: React.FC<DropDownProps> = ({
   value,
 }: DropDownProps) => (
   // const [isInvisible, setIsVisible] = useState(false)
-  <div className='dropdown__component'>
-    <div className='dropdown__component--question'>{question}</div>
-    <div className='dropdown__component--errorMessage'>{errorMessage}</div>
+  <div className='dropdown-component'>
+    <div className='dropdown-component__question'>{question}</div>
+    <div className='dropdown-component__errorMessage'>{errorMessage}</div>
     <select
-      className='dropdown__component--selector'
+      className='dropdown-component__selector'
       name={name}
       onChange={handleChange}
       value={value}
     >
-      <option value='' className='dropdown__component--option'>
+      <option value='' className='dropdown-component__option'>
         {" "}
       </option>
       {inputs.map(({ label }) => (
-        <option value={label} className='dropdown__component--option'>
+        <option value={label} className='dropdown-component__option'>
           {label}
         </option>
       ))}

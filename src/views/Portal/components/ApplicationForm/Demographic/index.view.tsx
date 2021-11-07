@@ -19,12 +19,12 @@ const DemographicPage: React.FC = () => {
     }
   }
   return (
-    <div className='demographic-page'>
-      <div className='demographic-page__form-container'>
-        <div className='demographic-page__form-container--title'>
+    <div className='demographic-page-container'>
+      <div className='demographic-page-container__questions'>
+        <div className='demographic-page-container__title'>
           Demographics Information
         </div>
-        <div className='demographic-page__form-container--inputs'>
+        <div className='demographic-page-container__fields'>
           <NumberField
             name='Age'
             handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,13 +76,13 @@ const DemographicPage: React.FC = () => {
             value={demographicFormData.sexuality}
             inputs={[
               { label: "Bisexual" },
-              { label: "Heterosexual" },
-              { label: "Gay" },
-              { label: "Lesbian" },
-              { label: "Queer" },
-              { label: "Genderqueer" },
               { label: "Cisgender" },
-              { label: "Other (please specify)" },
+              { label: "Gay" },
+              { label: "Heterosexual" },
+              { label: "Lesbian" },
+              { label: "Transgender" },
+              { label: "Queer" },
+              { label: "Other" },
               { label: "Prefer not to answer" },
             ]}
             setViewData={setDemographicFormData}
