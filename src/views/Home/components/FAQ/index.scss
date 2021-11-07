@@ -16,7 +16,7 @@
     padding: 10px;
     display: table;
     // height: 1400px;
-    width: 100%;
+    width: 90%;
     @include responsiveness.screen(large-tablet, phone) {
       width: 50%;
     }
@@ -30,13 +30,13 @@
     color: var(--color-text-primary);
   }
   &__line {
-    width: 20px;
+    width: 25%;
     height: 11px;
     background: rgba(255, 255, 255, 0.73);
     margin: auto;
-    @include responsiveness.screen(desktop, big-desktop) {
-      width: 20px;
-    }
+    // @include responsiveness.screen(desktop, big-desktop) {
+    //   width: 20px;
+    // }
   }
   &__question {
     font-family: Lato;
