@@ -15,8 +15,9 @@
     border: 7px solid rgba(255, 255, 255, 0.75);
     border-radius: 59px;
     padding: 10px;
-    height: 1100px;
-    width: 1300px;
+    display: table;
+    // height: 1400px;
+    width: 1000px;
     @include responsiveness.screen(large-tablet) {
       width: 225px;
     }
@@ -45,6 +46,7 @@
     font-size: 24px;
     line-height: auto;
     color: #ffffff;
+    cursor: pointer;
   }
   &__answer {
     font-family: Lato;
@@ -53,6 +55,7 @@
     font-size: 18px;
     line-height: auto;
     color: #ffffff;
+    display: none;
   }
 
   &__questionsandanswers:after {
