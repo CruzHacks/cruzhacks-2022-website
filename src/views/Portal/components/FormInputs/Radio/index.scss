@@ -1,45 +1,64 @@
 @use "./stylesheets/responsiveness";
 @use "./stylesheets/typography";
 
-.radio-form__component {
+.radio-form-component {
   @include typography.form-prompts;
-  &--question {
+  @include typography.form-component-width;
+
+  &__fieldName {
     @include typography.form-prompts;
   }
-  &--error {
-    color: #FF0000;
-  }
-  &--inputs {
-    &__radio-button {
-      display: flex;
-      gap: 1em;
-      &--input {
-        appearance: none;
-        background-color: #fff;
-        margin: 0;
-        width: 1.5em;
-        height: 1.5em;
-        border: 0.15em solid grey;
-        border-radius: 50%;
-        cursor: pointer;
-        display: grid;
-        place-content: center;
-      }
 
-      &--input::before {
-        content: "";
-        width: .95em;
-        height: .95em;
-        transform: scale(0);
-        background-color: #FE375B;
-        transform-origin: center;
-        transition: 120ms transform ease-in-out;
-        clip-path: circle(40%);
-      }
-
-      &--input:checked::before {
-        transform: scale(1);
-      }
-    }
+  &__errorMessage {
+    @include typography.form-error-message;
   }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    margin-right: 46px;
+    font-family: Lato, "sans-serif";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 34px;
+  
+    color: #000000;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__radio {
+    appearance: none;
+    background-color: #fff;
+    margin-right: 10px;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid grey;
+    border-radius: 50%;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+
+  }
+
+  &__radio::before {
+    content: "";
+    width: .95em;
+    height: .95em;
+    transform: scale(0);
+    background-color: #FE375B;
+    transform-origin: center;
+    transition: 120ms transform ease-in-out;
+    clip-path: circle(40%);
+  }
+
+  &__radio:checked::before {
+    transform: scale(1);
+  }
+
 }

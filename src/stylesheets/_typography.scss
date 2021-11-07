@@ -66,28 +66,120 @@
   @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 18px);
 }
 
-@mixin form-prompts {
-  color: var(--color-black);
-  font-family: "Lato", sans-serif;
-  font-style: normal;
-  font-weight: lighter;
-
-  @include responsiveness.font($responsive: 2.3vw, $min: 18px, $max: 28px);
-}
-
-@mixin form-titles {
-  color: var(--color-black);
-  font-family: "Lato", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-
-  @include responsiveness.font($responsive: 2.3vw, $min: 24px, $max: 36px);
-}
-
 @mixin admin-card {
   padding: 20px;
   background: rgba(242, 250, 255, 0.21);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin-bottom: 30px;
+}
+
+
+@mixin form-prompts {
+  color: var(--color-black);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+
+  @include responsiveness.font($responsive: 2.3vw, $min: 18px, $max: 28px);
+}
+
+@mixin form-component-width-large {
+  width: 705px;
+}
+
+
+@mixin form-component-width {
+  width: 585px;
+  @include responsiveness.screen(tablet) {
+    width: 400px;
+  }
+  @include responsiveness.screen(phone) {
+    width: 308px;
+  }
+  @include responsiveness.screen(smallest) {
+    width: 208px;
+  }
+}
+
+
+@mixin form-input-box {
+  height: 40px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  background-color: var(--color-text-primary);
+  @include form-component-width();
+  @include responsiveness.screen(phone) {
+    height: 30px;
+  }
+  @include responsiveness.screen(smallest) {
+    height: 30px;
+  }
+}
+
+@mixin form-text-box-large {
+  @include form-component-width-large();
+  height: 173px;
+  border: 1px solid #000000;
+  background-color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+@mixin form-text-box-medium {
+  @include form-component-width();
+  height: 165px;
+  border: 1px solid #000000;
+  background-color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+@mixin form-text-box-small {
+  @include form-component-width();
+  height: 72px;
+  border: 1px solid #000000;
+  background-color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+
+@mixin form-error-message {
+  color: #FF0000;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  @include responsiveness.font($responsive: 2.3vw, $min: 14px, $max: 22px);
+}
+
+@mixin form-error-box {
+}
+
+
+@mixin form-page-container-styles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+@mixin form-page-container-title {
+  color: var(--color-black);
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  padding-bottom: 15px;
+  align-self: center;
+  @include responsiveness.font($responsive: 2.3vw, $min: 24px, $max: 36px);
+}
+
+@mixin form-page-container-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+}
+
+@mixin form-page-container-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,44 +1,108 @@
 @use "~stylesheets/responsiveness";
 @use "~stylesheets/typography";
-.text_box__container {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    overflow: hidden;
-    @include typography.form-prompts;
-    &--question {
-      max-width: 500px;
-      display: flex;
-      flex-wrap: wrap;
+
+.text-box-component {
+  &__large {
+    @include typography.form-component-width-large;
+    &__input {
+      @include typography.form-text-box-large;
     }
+    &__fieldName {
+      @include typography.form-prompts;
+    }
+  
+    &__errorMessage {
+      @include typography.form-error-message;
+    }
+  }
+
+  &__small {
+    @include typography.form-component-width;
+
+    &__input {
+      @include typography.form-text-box-small;
+    }
+    &__fieldName {
+      @include typography.form-prompts;
+    }
+  
+    &__errorMessage {
+      @include typography.form-error-message;
+    }
+  }
+
+  &__medium {
+    @include typography.form-component-width;
+
+    &__input {
+      @include typography.form-text-box-medium;
+    }
+    &__fieldName {
+      @include typography.form-prompts;
+    }
+  
+    &__errorMessage {
+      @include typography.form-error-message;
+    }
+  }
+
+
+
+  // &__input {
+  //   &__large {
+  //     @include typography.form-text-box-large;
+  //   }
+
+  //   &__medium {
+  //     @include typography.form-text-box-medium;
+  //   }
+
+  //   &__small {
+  //     @include typography.form-text-box-small;
+  //   }
+  //   //@include typography.form-text-box-scale;
+  // }
 }
 
-textarea {
-    overflow-y: scroll;
-    resize: none;
-    width: 500px;
-    height: 173px;
-    @include typography.form-prompts;
-    @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 20px);
-    &::-webkit-scrollbar {
-        width: 10px;
-    }
-    &::-webkit-scrollbar-track {
-    background: #FFFFFF;
-  }
-    &::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-    &::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  @include responsiveness.screen(phone) {
-    width: 308px;
-    height: 150px;
-  }
-  @include responsiveness.screen(smallest) {
-    width: 208px;
-    height: 30px;
-    @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 16px);
-  }
-}
+// .text_box__container {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: left;
+//     overflow: hidden;
+//     @include typography.form-prompts;
+//     &--question {
+//       max-width: 500px;
+//       display: flex;
+//       flex-wrap: wrap;
+//     }
+// }
+
+// textarea {
+//     overflow-y: scroll;
+//     resize: none;
+//     width: 500px;
+//     height: 173px;
+//     @include typography.form-prompts;
+//     @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 20px);
+//     &::-webkit-scrollbar {
+//         width: 10px;
+//     }
+//     &::-webkit-scrollbar-track {
+//     background: #FFFFFF;
+//   }
+//     &::-webkit-scrollbar-thumb {
+//     background: #888;
+//   }
+//     &::-webkit-scrollbar-thumb:hover {
+//     background: #555;
+//   }
+//   @include responsiveness.screen(phone) {
+//     width: 308px;
+//     height: 150px;
+//   }
+//   @include responsiveness.screen(smallest) {
+//     width: 208px;
+//     height: 30px;
+//     @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 16px);
+//   }
+// }

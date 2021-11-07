@@ -1,0 +1,19 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.file-upload-component {
+    @include typography.form-component-width;
+    &__fieldName {
+      @include typography.form-prompts;
+    }
+  
+    &__errorMessage {
+      @include typography.form-error-message;
+    }
+  
+    &__input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }

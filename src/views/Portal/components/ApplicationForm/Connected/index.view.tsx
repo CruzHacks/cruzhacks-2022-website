@@ -15,17 +15,17 @@ const ConnectedPage: React.FC = () => {
     }
   }
   return (
-    <div className='connected-page'>
-      <div className='connected-page__container'>
-        <div className='connected-page__container--title'>Get Connected</div>
-        <FileUpload
-          question='Want to share your resume with our sponsors? Upload your pdf resume here.'
-          errorMessage={connectedFormData.resumeErr}
-          handleChange={setConnectedFormData}
-          name='resume'
-          className='none'
-        />
-        <div className='connected-page__container--body'>
+    <div className='connected-page-container'>
+      <div className='connected-page-container__questions'>
+        <div className='connected-page-container__title'>Get Connected</div>
+        <div className='connected-page-container__fields'>
+          <FileUpload
+            question='Want to share your resume with our sponsors? Upload your pdf resume here.'
+            errorMessage={connectedFormData.resumeErr}
+            handleChange={setConnectedFormData}
+            name='resume'
+            className='none'
+          />
           <TextField
             name='LinkedIn'
             label='linkedin'
@@ -50,17 +50,14 @@ const ConnectedPage: React.FC = () => {
             handleChange={handleChange}
             fieldState={connectedFormData.cruzCoins}
             errorMessage={connectedFormData.cruzCoinsErr}
+            className='__small'
           />
-          {/* <RadioForm
-            question='Are you part of CruzCoins? And if not, would you like to register?'
-            name='CruzCoins Interest'
-            inputs={[{ label: "Yes" }, { label: "No" }]}
-            handleChange={handleChange}
-            checkedState={() => {}}
-            errorMessage={errors}
-          /> */}
-          <div className='connected-page__container--info'>
-            Are you part of CruzCoins? And if not, would you like to register?
+          <div className='connected-page-container__info'>
+            Are you part of CruzCoins? And if not, would you like to{" "}
+            <a href='cruzcoins.com/link' target='_blank'>
+              register
+            </a>
+            ?
           </div>
           <TextBox
             label='anythingElse'
@@ -69,6 +66,7 @@ const ConnectedPage: React.FC = () => {
             handleChange={handleChange}
             fieldState={connectedFormData.anythingElse}
             errorMessage={connectedFormData.anythingElseErr}
+            className='__medium'
           />
         </div>
       </div>

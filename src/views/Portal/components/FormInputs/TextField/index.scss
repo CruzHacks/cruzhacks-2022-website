@@ -1,25 +1,41 @@
 @use "./stylesheets/responsiveness";
 @use "./stylesheets/typography";
 
-.textField__component {
-  @include typography.form-prompts;
-  &--fieldName{
-    padding-bottom: 1%;
-  }
-  &--errorMessage {
-    color: #FF0000;
-  }
-  &--input {
-    width: 500px;
-    height: 30px;
+.text-field-component {
+  @include typography.form-component-width;
+  &__fieldName {
     @include typography.form-prompts;
-      @include responsiveness.screen(phone) {
-        width: 300px;
-        height: 25px;
-        }
-        @include responsiveness.screen(smallest) {
-        width: 200px;
-        height: 25px;
-    }
+  }
+
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+
+  &__input {
+    @include typography.form-input-box;
   }
 }
+
+
+// .textField__component {
+//   @include typography.form-prompts;
+//   &--fieldName{
+//     padding-bottom: 1%;
+//   }
+//   &--errorMessage {
+//     color: #FF0000;
+//   }
+//   &--input {
+//     width: 500px;
+//     height: 30px;
+//     @include typography.form-prompts;
+//       @include responsiveness.screen(phone) {
+//         width: 300px;
+//         height: 25px;
+//         }
+//         @include responsiveness.screen(smallest) {
+//         width: 200px;
+//         height: 25px;
+//     }
+//   }
+// }

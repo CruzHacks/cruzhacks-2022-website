@@ -13,12 +13,10 @@ const ContactPage: React.FC = () => {
     }
   }
   return (
-    <div className='contact-page'>
-      <div className='contact-page__container'>
-        <div className='contact-page__container--title'>
-          Contact Information
-        </div>
-        <div className='contact-page__container--fields'>
+    <div className='contact-page-container'>
+      <div className='contact-page-container__questions'>
+        <div className='contact-page-container__title'>Contact Information</div>
+        <div className='contact-page-container__fields'>
           <TextField
             name='First Name'
             handleChange={handleChange}

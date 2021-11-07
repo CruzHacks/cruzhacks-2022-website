@@ -6,13 +6,13 @@ import "./index.scss"
 const MLHPage: React.FC = () => {
   const { mlhFormData, setmlhFormData } = useApplication()!
   return (
-    <div className='mlh-page'>
-      <div className='mlh-page__container'>
-        {mlhFormData.agreementErr}
-        <div className='mlh-page__container--title'>
+    <div className='mlh-page-container'>
+      <div className='mlh-page-container__questions'>
+        <div className='mlh-page-container__title'>
           MLH Code of Conduct, Data Sharing, and Terms & Conditions
         </div>
-        <div className='mlh-page__container--Code'>
+        <div className='mlh-page__errors'>{mlhFormData.agreementErr}</div>
+        <div className='mlh-page-container__code'>
           As a Major League Hacking (MLH) member event, our attendees must read
           and agree to the MLH Code of Conduct.
         </div>
@@ -37,7 +37,7 @@ const MLHPage: React.FC = () => {
           errorMessage=''
           value={mlhFormData.conductAgree}
         />
-        <div className='mlh-page__container--TAC'>
+        <div className='mlh-page-container__TAC'>
           MLH Data Sharing and Terms & Conditions. I authorize CruzHacks to
           share my application/registration information with MLH for event
           administration, ranking, MLH administration, pre- and post-event
