@@ -12,4 +12,10 @@
   &__fields {
     @include typography.form-page-container-fields;
   }
+
+  &__info {
+    @include typography.form-prompts;
+    @include typography.form-component-width;
+  }
+
 }

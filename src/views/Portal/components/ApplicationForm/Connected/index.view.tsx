@@ -52,16 +52,12 @@ const ConnectedPage: React.FC = () => {
             errorMessage={connectedFormData.cruzCoinsErr}
             className='__small'
           />
-          {/* <RadioForm
-            question='Are you part of CruzCoins? And if not, would you like to register?'
-            name='CruzCoins Interest'
-            inputs={[{ label: "Yes" }, { label: "No" }]}
-            handleChange={handleChange}
-            checkedState={() => {}}
-            errorMessage={errors}
-          /> */}
-          <div className='connected-page__container--info'>
-            Are you part of CruzCoins? And if not, would you like to register?
+          <div className='connected-page-container__info'>
+            Are you part of CruzCoins? And if not, would you like to{" "}
+            <a href='cruzcoins.com/link' target='_blank'>
+              register
+            </a>
+            ?
           </div>
           <TextBox
             label='anythingElse'

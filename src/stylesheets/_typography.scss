@@ -91,6 +91,9 @@
 
 @mixin form-component-width {
   width: 585px;
+  @include responsiveness.screen(tablet) {
+    width: 400px;
+  }
   @include responsiveness.screen(phone) {
     width: 308px;
   }
@@ -154,6 +157,7 @@
 @mixin form-page-container-styles {
   display: flex;
   justify-content: center;
+  margin-bottom: 25px;
 }
 
 @mixin form-page-container-title {

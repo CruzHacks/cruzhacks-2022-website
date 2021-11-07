@@ -17,6 +17,13 @@
     display: flex;
     align-items: center;
     margin-right: 46px;
+    font-family: Lato, "sans-serif";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 34px;
+  
+    color: #000000;
   }
 
   &__inputs {
@@ -28,7 +35,7 @@
   &__radio {
     appearance: none;
     background-color: #fff;
-    margin: 0;
+    margin-right: 10px;
     width: 1.5em;
     height: 1.5em;
     border: 0.15em solid grey;
@@ -36,6 +43,7 @@
     cursor: pointer;
     display: grid;
     place-content: center;
+
   }
 
   &__radio::before {
