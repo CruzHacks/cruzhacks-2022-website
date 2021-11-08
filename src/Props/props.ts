@@ -18,7 +18,7 @@ export interface MilestoneProps {
 }
 
 export interface AboutProps {
-  title: string
+  title: string,
   description: string
 }
 
