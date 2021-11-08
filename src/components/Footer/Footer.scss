@@ -6,7 +6,7 @@
   margin-top: -1px;
 
   &--with-graphics {
-    padding-top: 40vw;
+    padding-top: 60vw;
 
     .footer-component__text {
       padding-top: 70px;
@@ -25,6 +25,7 @@
     }
 
     .footer-component__graphics {
+      float: left;
       position: absolute;
       bottom: 0;
       z-index: 0;
