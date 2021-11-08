@@ -113,6 +113,9 @@
   }
 }
 
+
+
+
 @mixin form-text-box-large {
   @include form-component-width-large();
   height: 173px;
@@ -153,6 +156,13 @@
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
+}
+
+@mixin form-page-container-vertical-spacing {
+  margin-bottom: 27px;
+  @include responsiveness.screen(smallest, phone) {
+    margin-bottom: 10px;
+  }
 }
 
 @mixin form-page-container-title {
