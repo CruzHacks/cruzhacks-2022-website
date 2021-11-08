@@ -106,4 +106,5 @@ export interface FileProps {
   handleChange: any
   errorMessage: string 
   className: string
+  fieldState: any
 }

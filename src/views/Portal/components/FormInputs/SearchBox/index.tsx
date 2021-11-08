@@ -70,7 +70,9 @@ const SearchBox: React.FC<SearchBoxProps> = ({
             name={label}
             value={fieldState}
             onChange={handleQueryChange}
-            className='search-box-component__input-box'
+            className={`search-box-component__input-box ${
+              errorMessage ? "search-box-component__error" : ""
+            }`}
           />
         </div>
         {dropdown()}
