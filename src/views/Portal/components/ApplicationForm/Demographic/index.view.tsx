@@ -106,6 +106,7 @@ const DemographicPage: React.FC = () => {
             question='College Affiliation'
             errorMessage={demographicFormData.collegeAffiliationErr}
             inputs={[
+              { label: "I am not a UCSC student" },
               { label: "College 9" },
               { label: "College 10" },
               { label: "Cowell" },
