@@ -37,7 +37,7 @@ const FAQInformation: FAQProps[] = [
       "Due to UCSC, Santa Cruz, and California protocols, CruzHacks will remain virtual for CruzHacks 2022. However, there may be a possibility of having a short in-person event for those in the Santa Cruz county that abide by UCSC protocols and feel comfortable to attend.",
   },
   {
-    question: "Does it cost anything to participate",
+    question: "Does it cost anything to participate?",
     answer: "Cruzhacks is free for all participants!",
   },
   {
@@ -46,7 +46,7 @@ const FAQInformation: FAQProps[] = [
       "Any project (as technical as you want to get) is acceptable as long as it is part of one of the three main categories: Earth, Health, or Social Justice.",
   },
   {
-    question: "Do I have to be a UCSC student",
+    question: "Do I have to be a UCSC student?",
     answer:
       "Nope! We accept applicants from all over the world. In 2021, 47% of our hackers were non-UCSC students and among that, there were about 100 different schools.",
   },
@@ -61,7 +61,7 @@ const FAQInformation: FAQProps[] = [
       "We have a wide range of workshops, both technical and non-technical, planned including but not limited to: Intro to Web Design, Basics of HTML, Machine learning basics, and Resume/Cover Letter.",
   },
   {
-    question: "What prizes can I expect",
+    question: "What prizes can I expect?",
     answer:
       "We are unsure about what the final prizes will be, but in the past we have had Amazon Echo Dots, JBL speakers, light up keyboards, gaming headphones, and much more varying different categories. Sponsors will also give out specific prizes as they see fit. In addition, UCSC students are eligible to receive a t-shirt and stickers if they are in the Santa Cruz County.",
   },

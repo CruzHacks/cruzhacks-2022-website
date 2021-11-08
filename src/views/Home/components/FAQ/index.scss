@@ -20,6 +20,9 @@
     @include responsiveness.screen(smallest, phone, desktop, big-desktop) {
       width: 60%;
     }
+    @include responsiveness.screen(large-tablet) {
+      width: 90%;
+    }
   }
   &__faqtitle {
     font-family: "Source Sans Pro", sans-serif;
