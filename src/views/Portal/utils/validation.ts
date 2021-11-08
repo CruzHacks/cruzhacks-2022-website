@@ -334,7 +334,10 @@ export const validatedemographicForm = (
             "collegeAffiliationErr",
             dispatchError
           )
-        } else if (onSubmit && !validAffiliation.includes(collegeAffiliation)) {
+        } else if (
+          onSubmit &&
+          !validAffiliation.includes(collegeAffiliation.toLowerCase())
+        ) {
           isValid = false
           updateErrorMessage(
             "Chosen Affiliation is Not Listed",
@@ -367,7 +370,10 @@ export const validatedemographicForm = (
             "eventLocationErr",
             dispatchError
           )
-        } else if (onSubmit && !validLocation.includes(eventLocation)) {
+        } else if (
+          onSubmit &&
+          !validLocation.includes(eventLocation.toLowerCase())
+        ) {
           isValid = false
           updateErrorMessage(
             "Chosen eventLocation is Not Listed",
