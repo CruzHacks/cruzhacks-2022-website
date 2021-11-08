@@ -7,7 +7,7 @@ import Countries from "views/Portal/utils/Countries"
 import DropDown from "../../FormInputs/DropDown"
 import SearchBox from "../../FormInputs/SearchBox"
 import NumberField from "../../FormInputs/NumberBox/index"
-import CheckBox from "../../FormInputs/CheckBox"
+import CheckBox from "../../FormInputs/CheckBox/CheckBox"
 
 const DemographicPage: React.FC = () => {
   const { demographicFormData, setDemographicFormData } = useApplication()!
@@ -48,10 +48,10 @@ const DemographicPage: React.FC = () => {
               { label: "He / him / his" },
               { label: "She / her / hers" },
               { label: "They / them / theirs" },
-              { label: "Other (please specify)" },
               { label: "Prefer not to answer" },
             ]}
             setViewData={setDemographicFormData}
+            maxLength={50}
           />
           <DropDown
             value={demographicFormData.race}
@@ -82,10 +82,10 @@ const DemographicPage: React.FC = () => {
               { label: "Lesbian" },
               { label: "Transgender" },
               { label: "Queer" },
-              { label: "Other" },
               { label: "Prefer not to answer" },
             ]}
             setViewData={setDemographicFormData}
+            maxLength={50}
           />
           <SearchBox
             question='School'
