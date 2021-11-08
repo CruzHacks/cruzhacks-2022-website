@@ -104,6 +104,6 @@ export interface FileProps {
   question: string
   name: string
   handleChange: any
-  errorMessage: string 
+  errorMessage: string
   className: string
 }

@@ -72,26 +72,25 @@ export const ApplicationProvider: React.FC = () => {
   )
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
-    savedFormData.contact ||
-      generateContactProps("", "", "", user ? user.email : "")
+    generateContactProps(user ? user.email : "", savedFormData.contact)
   )
   const [demographicFormData, setDemographicFormData] =
     useState<DemographicProps>(
-      savedFormData.demographic || generateDemographicProps()
+      generateDemographicProps(savedFormData.demographic)
     )
   const [shortAnswerFormData, setShortAnswerFormData] =
     useState<ShortAnswerProps>(
-      savedFormData.shortAnswer || generateShortAnswerProps()
+      generateShortAnswerProps(savedFormData.shortAnswer)
     )
   const [priorExperienceFormData, setPriorExperienceFormData] =
     useState<PriorExperienceProps>(
-      savedFormData.priorExperience || generatePriorExperienceProps()
+      generatePriorExperienceProps(savedFormData.priorExperience)
     )
   const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>(
-    savedFormData.connected || generateConnectedProps()
+    generateConnectedProps(savedFormData.connected)
   )
   const [mlhFormData, setmlhFormData] = useState<MLHProps>(
-    savedFormData.MLH || generateMLHProps()
+    generateMLHProps(savedFormData.MLH)
   )
 
   useEffect(() => {
@@ -152,15 +151,45 @@ export const ApplicationProvider: React.FC = () => {
   }
 
   const saveData = () => {
+    const { fname, lname, phone, email } = contactFormData
+    const {
+      age,
+      pronouns,
+      race,
+      sexuality,
+      school,
+      collegeAffiliation,
+      eventLocation,
+      major,
+      currentStanding,
+      country,
+    } = demographicFormData
+    const { whyCruzHacks, newThisYear, grandestInvention } = shortAnswerFormData
+    const { firstCruzHacks, hackathonCount, priorExperience } =
+      priorExperienceFormData
+    const { linkedin, github, cruzCoins, anythingElse } = connectedFormData
+    const { conductAgree, tosAgree } = mlhFormData
+
     const data: SavedApplication = {
-      contact: contactFormData,
-      demographic: demographicFormData,
-      shortAnswer: shortAnswerFormData,
-      priorExperience: priorExperienceFormData,
-      connected: connectedFormData,
-      MLH: mlhFormData,
+      contact: { fname, lname, phone, email },
+      demographic: {
+        age,
+        pronouns,
+        race,
+        sexuality,
+        school,
+        collegeAffiliation,
+        eventLocation,
+        major,
+        currentStanding,
+        country,
+      },
+      shortAnswer: { whyCruzHacks, newThisYear, grandestInvention },
+      priorExperience: { firstCruzHacks, hackathonCount, priorExperience },
+      connected: { linkedin, github, cruzCoins, anythingElse },
+      MLH: { conductAgree, tosAgree },
     }
-    store("application", data, undefined, user?.email)
+    store("application", data, 60 * 60 * 24 * 30, user?.email)
   }
 
   return (
