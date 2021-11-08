@@ -24,7 +24,9 @@ const NumberField: React.FC<NumberFieldProps> = ({
       max={max}
       maxLength={maxLength}
       onChange={handleChange}
-      className='number-field-component__input'
+      className={`number-field-component__input ${
+        errorMessage ? "number-field-component__error" : ""
+      }`}
     />
   </div>
 )

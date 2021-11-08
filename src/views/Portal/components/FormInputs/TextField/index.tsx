@@ -20,7 +20,9 @@ const TextField: React.FC<FieldProps> = ({
       value={fieldState}
       maxLength={maxLength}
       onChange={handleChange}
-      className='text-field-component__input'
+      className={`text-field-component__input ${
+        errorMessage ? "text-field-component__error" : ""
+      }`}
     />
   </div>
 )

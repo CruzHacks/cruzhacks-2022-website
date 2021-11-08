@@ -14,8 +14,10 @@
   &__input {
     @include typography.form-input-box;
   }
+  &__error {
+    @include typography.form-error-box;
+  }
 }
-
 
 // .textField__component {
 //   @include typography.form-prompts;
