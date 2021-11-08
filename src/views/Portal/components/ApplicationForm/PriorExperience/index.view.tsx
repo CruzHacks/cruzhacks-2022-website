@@ -3,7 +3,7 @@ import "./index.scss"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import TextBox from "../../FormInputs/TextBox"
 import RadioForm from "../../FormInputs/Radio"
-import TextField from "../../FormInputs/TextField"
+import NumberField from "../../FormInputs/NumberBox"
 
 const ExperiencePage: React.FC = () => {
   const { priorExperienceFormData, setPriorExperienceFormData } =
@@ -29,7 +29,7 @@ const ExperiencePage: React.FC = () => {
             />
           </div>
           <div className='experience-page-container__field'>
-            <TextField
+            <NumberField
               // className='demographic-page__form-container__inputs--textfield'
               name='Have you attended any hackathons before? If so, how many?'
               handleChange={(e: any) =>
