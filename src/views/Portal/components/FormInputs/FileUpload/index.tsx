@@ -27,6 +27,7 @@ const FileUpload: React.FC<FileProps> = ({
     handleChange((prev: any) => ({
       ...prev,
       [name]: null,
+      [`${name}Err`]: "",
     }))
   }
   const displayUpload = () => (

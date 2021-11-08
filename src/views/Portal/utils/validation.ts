@@ -602,6 +602,8 @@ export const validateConnectedForm = (
           } else {
             updateErrorMessage("", "resumeErr", dispatchError)
           }
+        } else {
+          updateErrorMessage("", "resumeErr", dispatchError)
         }
         break
       case "linkedin":
