@@ -25,6 +25,7 @@ const ConnectedPage: React.FC = () => {
             handleChange={setConnectedFormData}
             name='resume'
             className='none'
+            fieldState={connectedFormData.resume}
           />
           <TextField
             name='LinkedIn'

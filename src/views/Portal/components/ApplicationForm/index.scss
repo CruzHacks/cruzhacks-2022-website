@@ -30,11 +30,16 @@
   &__buttons {
     display: flex;
     justify-content: center;
+    gap: 1em;
   }
 
   &__button {
+    @include typography.text;
+    color: black;
     background: #FFFFFF;
     border: 1px solid #000000;
     box-sizing: border-box;
+    cursor: pointer;
+    padding: 0 .75em .05em .75em;
   }
 }

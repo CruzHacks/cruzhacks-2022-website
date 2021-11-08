@@ -587,9 +587,23 @@ export const validateConnectedForm = (
 ) => {
   const fields = ["resume", "linkedin", "github", "cruzCoins", "anythingElse"]
   let isValid = true
-  const { linkedin, github, cruzCoins, anythingElse } = pageData
+  const { resume, linkedin, github, cruzCoins, anythingElse } = pageData
   fields.forEach(field => {
     switch (field) {
+      case "resume":
+        if (resume) {
+          if (resume.size > 1_000_000) {
+            isValid = false
+            updateErrorMessage(
+              "Resume File Upload too large, Resume can't be bigger than 1MB",
+              "resumeErr",
+              dispatchError
+            )
+          } else {
+            updateErrorMessage("", "resumeErr", dispatchError)
+          }
+        }
+        break
       case "linkedin":
         if (linkedin.length > 100) {
           isValid = false
