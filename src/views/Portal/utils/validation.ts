@@ -8,7 +8,11 @@ import {
 } from "Props/application/props"
 
 import { Dispatch, SetStateAction } from "react"
-import { phoneRegex, alphanumericPunctuationRegex } from "utils/regex"
+import {
+  phoneRegex,
+  alphanumericPunctuationRegex,
+  alphanumericPunctuationRegexWithNewLine,
+} from "utils/regex"
 
 function updateErrorMessage(
   message: string,
@@ -145,13 +149,35 @@ export const validatedemographicForm = (
   const sexaulityCount = sexuality.length
   const ageInt = parseInt(age, 10)
 
+  const validAffiliation = [
+    "i am not a ucsc student",
+    "i am a UCSC grad student with no college affiliation",
+    "college 9",
+    "college 10",
+    "cowell",
+    "stevenson",
+    "crown",
+    "merrill",
+    "kresge",
+    "porter",
+    "rachel carson college",
+    "oakes",
+  ]
+
+  const validLocation = [
+    "On-campus at UC Santa Cruz",
+    "Santa Cruz County",
+    "Other",
+    "Unsure",
+  ]
+
   fields.forEach(field => {
     switch (field) {
       case "age":
-        if (ageInt < 5) {
+        if (ageInt < 13) {
           isValid = false
           updateErrorMessage(
-            "Participant must be older than 5",
+            "Participant must be older than 13",
             "ageErr",
             dispatchError
           )
@@ -308,6 +334,16 @@ export const validatedemographicForm = (
             "collegeAffiliationErr",
             dispatchError
           )
+        } else if (
+          onSubmit &&
+          !validAffiliation.includes(collegeAffiliation.toLowerCase())
+        ) {
+          isValid = false
+          updateErrorMessage(
+            "Chosen Affiliation is Not Listed",
+            "collegeAffiliationErr",
+            dispatchError
+          )
         } else {
           updateErrorMessage("", "collegeAffiliationErr", dispatchError)
         }
@@ -331,6 +367,16 @@ export const validatedemographicForm = (
           isValid = false
           updateErrorMessage(
             "Inputted Location Should be alphanumeric",
+            "eventLocationErr",
+            dispatchError
+          )
+        } else if (
+          onSubmit &&
+          !validLocation.includes(eventLocation.toLowerCase())
+        ) {
+          isValid = false
+          updateErrorMessage(
+            "Chosen eventLocation is Not Listed",
             "eventLocationErr",
             dispatchError
           )
@@ -448,7 +494,7 @@ export const validateshortAnswerForm = (
             "whyCruzHacksErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(whyCruzHacks)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(whyCruzHacks)) {
           isValid = false
           updateErrorMessage(
             "Response Should be alphanumeric",
@@ -474,7 +520,7 @@ export const validateshortAnswerForm = (
             "newThisYearErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(newThisYear)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(newThisYear)) {
           isValid = false
           updateErrorMessage(
             "Response Should be alphanumeric",
@@ -500,7 +546,7 @@ export const validateshortAnswerForm = (
             "grandestInventionErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(grandestInvention)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(grandestInvention)) {
           isValid = false
           updateErrorMessage(
             "Response Should be alphanumeric",
@@ -563,7 +609,7 @@ export const validatepriorExperienceForm = (
             "priorExperienceErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(priorExperience)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(priorExperience)) {
           isValid = false
           updateErrorMessage(
             "Response Should be alphanumeric",
@@ -652,7 +698,7 @@ export const validateConnectedForm = (
             "cruzCoinsErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(cruzCoins)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(cruzCoins)) {
           isValid = false
           updateErrorMessage(
             "Response should be alphanumeric characters only",
@@ -671,7 +717,7 @@ export const validateConnectedForm = (
             "anythingElseErr",
             dispatchError
           )
-        } else if (alphanumericPunctuationRegex(anythingElse)) {
+        } else if (alphanumericPunctuationRegexWithNewLine(anythingElse)) {
           isValid = false
           updateErrorMessage(
             "Response should be alphanumeric characters only",
