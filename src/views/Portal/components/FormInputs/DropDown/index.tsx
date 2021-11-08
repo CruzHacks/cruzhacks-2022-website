@@ -15,7 +15,9 @@ const DropDown: React.FC<DropDownProps> = ({
     <div className='dropdown-component__question'>{question}</div>
     <div className='dropdown-component__errorMessage'>{errorMessage}</div>
     <select
-      className='dropdown-component__selector'
+      className={`dropdown-component__selector ${
+        errorMessage ? "dropdown-component__error" : ""
+      }`}
       name={name}
       onChange={handleChange}
       value={value}

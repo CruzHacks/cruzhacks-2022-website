@@ -22,7 +22,9 @@ const TextBox: React.FC<FieldProps> = ({
       value={fieldState}
       maxLength={maxLength}
       onChange={handleChange}
-      className={`text-box-component${className}__input`}
+      className={`text-box-component${className}__input ${
+        errorMessage ? `text-box-component${className}__error` : ""
+      }`}
     />
   </div>
 )
