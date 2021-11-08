@@ -12,4 +12,7 @@
   &__fields {
     @include typography.form-page-container-fields;
   }
+  &__field {
+    @include typography.form-page-container-vertical-spacing;
+}
 }

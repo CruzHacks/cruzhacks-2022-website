@@ -18,4 +18,7 @@
     @include typography.form-component-width;
   }
 
+  &__field {
+      @include typography.form-page-container-vertical-spacing;
+  }
 }
