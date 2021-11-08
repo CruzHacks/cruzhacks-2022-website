@@ -4,8 +4,8 @@ import FAQInformation from "Props/faq/faq"
 import { FAQProps } from "Props/props"
 
 const col1 = FAQInformation.slice(0, 4)
-const col2 = FAQInformation.slice(4, 8)
-const col3 = FAQInformation.slice(8, 12)
+const col2 = FAQInformation.slice(4, 9)
+const col3 = FAQInformation.slice(9, 13)
 const showAnswer = (e: React.MouseEvent | React.KeyboardEvent) => {
   // get next element sibling
   const target = e.target as HTMLTextAreaElement
