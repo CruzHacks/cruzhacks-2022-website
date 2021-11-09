@@ -55,6 +55,7 @@ const ContactPage: React.FC = () => {
               errorMessage={contactFormData.emailErr}
               label='email'
               maxLength={50}
+              disabled
             />
           </div>
         </div>

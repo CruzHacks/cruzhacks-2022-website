@@ -9,13 +9,14 @@ const RadioForm: React.FC<RadioFormProps> = ({
   handleChange,
   errorMessage,
   value,
+  className,
 }: RadioFormProps) => (
   <div className='radio-form-component'>
     <div className='radio-form-component__fieldName'>{question}</div>
     <div className='radio-form-component__errorMessage'>{errorMessage}</div>
-    <div className='radio-form-component__inputs'>
+    <div className={`radio-form-component__inputs ${className}`}>
       {inputs.map(({ label }: RadioButtonProps) => (
-        <div className='radio-form-component__radio-wrapper'>
+        <div className={`radio-form-component__radio-wrapper ${className}`}>
           <input
             type='radio'
             onChange={handleChange}
@@ -31,4 +32,9 @@ const RadioForm: React.FC<RadioFormProps> = ({
     </div>
   </div>
 )
+
+RadioForm.defaultProps = {
+  className: "",
+}
+
 export default RadioForm

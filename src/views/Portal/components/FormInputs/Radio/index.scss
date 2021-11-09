@@ -35,8 +35,16 @@
   &__radio-wrapper {
     display: flex;
     flex-direction: row;
-    
+    // align-items: fl;
+    margin-right: 10px;
   } 
+
+  &__row {
+    flex-direction: row;
+    align-items: flex-end;
+
+  }
+
   &__radio {
     appearance: none;
     background-color: #fff;
