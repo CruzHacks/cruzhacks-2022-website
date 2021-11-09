@@ -75,7 +75,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
             }`}
           />
         </div>
-        {matchedItems.length > 0 ? dropdown() : ""}
+        {matchedItems.length > 0 && fieldState ? dropdown() : ""}
       </div>
     </div>
   )
