@@ -84,6 +84,15 @@
 
 @mixin form-component-width-large {
   width: 705px;
+  @include responsiveness.screen(tablet) {
+    width: 400px;
+  }
+  @include responsiveness.screen(phone) {
+    width: 280px;
+  }
+  @include responsiveness.screen(smallest) {
+    width: 208px;
+  }
 }
 
 @mixin form-component-width {
@@ -92,7 +101,7 @@
     width: 400px;
   }
   @include responsiveness.screen(phone) {
-    width: 308px;
+    width: 280px;
   }
   @include responsiveness.screen(smallest) {
     width: 208px;
