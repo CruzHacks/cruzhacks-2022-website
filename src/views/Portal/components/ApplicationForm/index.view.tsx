@@ -133,6 +133,7 @@ const ApplicationForm: React.FC = () => {
         "priorExperience",
         priorExperienceFormData.priorExperience
       )
+      bodyData.append("file", connectedFormData.resume)
       bodyData.append("linkedin", connectedFormData.linkedin)
       bodyData.append("github", connectedFormData.github)
       bodyData.append("cruzCoins", connectedFormData.cruzCoins)
