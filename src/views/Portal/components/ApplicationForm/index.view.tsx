@@ -1,5 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import "./index.scss"
+import axios from "axios"
+import * as dotenv from "dotenv"
+import { useAuth0 } from "@auth0/auth0-react"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import ProgressBar from "components/ProgressBar/ProgressBar"
@@ -17,11 +20,15 @@ import {
   validatepriorExperienceForm,
 } from "../../utils/validation"
 
+dotenv.config()
+
 const ApplicationForm: React.FC = () => {
   const {
     page,
+    setPage,
     prevPage,
     nextPage,
+    accessToken,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -34,6 +41,7 @@ const ApplicationForm: React.FC = () => {
     setConnectedFormData,
   } = useApplication()!
 
+  const [successOnSubmit, setSubmitStatus] = useState("none")
   const viewNextPage = () => {
     if (page === ApplicationPages.Contact) {
       if (validateContactForm(contactFormData, setContactFormData, true)) {
@@ -81,8 +89,73 @@ const ApplicationForm: React.FC = () => {
   }
 
   const saveData = () => {}
-
-  const submitData = () => {}
+  const { user } = useAuth0()
+  const submitData = async () => {
+    try {
+      const bodyData = new FormData()
+      bodyData.append("fname", contactFormData.fname)
+      bodyData.append("lname", contactFormData.lname)
+      bodyData.append("email", user?.email ? user.email : "")
+      bodyData.append("phone", contactFormData.phone)
+      bodyData.append("age", demographicFormData.age)
+      bodyData.append(
+        "pronounCount",
+        demographicFormData.pronouns.length.toString()
+      )
+      for (let i = 0; i < demographicFormData.pronouns.length; i += 1) {
+        bodyData.append(`pronouns[${i}]`, demographicFormData.pronouns[i])
+      }
+      bodyData.append(
+        "sexualityCount",
+        demographicFormData.sexuality.length.toString()
+      )
+      for (let i = 0; i < demographicFormData.sexuality.length; i += 1) {
+        bodyData.append(`sexuality[${i}]`, demographicFormData.sexuality[i])
+      }
+      bodyData.append("school", demographicFormData.school)
+      bodyData.append(
+        "collegeAffiliation",
+        demographicFormData.collegeAffiliation
+      )
+      bodyData.append("eventLocation", demographicFormData.eventLocation)
+      bodyData.append("major", demographicFormData.major)
+      bodyData.append("currentStanding", demographicFormData.currentStanding)
+      bodyData.append("country", demographicFormData.country)
+      bodyData.append("whyCruzHacks", shortAnswerFormData.whyCruzHacks)
+      bodyData.append("newThisYear", priorExperienceFormData.firstCruzHacks)
+      bodyData.append(
+        "grandestInvention",
+        shortAnswerFormData.grandestInvention
+      )
+      bodyData.append("firstCruzHack", priorExperienceFormData.firstCruzHacks)
+      bodyData.append("hackathonCount", priorExperienceFormData.hackathonCount)
+      bodyData.append(
+        "priorExperience",
+        priorExperienceFormData.priorExperience
+      )
+      bodyData.append("file", connectedFormData.resume)
+      bodyData.append("linkedin", connectedFormData.linkedin)
+      bodyData.append("github", connectedFormData.github)
+      bodyData.append("cruzCoins", connectedFormData.cruzCoins)
+      bodyData.append("anythingElse", connectedFormData.anythingElse)
+      const res = await axios({
+        method: "post",
+        url: process.env.REACT_APP_APPLICATION_SUBMIT_ENDPOINT,
+        data: bodyData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      })
+      if (res.status === 201) {
+        setSubmitStatus("submitted")
+        setPage(0)
+      }
+    } catch (res) {
+      console.log(res)
+      setSubmitStatus("error submitting")
+    }
+  }
 
   const renderPage = (pageNumber: number) => {
     switch (pageNumber) {
@@ -117,6 +190,10 @@ const ApplicationForm: React.FC = () => {
       </div>
       <div className='application-form-component__box'>
         {renderPage(page)}
+        <div>{successOnSubmit === "submitted" ? "submitted" : ""}</div>
+        <div>
+          {successOnSubmit === "error submitting" ? "Could Not Submit" : ""}
+        </div>
         <div className='application-form-component__buttons'>
           <button
             className='application-form-component__button'
