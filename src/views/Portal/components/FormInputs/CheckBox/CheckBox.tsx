@@ -24,17 +24,19 @@ const CheckBox: React.FC<CheckBoxProps> = ({
 
   const addData = (e: any) => {
     if (e.keyCode === 13) {
-      const newArr = [...value, input]
-      //   newArr.filter(function (item, index, inputArray) {
-      //     return inputArray.indexOf(item) == index
-      //   })
-      setViewData((prev: any) => ({
-        ...prev,
-        [name]: newArr.filter(
-          (item, index, inputArray) => inputArray.indexOf(item) === index
-        ),
-      }))
-      setInput("")
+      if (input !== "") {
+        const newArr = [...value, input]
+        //   newArr.filter(function (item, index, inputArray) {
+        //     return inputArray.indexOf(item) == index
+        //   })
+        setViewData((prev: any) => ({
+          ...prev,
+          [name]: newArr.filter(
+            (item, index, inputArray) => inputArray.indexOf(item) === index
+          ),
+        }))
+        setInput("")
+      }
     }
   }
 
