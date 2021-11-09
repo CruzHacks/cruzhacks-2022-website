@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import "./index.scss"
 import axios from "axios"
-import * as dotenv from "dotenv"
 import { useAuth0 } from "@auth0/auth0-react"
 import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
@@ -19,8 +18,6 @@ import {
   validateConnectedForm,
   validatepriorExperienceForm,
 } from "../../utils/validation"
-
-dotenv.config()
 
 const ApplicationForm: React.FC = () => {
   const {
@@ -140,7 +137,7 @@ const ApplicationForm: React.FC = () => {
       bodyData.append("anythingElse", connectedFormData.anythingElse)
       const res = await axios({
         method: "post",
-        url: process.env.REACT_APP_APPLICATION_SUBMIT_ENDPOINT,
+        url: `${process.env.REACT_APP_ENDPOINT_URL}/application/submit`,
         data: bodyData,
         headers: {
           "Content-Type": "multipart/form-data",
@@ -152,7 +149,6 @@ const ApplicationForm: React.FC = () => {
         setPage(0)
       }
     } catch (res) {
-      console.log(res)
       setSubmitStatus("error submitting")
     }
   }
