@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import "./index.scss"
 import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react"
@@ -25,6 +25,7 @@ const ApplicationForm: React.FC = () => {
     setPage,
     prevPage,
     nextPage,
+    accessToken,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -37,16 +38,7 @@ const ApplicationForm: React.FC = () => {
     setConnectedFormData,
   } = useApplication()!
 
-  const { getAccessTokenSilently } = useAuth0()
-  const [token, setToken] = useState("no token")
   const [successOnSubmit, setSubmitStatus] = useState("none")
-
-  useEffect(() => {
-    getAccessTokenSilently()
-      .then(ac => setToken(ac))
-      .catch()
-  }, [])
-
   const viewNextPage = () => {
     if (page === ApplicationPages.Contact) {
       if (validateContactForm(contactFormData, setContactFormData, true)) {
@@ -100,7 +92,7 @@ const ApplicationForm: React.FC = () => {
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)
       bodyData.append("lname", contactFormData.lname)
-      bodyData.append("email", user?.email ? user.email : "none")
+      bodyData.append("email", user?.email ? user.email : "")
       bodyData.append("phone", contactFormData.phone)
       bodyData.append("age", demographicFormData.age)
       bodyData.append(
@@ -148,7 +140,7 @@ const ApplicationForm: React.FC = () => {
         data: bodyData,
         headers: {
           "Content-Type": "multipart/form-data",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       })
       if (res.status === 201) {
