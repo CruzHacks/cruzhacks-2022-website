@@ -26,11 +26,11 @@ const ExperiencePage: React.FC = () => {
               }
               errorMessage={priorExperienceFormData.firstCruzHacksErr}
               value={priorExperienceFormData.firstCruzHacks}
+              className='radio-form-component__row'
             />
           </div>
           <div className='experience-page-container__field'>
             <NumberField
-              // className='demographic-page__form-container__inputs--textfield'
               name='Have you attended any hackathons before? If so, how many?'
               handleChange={(e: any) =>
                 setPriorExperienceFormData(prev => ({
@@ -46,7 +46,6 @@ const ExperiencePage: React.FC = () => {
           </div>
           <div className='experience-page-container__field'>
             <TextBox
-              // className='short-answer-page__inputs--textfield'
               name='Do you have prior tech experience? If so, in what context (i.e., classes, internships, personal projects)?'
               handleChange={(e: any) =>
                 setPriorExperienceFormData(prev => ({

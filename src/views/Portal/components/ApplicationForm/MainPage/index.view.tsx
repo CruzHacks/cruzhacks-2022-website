@@ -33,7 +33,7 @@ const MainPage: React.FC<MainPageProps> = ({
         <div className='main-page__container--welcome'>WELCOME, HACKER</div>
         <div className='main-page__container--status-message'>
           <div className='main-page__container--status-message--stat'>
-            STATUS&nbsp;
+            STATUS&nbsp;&nbsp;
           </div>
           <div
             className='main-page__container--status-message--curr-stat'

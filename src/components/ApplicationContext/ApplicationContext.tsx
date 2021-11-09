@@ -30,6 +30,7 @@ import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.v
 
 interface ApplicationContextProps {
   page: number
+  setPage: any
   appStatus: number
   accessToken: string
   nextPage: any
@@ -137,6 +138,7 @@ export const ApplicationProvider: React.FC = () => {
     <ApplicationContext.Provider
       value={{
         page,
+        setPage,
         appStatus: status,
         accessToken: token,
         nextPage,
