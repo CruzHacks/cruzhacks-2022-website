@@ -22,6 +22,7 @@ import {
 const ApplicationForm: React.FC = () => {
   const {
     page,
+    setPage,
     prevPage,
     nextPage,
     contactFormData,
@@ -93,22 +94,28 @@ const ApplicationForm: React.FC = () => {
   }
 
   const saveData = () => {}
-
+  const { user } = useAuth0()
   const submitData = async () => {
     try {
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)
       bodyData.append("lname", contactFormData.lname)
-      bodyData.append("email", contactFormData.email || "none")
+      bodyData.append("email", user?.email ? user.email : "none")
       bodyData.append("phone", contactFormData.phone)
       bodyData.append("age", demographicFormData.age)
-      bodyData.append("pronounCount", "1")
+      bodyData.append(
+        "pronounCount",
+        demographicFormData.pronouns.length.toString()
+      )
       for (let i = 0; i < demographicFormData.pronouns.length; i += 1) {
-        bodyData.append("pronouns[0-N-1]", demographicFormData.pronouns[i])
+        bodyData.append(`pronouns[${i}]`, demographicFormData.pronouns[i])
       }
-      bodyData.append("sexualityCount", "1")
+      bodyData.append(
+        "sexualityCount",
+        demographicFormData.sexuality.length.toString()
+      )
       for (let i = 0; i < demographicFormData.sexuality.length; i += 1) {
-        bodyData.append("sexuality[0-N-1]", demographicFormData.sexuality[i])
+        bodyData.append(`sexuality[${i}]`, demographicFormData.sexuality[i])
       }
       bodyData.append("school", demographicFormData.school)
       bodyData.append(
@@ -135,7 +142,6 @@ const ApplicationForm: React.FC = () => {
       bodyData.append("github", connectedFormData.github)
       bodyData.append("cruzCoins", connectedFormData.cruzCoins)
       bodyData.append("anythingElse", connectedFormData.anythingElse)
-
       const res = await axios({
         method: "post",
         url: "http://127.0.0.1:5001/cruzhacks-2022-development/us-central1/application/submit",
@@ -145,12 +151,11 @@ const ApplicationForm: React.FC = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      console.log(res)
       if (res.status === 201) {
         setSubmitStatus("submitted")
+        setPage(0)
       }
     } catch (res) {
-      // pass
       setSubmitStatus("error submitting")
     }
   }
