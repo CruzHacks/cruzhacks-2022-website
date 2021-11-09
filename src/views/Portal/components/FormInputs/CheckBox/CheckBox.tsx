@@ -103,7 +103,11 @@ const CheckBox: React.FC<CheckBoxProps> = ({
             onChange={e => setInput(e.target.value)}
             onKeyDown={addData}
             maxLength={maxLength}
-            className='check-box-component__input width'
+            className={
+              errorMessage
+                ? "check-box-component__input width error"
+                : "check-box-component__input width"
+            }
           />
         </div>
       </div>
