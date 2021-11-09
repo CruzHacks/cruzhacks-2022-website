@@ -39,10 +39,16 @@
     transition: .125s ease-in-out;
     box-sizing: content-box;
     padding: 0.5em;
+    height: 2em;
+    max-height: 50px;
     &--icon {
       transform: scale(0.2);
     }
     &:hover {
+      background-color: #CCCCCC;
+      border: 1px solid #999999;
+    }
+    &:active {
       background-color: #CCCCCC;
       border: 1px solid #999999;
     }
@@ -51,6 +57,7 @@
   &__inputs-button {
       display: flex;
       flex-direction: row;
+      flex-flow: wrap;
       gap: 5px;
   }
   &__selected-option {
@@ -79,6 +86,9 @@
     &:hover {
       background-color: #DDDDDD;
     }
+    &:active {
+      background-color: #DDDDDD;
+    }
   }
 
   &__dropdown-button-container {
@@ -90,42 +100,6 @@
     border-right: 0;
     border-left: 0;
     border-bottom: 0;
-  }
-
-  &__selected {
-    @include typography.form-input-box;
-  }
-  &__options {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
-  &__option {
-    appearance: none;
-    width: 1.5em;
-    height: 1.5em; 
-    border: .12em solid black;
-    border-radius: .25em;
-    background-color: #fff;
-    display: grid;
-    place-content: center;
-    
-    &::before {
-      content: "";
-      width: 1.05em;
-      height: 1.05em;
-      transform: scale(0);
-      background-color: #FE375B;
-      transform-origin: bottom left;
-      clip-path: polygon(50% 20%, 66% 5%, 88% 0, 100% 11%, 100% 40%, 50% 100%, 0 40%, 0 11%, 12% 0, 34% 5%);
-      transition: 120ms transform ease-in-out;
-    }
-    &:checked::before {
-      transform: scale(1);
-    }
-    &:hover{
-      border: .15em solid black;
-    }
   }
 
 }
