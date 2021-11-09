@@ -27,6 +27,7 @@
     .footer-component__graphics {
       position: absolute;
       bottom: 0;
+      pointer-events: none;
       z-index: 0;
     }
   }
