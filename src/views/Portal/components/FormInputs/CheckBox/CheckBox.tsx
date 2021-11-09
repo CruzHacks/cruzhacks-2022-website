@@ -107,7 +107,7 @@ const CheckBox: React.FC<CheckBoxProps> = ({
           />
         </div>
       </div>
-      {dropdown()}
+      {input === "" ? "" : dropdown()}
     </div>
   )
 }
