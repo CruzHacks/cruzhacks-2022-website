@@ -152,7 +152,6 @@ const ApplicationForm: React.FC = () => {
         setPage(0)
       }
     } catch (res) {
-      console.log(res)
       setSubmitStatus("error submitting")
     }
   }
