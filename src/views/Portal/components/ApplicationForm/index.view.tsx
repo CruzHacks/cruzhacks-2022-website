@@ -2,8 +2,9 @@ import React, { useState } from "react"
 import "./index.scss"
 import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react"
-import ApplicationPages from "Props/portal/page"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
+import ApplicationPages from "Props/portal/page"
+import AppStatus from "Props/portal/application"
 import ProgressBar from "components/ProgressBar/ProgressBar"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
@@ -25,6 +26,7 @@ const ApplicationForm: React.FC = () => {
     setPage,
     prevPage,
     nextPage,
+    setAppStatus,
     accessToken,
     contactFormData,
     setContactFormData,
@@ -78,7 +80,6 @@ const ApplicationForm: React.FC = () => {
         nextPage()
       }
     }
-    nextPage()
   }
 
   const viewPrevPage = () => {
@@ -109,6 +110,7 @@ const ApplicationForm: React.FC = () => {
       for (let i = 0; i < demographicFormData.sexuality.length; i += 1) {
         bodyData.append(`sexuality[${i}]`, demographicFormData.sexuality[i])
       }
+      bodyData.append("race", demographicFormData.race)
       bodyData.append("school", demographicFormData.school)
       bodyData.append(
         "collegeAffiliation",
@@ -147,8 +149,9 @@ const ApplicationForm: React.FC = () => {
       if (res.status === 201) {
         setSubmitStatus("submitted")
         setPage(0)
+        setAppStatus(AppStatus.Accepted)
       }
-    } catch (res) {
+    } catch (err) {
       setSubmitStatus("error submitting")
     }
   }
@@ -221,6 +224,7 @@ const ApplicationForm: React.FC = () => {
               className='application-form-component__button'
               type='button'
               onClick={submitData}
+              disabled={false}
             >
               Submit
             </button>
