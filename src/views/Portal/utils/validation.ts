@@ -596,7 +596,7 @@ export const validatepriorExperienceForm = (
           )
         } else if (hackathonsCountInt > 100) {
           isValid = false
-          updateErrorMessage("Limit is 99", "hackathonCountErr", dispatchError)
+          updateErrorMessage("Limit is 100", "hackathonCountErr", dispatchError)
         } else {
           updateErrorMessage("", "hackathonCountErr", dispatchError)
         }

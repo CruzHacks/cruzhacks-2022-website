@@ -37,6 +37,9 @@ interface ApplicationContextProps {
   nextPage: any
   prevPage: any
 
+  submitting: boolean
+  setSubmitting: Dispatch<SetStateAction<boolean>>
+
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
@@ -63,6 +66,7 @@ export const ApplicationProvider: React.FC = () => {
   const [token, setToken] = useState<string>("")
   const [page, setPage] = useState<number>(0)
   const [status, setStatus] = useState<number>(0)
+  const [submitting, setSubmitting] = useState<boolean>(false)
   const { user, getAccessTokenSilently } = useAuth0()
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
@@ -145,6 +149,8 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        submitting,
+        setSubmitting,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,

@@ -25,6 +25,8 @@ const ApplicationForm: React.FC = () => {
     page,
     setPage,
     prevPage,
+    submitting,
+    setSubmitting,
     nextPage,
     setAppStatus,
     accessToken,
@@ -38,6 +40,7 @@ const ApplicationForm: React.FC = () => {
     setPriorExperienceFormData,
     connectedFormData,
     setConnectedFormData,
+    mlhFormData,
   } = useApplication()!
 
   const [successOnSubmit, setSubmitStatus] = useState("none")
@@ -90,6 +93,7 @@ const ApplicationForm: React.FC = () => {
   const { user } = useAuth0()
   const submitData = async () => {
     try {
+      setSubmitting(true)
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)
       bodyData.append("lname", contactFormData.lname)
@@ -150,9 +154,11 @@ const ApplicationForm: React.FC = () => {
         setSubmitStatus("submitted")
         setPage(0)
         setAppStatus(AppStatus.Accepted)
+        setSubmitting(false)
       }
     } catch (err) {
       setSubmitStatus("error submitting")
+      setSubmitting(false)
     }
   }
 
@@ -207,6 +213,7 @@ const ApplicationForm: React.FC = () => {
             className='application-form-component__button'
             type='button'
             onClick={viewPrevPage}
+            disabled={submitting}
           >
             {"< Prev"}
           </button>
@@ -215,6 +222,7 @@ const ApplicationForm: React.FC = () => {
               className='application-form-component__button'
               type='button'
               onClick={viewNextPage}
+              disabled={submitting}
             >
               {"Next >"}
             </button>
@@ -224,7 +232,15 @@ const ApplicationForm: React.FC = () => {
               className='application-form-component__button'
               type='button'
               onClick={submitData}
-              disabled={false}
+              disabled={
+                submitting ||
+                !(
+                  mlhFormData.conductAgree ===
+                    "I have read and agree to abide by the MLH Code of Conduct at CruzHacks." &&
+                  mlhFormData.tosAgree ===
+                    "I have read and agree to the terms outlined above."
+                )
+              }
             >
               Submit
             </button>
