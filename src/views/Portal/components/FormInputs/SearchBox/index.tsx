@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import "./index.scss"
 
 interface SearchBoxProps {
@@ -7,6 +7,7 @@ interface SearchBoxProps {
   label: string
   fieldState: string
   errorMessage: string
+  maxLength: number
   maxReturn: number
   handleChange: any
 }
@@ -19,8 +20,15 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   errorMessage,
   maxReturn,
   handleChange,
+  maxLength,
 }: SearchBoxProps) => {
   const [matchedItems, setMatchedItems] = useState<string[]>(data)
+  const [mounted, setMounted] = useState<boolean>(false)
+
+  useEffect(() => {
+    setMounted(false)
+  }, [])
+
   const handleQuery = () => {
     const Matches = data.filter(entry =>
       entry.toLowerCase().includes(fieldState.toLowerCase())
@@ -29,6 +37,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   }
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMounted(true)
     handleChange(e.target.value)
     handleQuery()
   }
@@ -48,7 +57,9 @@ const SearchBox: React.FC<SearchBoxProps> = ({
           >
             <button
               type='button'
-              onClick={() => onClick(item)}
+              onMouseDown={() => {
+                onClick(item)
+              }}
               aria-label={item}
               className='search-box-component__dropdown-button'
             >
@@ -70,12 +81,16 @@ const SearchBox: React.FC<SearchBoxProps> = ({
             name={label}
             value={fieldState}
             onChange={handleQueryChange}
+            maxLength={maxLength}
+            onBlur={() => {
+              setMatchedItems([])
+            }}
             className={`search-box-component__input-box ${
               errorMessage ? "search-box-component__error" : ""
             }`}
           />
         </div>
-        {matchedItems.length > 0 && fieldState ? dropdown() : ""}
+        {mounted && dropdown()}
       </div>
     </div>
   )

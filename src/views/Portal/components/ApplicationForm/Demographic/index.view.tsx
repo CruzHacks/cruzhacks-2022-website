@@ -102,6 +102,7 @@ const DemographicPage: React.FC = () => {
               label='school'
               fieldState={demographicFormData.school}
               maxReturn={10}
+              maxLength={100}
               errorMessage={demographicFormData.schoolErr}
               handleChange={(value: string) => {
                 setDemographicFormData(prev => ({
@@ -156,6 +157,7 @@ const DemographicPage: React.FC = () => {
               label='major'
               fieldState={demographicFormData.major}
               maxReturn={10}
+              maxLength={50}
               errorMessage={demographicFormData.majorErr}
               handleChange={(value: string) => {
                 setDemographicFormData(prev => ({
@@ -190,6 +192,7 @@ const DemographicPage: React.FC = () => {
               label='country'
               fieldState={demographicFormData.country}
               maxReturn={10}
+              maxLength={50}
               errorMessage={demographicFormData.countryErr}
               handleChange={(value: string) => {
                 setDemographicFormData(prev => ({
