@@ -165,10 +165,10 @@ export const validatedemographicForm = (
   ]
 
   const validLocation = [
-    "On-campus at UC Santa Cruz",
-    "Santa Cruz County",
-    "Other",
-    "Unsure",
+    "on-campus at uc santa cruz",
+    "santa cruz county",
+    "other",
+    "unsure",
   ]
 
   fields.forEach(field => {
@@ -596,7 +596,7 @@ export const validatepriorExperienceForm = (
           )
         } else if (hackathonsCountInt > 100) {
           isValid = false
-          updateErrorMessage("Limit is 99", "hackathonCountErr", dispatchError)
+          updateErrorMessage("Limit is 100", "hackathonCountErr", dispatchError)
         } else {
           updateErrorMessage("", "hackathonCountErr", dispatchError)
         }

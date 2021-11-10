@@ -44,7 +44,7 @@ const MainPage: React.FC<MainPageProps> = ({
         </div>
         <div className='main-page__container--progress'>PROGRESS</div>
         <ProgressBar
-          current={0}
+          current={status === "SUBMITTED" ? ApplicationPages.MLH : 0}
           limit={ApplicationPages.MLH}
           className='__main'
         />
