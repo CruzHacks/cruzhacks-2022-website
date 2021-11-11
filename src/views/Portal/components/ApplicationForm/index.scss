@@ -47,5 +47,19 @@
     box-sizing: border-box;
     cursor: pointer;
     padding: 0 .75em .05em .75em;
+    &:disabled {
+      cursor: not-allowed;
+      background-color: rgba(173, 173, 173, 0.41);
+    }
+  }
+  &__response {
+    display: flex;
+    justify-content: center;
+    @include typography.form-prompts;
+  }
+  &__response-err {
+    display: flex;
+    justify-content: center;
+    @include typography.form-error-message;
   }
 }

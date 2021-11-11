@@ -198,7 +198,7 @@ const ApplicationForm: React.FC = () => {
         <div className='application-form-component__response'>
           {successOnSubmit === "submitted" ? "submitted" : ""}
         </div>
-        <div className='application-form-component__response'>
+        <div className='application-form-component__response-err'>
           {successOnSubmit === "error submitting" ? "Could Not Submit" : ""}
         </div>
         <div className='application-form-component__buttons'>
