@@ -125,15 +125,30 @@ export const ApplicationProvider: React.FC = () => {
               break
             case "accepted":
               setStatus(AppStatus.Accepted)
-              store("applicationStatus", AppStatus.Accepted, 12 * 60 * 60) //  store for 12hrs
+              store(
+                "applicationStatus",
+                AppStatus.Accepted,
+                12 * 60 * 60, // store for 12hrs
+                user?.email
+              )
               break
             case "rejected":
               setStatus(AppStatus.Rejected)
-              store("applicationStatus", AppStatus.Rejected, 12 * 60 * 60) // store for 12hrs
+              store(
+                "applicationStatus",
+                AppStatus.Rejected,
+                12 * 60 * 60, // store for 12hrs
+                user?.email
+              )
               break
             case "pending":
               setStatus(AppStatus.Pending)
-              store("applicationStatus", AppStatus.Pending, 12 * 60 * 60) // store for 12hrs
+              store(
+                "applicationStatus",
+                AppStatus.Pending,
+                12 * 60 * 60, // store for 12hrs
+                user?.email
+              )
               break
             default:
               setStatus(AppStatus.Errored)
