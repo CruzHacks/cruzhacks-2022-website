@@ -15,7 +15,6 @@ import {
   PriorExperienceProps,
   ConnectedProps,
   MLHProps,
-  SavedApplication,
 } from "Props/application/props"
 import {
   generateContactProps,
@@ -28,6 +27,7 @@ import {
 import AppStatus from "Props/portal/application"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
 import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.view"
+import ApplicationPages from "../../Props/portal/page"
 
 interface ApplicationContextProps {
   page: number
@@ -70,32 +70,35 @@ export const ApplicationProvider: React.FC = () => {
   const [submitting, setSubmitting] = useState<boolean>(false)
   const { user, getAccessTokenSilently } = useAuth0()
 
-  const savedFormData: SavedApplication = retrieve(
-    "application",
-    {},
-    user?.email
-  )
+  // const [progress, setProgress] = useState<number>(
+  //   Number.parseInt(retrieve("app-progress", 0, user?.email), 10)
+  // )
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
-    generateContactProps(user ? user.email : "", savedFormData.contact)
+    generateContactProps(
+      user ? user.email : "",
+      retrieve("app-contact", {}, user?.email)
+    )
   )
   const [demographicFormData, setDemographicFormData] =
     useState<DemographicProps>(
-      generateDemographicProps(savedFormData.demographic)
+      generateDemographicProps(retrieve("app-demographic", {}, user?.email))
     )
   const [shortAnswerFormData, setShortAnswerFormData] =
     useState<ShortAnswerProps>(
-      generateShortAnswerProps(savedFormData.shortAnswer)
+      generateShortAnswerProps(retrieve("app-shortAnswer", {}, user?.email))
     )
   const [priorExperienceFormData, setPriorExperienceFormData] =
     useState<PriorExperienceProps>(
-      generatePriorExperienceProps(savedFormData.priorExperience)
+      generatePriorExperienceProps(
+        retrieve("app-priorExperience", {}, user?.email)
+      )
     )
   const [connectedFormData, setConnectedFormData] = useState<ConnectedProps>(
-    generateConnectedProps(savedFormData.connected)
+    generateConnectedProps(retrieve("app-connected", {}, user?.email))
   )
   const [mlhFormData, setmlhFormData] = useState<MLHProps>(
-    generateMLHProps(savedFormData.MLH)
+    generateMLHProps(retrieve("app-MLH", {}, user?.email))
   )
 
   useEffect(() => {
@@ -118,6 +121,7 @@ export const ApplicationProvider: React.FC = () => {
               // check if the application really doesn't exist, or if we failed to fetch it
               if (res.statusCode === 200) {
                 setStatus(AppStatus.NotFound)
+                // if (progress) setStatus(AppStatus.InProgress)
               } else {
                 setStatus(AppStatus.Errored)
               }
@@ -158,29 +162,17 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
-  const saveData = () => {
-    const { fname, lname, phone, email } = contactFormData
-    const {
-      age,
-      pronouns,
-      race,
-      sexuality,
-      school,
-      collegeAffiliation,
-      eventLocation,
-      major,
-      currentStanding,
-      country,
-    } = demographicFormData
-    const { whyCruzHacks, newThisYear, grandestInvention } = shortAnswerFormData
-    const { firstCruzHacks, hackathonCount, priorExperience } =
-      priorExperienceFormData
-    const { linkedin, github, cruzCoins, anythingElse } = connectedFormData
-    const { conductAgree, tosAgree } = mlhFormData
-
-    const data: SavedApplication = {
-      contact: { fname, lname, phone, email },
-      demographic: {
+  const savePage = () => {
+    if (page === ApplicationPages.Contact) {
+      const { fname, lname, phone, email } = contactFormData
+      store(
+        "app-contact",
+        { fname, lname, phone, email },
+        undefined,
+        user?.email
+      )
+    } else if (page === ApplicationPages.Demographic) {
+      const {
         age,
         pronouns,
         race,
@@ -191,25 +183,67 @@ export const ApplicationProvider: React.FC = () => {
         major,
         currentStanding,
         country,
-      },
-      shortAnswer: { whyCruzHacks, newThisYear, grandestInvention },
-      priorExperience: { firstCruzHacks, hackathonCount, priorExperience },
-      connected: { linkedin, github, cruzCoins, anythingElse },
-      MLH: { conductAgree, tosAgree },
+      } = demographicFormData
+      store(
+        "app-demographic",
+        {
+          age,
+          pronouns,
+          race,
+          sexuality,
+          school,
+          collegeAffiliation,
+          eventLocation,
+          major,
+          currentStanding,
+          country,
+        },
+        undefined,
+        user?.email
+      )
+    } else if (page === ApplicationPages.ShortAnswer) {
+      const { whyCruzHacks, newThisYear, grandestInvention } =
+        shortAnswerFormData
+      store(
+        "app-shortAnswer",
+        { whyCruzHacks, newThisYear, grandestInvention },
+        undefined,
+        user?.email
+      )
+    } else if (page === ApplicationPages.PriorExperience) {
+      const { firstCruzHacks, hackathonCount, priorExperience } =
+        priorExperienceFormData
+      store(
+        "app-priorExperience",
+        { firstCruzHacks, hackathonCount, priorExperience },
+        undefined,
+        user?.email
+      )
+    } else if (page === ApplicationPages.Connected) {
+      const { linkedin, github, cruzCoins, anythingElse } = connectedFormData
+      store(
+        "app-connected",
+        { linkedin, github, cruzCoins, anythingElse },
+        undefined,
+        user?.email
+      )
     }
-    store("application", data, 60 * 60 * 24 * 30, user?.email)
   }
 
   const nextPage = () => {
     if (page < 6) {
-      saveData()
+      savePage()
       setPage(page + 1)
+
+      // if (page + 1 > progress) {
+      //   setProgress(page + 1)
+      //   store("app-progress", progress, undefined, user?.email)
+      // }
     }
   }
 
   const prevPage = () => {
     if (page > 1) {
-      saveData()
       setPage(page - 1)
     }
   }

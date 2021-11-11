@@ -28,6 +28,9 @@ const ApplicationStatus: React.FC = () => {
         setStatusMessage("NOT STARTED")
         // setStatusMessage("CLOSED") Uncomment to Close Applications
         break
+      // case AppStatus.InProgress:
+      //   setStatusMessage("IN PROGRESS")
+      //   break
       default:
         setStatusMessage("ERROR")
         break
