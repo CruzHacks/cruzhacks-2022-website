@@ -37,7 +37,6 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
-  saveData: () => void
 
   submitting: boolean
   setSubmitting: Dispatch<SetStateAction<boolean>>
@@ -159,18 +158,6 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
-  const nextPage = () => {
-    if (page < 6) {
-      setPage(page + 1)
-    }
-  }
-
-  const prevPage = () => {
-    if (page > 1) {
-      setPage(page - 1)
-    }
-  }
-
   const saveData = () => {
     const { fname, lname, phone, email } = contactFormData
     const {
@@ -213,6 +200,20 @@ export const ApplicationProvider: React.FC = () => {
     store("application", data, 60 * 60 * 24 * 30, user?.email)
   }
 
+  const nextPage = () => {
+    if (page < 6) {
+      saveData()
+      setPage(page + 1)
+    }
+  }
+
+  const prevPage = () => {
+    if (page > 1) {
+      saveData()
+      setPage(page - 1)
+    }
+  }
+
   return (
     <ApplicationContext.Provider
       value={{
@@ -223,7 +224,6 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
-        saveData,
         submitting,
         setSubmitting,
         contactFormData,
