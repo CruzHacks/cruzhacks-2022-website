@@ -14,82 +14,55 @@
     @include typography.form-input-box;
   }
 
-  // &__dropdown {
-  //   @include typography.form-input-box;
-  //   z-index: 2;
-  // }
+  &__error {
+    @include typography.form-error-box;
+  }
+
+  &__dropdown {
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: 0px 5px 6px #999999;
+    border: 1px solid #CCCCCC;
+    margin-top: -2px;
+    overflow: hidden;
+  }
 
   &__dropdown-button {
     @include typography.form-input-box;
+    cursor: pointer;
     width: 100%;
     background-color: transparent;
     border: 0;
+    &:hover {
+      background-color: #DDDDDD;
+    }
+    &:active {
+      background-color: #DDDDDD;
+    }
   }
 
   &__dropdown-button-container {
     @include typography.form-input-box;
     width: 100%;
     background-color: transparent;
+    border: 0;
+    border-top: 2px solid #DDDDDD;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
   }
 
   &--input {
     width: 500px;
     height: 30px;
     @include typography.form-prompts;
-      @include responsiveness.screen(phone) {
-        width: 300px;
-        height: 25px;
-        }
-        @include responsiveness.screen(smallest) {
-        width: 200px;
-        height: 25px;
+    @include responsiveness.screen(phone) {
+      width: 300px;
+      height: 25px;
     }
-  }
-  &--dropdown {
-    &__select {
-      @include typography.form-prompts;
-      width: 508px;
-      height: 30px;
-      @include responsiveness.font($responsive: 2.3vw, $min: 16px, $max: 20px);
-      @include responsiveness.screen(phone) {
-        width: 308px;
-        height: 30px;
-      }
-      @include responsiveness.screen(smallest) {
-        width: 208px;
-        height: 30px;
-        @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 16px);
-      }
-    }
-
-  }
-  &--checkbox {
-    display: flex;
-    gap: .5em;
-    &__box {
-      appearance: none;
-      width: 1.5em;
-      height: 1.5em; 
-      border: .12em solid black;
-      border-radius: .25em;
-      background-color: #fff;
-      display: grid;
-      place-content: center;
-      &::before {
-        content: "";
-        width: 1.05em;
-        height: 1.05em;
-        transform: scale(0);
-        background-color: #FE375B;
-        transform-origin: center;
-        transition: 120ms transform ease-in-out;
-      }
-      &:checked::before {
-        transform: scale(1);
-      }
-      &:hover{
-        border: .15em solid black;
-      }
+    @include responsiveness.screen(smallest) {
+      width: 200px;
+      height: 25px;
     }
   }
 }

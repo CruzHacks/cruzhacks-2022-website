@@ -3,8 +3,28 @@
 
 .mlh-page-container {
   @include typography.form-page-container-styles;
+  overflow-wrap: anywhere;
   &__questions {
     @include typography.form-page-container-question;
+    font-size: 28px;
+    max-width: 777px;
+  }
+  &__code {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    @include responsiveness.screen(smallest, phone) {
+        margin-top: 0;
+    } 
+    @include responsiveness.font($responsive: 4.1vw, $min: 18px, $max: 28px);
+  }
+  &__TAC {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    @include responsiveness.font($responsive: 4.1vw, $min: 18px, $max: 28px);
   }
   &__title {
     @include typography.form-page-container-title;
@@ -13,3 +33,5 @@
     @include typography.form-page-container-fields;
   }
 }
+
+

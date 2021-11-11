@@ -31,11 +31,16 @@ import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.v
 
 interface ApplicationContextProps {
   page: number
+  setPage: Dispatch<SetStateAction<number>>
   appStatus: number
+  setAppStatus: Dispatch<SetStateAction<number>>
   accessToken: string
   nextPage: any
   prevPage: any
   saveData: () => void
+
+  submitting: boolean
+  setSubmitting: Dispatch<SetStateAction<boolean>>
 
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
@@ -63,6 +68,7 @@ export const ApplicationProvider: React.FC = () => {
   const [token, setToken] = useState<string>("")
   const [page, setPage] = useState<number>(0)
   const [status, setStatus] = useState<number>(0)
+  const [submitting, setSubmitting] = useState<boolean>(false)
   const { user, getAccessTokenSilently } = useAuth0()
 
   const savedFormData: SavedApplication = retrieve(
@@ -196,11 +202,15 @@ export const ApplicationProvider: React.FC = () => {
     <ApplicationContext.Provider
       value={{
         page,
+        setPage,
         appStatus: status,
+        setAppStatus: setStatus,
         accessToken: token,
         nextPage,
         prevPage,
         saveData,
+        submitting,
+        setSubmitting,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,

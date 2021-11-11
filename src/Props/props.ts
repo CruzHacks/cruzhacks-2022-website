@@ -54,6 +54,7 @@ export interface FieldProps {
   label: string
   maxLength?: number
   className?: string
+  disabled?: boolean
 }
 
 export interface NumberFieldProps {
@@ -81,6 +82,7 @@ export interface RadioFormProps {
     label: string
   }[]
   handleChange: any
+  className?: string
 }
 
 export interface DropDownListProps {
@@ -106,4 +108,5 @@ export interface FileProps {
   handleChange: any
   errorMessage: string
   className: string
+  fieldState: any
 }

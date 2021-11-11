@@ -13,12 +13,14 @@ const MLHPage: React.FC = () => {
         </div>
         <div className='mlh-page__errors'>{mlhFormData.agreementErr}</div>
         <div className='mlh-page-container__code'>
-          As a Major League Hacking (MLH) member event, our attendees must read
-          and agree to the MLH Code of Conduct.
+          <div>
+            As a Major League Hacking (MLH) member event, our attendees must
+            read and agree to the MLH Code of Conduct.
+          </div>
+          <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>
+            Code of Conduct
+          </a>
         </div>
-        <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>
-          Code of Conduct
-        </a>
         <RadioForm
           question=''
           inputs={[

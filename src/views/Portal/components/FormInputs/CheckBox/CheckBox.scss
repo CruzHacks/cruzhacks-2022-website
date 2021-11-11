@@ -1,0 +1,110 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.check-box-component {
+  &__question {
+    @include typography.form-prompts;
+  }
+
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+
+  &__input {
+    @include typography.form-input-box;
+    &.width {
+        width: 100%;
+    }
+    &.error {
+      @include typography.form-error-box;
+    }
+  }
+
+  &__input-container {
+    width: 100%;
+  }
+  &__inputs {
+    @include typography.form-component-width;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__selected-option {
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    @include responsiveness.font($responsive: 2.3vw, $min: 11px, $max: 16px);
+    color: #333333;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #CCCCCC;
+    border-radius: 2em;
+    transition: .125s ease-in-out;
+    box-sizing: content-box;
+    padding: 0.5em;
+    height: 2em;
+    max-height: 50px;
+    cursor: pointer;
+    &--icon {
+      transform: scale(0.2);
+    }
+    &:hover {
+      background-color: #CCCCCC;
+      border: 1px solid #999999;
+    }
+    &:active {
+      background-color: #CCCCCC;
+      border: 1px solid #999999;
+    }
+  }
+
+  &__inputs-button {
+      display: flex;
+      flex-direction: row;
+      flex-flow: wrap;
+      gap: 5px;
+  }
+  &__selected-option {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100px;
+  }
+
+  &__dropdown {
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: 0px 5px 6px #999999;
+    border: 1px solid #CCCCCC;
+    margin-top: -2px;
+    overflow: hidden;
+  }
+
+  &__dropdown-button {
+    @include typography.form-input-box;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    &:hover {
+      background-color: #DDDDDD;
+    }
+    &:active {
+      background-color: #DDDDDD;
+    }
+  }
+
+  &__dropdown-button-container {
+    @include typography.form-input-box;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    border-top: 2px solid #DDDDDD;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+  }
+
+}

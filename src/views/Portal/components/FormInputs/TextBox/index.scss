@@ -10,9 +10,12 @@
     &__fieldName {
       @include typography.form-prompts;
     }
-  
+
     &__errorMessage {
       @include typography.form-error-message;
+    }
+    &__error {
+      @include typography.form-error-box;
     }
   }
 
@@ -25,9 +28,13 @@
     &__fieldName {
       @include typography.form-prompts;
     }
-  
+
     &__errorMessage {
       @include typography.form-error-message;
+    }
+
+    &__error {
+      @include typography.form-error-box;
     }
   }
 
@@ -40,13 +47,15 @@
     &__fieldName {
       @include typography.form-prompts;
     }
-  
+
     &__errorMessage {
       @include typography.form-error-message;
     }
+
+    &__error {
+      @include typography.form-error-box;
+    }
   }
-
-
 
   // &__input {
   //   &__large {

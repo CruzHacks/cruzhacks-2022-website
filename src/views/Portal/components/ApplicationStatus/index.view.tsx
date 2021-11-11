@@ -3,7 +3,7 @@ import "./index.scss"
 import { useHistory } from "react-router-dom"
 import { useApplication } from "components/ApplicationContext/ApplicationContext"
 import AppStatus from "Props/portal/application"
-import Button from "components/Button/Button"
+// import Button from "components/Button/Button"
 import MainPage from "../ApplicationForm/MainPage/index.view"
 
 const ApplicationStatus: React.FC = () => {
@@ -13,23 +13,23 @@ const ApplicationStatus: React.FC = () => {
   useEffect(() => {
     switch (appStatus) {
       case AppStatus.Loading:
-        setStatusMessage("Loading...")
+        setStatusMessage("LOADING...")
         break
       case AppStatus.Pending:
-        setStatusMessage("Pending")
+        setStatusMessage("SUBMITTED")
         break
       case AppStatus.Accepted:
-        // TODO: This might have to be its own component if the layout differs
-        setStatusMessage("Accepted")
+        setStatusMessage("ACCEPTED")
         break
       case AppStatus.Rejected:
-        setStatusMessage("Rejected")
+        setStatusMessage("REJECTED")
         break
       case AppStatus.NotFound:
-        setStatusMessage("Open")
+        setStatusMessage("NOT STARTED")
+        // setStatusMessage("CLOSED") Uncomment to Close Applications
         break
       default:
-        setStatusMessage("Error")
+        setStatusMessage("ERROR")
         break
     }
   }, [appStatus])
@@ -47,15 +47,23 @@ const ApplicationStatus: React.FC = () => {
   return (
     <div className='application-status-component'>
       <MainPage status={statusMessage}>
-        {appStatus !== AppStatus.NotFound && (
-          <Button modifier='secondary' label='returnHome' onClick={onRedirect}>
-            Return Home
-          </Button>
+        {statusMessage !== "NOT STARTED" && (
+          <button
+            type='button'
+            className='application-status-component__button'
+            onClick={onRedirect}
+          >
+            <div>Return Home</div>
+          </button>
         )}
-        {appStatus === AppStatus.NotFound && (
-          <Button modifier='secondary' label='startApp' onClick={startApp}>
-            Start App
-          </Button>
+        {statusMessage === "NOT STARTED" && (
+          <button
+            type='button'
+            className='application-status-component__button'
+            onClick={startApp}
+          >
+            <div>Start App</div>
+          </button>
         )}
       </MainPage>
     </div>

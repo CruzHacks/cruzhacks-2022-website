@@ -17,38 +17,47 @@ const ContactPage: React.FC = () => {
       <div className='contact-page-container__questions'>
         <div className='contact-page-container__title'>Contact Information</div>
         <div className='contact-page-container__fields'>
-          <TextField
-            name='First Name'
-            handleChange={handleChange}
-            fieldState={contactFormData.fname}
-            errorMessage={contactFormData.fnameErr}
-            label='fname'
-            maxLength={25}
-          />
-          <TextField
-            name='Last Name'
-            handleChange={handleChange}
-            fieldState={contactFormData.lname}
-            errorMessage={contactFormData.lnameErr}
-            label='lname'
-            maxLength={25}
-          />
-          <TextField
-            name='Phone Number'
-            handleChange={handleChange}
-            fieldState={contactFormData.phone}
-            errorMessage={contactFormData.phoneErr}
-            label='phone'
-            maxLength={20}
-          />
-          <TextField
-            name='Email Address'
-            handleChange={handleChange}
-            fieldState={contactFormData.email}
-            errorMessage={contactFormData.emailErr}
-            label='email'
-            maxLength={50}
-          />
+          <div className='contact-page-container__field'>
+            <TextField
+              name='First Name'
+              handleChange={handleChange}
+              fieldState={contactFormData.fname}
+              errorMessage={contactFormData.fnameErr}
+              label='fname'
+              maxLength={25}
+            />
+          </div>
+          <div className='contact-page-container__field'>
+            <TextField
+              name='Last Name'
+              handleChange={handleChange}
+              fieldState={contactFormData.lname}
+              errorMessage={contactFormData.lnameErr}
+              label='lname'
+              maxLength={25}
+            />
+          </div>
+          <div className='contact-page-container__field'>
+            <TextField
+              name='Phone Number'
+              handleChange={handleChange}
+              fieldState={contactFormData.phone}
+              errorMessage={contactFormData.phoneErr}
+              label='phone'
+              maxLength={20}
+            />
+          </div>
+          <div className='contact-page-container__field'>
+            <TextField
+              name='Email Address'
+              handleChange={handleChange}
+              fieldState={contactFormData.email}
+              errorMessage={contactFormData.emailErr}
+              label='email'
+              maxLength={50}
+              disabled
+            />
+          </div>
         </div>
       </div>
     </div>

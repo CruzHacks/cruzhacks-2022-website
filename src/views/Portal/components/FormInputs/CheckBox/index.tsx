@@ -35,7 +35,9 @@ const CheckBox: React.FC<CheckBoxProps> = ({
       <div className='checkbox-component__errorMessage'>{errorMessage}</div>
       <button
         type='button'
-        className='checkbox-component__input'
+        className={`checkbox-component__input ${
+          errorMessage ? "checkbox-component__error" : ""
+        }`}
         onClick={() => setViewSelected(!viewSelected)}
       >
         <div className='checkbox-component__selected-options'>
