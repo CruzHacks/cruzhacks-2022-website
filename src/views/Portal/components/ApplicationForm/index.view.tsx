@@ -198,8 +198,10 @@ const ApplicationForm: React.FC = () => {
         <div className='application-form-component__response'>
           {successOnSubmit === "submitted" ? "submitted" : ""}
         </div>
-        <div className='application-form-component__response'>
-          {successOnSubmit === "error submitting" ? "Could Not Submit" : ""}
+        <div className='application-form-component__response-err'>
+          {successOnSubmit === "error submitting"
+            ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment. Our engineers have been alerted! Try again soon!"
+            : ""}
         </div>
         <div className='application-form-component__buttons'>
           <button
