@@ -152,7 +152,7 @@ const ApplicationForm: React.FC = () => {
       if (res.status === 201) {
         setSubmitStatus("submitted")
         setPage(0)
-        setAppStatus(AppStatus.Accepted)
+        setAppStatus(AppStatus.Pending)
         setSubmitting(false)
       }
     } catch (err) {

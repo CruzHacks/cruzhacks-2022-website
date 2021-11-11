@@ -89,6 +89,7 @@ export interface MLHProps extends SerializableMLHProps {
 }
 
 export interface SavedApplication {
+  progress: number
   contact: SerializableContactProps
   demographic: SerializableDemographicProps
   shortAnswer: SerializableShortAnswerProps

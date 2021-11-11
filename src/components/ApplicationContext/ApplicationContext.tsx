@@ -28,6 +28,7 @@ import {
 import AppStatus from "Props/portal/application"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
 import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.view"
+import ApplicationPages from "../../Props/portal/page"
 
 interface ApplicationContextProps {
   page: number
@@ -118,6 +119,7 @@ export const ApplicationProvider: React.FC = () => {
               // check if the application really doesn't exist, or if we failed to fetch it
               if (res.statusCode === 200) {
                 setStatus(AppStatus.NotFound)
+                // if (savedFormData.progress) setStatus(AppStatus.InProgress)
               } else {
                 setStatus(AppStatus.Errored)
               }
@@ -158,29 +160,18 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
-  const saveData = () => {
-    const { fname, lname, phone, email } = contactFormData
-    const {
-      age,
-      pronouns,
-      race,
-      sexuality,
-      school,
-      collegeAffiliation,
-      eventLocation,
-      major,
-      currentStanding,
-      country,
-    } = demographicFormData
-    const { whyCruzHacks, newThisYear, grandestInvention } = shortAnswerFormData
-    const { firstCruzHacks, hackathonCount, priorExperience } =
-      priorExperienceFormData
-    const { linkedin, github, cruzCoins, anythingElse } = connectedFormData
-    const { conductAgree, tosAgree } = mlhFormData
+  const savePage = () => {
+    const formData: SavedApplication = retrieve("application", {}, user?.email)
 
-    const data: SavedApplication = {
-      contact: { fname, lname, phone, email },
-      demographic: {
+    if (!formData.progress || page > formData.progress) {
+      formData.progress = page
+    }
+
+    if (page === ApplicationPages.Contact) {
+      const { fname, lname, phone, email } = contactFormData
+      formData.contact = { fname, lname, phone, email }
+    } else if (page === ApplicationPages.Demographic) {
+      const {
         age,
         pronouns,
         race,
@@ -191,25 +182,48 @@ export const ApplicationProvider: React.FC = () => {
         major,
         currentStanding,
         country,
-      },
-      shortAnswer: { whyCruzHacks, newThisYear, grandestInvention },
-      priorExperience: { firstCruzHacks, hackathonCount, priorExperience },
-      connected: { linkedin, github, cruzCoins, anythingElse },
-      MLH: { conductAgree, tosAgree },
+      } = demographicFormData
+      formData.demographic = {
+        age,
+        pronouns,
+        race,
+        sexuality,
+        school,
+        collegeAffiliation,
+        eventLocation,
+        major,
+        currentStanding,
+        country,
+      }
+    } else if (page === ApplicationPages.ShortAnswer) {
+      const { whyCruzHacks, newThisYear, grandestInvention } =
+        shortAnswerFormData
+      formData.shortAnswer = { whyCruzHacks, newThisYear, grandestInvention }
+    } else if (page === ApplicationPages.PriorExperience) {
+      const { firstCruzHacks, hackathonCount, priorExperience } =
+        priorExperienceFormData
+      formData.priorExperience = {
+        firstCruzHacks,
+        hackathonCount,
+        priorExperience,
+      }
+    } else if (page === ApplicationPages.Connected) {
+      const { linkedin, github, cruzCoins, anythingElse } = connectedFormData
+      formData.connected = { linkedin, github, cruzCoins, anythingElse }
     }
-    store("application", data, 60 * 60 * 24 * 30, user?.email)
+
+    store("application", formData, 60 * 60 * 24 * 30, user?.email)
   }
 
   const nextPage = () => {
     if (page < 6) {
-      saveData()
+      savePage()
       setPage(page + 1)
     }
   }
 
   const prevPage = () => {
     if (page > 1) {
-      saveData()
       setPage(page - 1)
     }
   }
