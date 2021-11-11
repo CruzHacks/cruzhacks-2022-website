@@ -60,6 +60,7 @@
   &__response-err {
     display: flex;
     justify-content: center;
+    text-align: center;
     @include typography.form-error-message;
   }
 }
