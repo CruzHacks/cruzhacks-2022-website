@@ -55,6 +55,7 @@ export interface FieldProps {
   maxLength?: number
   className?: string
   disabled?: boolean
+  placeholder?: string
 }
 
 export interface NumberFieldProps {
@@ -106,7 +107,7 @@ export interface FileProps {
   question: string
   name: string
   handleChange: any
-  errorMessage: string 
+  errorMessage: string
   className: string
   fieldState: any
 }

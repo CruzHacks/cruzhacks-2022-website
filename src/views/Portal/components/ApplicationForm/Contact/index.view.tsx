@@ -45,6 +45,7 @@ const ContactPage: React.FC = () => {
               errorMessage={contactFormData.phoneErr}
               label='phone'
               maxLength={20}
+              placeholder='XXX-XXX-XXXX'
             />
           </div>
           <div className='contact-page-container__field'>
