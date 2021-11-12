@@ -1,0 +1,31 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.dropdown-component {
+  @include typography.form-prompts;
+  @include typography.form-component-width;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  &__question {
+    @include typography.form-prompts;
+  }
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+  &__selector {
+    @include typography.form-input-box;
+    @include responsiveness.screen(smallest) {
+      @include responsiveness.font($responsive: 2.3vw, $min: 12px, $max: 16px);
+    }
+  }
+
+  &__error {
+    @include typography.form-error-box;
+  }
+
+  &__option {
+    @include typography.form-input-box;
+  }
+}
