@@ -33,6 +33,7 @@ const TextField: React.FC<FieldProps> = ({
 
 TextField.defaultProps = {
   disabled: false,
+  placeholder: "",
 }
 
 export default TextField
