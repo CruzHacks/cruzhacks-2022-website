@@ -16,7 +16,10 @@ const RadioForm: React.FC<RadioFormProps> = ({
     <div className='radio-form-component__errorMessage'>{errorMessage}</div>
     <div className={`radio-form-component__inputs ${className}`}>
       {inputs.map(({ label }: RadioButtonProps) => (
-        <div className={`radio-form-component__radio-wrapper ${className}`}>
+        <div
+          className={`radio-form-component__radio-wrapper ${className}`}
+          key={label}
+        >
           <input
             type='radio'
             onChange={handleChange}

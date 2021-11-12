@@ -26,7 +26,11 @@ const DropDown: React.FC<DropDownProps> = ({
         {" "}
       </option>
       {inputs.map(({ label }) => (
-        <option value={label} className='dropdown-component__option'>
+        <option
+          value={label}
+          className='dropdown-component__option'
+          key={label}
+        >
           {label}
         </option>
       ))}
