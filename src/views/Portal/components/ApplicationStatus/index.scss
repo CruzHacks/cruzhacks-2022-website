@@ -1,0 +1,39 @@
+@use "./stylesheets/responsiveness";
+
+.application-status-component {
+  width: 50%;
+  max-width: 800px;
+  margin: 10vh auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(255, 251, 241, 0.83);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.41);
+  border-radius: 18px;
+
+  @include responsiveness.screen(smallest, phone, tablet) {
+    width: 75%;
+    padding: 10px;
+  }
+  &__button {
+    background: #A5D6D9;
+    border-radius: 5px;
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    @include responsiveness.font($responsive: 4.1vw, $min: 18px, $max: 25px);
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+    > div {
+      margin: 10px;
+      
+      @include responsiveness.screen(smallest, phone, tablet) {
+        margin: 2px;
+      }
+    }
+  }
+}
