@@ -1,4 +1,10 @@
 import {
+  SerializableContactProps,
+  SerializableShortAnswerProps,
+  SerializablePriorExperienceProps,
+  SerializableDemographicProps,
+  SerializableConnectedProps,
+  SerializableMLHProps,
   ContactProps,
   ShortAnswerProps,
   PriorExperienceProps,
@@ -8,16 +14,14 @@ import {
 } from "Props/application/props"
 
 export const generateContactProps = (
-  fname: string = "",
-  lname: string = "",
-  phone: string = "",
-  email: string | undefined = ""
+  email: string = "",
+  props?: SerializableContactProps
 ) => {
   const newObj: ContactProps = {
-    fname,
-    lname,
-    phone,
-    email,
+    fname: props?.fname || "",
+    lname: props?.lname || "",
+    phone: props?.phone || "",
+    email: email || props?.email || "",
     fnameErr: "",
     lnameErr: "",
     phoneErr: "",
@@ -26,11 +30,13 @@ export const generateContactProps = (
   return newObj
 }
 
-export const generateShortAnswerProps = () => {
+export const generateShortAnswerProps = (
+  props?: SerializableShortAnswerProps
+) => {
   const newObj: ShortAnswerProps = {
-    whyCruzHacks: "",
-    newThisYear: "",
-    grandestInvention: "",
+    whyCruzHacks: props?.whyCruzHacks || "",
+    newThisYear: props?.newThisYear || "",
+    grandestInvention: props?.grandestInvention || "",
     whyCruzHacksErr: "",
     newThisYearErr: "",
     grandestInventionErr: "",
@@ -38,11 +44,13 @@ export const generateShortAnswerProps = () => {
   return newObj
 }
 
-export const generatePriorExperienceProps = () => {
+export const generatePriorExperienceProps = (
+  props?: SerializablePriorExperienceProps
+) => {
   const newObj: PriorExperienceProps = {
-    firstCruzHacks: "No",
-    hackathonCount: "0",
-    priorExperience: "",
+    firstCruzHacks: props?.firstCruzHacks || "No",
+    hackathonCount: props?.hackathonCount || "0",
+    priorExperience: props?.priorExperience || "",
     firstCruzHacksErr: "",
     hackathonCountErr: "",
     priorExperienceErr: "",
@@ -50,18 +58,20 @@ export const generatePriorExperienceProps = () => {
   return newObj
 }
 
-export const generateDemographicProps = () => {
+export const generateDemographicProps = (
+  props?: SerializableDemographicProps
+) => {
   const newObj: DemographicProps = {
-    age: "0",
-    pronouns: [],
-    race: "",
-    sexuality: [],
-    school: "",
-    collegeAffiliation: "",
-    eventLocation: "",
-    major: "",
-    currentStanding: "",
-    country: "",
+    age: props?.age || "0",
+    pronouns: props?.pronouns || [],
+    race: props?.race || "",
+    sexuality: props?.sexuality || [],
+    school: props?.school || "",
+    collegeAffiliation: props?.collegeAffiliation || "",
+    eventLocation: props?.eventLocation || "",
+    major: props?.major || "",
+    currentStanding: props?.currentStanding || "",
+    country: props?.country || "",
     ageErr: "",
     pronounsErr: "",
     raceErr: "",
@@ -76,13 +86,13 @@ export const generateDemographicProps = () => {
   return newObj
 }
 
-export const generateConnectedProps = () => {
+export const generateConnectedProps = (props?: SerializableConnectedProps) => {
   const newObj: ConnectedProps = {
     resume: null,
-    linkedin: "",
-    github: "",
-    cruzCoins: "",
-    anythingElse: "",
+    linkedin: props?.linkedin || "",
+    github: props?.github || "",
+    cruzCoins: props?.cruzCoins || "",
+    anythingElse: props?.anythingElse || "",
     resumeErr: "",
     linkedinErr: "",
     githubErr: "",
@@ -92,10 +102,10 @@ export const generateConnectedProps = () => {
   return newObj
 }
 
-export const generateMLHProps = () => {
+export const generateMLHProps = (props?: SerializableMLHProps) => {
   const newObj: MLHProps = {
-    conductAgree: "No",
-    tosAgree: "No",
+    conductAgree: props?.conductAgree || "No",
+    tosAgree: props?.tosAgree || "No",
     agreementErr: "",
   }
   return newObj

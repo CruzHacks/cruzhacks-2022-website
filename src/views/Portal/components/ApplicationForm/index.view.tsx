@@ -89,7 +89,6 @@ const ApplicationForm: React.FC = () => {
     prevPage()
   }
 
-  const saveData = () => {}
   const { user } = useAuth0()
   const submitData = async () => {
     try {
@@ -153,7 +152,7 @@ const ApplicationForm: React.FC = () => {
       if (res.status === 201) {
         setSubmitStatus("submitted")
         setPage(0)
-        setAppStatus(AppStatus.Accepted)
+        setAppStatus(AppStatus.Pending)
         setSubmitting(false)
       }
     } catch (err) {
@@ -204,13 +203,6 @@ const ApplicationForm: React.FC = () => {
             : ""}
         </div>
         <div className='application-form-component__buttons'>
-          <button
-            className='application-form-component__button'
-            type='button'
-            onClick={saveData}
-          >
-            Save
-          </button>
           <button
             className='application-form-component__button'
             type='button'

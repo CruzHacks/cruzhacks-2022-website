@@ -22,8 +22,8 @@ const ConnectedPage: React.FC = () => {
           <div className='connected-page-container__field'>
             <FileUpload
               question='Want to share your resume with our sponsors? Upload your pdf resume here.'
-              errorMessage={connectedFormData.resumeErr}
               handleChange={setConnectedFormData}
+              errorMessage={connectedFormData.resumeErr}
               name='resume'
               className='none'
               fieldState={connectedFormData.resume}
