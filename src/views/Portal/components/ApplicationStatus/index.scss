@@ -18,7 +18,7 @@
   &__button {
     background: #A5D6D9;
     border-radius: 5px;
-    font-family: "Lato", "sans-serif";
+    font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: normal;
     @include responsiveness.font($responsive: 4.1vw, $min: 18px, $max: 25px);
