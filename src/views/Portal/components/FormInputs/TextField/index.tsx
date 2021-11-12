@@ -10,6 +10,7 @@ const TextField: React.FC<FieldProps> = ({
   label,
   maxLength,
   disabled,
+  placeholder,
 }: FieldProps) => (
   <div className='text-field-component'>
     <div className='text-field-component__fieldName'>{name}</div>
@@ -24,6 +25,7 @@ const TextField: React.FC<FieldProps> = ({
       className={`text-field-component__input ${
         errorMessage ? "text-field-component__error" : ""
       }`}
+      placeholder={placeholder}
       disabled={disabled}
     />
   </div>
