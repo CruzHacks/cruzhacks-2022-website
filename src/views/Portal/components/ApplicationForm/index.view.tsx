@@ -44,6 +44,7 @@ const ApplicationForm: React.FC = () => {
   } = useApplication()!
 
   const [successOnSubmit, setSubmitStatus] = useState("none")
+  const [serverErrors, setServerErrors] = useState<Array<string>>([])
   const viewNextPage = () => {
     if (page === ApplicationPages.Contact) {
       if (validateContactForm(contactFormData, setContactFormData, true)) {
@@ -124,7 +125,7 @@ const ApplicationForm: React.FC = () => {
       bodyData.append("currentStanding", demographicFormData.currentStanding)
       bodyData.append("country", demographicFormData.country)
       bodyData.append("whyCruzHacks", shortAnswerFormData.whyCruzHacks)
-      bodyData.append("newThisYear", priorExperienceFormData.firstCruzHacks)
+      bodyData.append("newThisYear", shortAnswerFormData.newThisYear)
       bodyData.append(
         "grandestInvention",
         shortAnswerFormData.grandestInvention
@@ -155,7 +156,17 @@ const ApplicationForm: React.FC = () => {
         setAppStatus(AppStatus.Pending)
         setSubmitting(false)
       }
-    } catch (err) {
+    } catch (err: any) {
+      if (
+        err &&
+        err.response &&
+        err.response.data &&
+        err.response.data.errors
+      ) {
+        setServerErrors(err.response.data.errors)
+      } else {
+        setServerErrors([])
+      }
       setSubmitStatus("error submitting")
       setSubmitting(false)
     }
@@ -198,10 +209,28 @@ const ApplicationForm: React.FC = () => {
           {successOnSubmit === "submitted" ? "submitted" : ""}
         </div>
         <div className='application-form-component__response-err'>
-          {successOnSubmit === "error submitting"
+          {successOnSubmit === "error submitting" && serverErrors.length === 0
             ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment. Our engineers have been alerted! Try again soon!"
             : ""}
         </div>
+
+        {successOnSubmit === "error submitting" && serverErrors.length > 0 && (
+          <div className='application-form-component__response-err'>
+            Server Errors:
+          </div>
+        )}
+
+        {successOnSubmit === "error submitting" &&
+          serverErrors.length > 0 &&
+          serverErrors.map((error: string) => (
+            <div
+              className='application-form-component__response-err'
+              key={error}
+            >
+              {error}
+            </div>
+          ))}
+
         <div className='application-form-component__buttons'>
           <button
             className='application-form-component__button'
