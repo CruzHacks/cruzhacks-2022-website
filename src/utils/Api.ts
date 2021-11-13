@@ -72,8 +72,8 @@ export function subscribeMailchimp(userEmail: string) {
 export function verifyRecaptchaToken(res: string | null, callback: any) {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
-      Authentication: API_KEY,
-      token: res,
+      Authentication: API_KEY || "",
+      token: res || "",
     },
   }
   axios
@@ -90,7 +90,7 @@ export function verifyRecaptchaToken(res: string | null, callback: any) {
 export function getAllAnnouncements() {
   const axiosConfig: AxiosRequestConfig = {
     headers: {
-      Authentication: API_KEY,
+      Authentication: API_KEY || "",
     },
   }
   return axios.get(ANNOUNCEMENT_ENDPOINT, axiosConfig)
