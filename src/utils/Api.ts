@@ -37,7 +37,7 @@ export function resendVerificationEmail(
   const body = {
     userId,
   }
-  axios
+  return axios
     .post(RESEND_VERIFICATION_EMAIL_ENDPOINT, body, axiosConfig)
     .then((res: AxiosResponse) => res)
     .catch(err => err)
