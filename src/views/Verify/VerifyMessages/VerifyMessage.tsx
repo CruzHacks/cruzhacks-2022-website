@@ -10,17 +10,22 @@ const VerifyMessages: React.FC = () => {
       key: "Line 1",
     },
     {
-      message: `Please check your email for a verification from dev@cruzhacks.com. If you do not see a verification email, please check your spam or you can request another verification email below.`,
+      message: `Please check your email for a verification from dev@cruzhacks.com. If you do not see a verification email, please check your spam.`,
       key: "Line 2",
     },
     {
       message:
-        "Once you have verified your email, please sign out and sign in again to have full access. If you are experiencing any issues send a message to dev@cruzhacks.com.",
+        "If you still cannot find it, you can resend a verification email below once every 30 seconds.",
       key: "Line 3",
     },
     {
-      message: "We are excited to see you at CruzHacks 2022!",
+      message:
+        "Once you have verified your email, please refresh your browser to have full access. If you are experiencing any issues send a message to dev@cruzhacks.com.",
       key: "Line 4",
+    },
+    {
+      message: "We are excited to see you at CruzHacks 2022!",
+      key: "Line 5",
     },
   ]
   return (
