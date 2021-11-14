@@ -1,0 +1,68 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.search-box-component {
+  &__question {
+    @include typography.form-prompts;
+  }
+
+  &__errorMessage {
+    @include typography.form-error-message;
+  }
+
+  &__input-box {
+    @include typography.form-input-box;
+  }
+
+  &__error {
+    @include typography.form-error-box;
+  }
+
+  &__dropdown {
+    background-color: #fff;
+    border-radius: 1em;
+    box-shadow: 0px 5px 6px #999999;
+    border: 1px solid #CCCCCC;
+    margin-top: -2px;
+    overflow: hidden;
+  }
+
+  &__dropdown-button {
+    @include typography.form-input-box;
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    &:hover {
+      background-color: #DDDDDD;
+    }
+    &:active {
+      background-color: #DDDDDD;
+    }
+  }
+
+  &__dropdown-button-container {
+    @include typography.form-input-box;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    border-top: 2px solid #DDDDDD;
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 0;
+  }
+
+  &--input {
+    width: 500px;
+    height: 30px;
+    @include typography.form-prompts;
+    @include responsiveness.screen(phone) {
+      width: 300px;
+      height: 25px;
+    }
+    @include responsiveness.screen(smallest) {
+      width: 200px;
+      height: 25px;
+    }
+  }
+}

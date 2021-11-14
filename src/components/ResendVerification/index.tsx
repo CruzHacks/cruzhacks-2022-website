@@ -26,7 +26,6 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
         label='resend'
         disabled={!verified}
         duration={1000 * 30}
-        localStorageKey='resend_verification'
         onClick={() => {
           resendVerificationEmail(user, token)
         }}

@@ -1,0 +1,18 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.contact-page-container {
+  @include typography.form-page-container-styles;
+  &__questions {
+    @include typography.form-page-container-question;
+  }
+  &__title {
+    @include typography.form-page-container-title;
+  }
+  &__fields {
+    @include typography.form-page-container-fields;
+  }
+  &__field {
+    @include typography.form-page-container-vertical-spacing;
+}
+}

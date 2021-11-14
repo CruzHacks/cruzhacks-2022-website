@@ -1,0 +1,42 @@
+@use "~stylesheets/responsiveness";
+@use "~stylesheets/typography";
+
+.file-upload-component {
+  display: flex;
+  gap: 1em;
+  @include typography.form-component-width;
+  &__messages {
+    &--fieldName {
+      @include typography.form-prompts;
+    }
+    &--errorMessage {
+      @include typography.form-error-message;
+    }
+    &--fileDisplay {
+      @include typography.text;
+      color: black;
+      &__button {
+        width: 25px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #000000cc;
+      }
+    }
+  }
+    &__input {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      color: #000000cc;
+    }
+  }
+
+  .hiddentext {
+    color: #FFFFFF00;
+  }
