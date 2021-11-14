@@ -1,7 +1,7 @@
 import { retrieve, store } from "./Storage"
 
 afterEach(() => {
-  window.localStorage.clear()
+  window.sessionStorage.clear()
 });
 
 describe("Testing storage functions", () => {

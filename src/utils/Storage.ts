@@ -26,7 +26,7 @@ export function store(
       }),
     }
 
-    window.localStorage.setItem(key, JSON.stringify(data))
+    window.sessionStorage.setItem(key, JSON.stringify(data))
   } catch (err) {
     // ignore errors
   }
@@ -46,7 +46,7 @@ export function store(
  */
 export function retrieve(key: string, defaultValue?: any, user?: string): any {
   try {
-    const raw = window.localStorage.getItem(key)
+    const raw = window.sessionStorage.getItem(key)
     if (!raw) {
       return defaultValue
     }
@@ -57,7 +57,7 @@ export function retrieve(key: string, defaultValue?: any, user?: string): any {
       data.expiration &&
       Number.parseInt(data.expiration, 10) - Date.now() < 0
     ) {
-      window.localStorage.removeItem(key) // cleanup
+      window.sessionStorage.removeItem(key) // cleanup
       return defaultValue
     }
 

@@ -1,0 +1,66 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.application-form-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__progress {
+    width: 75%;
+    margin-bottom: 71px;
+    @include responsiveness.screen(smallest, phone) {
+      margin-bottom: 25px;
+    }
+  }
+  &__progress-text {
+    font-family: Lato, "sans-serif";
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    color: #000000;
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 32px;
+      font-weight: bold;
+    }
+  }
+  &__box {
+    padding: 20px;
+    width:75%;
+    background: rgba(255, 251, 241, 0.83);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.41);
+    border-radius: 18px;
+    margin-bottom: 10%;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+  }
+
+  &__button {
+    @include typography.text;
+    color: black;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 0 .75em .05em .75em;
+    &:disabled {
+      cursor: not-allowed;
+      background-color: rgba(173, 173, 173, 0.41);
+    }
+  }
+  &__response {
+    display: flex;
+    justify-content: center;
+    @include typography.form-prompts;
+  }
+  &__response-err {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    @include typography.form-error-message;
+  }
+}

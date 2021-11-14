@@ -3,35 +3,35 @@ import Button, { ButtonProps } from "./Button"
 
 interface CoolDownButtonProps extends ButtonProps {
   duration: number
-  localStorageKey?: string
 }
 
 const CoolDownButton: React.FC<CoolDownButtonProps> = ({
   duration,
+  label,
   disabled: disabledProp,
   onClick,
   children,
   ...rest
 }: CoolDownButtonProps) => {
-  let { localStorageKey } = rest
+  let storageKey: string | undefined = `${label}_btn`
 
   try {
     const testKey = "_test_key_"
-    localStorage.setItem(testKey, testKey)
-    localStorage.removeItem(testKey)
+    sessionStorage.setItem(testKey, testKey)
+    sessionStorage.removeItem(testKey)
   } catch (e) {
-    localStorageKey = undefined
+    storageKey = undefined
   }
 
-  // check localStorage to see if the cool down has passed
+  // check sessionStorage to see if the cool down has passed
   let ttl = 0
-  if (localStorageKey) {
-    const expiration = localStorage.getItem(localStorageKey)
+  if (storageKey) {
+    const expiration = sessionStorage.getItem(storageKey)
     if (expiration) {
       ttl = Number.parseInt(expiration, 10) - Date.now()
     }
     if (ttl < 0) {
-      localStorage.removeItem(localStorageKey)
+      sessionStorage.removeItem(storageKey)
     }
   }
 
@@ -44,7 +44,7 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
       // re-enable the button after a set amount of time
       const timeout = setTimeout(() => {
         setDisabled(false)
-        if (localStorageKey) localStorage.removeItem(localStorageKey)
+        if (storageKey) sessionStorage.removeItem(storageKey)
       }, ttl)
 
       return () => clearTimeout(timeout)
@@ -57,15 +57,15 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
     onClick()
 
     setDisabled(true)
-    if (localStorageKey) {
-      localStorage.setItem(localStorageKey, `${Date.now() + duration}`)
+    if (storageKey) {
+      sessionStorage.setItem(storageKey, `${Date.now() + duration}`)
     }
   }
 
   return (
     <Button
       className={rest.className}
-      label={rest.label}
+      label={label}
       disabled={disabled}
       href={rest.href}
       onClick={handleOnClick}
@@ -73,10 +73,6 @@ const CoolDownButton: React.FC<CoolDownButtonProps> = ({
       {children}
     </Button>
   )
-}
-
-CoolDownButton.defaultProps = {
-  localStorageKey: undefined,
 }
 
 export default CoolDownButton

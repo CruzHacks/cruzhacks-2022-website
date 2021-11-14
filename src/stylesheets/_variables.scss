@@ -11,6 +11,7 @@ $color-lavender: #b0b6f7;
 $color-sky-blue: #3792c6;
 $color-light-navy-blue: rgba(67, 113, 183, 0.67);
 $color-dark-navy-blue: #325A89;
+$color-black: #000000;
 
 :root {
   --color-bg-primary: #{$color-bg-primary};
@@ -27,4 +28,5 @@ $color-dark-navy-blue: #325A89;
   --color-sky-blue: #{$color-sky-blue};
   --color-light-navy-blue: #{$color-light-navy-blue};
   --color-dark-navy-blue: #{$color-dark-navy-blue};
+  --color-black: #{$color-black};
 }
