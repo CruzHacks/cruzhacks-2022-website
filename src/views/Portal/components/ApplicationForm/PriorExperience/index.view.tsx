@@ -57,7 +57,7 @@ const ExperiencePage: React.FC = () => {
               fieldState={priorExperienceFormData.priorExperience}
               errorMessage={priorExperienceFormData.priorExperienceErr}
               label='priorExperience'
-              maxLength={250}
+              maxLength={100}
             />
           </div>
         </div>
