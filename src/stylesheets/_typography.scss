@@ -84,6 +84,9 @@
 
 @mixin form-component-width-large {
   width: 705px;
+  @include responsiveness.screen(large-tablet) {
+    width: 505px;
+  }
   @include responsiveness.screen(tablet) {
     width: 400px;
   }
