@@ -75,14 +75,14 @@ Sample usage::
 @mixin font($responsive, $min, $max: false, $fallback: false) {
   $responsive-unitless: math.div($responsive, ($responsive - $responsive + 1));
   $dimension: if(unit($responsive) == "vh", "height", "width");
-  $min-breakpoint: math.div($min, $responsive-unitless * 100);
+  $min-breakpoint: math.div($min * 100, $responsive-unitless );
 
   @media (max-#{$dimension}: #{$min-breakpoint}) {
     font-size: $min;
   }
 
   @if $max {
-    $max-breakpoint: math.div($max, $responsive-unitless * 100);
+    $max-breakpoint: math.div($max * 100, $responsive-unitless);
 
     @media (min-#{$dimension}: #{$max-breakpoint}) {
       font-size: $max;
