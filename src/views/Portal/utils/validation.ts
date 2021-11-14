@@ -56,7 +56,7 @@ export const validateContactForm = (
         } else if (alphanumericPunctuationRegex(fname)) {
           isValid = false
           updateErrorMessage(
-            "First Name contains Invalid Character",
+            "Response should be alphanumeric chars only",
             "fnameErr",
             dispatchError
           )
@@ -78,7 +78,7 @@ export const validateContactForm = (
         } else if (alphanumericPunctuationRegex(lname)) {
           isValid = false
           updateErrorMessage(
-            "Last Name contains Invalid Character",
+            "Response should be alphanumeric chars only",
             "lnameErr",
             dispatchError
           )
@@ -282,7 +282,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(race)) {
           isValid = false
           updateErrorMessage(
-            "Inputted Race Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "raceErr",
             dispatchError
           )
@@ -308,7 +308,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(school)) {
           isValid = false
           updateErrorMessage(
-            "Inputted School Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "schoolErr",
             dispatchError
           )
@@ -320,7 +320,7 @@ export const validatedemographicForm = (
         if (onSubmit && collegeAffiliation.length === 0) {
           isValid = false
           updateErrorMessage(
-            "Please Input a college affiliation",
+            "Please input an affiliation",
             "collegeAffiliationErr",
             dispatchError
           )
@@ -334,7 +334,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(collegeAffiliation)) {
           isValid = false
           updateErrorMessage(
-            "Inputted College Affiliation Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "collegeAffiliationErr",
             dispatchError
           )
@@ -370,7 +370,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(eventLocation)) {
           isValid = false
           updateErrorMessage(
-            "Inputted Location Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "eventLocationErr",
             dispatchError
           )
@@ -380,7 +380,7 @@ export const validatedemographicForm = (
         ) {
           isValid = false
           updateErrorMessage(
-            "Chosen eventLocation is Not Listed",
+            "Chosen eventLocation is not listed",
             "eventLocationErr",
             dispatchError
           )
@@ -406,7 +406,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(major)) {
           isValid = false
           updateErrorMessage(
-            "Inputted major Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "majorErr",
             dispatchError
           )
@@ -432,7 +432,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(currentStanding)) {
           isValid = false
           updateErrorMessage(
-            "Inputted Standing Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "currentStandingErr",
             dispatchError
           )
@@ -458,7 +458,7 @@ export const validatedemographicForm = (
         } else if (alphanumericPunctuationRegex(country)) {
           isValid = false
           updateErrorMessage(
-            "Inputted country Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "countryErr",
             dispatchError
           )
@@ -501,7 +501,7 @@ export const validateshortAnswerForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(whyCruzHacks)) {
           isValid = false
           updateErrorMessage(
-            "Response Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "whyCruzHacksErr",
             dispatchError
           )
@@ -527,7 +527,7 @@ export const validateshortAnswerForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(newThisYear)) {
           isValid = false
           updateErrorMessage(
-            "Response Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "newThisYearErr",
             dispatchError
           )
@@ -553,7 +553,7 @@ export const validateshortAnswerForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(grandestInvention)) {
           isValid = false
           updateErrorMessage(
-            "Response Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "grandestInventionErr",
             dispatchError
           )
@@ -616,7 +616,7 @@ export const validatepriorExperienceForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(priorExperience)) {
           isValid = false
           updateErrorMessage(
-            "Response Should be alphanumeric",
+            "Response should be alphanumeric chars only",
             "priorExperienceErr",
             dispatchError
           )
@@ -705,7 +705,7 @@ export const validateConnectedForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(cruzCoins)) {
           isValid = false
           updateErrorMessage(
-            "Response should be alphanumeric characters only",
+            "Response should be alphanumeric chars only",
             "cruzCoinsErr",
             dispatchError
           )
@@ -724,7 +724,7 @@ export const validateConnectedForm = (
         } else if (alphanumericPunctuationRegexWithNewLine(anythingElse)) {
           isValid = false
           updateErrorMessage(
-            "Response should be alphanumeric characters only",
+            "Response should be alphanumeric chars only",
             "anythingElseErr",
             dispatchError
           )
