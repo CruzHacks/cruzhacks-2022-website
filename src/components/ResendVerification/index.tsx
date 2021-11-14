@@ -12,6 +12,18 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
   token,
 }: VerificationEmailProps) => {
   const [verified, setVerified] = useState<boolean>(false)
+  const [response, setResponse] = useState<string>("")
+  const onClick = () => {
+    resendVerificationEmail(user, token)
+      .then(res => {
+        if (res.status === 201) {
+          setResponse("Successfully Resent Verify Email")
+        } else {
+          setResponse("Failed to Resend")
+        }
+      })
+      .catch(() => setResponse("Failed to Resend"))
+  }
   return (
     <div className='resendVerification-component'>
       <div className='resendVerification-component__recaptcha'>
@@ -26,12 +38,13 @@ const ResendVerification: React.FC<VerificationEmailProps> = ({
         label='resend'
         disabled={!verified}
         duration={1000 * 30}
-        onClick={() => {
-          resendVerificationEmail(user, token)
-        }}
+        onClick={onClick}
       >
         Resend Verification Email
       </CoolDownButton>
+      {response && (
+        <div className='resendVerification-component__response'>{response}</div>
+      )}
     </div>
   )
 }
