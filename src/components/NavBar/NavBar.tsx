@@ -50,9 +50,13 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   )
   const navs = (
     <div className='NavBar__links'>
-      <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
-        SPONSOR US
-      </a>
+      {location.pathname === "/" ? (
+        <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
+          SPONSOR US
+        </a>
+      ) : (
+        ""
+      )}
       {NavbarRoutes.filter(
         ({ route }: NavbarRouteProps) => location.pathname !== route
       ).map(({ name, route }: NavbarRouteProps) => (
@@ -71,9 +75,13 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   )
   const mobileNavs = (
     <div className='NavBar__links' style={{ background: styling.menuColor }}>
-      <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
-        SPONSOR US
-      </a>
+      {location.pathname === "/" ? (
+        <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
+          SPONSOR US
+        </a>
+      ) : (
+        ""
+      )}
       {NavbarRoutes.filter(
         ({ route }: NavbarRouteProps) => location.pathname !== route
       ).map(({ name, route }: NavbarRouteProps) => (
@@ -113,7 +121,7 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
       className='NavBar'
       style={{ background: styling.bgColor, textShadow: styling.textShadow }}
     >
-      {windowWidthHeight[0] < 1200 ? mobileView : navs}
+      {windowWidthHeight[0] <= 1200 ? mobileView : navs}
     </div>
   )
 }
