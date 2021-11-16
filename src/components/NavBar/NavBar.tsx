@@ -32,7 +32,6 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
     setWidthHeight([window.innerWidth, window.innerHeight])
   }, [])
   useEffect(() => {
-    console.log(location.pathname)
     function handleResize() {
       setWidthHeight([window.innerWidth, window.innerHeight])
     }
