@@ -4,7 +4,8 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import TextBox from "../../FormInputs/TextBox"
 
 const ShortAnswerPage: React.FC = () => {
-  const { shortAnswerFormData, setShortAnswerFormData } = useApplication()!
+  const { shortAnswerFormData, setShortAnswerFormData, setNewChanges } =
+    useApplication()!
   return (
     <div className='short-answer-page-container'>
       <div className='short-answer-page-container__questions'>
@@ -13,12 +14,13 @@ const ShortAnswerPage: React.FC = () => {
           <div className='short-answer-page-container__field'>
             <TextBox
               name='Why do you want to attend CruzHacks?'
-              handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setShortAnswerFormData(prev => ({
                   ...prev,
                   whyCruzHacks: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               fieldState={shortAnswerFormData.whyCruzHacks}
               errorMessage={shortAnswerFormData.whyCruzHacksErr}
               label='whyCruzHacks'

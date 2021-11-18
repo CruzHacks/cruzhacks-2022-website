@@ -6,7 +6,7 @@ import RadioForm from "../../FormInputs/Radio"
 import NumberField from "../../FormInputs/NumberBox"
 
 const ExperiencePage: React.FC = () => {
-  const { priorExperienceFormData, setPriorExperienceFormData } =
+  const { priorExperienceFormData, setPriorExperienceFormData, setNewChanges } =
     useApplication()!
   return (
     <div className='experience-page-container'>
@@ -18,12 +18,13 @@ const ExperiencePage: React.FC = () => {
               question='Will this be your first time attending CruzHacks?'
               name='firstCruzHacks'
               inputs={[{ label: "Yes" }, { label: "No" }]}
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   firstCruzHacks: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               errorMessage={priorExperienceFormData.firstCruzHacksErr}
               value={priorExperienceFormData.firstCruzHacks}
               className='radio-form-component__row'

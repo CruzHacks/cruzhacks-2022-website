@@ -6,12 +6,14 @@ import TextBox from "../../FormInputs/TextBox"
 import FileUpload from "../../FormInputs/FileUpload"
 
 const ConnectedPage: React.FC = () => {
-  const { connectedFormData, setConnectedFormData } = useApplication()!
+  const { connectedFormData, setConnectedFormData, setNewChanges } =
+    useApplication()!
   const handleChange = (event: any) => {
     const name = event.target.getAttribute("name")
     if (Object.keys(connectedFormData).includes(name)) {
       const copy = { ...connectedFormData, [name]: event.target.value }
       setConnectedFormData(copy)
+      setNewChanges()
     }
   }
   return (

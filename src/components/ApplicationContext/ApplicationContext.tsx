@@ -1,4 +1,5 @@
 import React, {
+  useRef,
   useState,
   useEffect,
   useContext,
@@ -26,9 +27,9 @@ import {
   generateMLHProps,
 } from "views/Portal/utils/PropBuilder"
 import AppStatus from "Props/portal/application"
+import ApplicationPages from "Props/portal/page"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
 import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.view"
-import ApplicationPages from "../../Props/portal/page"
 
 interface ApplicationContextProps {
   page: number
@@ -38,6 +39,9 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+
+  // track if user has inputted data that are not saved
+  setNewChanges: any
 
   submitting: boolean
   setSubmitting: Dispatch<SetStateAction<boolean>>
@@ -76,6 +80,7 @@ export const ApplicationProvider: React.FC = () => {
     {},
     user?.email
   )
+  const newChanges = useRef<boolean>(false)
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
     generateContactProps(user ? user.email : "", savedFormData.contact)
@@ -160,7 +165,24 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
+  useEffect(() => {
+    const confirmLeave = (ev: BeforeUnloadEvent) => {
+      if (newChanges.current) {
+        ev.preventDefault()
+
+        // eslint-disable-next-line no-param-reassign
+        ev.returnValue = "Are you sure?"
+      }
+    }
+
+    window.addEventListener("beforeunload", confirmLeave)
+    return () => {
+      window.removeEventListener("beforeunload", confirmLeave)
+    }
+  }, [])
+
   const savePage = () => {
+    newChanges.current = false
     const formData: SavedApplication = retrieve("application", {}, user?.email)
 
     if (!formData.progress || page > formData.progress) {
@@ -238,6 +260,9 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        setNewChanges: () => {
+          newChanges.current = true
+        },
         submitting,
         setSubmitting,
         contactFormData,

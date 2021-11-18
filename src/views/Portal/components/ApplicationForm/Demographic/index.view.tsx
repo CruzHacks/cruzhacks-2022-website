@@ -10,12 +10,14 @@ import NumberField from "../../FormInputs/NumberBox/index"
 import CheckBox from "../../FormInputs/CheckBox/CheckBox"
 
 const DemographicPage: React.FC = () => {
-  const { demographicFormData, setDemographicFormData } = useApplication()!
+  const { demographicFormData, setDemographicFormData, setNewChanges } =
+    useApplication()!
   const handleChange = (event: any) => {
     const name = event.target.getAttribute("name")
     if (Object.keys(demographicFormData).includes(name)) {
       const copy = { ...demographicFormData, [name]: event.target.value }
       setDemographicFormData(copy)
+      setNewChanges()
     }
   }
   return (
