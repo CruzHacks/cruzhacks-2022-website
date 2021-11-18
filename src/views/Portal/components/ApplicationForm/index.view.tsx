@@ -214,6 +214,11 @@ const ApplicationForm: React.FC = () => {
             : ""}
         </div>
 
+        {submitting && (
+          <div className='application-form-component__response'>
+            Submitting...
+          </div>
+        )}
         {successOnSubmit === "error submitting" && serverErrors.length > 0 && (
           <div className='application-form-component__response-err'>
             Server Errors:
@@ -265,7 +270,7 @@ const ApplicationForm: React.FC = () => {
                 )
               }
             >
-              Submit
+              {submitting ? "Loading..." : "Submit"}
             </button>
           )}
         </div>
