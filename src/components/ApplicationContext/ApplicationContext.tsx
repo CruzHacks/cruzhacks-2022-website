@@ -42,6 +42,7 @@ interface ApplicationContextProps {
   submitting: boolean
   setSubmitting: Dispatch<SetStateAction<boolean>>
 
+  progress: number
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
@@ -76,6 +77,8 @@ export const ApplicationProvider: React.FC = () => {
     {},
     user?.email
   )
+
+  const [progress, setProgress] = useState<number>(savedFormData.progress || 0)
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
     generateContactProps(user ? user.email : "", savedFormData.contact)
@@ -117,12 +120,17 @@ export const ApplicationProvider: React.FC = () => {
           switch ((res.data.status || "").toLowerCase()) {
             case "no document":
               // check if the application really doesn't exist, or if we failed to fetch it
-              if (res.statusCode === 200) {
-                setStatus(AppStatus.NotFound)
-                // if (savedFormData.progress) setStatus(AppStatus.InProgress)
-              } else {
+              if (res.statusCode !== 200) {
                 setStatus(AppStatus.Errored)
+                break
               }
+
+              if (savedFormData.progress) {
+                setStatus(AppStatus.InProgress)
+                break
+              }
+
+              setStatus(AppStatus.NotFound)
               break
             case "accepted":
               setStatus(AppStatus.Accepted)
@@ -165,6 +173,7 @@ export const ApplicationProvider: React.FC = () => {
 
     if (!formData.progress || page > formData.progress) {
       formData.progress = page
+      setProgress(page)
     }
 
     if (page === ApplicationPages.Contact) {
@@ -240,6 +249,7 @@ export const ApplicationProvider: React.FC = () => {
         prevPage,
         submitting,
         setSubmitting,
+        progress,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,

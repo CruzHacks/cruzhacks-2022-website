@@ -30,6 +30,7 @@ const ApplicationForm: React.FC = () => {
     nextPage,
     setAppStatus,
     accessToken,
+    progress,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -198,7 +199,7 @@ const ApplicationForm: React.FC = () => {
           Section {page} / {ApplicationPages.MLH}
         </div>
         <ProgressBar
-          current={page - 1}
+          current={progress}
           limit={ApplicationPages.MLH}
           className='__header'
         />
