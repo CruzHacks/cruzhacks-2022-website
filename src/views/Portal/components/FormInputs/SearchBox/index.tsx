@@ -33,8 +33,11 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   }
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMounted(true)
-    if (!e.target.value || !matchedItems.length) setMounted(false)
+    if (!e.target.value || !matchedItems.length) {
+      setMounted(false)
+    } else {
+      setMounted(true)
+    }
     handleChange(e.target.value)
     handleQuery()
   }
