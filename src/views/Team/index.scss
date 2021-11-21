@@ -23,4 +23,18 @@
     justify-content: center;
     margin-bottom: 50px;
   }
+  &__special-thanks-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 50px;
+    &--msg {
+      text-align:center;
+      @include typography.our-team-message;
+      width: 500px;
+      max-width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }
