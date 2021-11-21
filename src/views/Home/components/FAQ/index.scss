@@ -1,0 +1,80 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.faq-component {
+  margin-top: -1px;
+  background-size: cover;
+  background: linear-gradient(#b0b6f7, #27739d);
+  &__box {
+    margin: auto;
+    border: 7px solid rgba(255, 255, 255, 0.75);
+    border-radius: 59px;
+    padding: 10px;
+    display: table;
+    // height: 1400px;
+    width: 80%;
+    @include responsiveness.screen(phone, desktop, big-desktop) {
+      width: 60%;
+    }
+    @include responsiveness.screen(smallest) {
+      padding: 0px;
+    }
+    @include responsiveness.screen(large-tablet) {
+      width: 90%;
+    }
+  }
+  &__faqtitle {
+    font-family: "Source Sans Pro", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 60px);
+    text-align: center;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+  }
+  &__line {
+    width: 25%;
+    height: 11px;
+    background: rgba(255, 255, 255, 0.73);
+    margin: auto;
+    // @include responsiveness.screen(desktop, big-desktop) {
+    //   width: 20px;
+    // }
+  }
+  &__question {
+    font-family: Lato, sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: auto;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  &__answer {
+    font-family: Lato, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: auto;
+    color: #ffffff;
+    display: block;
+  }
+
+  &__questionsandanswers:after {
+    display: table;
+    clear: both;
+  }
+  &__column {
+    vertical-align: middle;
+    float: left;
+    width: 33%;
+    @include responsiveness.screen(smallest, phone, tablet) {
+      width: 100%;
+    }
+    padding-right: 2px;
+  }
+  &__questionsandanswersitems {
+    // width: 30vh;
+    margin: 20px;
+  }
+}
