@@ -41,6 +41,11 @@ export interface AnnouncementProps {
   id: string
 }
 
+export interface FAQProps {
+  question: string
+  answer: string
+}
+
 export interface ApplicationPagesProps {
   page: number
   setPage: Dispatch<SetStateAction<number>>
