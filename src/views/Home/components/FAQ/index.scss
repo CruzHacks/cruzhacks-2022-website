@@ -4,11 +4,7 @@
 .faq-component {
   margin-top: -1px;
   background-size: cover;
-  background: linear-gradient(
-    var(--color-light-pink),
-    var(--color-lavender),
-    var(--color-sky-blue)
-  );
+  background: linear-gradient(#b0b6f7, #27739d);
   &__box {
     margin: auto;
     border: 7px solid rgba(255, 255, 255, 0.75);
@@ -61,7 +57,7 @@
     font-size: 18px;
     line-height: auto;
     color: #ffffff;
-    display: none;
+    display: block;
   }
 
   &__questionsandanswers:after {
