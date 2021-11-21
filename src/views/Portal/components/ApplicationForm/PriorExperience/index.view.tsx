@@ -33,12 +33,13 @@ const ExperiencePage: React.FC = () => {
           <div className='experience-page-container__field'>
             <NumberField
               name='Have you attended any hackathons before? If so, how many?'
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   hackathonCount: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               fieldState={priorExperienceFormData.hackathonCount}
               errorMessage={priorExperienceFormData.hackathonCountErr}
               label='hackathonCount'
@@ -48,12 +49,13 @@ const ExperiencePage: React.FC = () => {
           <div className='experience-page-container__field'>
             <TextBox
               name='Do you have prior tech experience? If so, in what context (i.e., classes, internships, personal projects)?'
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   priorExperience: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               className='__medium'
               fieldState={priorExperienceFormData.priorExperience}
               errorMessage={priorExperienceFormData.priorExperienceErr}

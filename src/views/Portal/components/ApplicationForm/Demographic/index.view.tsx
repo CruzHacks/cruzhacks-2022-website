@@ -35,6 +35,7 @@ const DemographicPage: React.FC = () => {
                   ...prev,
                   age: e.target.value,
                 }))
+                setNewChanges()
               }}
               fieldState={demographicFormData.age}
               errorMessage={demographicFormData.ageErr}
@@ -56,7 +57,10 @@ const DemographicPage: React.FC = () => {
                 { label: "Prefer not to answer" },
               ]}
               maxLength={50}
-              setViewData={setDemographicFormData}
+              setViewData={(data: any) => {
+                setDemographicFormData(data)
+                setNewChanges()
+              }}
             />
           </div>
           <div className='demographic-page-container__field'>
@@ -94,7 +98,10 @@ const DemographicPage: React.FC = () => {
                 { label: "Prefer not to answer" },
               ]}
               maxLength={50}
-              setViewData={setDemographicFormData}
+              setViewData={(data: any) => {
+                setDemographicFormData(data)
+                setNewChanges()
+              }}
             />
           </div>
           <div className='demographic-page-container__field'>
@@ -111,6 +118,7 @@ const DemographicPage: React.FC = () => {
                   ...prev,
                   school: value,
                 }))
+                setNewChanges()
               }}
             />
           </div>
@@ -166,6 +174,7 @@ const DemographicPage: React.FC = () => {
                   ...prev,
                   major: value,
                 }))
+                setNewChanges()
               }}
             />
           </div>
@@ -201,6 +210,7 @@ const DemographicPage: React.FC = () => {
                   ...prev,
                   country: value,
                 }))
+                setNewChanges()
               }}
             />
           </div>

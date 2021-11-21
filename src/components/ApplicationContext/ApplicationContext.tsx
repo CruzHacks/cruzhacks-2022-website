@@ -40,7 +40,7 @@ interface ApplicationContextProps {
   nextPage: any
   prevPage: any
 
-  // track if user has inputted data that are not saved
+  // track if user has inputted data
   setNewChanges: any
 
   submitting: boolean
@@ -166,6 +166,7 @@ export const ApplicationProvider: React.FC = () => {
   }, [])
 
   useEffect(() => {
+    // notify user if they are trying to leave the page after working on the app
     const confirmLeave = (ev: BeforeUnloadEvent) => {
       if (newChanges.current) {
         ev.preventDefault()
@@ -182,7 +183,6 @@ export const ApplicationProvider: React.FC = () => {
   }, [])
 
   const savePage = () => {
-    newChanges.current = false
     const formData: SavedApplication = retrieve("application", {}, user?.email)
 
     if (!formData.progress || page > formData.progress) {
