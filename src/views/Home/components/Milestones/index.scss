@@ -1,7 +1,6 @@
 @use "./stylesheets/responsiveness";
 @use "./stylesheets/typography";
 
-
 // screen sizes smaller than tablet are considered mobile
 @mixin milestones-mobile {
   .milestones-component {
@@ -78,11 +77,19 @@
       }
 
       &__stat {
-        @include responsiveness.font($responsive: 4.1vw, $min: 35px, $max: 50px);
+        @include responsiveness.font(
+          $responsive: 4.1vw,
+          $min: 35px,
+          $max: 50px
+        );
       }
 
       &__name {
-        @include responsiveness.font($responsive: 4.1vw, $min: 21px, $max: 28px);
+        @include responsiveness.font(
+          $responsive: 4.1vw,
+          $min: 21px,
+          $max: 28px
+        );
       }
     }
   }
@@ -91,7 +98,7 @@
 .milestones-component {
   margin-top: -1px;
   padding: 14px 0 40px 0;
-  background: linear-gradient(var(--color-light-pink), var(--color-lavender), var(--color-sky-blue));
+  background: linear-gradient(#de98df, #c6a7eb, #b0b6f7);
 
   &__container {
     display: flex;
@@ -213,7 +220,7 @@
         margin-right: 25px;
       }
     }
-    
+
     &__box {
       display: flex;
       flex-shrink: 0;
