@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import "./index.scss"
 
 interface SearchBoxProps {
@@ -25,10 +25,6 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   const [matchedItems, setMatchedItems] = useState<string[]>(data)
   const [mounted, setMounted] = useState<boolean>(false)
 
-  useEffect(() => {
-    setMounted(false)
-  }, [])
-
   const handleQuery = () => {
     const Matches = data.filter(entry =>
       entry.toLowerCase().includes(fieldState.toLowerCase())
@@ -37,7 +33,11 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   }
 
   const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMounted(true)
+    if (!e.target.value || !matchedItems.length) {
+      setMounted(false)
+    } else {
+      setMounted(true)
+    }
     handleChange(e.target.value)
     handleQuery()
   }
@@ -45,6 +45,7 @@ const SearchBox: React.FC<SearchBoxProps> = ({
   const onClick = (val: string) => {
     handleChange(val)
     setMatchedItems([])
+    setMounted(false)
   }
 
   const dropdown = () => (
@@ -69,7 +70,6 @@ const SearchBox: React.FC<SearchBoxProps> = ({
         ))}
     </div>
   )
-
   return (
     <div className='search-box-component'>
       <div className='search-box-component__question'>{question}</div>
