@@ -31,6 +31,7 @@ const ApplicationForm: React.FC = () => {
     setAppStatus,
     accessToken,
     progress,
+    setProgress,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -94,6 +95,8 @@ const ApplicationForm: React.FC = () => {
   const { user } = useAuth0()
   const submitData = async () => {
     try {
+      setProgress(ApplicationPages.MLH) // this won't be saved
+
       setSubmitting(true)
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)

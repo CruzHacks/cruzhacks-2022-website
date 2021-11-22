@@ -43,6 +43,8 @@ interface ApplicationContextProps {
   setSubmitting: Dispatch<SetStateAction<boolean>>
 
   progress: number
+  setProgress: Dispatch<SetStateAction<number>>
+
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
@@ -250,6 +252,7 @@ export const ApplicationProvider: React.FC = () => {
         submitting,
         setSubmitting,
         progress,
+        setProgress,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,
