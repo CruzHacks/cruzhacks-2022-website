@@ -155,7 +155,7 @@ export const validatedemographicForm = (
 
   const validAffiliation = [
     "i am not a ucsc student",
-    "i am a UCSC grad student with no college affiliation",
+    "i am a ucsc grad student with no college affiliation",
     "college 9",
     "college 10",
     "cowell",
