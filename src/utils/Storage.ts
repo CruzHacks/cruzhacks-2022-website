@@ -75,3 +75,13 @@ export function retrieve(key: string, defaultValue?: any, user?: string): any {
 
   return defaultValue
 }
+
+/**
+ * Remove cache.
+ */
+export function removeCache(key: string, user?: string): void {
+  const data = retrieve(key, undefined, user)
+  if (data) {
+    window.sessionStorage.removeItem(key)
+  }
+}
