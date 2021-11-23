@@ -129,7 +129,9 @@ const DemographicPage: React.FC = () => {
                 { label: "Porter" },
                 { label: "Rachel Carson College" },
                 { label: "Stevenson" },
-                { label: "I am a UCSC grad student with no college affiliation" },
+                {
+                  label: "I am a UCSC grad student with no college affiliation",
+                },
               ]}
               name='collegeAffiliation'
               handleChange={handleChange}
