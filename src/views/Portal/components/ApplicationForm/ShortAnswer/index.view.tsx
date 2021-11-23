@@ -12,7 +12,7 @@ const ShortAnswerPage: React.FC = () => {
         <div className='short-answer-page-container__fields'>
           <div className='short-answer-page-container__field'>
             <TextBox
-              name='Why do you want to attend CruzHacks?'
+              name='Why do you want to attend CruzHacks? *'
               handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setShortAnswerFormData(prev => ({
                   ...prev,
@@ -28,7 +28,7 @@ const ShortAnswerPage: React.FC = () => {
           </div>
           <div className='short-answer-page-container__field'>
             <TextBox
-              name='What would you like to see at CruzHacks this year?'
+              name='What would you like to see at CruzHacks this year? *'
               handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setShortAnswerFormData(prev => ({
                   ...prev,
@@ -44,7 +44,7 @@ const ShortAnswerPage: React.FC = () => {
           </div>
           <div className='short-answer-page-container__field'>
             <TextBox
-              name='Excluding all outside factors (money, technology development, etc), what is the grandest invention you would want to create or see?'
+              name='Excluding all outside factors (money, technology development, etc), what is the grandest invention you would want to create or see? *'
               handleChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setShortAnswerFormData(prev => ({
                   ...prev,
