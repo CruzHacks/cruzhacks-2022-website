@@ -6,6 +6,7 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import ApplicationPages from "Props/portal/page"
 import AppStatus from "Props/portal/application"
 import ProgressBar from "components/ProgressBar/ProgressBar"
+import { removeCache } from "utils/Storage"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -159,6 +160,9 @@ const ApplicationForm: React.FC = () => {
         setPage(0)
         setAppStatus(AppStatus.Pending)
         setSubmitting(false)
+
+        // delete the saved application in session storage
+        removeCache("application", user?.email)
       }
     } catch (err: any) {
       if (
