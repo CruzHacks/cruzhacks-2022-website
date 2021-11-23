@@ -7,7 +7,7 @@ import AppStatus from "Props/portal/application"
 import MainPage from "../ApplicationForm/MainPage/index.view"
 
 const ApplicationStatus: React.FC = () => {
-  const { nextPage, appStatus } = useApplication()!
+  const { nextPage, appStatus, progress } = useApplication()!
   const [statusMessage, setStatusMessage] = useState<string>("")
 
   useEffect(() => {
@@ -28,9 +28,9 @@ const ApplicationStatus: React.FC = () => {
         setStatusMessage("NOT STARTED")
         // setStatusMessage("CLOSED") Uncomment to Close Applications
         break
-      // case AppStatus.InProgress:
-      //   setStatusMessage("IN PROGRESS")
-      //   break
+      case AppStatus.InProgress:
+        setStatusMessage("IN PROGRESS")
+        break
       default:
         setStatusMessage("ERROR")
         break
@@ -49,8 +49,8 @@ const ApplicationStatus: React.FC = () => {
 
   return (
     <div className='application-status-component'>
-      <MainPage status={statusMessage}>
-        {statusMessage !== "NOT STARTED" && (
+      <MainPage status={statusMessage} progress={progress}>
+        {!["NOT STARTED", "IN PROGRESS"].includes(statusMessage) && (
           <button
             type='button'
             className='application-status-component__button'
@@ -59,7 +59,7 @@ const ApplicationStatus: React.FC = () => {
             <div>Return Home</div>
           </button>
         )}
-        {statusMessage === "NOT STARTED" && (
+        {["NOT STARTED", "IN PROGRESS"].includes(statusMessage) && (
           <button
             type='button'
             className='application-status-component__button'
