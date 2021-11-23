@@ -38,13 +38,12 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+  savePage: any
 
   submitting: boolean
   setSubmitting: Dispatch<SetStateAction<boolean>>
 
   progress: number
-  setProgress: Dispatch<SetStateAction<number>>
-
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
@@ -249,10 +248,10 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        savePage,
         submitting,
         setSubmitting,
         progress,
-        setProgress,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,

@@ -26,13 +26,13 @@ const ApplicationForm: React.FC = () => {
     page,
     setPage,
     prevPage,
+    nextPage,
+    savePage,
     submitting,
     setSubmitting,
-    nextPage,
     setAppStatus,
     accessToken,
     progress,
-    setProgress,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -96,8 +96,13 @@ const ApplicationForm: React.FC = () => {
   const { user } = useAuth0()
   const submitData = async () => {
     try {
-      setProgress(ApplicationPages.MLH) // this won't be saved
+      // save the progress first
+      savePage()
+    } catch (err: any) {
+      // but don't let errors prevent us from submitting.
+    }
 
+    try {
       setSubmitting(true)
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)
