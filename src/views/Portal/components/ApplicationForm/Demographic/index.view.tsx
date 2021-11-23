@@ -87,7 +87,7 @@ const DemographicPage: React.FC = () => {
                 { label: "Gay" },
                 { label: "Heterosexual" },
                 { label: "Lesbian" },
-                { label: "Transgender" },
+                { label: "Transgender (including nonbinary)" },
                 { label: "Queer" },
                 { label: "Prefer not to answer" },
               ]}
