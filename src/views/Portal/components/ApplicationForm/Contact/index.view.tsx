@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
         <div className='contact-page-container__fields'>
           <div className='contact-page-container__field'>
             <TextField
-              name='First Name'
+              name='First Name *'
               handleChange={handleChange}
               fieldState={contactFormData.fname}
               errorMessage={contactFormData.fnameErr}
@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Last Name'
+              name='Last Name *'
               handleChange={handleChange}
               fieldState={contactFormData.lname}
               errorMessage={contactFormData.lnameErr}
@@ -39,7 +39,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Phone Number'
+              name='Phone Number *'
               handleChange={handleChange}
               fieldState={contactFormData.phone}
               errorMessage={contactFormData.phoneErr}
@@ -50,7 +50,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Email Address'
+              name='Email Address *'
               handleChange={handleChange}
               fieldState={contactFormData.email}
               errorMessage={contactFormData.emailErr}

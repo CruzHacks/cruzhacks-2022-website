@@ -27,7 +27,7 @@ const DemographicPage: React.FC = () => {
         <div className='demographic-page-container__fields'>
           <div className='demographic-page-container__field'>
             <NumberField
-              name='Age'
+              name='Age *'
               handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setDemographicFormData(prev => ({
                   ...prev,
@@ -44,7 +44,7 @@ const DemographicPage: React.FC = () => {
           <div className='demographic-page-container__field'>
             <CheckBox
               errorMessage={demographicFormData.pronounsErr}
-              question='Pronouns'
+              question='Pronouns *'
               name='pronouns'
               value={demographicFormData.pronouns}
               inputs={[
@@ -60,7 +60,7 @@ const DemographicPage: React.FC = () => {
           <div className='demographic-page-container__field'>
             <DropDown
               value={demographicFormData.race}
-              question='Race / Ethnicity'
+              question='Race / Ethnicity *'
               errorMessage={demographicFormData.raceErr}
               inputs={[
                 { label: "American Indian or Alaskan Native" },
@@ -78,7 +78,7 @@ const DemographicPage: React.FC = () => {
           <div className='demographic-page-container__field'>
             <CheckBox
               errorMessage={demographicFormData.sexualityErr}
-              question='Sexuality / Gender Identity'
+              question='Sexuality / Gender Identity *'
               name='sexuality'
               value={demographicFormData.sexuality}
               inputs={[
@@ -97,7 +97,7 @@ const DemographicPage: React.FC = () => {
           </div>
           <div className='demographic-page-container__field'>
             <SearchBox
-              question='School'
+              question='School *'
               data={universityList.map(item => item.institution)}
               label='school'
               fieldState={demographicFormData.school}
@@ -115,7 +115,7 @@ const DemographicPage: React.FC = () => {
           <div className='demographic-page-container__field'>
             <DropDown
               value={demographicFormData.collegeAffiliation}
-              question='College Affiliation'
+              question='College Affiliation *'
               errorMessage={demographicFormData.collegeAffiliationErr}
               inputs={[
                 { label: "I am not a UCSC student" },
@@ -154,7 +154,7 @@ const DemographicPage: React.FC = () => {
           </div>
           <div className='demographic-page-container__field'>
             <SearchBox
-              question='Major'
+              question='Major *'
               data={majors.map(item => item.major)}
               label='major'
               fieldState={demographicFormData.major}
@@ -171,7 +171,7 @@ const DemographicPage: React.FC = () => {
           </div>
           <div className='demographic-page-container__field'>
             <DropDown
-              question='Current Level of Study'
+              question='Current Level of Study *'
               value={demographicFormData.currentStanding}
               errorMessage={demographicFormData.currentStandingErr}
               inputs={[
@@ -203,7 +203,7 @@ const DemographicPage: React.FC = () => {
           </div>
           <div className='demographic-page-container__field'>
             <SearchBox
-              question='Country'
+              question='Country *'
               data={Countries.map(item => item.name)}
               label='country'
               fieldState={demographicFormData.country}
