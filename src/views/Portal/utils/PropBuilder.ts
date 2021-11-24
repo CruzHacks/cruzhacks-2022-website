@@ -71,6 +71,7 @@ export const generateDemographicProps = (
     eventLocation: props?.eventLocation || "",
     major: props?.major || "",
     currentStanding: props?.currentStanding || "",
+    graduation: props?.graduation || "0",
     country: props?.country || "",
     ageErr: "",
     pronounsErr: "",
@@ -81,6 +82,7 @@ export const generateDemographicProps = (
     eventLocationErr: "",
     majorErr: "",
     currentStandingErr: "",
+    graduationErr: "",
     countryErr: "",
   }
   return newObj
@@ -106,6 +108,7 @@ export const generateMLHProps = (props?: SerializableMLHProps) => {
   const newObj: MLHProps = {
     conductAgree: props?.conductAgree || "No",
     tosAgree: props?.tosAgree || "No",
+    communicationAgree: props?.tosAgree || "No",
     agreementErr: "",
   }
   return newObj
