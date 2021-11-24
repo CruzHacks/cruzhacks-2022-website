@@ -56,6 +56,7 @@
     display: flex;
     justify-content: center;
     @include typography.form-prompts;
+    color: #00b300;
   }
   &__response-err {
     display: flex;
