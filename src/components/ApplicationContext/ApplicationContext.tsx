@@ -191,6 +191,7 @@ export const ApplicationProvider: React.FC = () => {
         eventLocation,
         major,
         currentStanding,
+        graduation,
         country,
       } = demographicFormData
       formData.demographic = {
@@ -203,6 +204,7 @@ export const ApplicationProvider: React.FC = () => {
         eventLocation,
         major,
         currentStanding,
+        graduation,
         country,
       }
     } else if (page === ApplicationPages.ShortAnswer) {

@@ -175,16 +175,30 @@ const DemographicPage: React.FC = () => {
               value={demographicFormData.currentStanding}
               errorMessage={demographicFormData.currentStandingErr}
               inputs={[
-                { label: "N/A" },
-                { label: "Freshman" },
-                { label: "Sophomore" },
-                { label: "Junior" },
-                { label: "Senior" },
-                { label: "Super-Senior" },
-                { label: "Post-Graduate" },
+                { label: "High School" },
+                { label: "Bachelors" },
+                { label: "Masters" },
+                { label: "PhD" },
+                { label: "Other" },
               ]}
               name='currentStanding'
               handleChange={handleChange}
+            />
+          </div>
+          <div className='demographic-page-container__field'>
+            <NumberField
+              name='Graduation Year *'
+              handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setDemographicFormData(prev => ({
+                  ...prev,
+                  graduation: e.target.value,
+                }))
+              }}
+              fieldState={demographicFormData.graduation}
+              errorMessage={demographicFormData.graduationErr}
+              label='graduationYear'
+              min={1950}
+              max={2050}
             />
           </div>
           <div className='demographic-page-container__field'>

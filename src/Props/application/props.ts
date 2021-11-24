@@ -22,6 +22,7 @@ export interface SerializableDemographicProps {
   eventLocation: string
   major: string
   currentStanding: string
+  graduation: string
   country: string
 }
 
@@ -35,6 +36,7 @@ export interface DemographicProps extends SerializableDemographicProps {
   eventLocationErr: string
   majorErr: string
   currentStandingErr: string
+  graduationErr: string
   countryErr: string
 }
 
@@ -82,6 +84,7 @@ export interface ConnectedProps extends SerializableConnectedProps {
 export interface SerializableMLHProps {
   conductAgree: string
   tosAgree: string
+  communicationAgree: string
 }
 
 export interface MLHProps extends SerializableMLHProps {
