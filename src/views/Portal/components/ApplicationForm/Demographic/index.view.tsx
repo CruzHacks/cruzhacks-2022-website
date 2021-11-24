@@ -187,7 +187,7 @@ const DemographicPage: React.FC = () => {
           </div>
           <div className='demographic-page-container__field'>
             <NumberField
-              name='Graduation Year'
+              name='Graduation Year *'
               handleChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setDemographicFormData(prev => ({
                   ...prev,
