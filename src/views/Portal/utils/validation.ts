@@ -134,6 +134,7 @@ export const validatedemographicForm = (
     "eventLocation",
     "major",
     "currentStanding",
+    "graduation",
     "country",
   ]
   let isValid = true
@@ -147,12 +148,13 @@ export const validatedemographicForm = (
     eventLocation,
     major,
     currentStanding,
+    graduation,
     country,
   } = pageData
   const pronounCount = pronouns.length
   const sexaulityCount = sexuality.length
   const ageInt = parseInt(age, 10)
-
+  const gradInt = parseInt(graduation, 10)
   const validAffiliation = [
     "i am not a ucsc student",
     "i am a ucsc grad student with no college affiliation",
@@ -192,6 +194,9 @@ export const validatedemographicForm = (
             "ageErr",
             dispatchError
           )
+        } else if (Number.isNaN(ageInt)) {
+          isValid = false
+          updateErrorMessage("Please Input a Response", "ageErr", dispatchError)
         } else {
           updateErrorMessage("", "ageErr", dispatchError)
         }
@@ -440,6 +445,25 @@ export const validatedemographicForm = (
           updateErrorMessage("", "currentStandingErr", dispatchError)
         }
         break
+      case "graduation":
+        if (gradInt < 1950 || gradInt > 2050) {
+          isValid = false
+          updateErrorMessage(
+            "Inputted Year must be between 1950 - 2050",
+            "graduationErr",
+            dispatchError
+          )
+        } else if (Number.isNaN(gradInt)) {
+          isValid = false
+          updateErrorMessage(
+            "Please Input a Response",
+            "graduationErr",
+            dispatchError
+          )
+        } else {
+          updateErrorMessage("", "graduationErr", dispatchError)
+        }
+        break
       case "country":
         if (onSubmit && country.length === 0) {
           isValid = false
@@ -601,6 +625,13 @@ export const validatepriorExperienceForm = (
         } else if (hackathonsCountInt > 100) {
           isValid = false
           updateErrorMessage("Limit is 100", "hackathonCountErr", dispatchError)
+        } else if (Number.isNaN(hackathonsCountInt)) {
+          isValid = false
+          updateErrorMessage(
+            "Please Input a Response",
+            "hackathonCountErr",
+            dispatchError
+          )
         } else {
           updateErrorMessage("", "hackathonCountErr", dispatchError)
         }

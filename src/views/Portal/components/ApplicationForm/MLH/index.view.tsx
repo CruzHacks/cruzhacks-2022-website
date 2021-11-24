@@ -83,6 +83,30 @@ const MLHPage: React.FC = () => {
           errorMessage=''
           value={mlhFormData.tosAgree}
         />
+        <div className='mlh-page-container__TAC'>
+          I authorize MLH to send me pre- and post-event informational emails
+          which contain free credit and opportunities from their partners.
+        </div>
+        <RadioForm
+          question='Communication from MLH'
+          inputs={[
+            {
+              label: "I have read and agree to the terms outlined above.",
+            },
+            {
+              label: "I do not agree to the terms above.",
+            },
+          ]}
+          name='communicationAgree'
+          handleChange={(e: any) =>
+            setmlhFormData(prev => ({
+              ...prev,
+              communicationAgree: e.target.value,
+            }))
+          }
+          errorMessage=''
+          value={mlhFormData.communicationAgree}
+        />
       </div>
     </div>
   )
