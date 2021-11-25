@@ -6,7 +6,7 @@ import RadioForm from "../../FormInputs/Radio"
 import NumberField from "../../FormInputs/NumberBox"
 
 const ExperiencePage: React.FC = () => {
-  const { priorExperienceFormData, setPriorExperienceFormData } =
+  const { priorExperienceFormData, setPriorExperienceFormData, setNewChanges } =
     useApplication()!
   return (
     <div className='experience-page-container'>
@@ -18,12 +18,13 @@ const ExperiencePage: React.FC = () => {
               question='Will this be your first time attending CruzHacks? *'
               name='firstCruzHacks'
               inputs={[{ label: "Yes" }, { label: "No" }]}
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   firstCruzHacks: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               errorMessage={priorExperienceFormData.firstCruzHacksErr}
               value={priorExperienceFormData.firstCruzHacks}
               className='radio-form-component__row'
@@ -32,12 +33,13 @@ const ExperiencePage: React.FC = () => {
           <div className='experience-page-container__field'>
             <NumberField
               name='Have you attended any hackathons before? If so, how many? *'
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   hackathonCount: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               fieldState={priorExperienceFormData.hackathonCount}
               errorMessage={priorExperienceFormData.hackathonCountErr}
               label='hackathonCount'
@@ -47,12 +49,13 @@ const ExperiencePage: React.FC = () => {
           <div className='experience-page-container__field'>
             <TextBox
               name='Do you have prior tech experience? If so, in what context (i.e., classes, internships, personal projects)?'
-              handleChange={(e: any) =>
+              handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,
                   priorExperience: e.target.value,
                 }))
-              }
+                setNewChanges()
+              }}
               className='__medium'
               fieldState={priorExperienceFormData.priorExperience}
               errorMessage={priorExperienceFormData.priorExperienceErr}
