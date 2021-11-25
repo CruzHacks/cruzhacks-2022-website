@@ -9,10 +9,10 @@ const NavbarRoutes: NavbarRouteProps[] = [
     route: "/team",
     name: "TEAM",
   },
-  {
-    route: "/portal",
-    name: "APPLY",
-  },
+  // {
+  //   route: "/portal",
+  //   name: "APPLY",
+  // },
 ]
 
 export default NavbarRoutes
