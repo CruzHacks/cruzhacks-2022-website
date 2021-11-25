@@ -15,7 +15,7 @@ const ExperiencePage: React.FC = () => {
         <div className='experience-page-container__fields'>
           <div className='experience-page-container__field'>
             <RadioForm
-              question='Will this be your first time attending CruzHacks?'
+              question='Will this be your first time attending CruzHacks? *'
               name='firstCruzHacks'
               inputs={[{ label: "Yes" }, { label: "No" }]}
               handleChange={(e: any) => {
@@ -32,7 +32,7 @@ const ExperiencePage: React.FC = () => {
           </div>
           <div className='experience-page-container__field'>
             <NumberField
-              name='Have you attended any hackathons before? If so, how many?'
+              name='Have you attended any hackathons before? If so, how many? *'
               handleChange={(e: any) => {
                 setPriorExperienceFormData(prev => ({
                   ...prev,

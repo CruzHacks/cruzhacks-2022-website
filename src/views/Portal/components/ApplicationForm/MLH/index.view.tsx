@@ -15,9 +15,13 @@ const MLHPage: React.FC = () => {
         <div className='mlh-page-container__code'>
           <div>
             As a Major League Hacking (MLH) member event, our attendees must
-            read and agree to the MLH Code of Conduct.
+            read and agree to the MLH Code of Conduct. *
           </div>
-          <a href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'>
+          <a
+            href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+            target='_blank'
+            rel='noreferrer'
+          >
             Code of Conduct
           </a>
         </div>
@@ -45,13 +49,19 @@ const MLHPage: React.FC = () => {
           administration, ranking, MLH administration, pre- and post-event
           informational e-mails, and occasional messages about hackathons
           in-line with the MLH Privacy Policy (
-          <a href='https://mlh.io/privacy'>https://mlh.io/privacy</a>). I
-          further agree to the terms of both the MLH Contest Terms and
+          <a href='https://mlh.io/privacy' target='_blank' rel='noreferrer'>
+            https://mlh.io/privacy
+          </a>
+          ). I further agree to the terms of both the MLH Contest Terms and
           Conditions (
-          <a href='https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions'>
+          <a
+            href='https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions'
+            target='_blank'
+            rel='noreferrer'
+          >
             https://github.com/MLH/mlh-policies/tree/master/prize-terms-and-conditions
           </a>
-          ) and the MLH Privacy Policy.
+          ) and the MLH Privacy Policy. *
         </div>
         <RadioForm
           question=''
@@ -72,6 +82,30 @@ const MLHPage: React.FC = () => {
           }
           errorMessage=''
           value={mlhFormData.tosAgree}
+        />
+        <div className='mlh-page-container__TAC'>
+          I authorize MLH to send me pre- and post-event informational emails
+          which contain free credit and opportunities from their partners.
+        </div>
+        <RadioForm
+          question='Communication from MLH'
+          inputs={[
+            {
+              label: "I have read and agree to the terms outlined above.",
+            },
+            {
+              label: "I do not agree to the terms above.",
+            },
+          ]}
+          name='communicationAgree'
+          handleChange={(e: any) =>
+            setmlhFormData(prev => ({
+              ...prev,
+              communicationAgree: e.target.value,
+            }))
+          }
+          errorMessage=''
+          value={mlhFormData.communicationAgree}
         />
       </div>
     </div>

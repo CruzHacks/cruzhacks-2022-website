@@ -94,7 +94,9 @@ const CheckBox: React.FC<CheckBoxProps> = ({
                   key={selected}
                   onClick={() => removeData(selected)}
                 >
-                  {selected}
+                  {selected.length > 25
+                    ? `${selected.substring(0, 22)} ...`
+                    : selected}
                 </button>
               ))}
         </div>

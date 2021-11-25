@@ -9,6 +9,7 @@ import Milestones from "./components/Milestones"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import footerTheme from "../../Props/footer/footerTheme"
+import FAQ from "./components/FAQ"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
@@ -16,6 +17,7 @@ const HomeView: React.FC = () => (
     <Landing />
     <About />
     <Milestones />
+    <FAQ />
     {/* <Tracks />
     <FAQ />
     <Sponsors /> */}

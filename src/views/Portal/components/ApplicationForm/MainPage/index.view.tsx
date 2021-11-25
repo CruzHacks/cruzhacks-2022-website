@@ -5,11 +5,13 @@ import ApplicationPages from "Props/portal/page"
 
 interface MainPageProps {
   status: string
+  progress: number
   children: React.ReactNode
 }
 
 const MainPage: React.FC<MainPageProps> = ({
   status,
+  progress,
   children,
 }: MainPageProps) => {
   const statColor = (stat: string) => {
@@ -44,7 +46,7 @@ const MainPage: React.FC<MainPageProps> = ({
         </div>
         <div className='main-page__container--progress'>PROGRESS</div>
         <ProgressBar
-          current={status === "SUBMITTED" ? ApplicationPages.MLH : 0}
+          current={status === "SUBMITTED" ? ApplicationPages.MLH : progress}
           limit={ApplicationPages.MLH}
           className='__main'
         />
