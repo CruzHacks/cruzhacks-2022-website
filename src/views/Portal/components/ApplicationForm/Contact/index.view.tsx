@@ -4,12 +4,14 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import TextField from "../../FormInputs/TextField"
 
 const ContactPage: React.FC = () => {
-  const { contactFormData, setContactFormData } = useApplication()!
+  const { contactFormData, setContactFormData, setNewChanges } =
+    useApplication()!
   const handleChange = (event: any) => {
     const name = event.target.getAttribute("name")
     if (Object.keys(contactFormData).includes(name)) {
       const copy = { ...contactFormData, [name]: event.target.value }
       setContactFormData(copy)
+      setNewChanges()
     }
   }
   return (
