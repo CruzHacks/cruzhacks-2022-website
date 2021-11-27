@@ -17,6 +17,12 @@ const TeamView: React.FC = () => (
     <div className='team-view__team'>
       <TeamGrid />
     </div>
+    <div className='team-view__special-thanks-container'>
+      <div className='team-view__special-thanks-container--msg'>
+        Special thanks to our Board of Directors: Doug Erickson, Nathan Westrup,
+        Amanda Rotella, Nada Miljkovic, and Drew Meyer.
+      </div>
+    </div>
     <Footer theme={footerTheme.teamFooter} />
   </div>
 )

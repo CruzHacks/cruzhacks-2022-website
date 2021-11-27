@@ -4,12 +4,14 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import TextField from "../../FormInputs/TextField"
 
 const ContactPage: React.FC = () => {
-  const { contactFormData, setContactFormData } = useApplication()!
+  const { contactFormData, setContactFormData, setNewChanges } =
+    useApplication()!
   const handleChange = (event: any) => {
     const name = event.target.getAttribute("name")
     if (Object.keys(contactFormData).includes(name)) {
       const copy = { ...contactFormData, [name]: event.target.value }
       setContactFormData(copy)
+      setNewChanges()
     }
   }
   return (
@@ -19,7 +21,7 @@ const ContactPage: React.FC = () => {
         <div className='contact-page-container__fields'>
           <div className='contact-page-container__field'>
             <TextField
-              name='First Name'
+              name='First Name *'
               handleChange={handleChange}
               fieldState={contactFormData.fname}
               errorMessage={contactFormData.fnameErr}
@@ -29,7 +31,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Last Name'
+              name='Last Name *'
               handleChange={handleChange}
               fieldState={contactFormData.lname}
               errorMessage={contactFormData.lnameErr}
@@ -39,7 +41,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Phone Number'
+              name='Phone Number *'
               handleChange={handleChange}
               fieldState={contactFormData.phone}
               errorMessage={contactFormData.phoneErr}
@@ -50,7 +52,7 @@ const ContactPage: React.FC = () => {
           </div>
           <div className='contact-page-container__field'>
             <TextField
-              name='Email Address'
+              name='Email Address *'
               handleChange={handleChange}
               fieldState={contactFormData.email}
               errorMessage={contactFormData.emailErr}

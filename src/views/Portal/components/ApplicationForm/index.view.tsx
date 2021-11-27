@@ -133,6 +133,7 @@ const ApplicationForm: React.FC = () => {
       bodyData.append("eventLocation", demographicFormData.eventLocation)
       bodyData.append("major", demographicFormData.major)
       bodyData.append("currentStanding", demographicFormData.currentStanding)
+      bodyData.append("graduation", demographicFormData.graduation)
       bodyData.append("country", demographicFormData.country)
       bodyData.append("whyCruzHacks", shortAnswerFormData.whyCruzHacks)
       bodyData.append("newThisYear", shortAnswerFormData.newThisYear)
@@ -227,6 +228,11 @@ const ApplicationForm: React.FC = () => {
             : ""}
         </div>
 
+        {submitting && (
+          <div className='application-form-component__response'>
+            Submitting...
+          </div>
+        )}
         {successOnSubmit === "error submitting" && serverErrors.length > 0 && (
           <div className='application-form-component__response-err'>
             Server Errors:
@@ -274,11 +280,13 @@ const ApplicationForm: React.FC = () => {
                   mlhFormData.conductAgree ===
                     "I have read and agree to abide by the MLH Code of Conduct at CruzHacks." &&
                   mlhFormData.tosAgree ===
+                    "I have read and agree to the terms outlined above." &&
+                  mlhFormData.communicationAgree ===
                     "I have read and agree to the terms outlined above."
                 )
               }
             >
-              Submit
+              {submitting ? "Loading..." : "Submit"}
             </button>
           )}
         </div>
