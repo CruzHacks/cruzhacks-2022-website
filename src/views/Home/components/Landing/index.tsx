@@ -55,8 +55,11 @@ const Landing: React.FC = () => {
                 <Button
                   className='landing-component__button'
                   label='apps button'
+                  modifier='primary'
+                  href='/portal'
+                  redirect
                 >
-                  apps open in dec
+                  apply now
                 </Button>
               </div>
             </div>
