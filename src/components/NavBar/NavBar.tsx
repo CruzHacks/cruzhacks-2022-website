@@ -51,8 +51,11 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   const navs = (
     <div className='NavBar__links'>
       {location.pathname === "/" ? (
-        <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
-          SPONSOR US
+        <a
+          href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+          className='NavBar__links--link'
+        >
+          CODE OF CONDUCT
         </a>
       ) : (
         ""
@@ -76,8 +79,11 @@ const NavBar: React.FC<NavProps> = ({ theme }: NavProps) => {
   const mobileNavs = (
     <div className='NavBar__links' style={{ background: styling.menuColor }}>
       {location.pathname === "/" ? (
-        <a href='mailto:sponsor@cruzhacks.com' className='NavBar__links--link'>
-          SPONSOR US
+        <a
+          href='https://static.mlh.io/docs/mlh-code-of-conduct.pdf'
+          className='NavBar__links--link'
+        >
+          CODE OF CONDUCT
         </a>
       ) : (
         ""

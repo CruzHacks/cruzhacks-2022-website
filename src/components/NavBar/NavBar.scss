@@ -7,7 +7,10 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  padding: 12px 30px;
+  padding: 12px 150px;
+  @include responsiveness.screen(big-desktop) {
+    padding: 12px 180px;
+  }
   &__links {
     &--link {
       margin: 5px 18px;
