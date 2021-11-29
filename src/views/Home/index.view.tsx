@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./index.scss"
+import MLHBadge from "components/MLHBadge/MLHBadge"
 import About from "./components/About"
 // import FAQ from "./components/FAQ"
 // import Sponsors from "./components/Sponsors"
@@ -13,6 +14,7 @@ import FAQ from "./components/FAQ"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
+    <MLHBadge />
     <NavBar theme='home' />
     <Landing />
     <About />
