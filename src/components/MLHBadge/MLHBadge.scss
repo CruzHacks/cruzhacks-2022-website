@@ -1,0 +1,20 @@
+@use "~stylesheets/responsiveness";
+
+.MLHBadge-component {
+  display: block;
+  max-width: calc(10px + 5vw);
+  min-width: 60px;
+  position: fixed;
+  left: 50px;
+  top: 0;
+  width: 10%;
+  z-index: 10000;
+
+  &__image {
+    width: 100%;
+  }
+
+  @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+    visibility: hidden;
+  }
+}
