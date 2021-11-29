@@ -1,5 +1,6 @@
 import React from "react"
 import "./index.scss"
+import MLHBadge from "components/MLHBadge/MLHBadge"
 import Navbar from "components/NavBar/NavBar"
 import AddAnnouncement from "./components/AddAnnouncement/index.view"
 import AnnouncementsListed from "./components/AnnouncementsListed/index.view"
@@ -7,6 +8,7 @@ import Analytics from "./components/Analytics/index.view"
 
 const DashboardView: React.FC = () => (
   <div className='dashboard-view'>
+    <MLHBadge />
     <Navbar theme='home' />
     <div className='dashboard-view__container'>
       <div className='dashboard-view__header'>Organizer&apos;s View</div>
