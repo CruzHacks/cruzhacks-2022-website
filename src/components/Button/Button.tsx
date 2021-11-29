@@ -10,6 +10,7 @@ export interface ButtonProps {
   disabled?: boolean
   href?: string
   onClick?: any
+  redirect?: boolean
   children: React.ReactNode
 }
 
@@ -20,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   href,
   onClick,
   modifier,
+  redirect,
   children,
 }: ButtonProps) => {
   const classes = [className]
@@ -29,6 +31,13 @@ const Button: React.FC<ButtonProps> = ({
   }
 
   if (href && !disabled) {
+    if (redirect) {
+      return (
+        <a href={href} className={classes.join(" ")} onClick={onClick}>
+          {children}
+        </a>
+      )
+    }
     return (
       <a
         href={href}
@@ -60,6 +69,7 @@ Button.defaultProps = {
   disabled: false,
   href: undefined,
   onClick: undefined,
+  redirect: false,
 }
 
 export default Button

@@ -6,6 +6,7 @@ import { useApplication } from "components/ApplicationContext/ApplicationContext
 import ApplicationPages from "Props/portal/page"
 import AppStatus from "Props/portal/application"
 import ProgressBar from "components/ProgressBar/ProgressBar"
+import { removeCache } from "utils/Storage"
 import ConnectedForm from "./Connected/index.view"
 import ContactForm from "./Contact/index.view"
 import DemographicForm from "./Demographic/index.view"
@@ -25,11 +26,13 @@ const ApplicationForm: React.FC = () => {
     page,
     setPage,
     prevPage,
+    nextPage,
+    savePage,
     submitting,
     setSubmitting,
-    nextPage,
     setAppStatus,
     accessToken,
+    progress,
     contactFormData,
     setContactFormData,
     demographicFormData,
@@ -93,6 +96,13 @@ const ApplicationForm: React.FC = () => {
   const { user } = useAuth0()
   const submitData = async () => {
     try {
+      // save the progress first
+      savePage()
+    } catch (err: any) {
+      // but don't let errors prevent us from submitting.
+    }
+
+    try {
       setSubmitting(true)
       const bodyData = new FormData()
       bodyData.append("fname", contactFormData.fname)
@@ -123,6 +133,7 @@ const ApplicationForm: React.FC = () => {
       bodyData.append("eventLocation", demographicFormData.eventLocation)
       bodyData.append("major", demographicFormData.major)
       bodyData.append("currentStanding", demographicFormData.currentStanding)
+      bodyData.append("graduation", demographicFormData.graduation)
       bodyData.append("country", demographicFormData.country)
       bodyData.append("whyCruzHacks", shortAnswerFormData.whyCruzHacks)
       bodyData.append("newThisYear", shortAnswerFormData.newThisYear)
@@ -155,6 +166,9 @@ const ApplicationForm: React.FC = () => {
         setPage(0)
         setAppStatus(AppStatus.Pending)
         setSubmitting(false)
+
+        // delete the saved application in session storage
+        removeCache("application", user?.email)
       }
     } catch (err: any) {
       if (
@@ -198,7 +212,7 @@ const ApplicationForm: React.FC = () => {
           Section {page} / {ApplicationPages.MLH}
         </div>
         <ProgressBar
-          current={page - 1}
+          current={progress}
           limit={ApplicationPages.MLH}
           className='__header'
         />
@@ -214,6 +228,11 @@ const ApplicationForm: React.FC = () => {
             : ""}
         </div>
 
+        {submitting && (
+          <div className='application-form-component__response'>
+            Submitting...
+          </div>
+        )}
         {successOnSubmit === "error submitting" && serverErrors.length > 0 && (
           <div className='application-form-component__response-err'>
             Server Errors:
@@ -261,11 +280,13 @@ const ApplicationForm: React.FC = () => {
                   mlhFormData.conductAgree ===
                     "I have read and agree to abide by the MLH Code of Conduct at CruzHacks." &&
                   mlhFormData.tosAgree ===
+                    "I have read and agree to the terms outlined above." &&
+                  mlhFormData.communicationAgree ===
                     "I have read and agree to the terms outlined above."
                 )
               }
             >
-              Submit
+              {submitting ? "Loading..." : "Submit"}
             </button>
           )}
         </div>

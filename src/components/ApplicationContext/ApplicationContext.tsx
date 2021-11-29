@@ -1,4 +1,5 @@
 import React, {
+  useRef,
   useState,
   useEffect,
   useContext,
@@ -26,9 +27,9 @@ import {
   generateMLHProps,
 } from "views/Portal/utils/PropBuilder"
 import AppStatus from "Props/portal/application"
+import ApplicationPages from "Props/portal/page"
 import ApplicationForm from "views/Portal/components/ApplicationForm/index.view"
 import ApplicationStatus from "views/Portal/components/ApplicationStatus/index.view"
-import ApplicationPages from "../../Props/portal/page"
 
 interface ApplicationContextProps {
   page: number
@@ -38,10 +39,15 @@ interface ApplicationContextProps {
   accessToken: string
   nextPage: any
   prevPage: any
+  savePage: any
+
+  // track if user has inputted data
+  setNewChanges: any
 
   submitting: boolean
   setSubmitting: Dispatch<SetStateAction<boolean>>
 
+  progress: number
   contactFormData: ContactProps
   setContactFormData: Dispatch<SetStateAction<ContactProps>>
 
@@ -76,6 +82,9 @@ export const ApplicationProvider: React.FC = () => {
     {},
     user?.email
   )
+  const newChanges = useRef<boolean>(false)
+
+  const [progress, setProgress] = useState<number>(savedFormData.progress || 0)
 
   const [contactFormData, setContactFormData] = useState<ContactProps>(
     generateContactProps(user ? user.email : "", savedFormData.contact)
@@ -117,12 +126,17 @@ export const ApplicationProvider: React.FC = () => {
           switch ((res.data.status || "").toLowerCase()) {
             case "no document":
               // check if the application really doesn't exist, or if we failed to fetch it
-              if (res.statusCode === 200) {
-                setStatus(AppStatus.NotFound)
-                // if (savedFormData.progress) setStatus(AppStatus.InProgress)
-              } else {
+              if (res.statusCode !== 200) {
                 setStatus(AppStatus.Errored)
+                break
               }
+
+              if (savedFormData.progress) {
+                setStatus(AppStatus.InProgress)
+                break
+              }
+
+              setStatus(AppStatus.NotFound)
               break
             case "accepted":
               setStatus(AppStatus.Accepted)
@@ -160,11 +174,29 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
+  useEffect(() => {
+    // notify user if they are trying to leave the page after working on the app
+    const confirmLeave = (ev: BeforeUnloadEvent) => {
+      if (newChanges.current) {
+        ev.preventDefault()
+
+        // eslint-disable-next-line no-param-reassign
+        ev.returnValue = "Are you sure?"
+      }
+    }
+
+    window.addEventListener("beforeunload", confirmLeave)
+    return () => {
+      window.removeEventListener("beforeunload", confirmLeave)
+    }
+  }, [])
+
   const savePage = () => {
     const formData: SavedApplication = retrieve("application", {}, user?.email)
 
     if (!formData.progress || page > formData.progress) {
       formData.progress = page
+      setProgress(page)
     }
 
     if (page === ApplicationPages.Contact) {
@@ -181,6 +213,7 @@ export const ApplicationProvider: React.FC = () => {
         eventLocation,
         major,
         currentStanding,
+        graduation,
         country,
       } = demographicFormData
       formData.demographic = {
@@ -193,6 +226,7 @@ export const ApplicationProvider: React.FC = () => {
         eventLocation,
         major,
         currentStanding,
+        graduation,
         country,
       }
     } else if (page === ApplicationPages.ShortAnswer) {
@@ -238,8 +272,13 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        setNewChanges: () => {
+          newChanges.current = true
+        },
+        savePage,
         submitting,
         setSubmitting,
+        progress,
         contactFormData,
         demographicFormData,
         shortAnswerFormData,
