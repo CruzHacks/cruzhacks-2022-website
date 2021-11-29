@@ -69,9 +69,6 @@ const MLHPage: React.FC = () => {
             {
               label: "I have read and agree to the terms outlined above.",
             },
-            {
-              label: "I do not agree to the terms above.",
-            },
           ]}
           name='tosAgree'
           handleChange={(e: any) =>
@@ -85,16 +82,13 @@ const MLHPage: React.FC = () => {
         />
         <div className='mlh-page-container__TAC'>
           I authorize MLH to send me pre- and post-event informational emails
-          which contain free credit and opportunities from their partners.
+          which contain free credit and opportunities from their partners. *
         </div>
         <RadioForm
-          question='Communication from MLH'
+          question=''
           inputs={[
             {
               label: "I have read and agree to the terms outlined above.",
-            },
-            {
-              label: "I do not agree to the terms above.",
             },
           ]}
           name='communicationAgree'
