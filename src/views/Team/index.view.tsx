@@ -1,5 +1,6 @@
 import React from "react"
 import "./index.scss"
+import MLHBadge from "components/MLHBadge/MLHBadge"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import TeamGrid from "../../components/TeamCard/TeamCard"
@@ -7,6 +8,7 @@ import footerTheme from "../../Props/footer/footerTheme"
 
 const TeamView: React.FC = () => (
   <div className='team-view'>
+    <MLHBadge />
     <NavBar theme='team' />
     <div className='team-view__our-team'>OUR TEAM</div>
     <div className='team-view__small-message'>
