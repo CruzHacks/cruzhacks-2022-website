@@ -42,6 +42,7 @@ interface ApplicationContextProps {
   savePage: any
 
   // track if user has inputted data
+  newChangesRef: any
   setNewChanges: any
 
   submitting: boolean
@@ -174,26 +175,6 @@ export const ApplicationProvider: React.FC = () => {
       .catch(() => setStatus(AppStatus.Errored))
   }, [])
 
-  useEffect(() => {
-    // notify user if they are trying to leave the page after working on the app
-    const confirmLeave = (ev: BeforeUnloadEvent) => {
-      if (
-        (status === AppStatus.NotFound || status === AppStatus.InProgress) &&
-        newChanges.current
-      ) {
-        ev.preventDefault()
-
-        // eslint-disable-next-line no-param-reassign
-        ev.returnValue = "Are you sure?"
-      }
-    }
-
-    window.addEventListener("beforeunload", confirmLeave)
-    return () => {
-      window.removeEventListener("beforeunload", confirmLeave)
-    }
-  }, [status])
-
   const savePage = () => {
     const formData: SavedApplication = retrieve("application", {}, user?.email)
 
@@ -275,6 +256,7 @@ export const ApplicationProvider: React.FC = () => {
         accessToken: token,
         nextPage,
         prevPage,
+        newChangesRef: newChanges,
         setNewChanges: () => {
           newChanges.current = true
         },
