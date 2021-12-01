@@ -177,7 +177,10 @@ export const ApplicationProvider: React.FC = () => {
   useEffect(() => {
     // notify user if they are trying to leave the page after working on the app
     const confirmLeave = (ev: BeforeUnloadEvent) => {
-      if (newChanges.current) {
+      if (
+        (status === AppStatus.NotFound || status === AppStatus.InProgress) &&
+        newChanges.current
+      ) {
         ev.preventDefault()
 
         // eslint-disable-next-line no-param-reassign
@@ -189,7 +192,7 @@ export const ApplicationProvider: React.FC = () => {
     return () => {
       window.removeEventListener("beforeunload", confirmLeave)
     }
-  }, [])
+  }, [status])
 
   const savePage = () => {
     const formData: SavedApplication = retrieve("application", {}, user?.email)
