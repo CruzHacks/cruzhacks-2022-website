@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import "./index.scss"
 import axios from "axios"
 import { useAuth0 } from "@auth0/auth0-react"
@@ -28,6 +28,7 @@ const ApplicationForm: React.FC = () => {
     prevPage,
     nextPage,
     savePage,
+    newChangesRef,
     submitting,
     setSubmitting,
     setAppStatus,
@@ -92,6 +93,23 @@ const ApplicationForm: React.FC = () => {
   const viewPrevPage = () => {
     prevPage()
   }
+
+  useEffect(() => {
+    // notify user if they are trying to leave the form after working on the app
+    const confirmLeave = (ev: BeforeUnloadEvent) => {
+      if (newChangesRef.current) {
+        ev.preventDefault()
+
+        // eslint-disable-next-line no-param-reassign
+        ev.returnValue = "Are you sure?"
+      }
+    }
+
+    window.addEventListener("beforeunload", confirmLeave)
+    return () => {
+      window.removeEventListener("beforeunload", confirmLeave)
+    }
+  })
 
   const { user } = useAuth0()
   const submitData = async () => {
