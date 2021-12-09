@@ -3,6 +3,7 @@ import { ReactComponent as TwitterIcon } from "images/icons/twitter.svg"
 import { ReactComponent as LinkedInIcon } from "images/icons/linkedin.svg"
 import { ReactComponent as InstagramIcon } from "images/icons/insta.svg"
 import { ReactComponent as EmailIcon } from "images/icons/mail.svg"
+import { ReactComponent as TwentyTwentyOne } from "images/icons/TwentyTwentyOne.svg"
 import { social } from "./props"
 
 const socials: social[] = [
@@ -30,6 +31,11 @@ const socials: social[] = [
     link: "mailto:contact@cruzhacks.com",
     Icon: EmailIcon,
     label: "email",
+  },
+  {
+    link: "https://2021.cruzhacks.com/",
+    Icon: TwentyTwentyOne,
+    label: "previousYearWebsite",
   },
 ]
 
