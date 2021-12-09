@@ -15,7 +15,8 @@ const ANNOUNCEMENT_ENDPOINT =
 const APPLICATION_ENDPOINT =
   `${process.env.REACT_APP_ENDPOINT_URL}/application` || ""
 
-const ANALYTICS_ENDPOINT = `${APPLICATION_ENDPOINT}/analytics` || ""
+const ANALYTICS_ENDPOINT =
+  `${process.env.REACT_APP_ENDPOINT_URL}/analytics/` || ""
 const CHECK_APPLICATION_ENDPOINT = `${APPLICATION_ENDPOINT}/checkApp` || ""
 
 const API_KEY = process.env.REACT_APP_API_KEY
