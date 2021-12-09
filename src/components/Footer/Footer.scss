@@ -37,6 +37,9 @@
     justify-content: center;
     gap: 2%;
     z-index: 1;
+    @include responsiveness.screen(smallest) {
+      gap: 0;
+    }
   }
 
   &__link--wrapper {
@@ -51,19 +54,24 @@
     max-height: 100px;
     min-width: 45px;
     min-height: 45px;
-
+    @include responsiveness.screen(smallest, phone) {
+     padding: 0;
+    }
     z-index: 1;
   }
 
   &__link--icon {
-    transition: all 0.5s ease;
     width: 80%;
     height: 80%;
     filter: drop-shadow(0px 1px 3px rgb(210, 213, 255));
+    @include responsiveness.screen(smallest, phone) {
+      width: 70%;
+      height: 70%;
+    }
   }
 
   &__link--icon:hover {
-    filter: drop-shadow(-1px 1px 6px rgb(210, 213, 255));
+    filter: drop-shadow(0px 1px 4px rgb(210, 213, 255));
   }
 
   &__text {
