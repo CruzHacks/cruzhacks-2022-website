@@ -242,7 +242,7 @@ const ApplicationForm: React.FC = () => {
         </div>
         <div className='application-form-component__response-err'>
           {successOnSubmit === "error submitting" && serverErrors.length === 0
-            ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment. Our engineers have been alerted! Try again soon!"
+            ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment or your session has expired. Please try to refresh your browser. Our engineers have been alerted! Try again soon!"
             : ""}
         </div>
 
