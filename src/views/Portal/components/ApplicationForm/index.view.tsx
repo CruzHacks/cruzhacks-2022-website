@@ -200,7 +200,7 @@ const ApplicationForm: React.FC = () => {
       } else {
         setServerErrors([])
       }
-      if (err && err.response === 401) {
+      if (err && err.response && err.response.status === 401) {
         getAccessTokenSilently()
           .then(data => setToken(data))
           .catch(() => setToken(""))
