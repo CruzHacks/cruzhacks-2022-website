@@ -33,6 +33,7 @@ const ApplicationForm: React.FC = () => {
     setSubmitting,
     setAppStatus,
     accessToken,
+    setToken,
     progress,
     contactFormData,
     setContactFormData,
@@ -111,7 +112,7 @@ const ApplicationForm: React.FC = () => {
     }
   })
 
-  const { user } = useAuth0()
+  const { user, getAccessTokenSilently } = useAuth0()
   const submitData = async () => {
     try {
       // save the progress first
@@ -198,6 +199,11 @@ const ApplicationForm: React.FC = () => {
         setServerErrors(err.response.data.errors)
       } else {
         setServerErrors([])
+      }
+      if (err && err.response === 401) {
+        getAccessTokenSilently()
+          .then(data => setToken(data))
+          .catch(() => setToken(""))
       }
       setSubmitStatus("error submitting")
       setSubmitting(false)
