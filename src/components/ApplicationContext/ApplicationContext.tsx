@@ -147,7 +147,6 @@ export const ApplicationProvider: React.FC = () => {
                 12 * 60 * 60, // store for 12hrs
                 user?.email
               )
-              setProgress(6)
               break
             case "rejected":
               setStatus(AppStatus.Rejected)
@@ -157,7 +156,6 @@ export const ApplicationProvider: React.FC = () => {
                 12 * 60 * 60, // store for 12hrs
                 user?.email
               )
-              setProgress(6)
               break
             case "pending":
               setStatus(AppStatus.Pending)
