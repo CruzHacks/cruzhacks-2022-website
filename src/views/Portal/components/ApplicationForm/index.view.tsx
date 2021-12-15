@@ -33,6 +33,7 @@ const ApplicationForm: React.FC = () => {
     setSubmitting,
     setAppStatus,
     accessToken,
+    setToken,
     progress,
     contactFormData,
     setContactFormData,
@@ -111,7 +112,7 @@ const ApplicationForm: React.FC = () => {
     }
   })
 
-  const { user } = useAuth0()
+  const { user, getAccessTokenSilently } = useAuth0()
   const submitData = async () => {
     try {
       // save the progress first
@@ -199,6 +200,11 @@ const ApplicationForm: React.FC = () => {
       } else {
         setServerErrors([])
       }
+      if (err && err.response && err.response.status === 401) {
+        getAccessTokenSilently()
+          .then(data => setToken(data))
+          .catch(() => setToken(""))
+      }
       setSubmitStatus("error submitting")
       setSubmitting(false)
     }
@@ -242,7 +248,7 @@ const ApplicationForm: React.FC = () => {
         </div>
         <div className='application-form-component__response-err'>
           {successOnSubmit === "error submitting" && serverErrors.length === 0
-            ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment. Our engineers have been alerted! Try again soon!"
+            ? "CruzHacks Cloud had an error processing your application. There may be a high bandwidth of users at this moment or your session has expired. Please try to refresh your browser. Our engineers have been alerted! Try again soon!"
             : ""}
         </div>
 
