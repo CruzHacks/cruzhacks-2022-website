@@ -25,8 +25,8 @@ const ApplicationStatus: React.FC = () => {
         setStatusMessage("REJECTED")
         break
       case AppStatus.NotFound:
-        setStatusMessage("NOT STARTED")
-        // setStatusMessage("CLOSED") Uncomment to Close Applications
+        // setStatusMessage("NOT STARTED")
+        setStatusMessage("CLOSED")
         break
       case AppStatus.InProgress:
         setStatusMessage("IN PROGRESS")
