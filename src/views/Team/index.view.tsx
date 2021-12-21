@@ -21,6 +21,12 @@ const TeamView: React.FC = () => (
     </div>
     <div className='team-view__special-thanks-container'>
       <div className='team-view__special-thanks-container--msg'>
+        CruzHacks was founded as Hack UCSC by Mark Adams, Brent Haddad, and Doug
+        Erickson
+      </div>
+    </div>
+    <div className='team-view__special-thanks-container'>
+      <div className='team-view__special-thanks-container--msg'>
         Special thanks to our Board of Directors: Doug Erickson, Nathan Westrup,
         Amanda Rotella, Nada Miljkovic, and Drew Meyer.
       </div>

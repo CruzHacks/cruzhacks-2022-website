@@ -37,6 +37,7 @@ interface ApplicationContextProps {
   appStatus: number
   setAppStatus: Dispatch<SetStateAction<number>>
   accessToken: string
+  setToken: Dispatch<SetStateAction<string>>
   nextPage: any
   prevPage: any
   savePage: any
@@ -254,6 +255,7 @@ export const ApplicationProvider: React.FC = () => {
         appStatus: status,
         setAppStatus: setStatus,
         accessToken: token,
+        setToken,
         nextPage,
         prevPage,
         newChangesRef: newChanges,
