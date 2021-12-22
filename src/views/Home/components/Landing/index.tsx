@@ -6,9 +6,11 @@ import { ReactComponent as HillsMobile } from "images/landing/landing-hills-mobi
 import "./index.scss"
 import Button from "components/Button/Button"
 import EmailSubscription from "components/EmailSubscription"
+import PuzzleModal from "components/PuzzleModal"
 
 const Landing: React.FC = () => {
   const [mobile, setMobile] = useState(window.innerWidth <= 768)
+  const [isPuzzleHidden, setIsPuzzleHidden] = useState(true)
 
   useEffect(() => {
     const resize = () => setMobile(window.innerWidth <= 768)
@@ -29,7 +31,25 @@ const Landing: React.FC = () => {
 
         <div className='landing-component__section'>
           <div className='landing-component__text-box'>
-            <div className='landing-component__title'>CruzHacks 2022</div>
+            <div
+              className='landing-component__title'
+              role='button'
+              tabIndex={0}
+              onClick={() => {
+                setIsPuzzleHidden(false)
+              }}
+              onKeyDown={() => {
+                setIsPuzzleHidden(false)
+              }}
+            >
+              CruzHacks 2022
+            </div>
+            <PuzzleModal
+              question='Unscramble this word: actakhohn'
+              answer='hackathon'
+              display={isPuzzleHidden}
+              handleExit={() => setIsPuzzleHidden(true)}
+            />
             <div className='landing-component__textContainer'>
               <div className='landing-component__description'>
                 CruzHacks is the largest hackathon in Santa Cruz. Each year, we
