@@ -13,14 +13,13 @@ const SpeakerCard: React.FC<CardProps> = ({
       <ImgOverlay className='speaker-card__img-overlay' />
       <img src={imgSrc} alt={name} className='speaker-card__image' />
     </div>
-    <div className='speaker-card__card-container'>
+
+    {/* main card section */}
+    <div className='speaker-card__container'>
       <div className='speaker-card__name'>{name}</div>
       <div className='speaker-card__title'>
         {title.split("\n").map(val => (
-          <>
-            {val}
-            <br />
-          </>
+          <div className='speaker-card__title__line'>{val}</div>
         ))}
       </div>
     </div>

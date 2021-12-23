@@ -23,8 +23,12 @@
       font-size: 52px;
       color: #334276;
 
-      @include responsiveness.screen(smallest, phone, tablet) {
+      @include responsiveness.screen(phone, tablet) {
         font-size: 40px;
+      }
+
+      @include responsiveness.screen(smallest) {
+        font-size: 30px;
       }
     }
 

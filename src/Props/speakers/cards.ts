@@ -10,7 +10,7 @@ const speakerCards: CardProps[] = [
   },
   {
     name: "Ashish Airon",
-    title: "Co-Founder of CogniTensor, Founder of BlitzBusiness",
+    title: "Co-Founder of CogniTensor,\nFounder of BlitzBusiness",
     imgSrc: images.seaOtter,
     LinkedInLink: "",
   },
