@@ -3,7 +3,7 @@ import "./index.scss"
 import MLHBadge from "components/MLHBadge/MLHBadge"
 import About from "./components/About"
 // import FAQ from "./components/FAQ"
-// import Sponsors from "./components/Sponsors"
+import Sponsors from "./components/Sponsors"
 // import Tracks from "./components/Tracks"
 import Landing from "./components/Landing"
 import Milestones from "./components/Milestones"
@@ -21,8 +21,8 @@ const HomeView: React.FC = () => (
     <Milestones />
     <FAQ />
     {/* <Tracks />
-    <FAQ />
-    <Sponsors /> */}
+    <FAQ /> */}
+    <Sponsors />
     <Footer theme={footerTheme.homeFooter} />
   </div>
 )
