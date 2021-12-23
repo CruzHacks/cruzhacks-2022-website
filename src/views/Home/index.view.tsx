@@ -2,11 +2,11 @@ import * as React from "react"
 import "./index.scss"
 import MLHBadge from "components/MLHBadge/MLHBadge"
 import About from "./components/About"
-// import FAQ from "./components/FAQ"
 // import Sponsors from "./components/Sponsors"
 // import Tracks from "./components/Tracks"
 import Landing from "./components/Landing"
 import Milestones from "./components/Milestones"
+import Speakers from "./components/Speakers"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import footerTheme from "../../Props/footer/footerTheme"
@@ -19,6 +19,7 @@ const HomeView: React.FC = () => (
     <Landing />
     <About />
     <Milestones />
+    <Speakers />
     <FAQ />
     {/* <Tracks />
     <FAQ />
