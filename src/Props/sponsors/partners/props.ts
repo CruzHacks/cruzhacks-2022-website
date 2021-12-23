@@ -1,12 +1,12 @@
-import axure from "images/sponsors/partners/axure.svg"
-import balsamiq from "images/sponsors/partners/balsamiq.svg"
-import earthhacks from "images/sponsors/partners/earthhacks.svg"
-import echo3D from "images/sponsors/partners/echo-3D.svg"
-import googleCloud from "images/sponsors/partners/google-cloud.svg"
-import mlh from "images/sponsors/partners/mlh.svg"
-import stickermule from "images/sponsors/partners/sticker-mule.svg"
-import wolfram from "images/sponsors/partners/wolfram.svg"
-import woodstocks from "images/sponsors/partners/woodstocks.svg"
+import axure from "images/sponsors/partners/axure.png"
+import balsamiq from "images/sponsors/partners/balsamiq.png"
+import earthhacks from "images/sponsors/partners/earthhacks.png"
+import echo3D from "images/sponsors/partners/echo-3D.png"
+import googleCloud from "images/sponsors/partners/google-cloud.png"
+import mlh from "images/sponsors/partners/mlh.png"
+import stickermule from "images/sponsors/partners/sticker-mule.png"
+import wolfram from "images/sponsors/partners/wolfram.png"
+import woodstocks from "images/sponsors/partners/woodstocks.png"
 
 export interface PartnerProps {
   image: any

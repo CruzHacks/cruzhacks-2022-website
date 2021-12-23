@@ -1,17 +1,17 @@
-import cied from "images/sponsors/tera/cied.svg"
-import genomics from "images/sponsors/tera/genomics.svg"
+import cied from "images/sponsors/tera/cied.png"
+import genomics from "images/sponsors/tera/genomics.png"
 
-import baskin from "images/sponsors/giga/baskin.svg"
-import qb3 from "images/sponsors/giga/qb3.svg"
+import baskin from "images/sponsors/giga/baskin.png"
+import qb3 from "images/sponsors/giga/qb3.png"
 
-import citris from "images/sponsors/mega/citris.svg"
-import arts from "images/sponsors/mega/arts.svg"
-import digitalNest from "images/sponsors/mega/digital-nest.svg"
-import progress from "images/sponsors/mega/progress.svg"
+import citris from "images/sponsors/mega/citris.png"
+import arts from "images/sponsors/mega/arts.png"
+import digitalNest from "images/sponsors/mega/digital-nest.png"
+import progress from "images/sponsors/mega/progress.png"
 
-import cross from "images/sponsors/kilo/cross.svg"
-import scWorks from "images/sponsors/kilo/santa-cruz-works.svg"
-import ssVentures from "images/sponsors/kilo/south-swell-ventures.svg"
+import cross from "images/sponsors/kilo/cross.png"
+import scWorks from "images/sponsors/kilo/santa-cruz-works.png"
+import ssVentures from "images/sponsors/kilo/south-swell-ventures.png"
 
 export interface SponsorProps {
   image: string
