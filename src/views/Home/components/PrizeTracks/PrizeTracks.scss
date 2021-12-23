@@ -1,0 +1,48 @@
+@use "~stylesheets/typography";
+
+.prizeTracks {
+  background: linear-gradient(#b0b6f7, #b0b6f7);
+  height: 3000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &__container {
+      width: 524px;
+      height: 106px;
+      background-color: #32578E;
+      border-radius: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      &--header {
+        @include typography.title;
+        font-size: 70px;
+      }
+    }
+  }
+  
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    &--circle {  
+      &__container {
+        margin: 40px 50px;
+        width: 341px;
+        height: 341px;
+        border-color: black;
+        border-radius: 100%;
+        background-color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: -4px 8px 4px rgba(20, 28, 94, 0.4); 
+      }
+    }
+  }
+}
