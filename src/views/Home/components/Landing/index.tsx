@@ -24,6 +24,22 @@ const Landing: React.FC = () => {
     visual = <VisualMobile className='landing-component__visual' />
   }
 
+  const clickableTitle = (
+    <div
+      className='landing-component__title'
+      role='button'
+      tabIndex={0}
+      onClick={() => {
+        setIsPuzzleHidden(false)
+      }}
+      onKeyDown={() => {
+        setIsPuzzleHidden(false)
+      }}
+    >
+      CruzHacks 2022
+    </div>
+  )
+
   return (
     <div className='landing-component'>
       <div className='landing-component__container'>
@@ -31,20 +47,8 @@ const Landing: React.FC = () => {
 
         <div className='landing-component__section'>
           <div className='landing-component__text-box'>
-            <div
-              className='landing-component__title'
-              role='button'
-              tabIndex={0}
-              onClick={() => {
-                setIsPuzzleHidden(false)
-              }}
-              onKeyDown={() => {
-                setIsPuzzleHidden(false)
-              }}
-            >
-              CruzHacks 2022
-            </div>
             <PuzzleModal
+              targetElement={clickableTitle}
               question='Unscramble this word: actakhohn'
               answer='hackathon'
               display={isPuzzleHidden}

@@ -3,6 +3,7 @@ import "./index.scss"
 import { ReactComponent as ExitIcon } from "../../images/icons/circle-xmark-solid.svg"
 
 interface PuzzleProps {
+  targetElement: any
   question: string
   answer: string
   display: boolean
@@ -13,6 +14,7 @@ const link =
   "https://docs.google.com/forms/d/e/1FAIpQLSfyGGDipFozDbQrmDBIoGvCwLcn5Lec3GMNnCgsRWKp9Q4syA/viewform"
 
 const PuzzleModal: React.FC<PuzzleProps> = ({
+  targetElement,
   question,
   answer,
   display,
@@ -26,25 +28,27 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
     ? "puzzlemodal__container hidden"
     : "puzzlemodal__container displayed"
 
-  const handleChange = (event: any) => setResponse(event.target.value)
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setResponse(event.target.value)
+  }
 
-  const handleSubmit = (event: any) => {
-    if (event.keyCode === 13) {
+  const handleSubmit = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter") {
       if (response.toLowerCase() === answer) {
         setSuccess(true)
         setErrorMessage("")
       } else {
-        setErrorMessage("Uhoh that's incorrect")
+        setErrorMessage("Sorry, that's incorrect. Guess again")
       }
     }
   }
   const SuccessMessage = (
     <div className='successMessage'>
-      Congratulations!
+      That&#34;s correct!
       <a href={link} target='_blank' rel='noreferrer'>
-        {" click here "}
+        {" Click here "}
       </a>
-      to claim your prize
+      to earn your CruzCoins points!
     </div>
   )
   const questionaire = (
@@ -68,15 +72,18 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
     </>
   )
   return (
-    <div className={hiddenOrNot}>
-      <button
-        className='puzzlemodal__container--exit'
-        type='button'
-        onClick={handleExit}
-      >
-        <ExitIcon />
-      </button>
-      {success ? SuccessMessage : questionaire}
+    <div>
+      {targetElement}
+      <div className={hiddenOrNot}>
+        <button
+          className='puzzlemodal__container--exit'
+          type='button'
+          onClick={handleExit}
+        >
+          <ExitIcon />
+        </button>
+        {success ? SuccessMessage : questionaire}
+      </div>
     </div>
   )
 }
