@@ -9,7 +9,7 @@ import wolfram from "images/sponsors/partners/wolfram.png"
 import woodstocks from "images/sponsors/partners/woodstocks.png"
 
 export interface PartnerProps {
-  image: any
+  image: string
   url: string
   key: string
 }

@@ -41,17 +41,8 @@
         line-height: 48px;
         text-align: center;
         color: #FFFFFF;
-        @include responsiveness.screen(smallest, phone) {
-            margin: 0 0 0 0;
-        }
-        @include responsiveness.screen(tablet, large-tablet) {
-            margin: 0 0 0 0;
-        }
-        @include responsiveness.screen(small-laptop, desktop,big-desktop) {
+        @include responsiveness.screen(small-laptop, desktop, big-desktop) {
             margin: 48px 0 48px 0;
-        }
-        @include responsiveness.screen(big-desktop) {
-            //margin: 0 0 0 0;
         }
     }
 
@@ -86,52 +77,7 @@
         }
     }
 
-    &__sponsor-tera {
-        width: 100%;
-        @include responsiveness.screen(smallest, phone) {
-            max-height: 70px;
-        }
-        @include responsiveness.screen(tablet, large-tablet) {
-            max-height: 90px; 
-        }
-        @include responsiveness.screen(small-laptop, desktop) {
-            max-height: 120px;
-        }
-        @include responsiveness.screen(big-desktop) {
-            max-height: 150px;
-        }
-    }
-    &__sponsor-giga {
-        width: 100%;
-        @include responsiveness.screen(smallest, phone) {
-            max-height: 70px;
-        }
-        @include responsiveness.screen(tablet, large-tablet) {
-            max-height: 90px; 
-        }
-        @include responsiveness.screen(small-laptop, desktop) {
-            max-height: 120px;
-        }
-        @include responsiveness.screen(big-desktop) {
-            max-height: 150px;
-        }
-    }
-    &__sponsor-mega {
-        width: 100%;
-        @include responsiveness.screen(smallest, phone) {
-            max-height: 70px;
-        }
-        @include responsiveness.screen(tablet, large-tablet) {
-            max-height: 90px; 
-        }
-        @include responsiveness.screen(small-laptop, desktop) {
-            max-height: 120px;
-        }
-        @include responsiveness.screen(big-desktop) {
-            max-height: 150px;
-        }
-    }
-    &__sponsor-kilo {
+    &__sponsor-tier {
         width: 100%;
         @include responsiveness.screen(smallest, phone) {
             max-height: 70px;

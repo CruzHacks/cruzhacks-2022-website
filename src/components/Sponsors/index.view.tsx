@@ -31,7 +31,7 @@ const Sponsors: React.FC = () => {
                 <img
                   src={image}
                   alt=''
-                  className={`sponsors-container__sponsor-${data.sponsorTier}`}
+                  className='sponsors-container__sponsor-tier'
                 />
               </a>
             ))}
