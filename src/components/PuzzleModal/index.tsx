@@ -3,28 +3,25 @@ import "./index.scss"
 import { ReactComponent as ExitIcon } from "../../images/icons/circle-xmark-solid.svg"
 
 interface PuzzleProps {
-  targetElement: any
+  children: React.ReactNode
   question: string
   answer: string
-  display: boolean
-  handleExit: any
 }
 
 const link =
   "https://docs.google.com/forms/d/e/1FAIpQLSfyGGDipFozDbQrmDBIoGvCwLcn5Lec3GMNnCgsRWKp9Q4syA/viewform"
 
 const PuzzleModal: React.FC<PuzzleProps> = ({
-  targetElement,
+  children,
   question,
   answer,
-  display,
-  handleExit,
 }: PuzzleProps) => {
   const [response, setResponse] = useState("")
   const [success, setSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
-
-  const hiddenOrNot = display
+  const [isPuzzleHidden, setIsPuzzleHidden] = useState(true)
+  const handleExit = () => setIsPuzzleHidden(true)
+  const hiddenOrNot = isPuzzleHidden
     ? "puzzlemodal__container hidden"
     : "puzzlemodal__container displayed"
 
@@ -73,7 +70,19 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
   )
   return (
     <div>
-      {targetElement}
+      <div
+        role='button'
+        tabIndex={0}
+        onClick={() => {
+          setIsPuzzleHidden(false)
+        }}
+        onKeyDown={() => {
+          setIsPuzzleHidden(false)
+        }}
+      >
+        {children}
+      </div>
+
       <div className={hiddenOrNot}>
         <button
           className='puzzlemodal__container--exit'
