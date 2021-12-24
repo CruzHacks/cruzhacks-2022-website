@@ -2,298 +2,62 @@ import * as React from "react"
 
 const BeginnerHacks = () => (
   <svg
-    width='349'
-    height='353'
-    viewBox='0 0 349 353'
+    width='202'
+    height='240'
+    viewBox='0 0 202 240'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
+    className='svg-shadow'
   >
-    <g filter='url(#filter1_d_1912_728)'>
-      <path
-        d='M83 270.712V194.703C83 190.779 86.6007 187.593 91.0503 187.593H135.197C139.639 187.593 143.247 190.773 143.247 194.703V270.712C143.247 274.635 139.646 277.821 135.197 277.821H91.0503C86.6007 277.821 83 274.641 83 270.712Z'
-        fill='#94B8FF'
-      />
-      <path
-        d='M83 270.712V194.703C83 190.779 86.6007 187.593 91.0503 187.593H135.197C139.639 187.593 143.247 190.773 143.247 194.703V270.712C143.247 274.635 139.646 277.821 135.197 277.821H91.0503C86.6007 277.821 83 274.641 83 270.712Z'
-        stroke='#364B6A'
-        strokeWidth='4'
-        strokeMiterlimit='10'
-      />
-    </g>
-    <g filter='url(#filter2_d_1912_728)'>
-      <path
-        d='M150.77 270.712V178.477C150.77 174.553 154.371 171.367 158.82 171.367H202.967C207.409 171.367 211.017 174.547 211.017 178.477V270.718C211.017 274.641 207.416 277.827 202.967 277.827H158.82C154.371 277.821 150.77 274.641 150.77 270.712Z'
-        fill='#6790DF'
-      />
-      <path
-        d='M150.77 270.712V178.477C150.77 174.553 154.371 171.367 158.82 171.367H202.967C207.409 171.367 211.017 174.547 211.017 178.477V270.718C211.017 274.641 207.416 277.827 202.967 277.827H158.82C154.371 277.821 150.77 274.641 150.77 270.712Z'
-        stroke='#364B6A'
-        strokeWidth='4'
-        strokeMiterlimit='10'
-      />
-    </g>
-    <g filter='url(#filter3_d_1912_728)'>
-      <path
-        d='M219.909 270.712V123.947C219.909 120.024 223.51 116.838 227.96 116.838H272.106C276.549 116.838 280.156 120.018 280.156 123.947V270.712C280.156 274.635 276.555 277.821 272.106 277.821H227.96C223.51 277.821 219.909 274.641 219.909 270.712Z'
-        fill='#4B679D'
-      />
-      <path
-        d='M219.909 270.712V123.947C219.909 120.024 223.51 116.838 227.96 116.838H272.106C276.549 116.838 280.156 120.018 280.156 123.947V270.712C280.156 274.635 276.555 277.821 272.106 277.821H227.96C223.51 277.821 219.909 274.641 219.909 270.712Z'
-        stroke='#364B6A'
-        strokeWidth='4'
-        strokeMiterlimit='10'
-      />
-    </g>
     <path
-      d='M172 88.7017V42.2983C172 42.1297 172.168 42 172.369 42H175.631C175.84 42 176 42.1362 176 42.2983V88.7017C176 88.8703 175.832 89 175.631 89H172.369C172.168 89 172 88.8638 172 88.7017Z'
+      d='M2 230.712V154.703C2 150.779 5.60072 147.593 10.0503 147.593H54.1967C58.6394 147.593 62.2469 150.773 62.2469 154.703V230.712C62.2469 234.635 58.6462 237.821 54.1967 237.821H10.0503C5.60072 237.821 2 234.641 2 230.712Z'
+      fill='#94B8FF'
+      stroke='#364B6A'
+      strokeWidth='4'
+      strokeMiterlimit='10'
+    />
+    <path
+      d='M69.77 230.712V138.477C69.77 134.553 73.3707 131.367 77.8203 131.367H121.967C126.409 131.367 130.017 134.547 130.017 138.477V230.718C130.017 234.641 126.416 237.827 121.967 237.827H77.8203C73.3707 237.821 69.77 234.641 69.77 230.712Z'
+      fill='#6790DF'
+      stroke='#364B6A'
+      strokeWidth='4'
+      strokeMiterlimit='10'
+    />
+    <path
+      d='M138.909 230.712V83.9473C138.909 80.0238 142.51 76.8379 146.96 76.8379H191.106C195.549 76.8379 199.156 80.0178 199.156 83.9473V230.712C199.156 234.635 195.555 237.821 191.106 237.821H146.96C142.51 237.821 138.909 234.641 138.909 230.712Z'
+      fill='#4B679D'
+      stroke='#364B6A'
+      strokeWidth='4'
+      strokeMiterlimit='10'
+    />
+    <path
+      d='M91 48.7017V2.29832C91 2.1297 91.1683 2 91.3687 2H94.6312C94.8396 2 95 2.13619 95 2.29832V48.7017C95 48.8703 94.8316 49 94.6312 49H91.3687C91.1683 49 91 48.8638 91 48.7017Z'
       fill='#364B6A'
       stroke='#364B6A'
       strokeWidth='2'
       strokeMiterlimit='10'
     />
     <path
-      d='M174 43L209.557 43.545L199.782 52.4303L211 62L174.192 61.3916L174 43Z'
+      d='M93 3L128.557 3.54502L118.782 12.4303L130 22L93.1924 21.3916L93 3Z'
       fill='#FAD44D'
       stroke='#364B6A'
       strokeWidth='4'
       strokeMiterlimit='10'
     />
-    <g filter='url(#filter4_d_1912_728)'>
-      <path
-        d='M127.318 88.521C127.318 88.521 116.381 102.875 105.917 114.988C94.3467 128.378 106.826 128.79 106.826 128.79C106.826 128.79 117.545 113.236 124.846 110.011C130.431 107.541 129.413 121.521 126.998 133.914C124.584 146.306 121.37 156.07 118.89 163.085C114.963 174.176 116.068 176.278 120.883 176.805C126.977 177.478 126.86 177.122 130.184 163.739C132.482 154.496 141.39 130.961 141.39 130.961C141.39 130.961 140.677 125.927 151.774 133.082C161.65 139.443 162.879 143.183 160.748 155.143C160.108 158.743 160.755 160.724 165.453 160.755C172.296 160.806 171.671 158.927 172.856 154.673C175.256 146.058 174.245 137.964 169.984 134.193C164.566 129.4 157.992 124.619 157.992 124.619L157.338 110.519C157.338 110.519 176.165 100.26 180.136 94.622C181.183 93.1364 182.448 85.9688 176.165 88.5591C169.875 91.1493 161.846 98.101 156.385 97.3837C155.105 97.2186 151.222 93.1936 151.222 93.1936L127.318 88.521Z'
-        fill='#8AE3FF'
-      />
-      <path
-        d='M127.318 88.521C127.318 88.521 116.381 102.875 105.917 114.988C94.3467 128.378 106.826 128.79 106.826 128.79C106.826 128.79 117.545 113.236 124.846 110.011C130.431 107.541 129.413 121.521 126.998 133.914C124.584 146.306 121.37 156.07 118.89 163.085C114.963 174.176 116.068 176.278 120.883 176.805C126.977 177.478 126.86 177.122 130.184 163.739C132.482 154.496 141.39 130.961 141.39 130.961C141.39 130.961 140.677 125.927 151.774 133.082C161.65 139.443 162.879 143.183 160.748 155.143C160.108 158.743 160.755 160.724 165.453 160.755C172.296 160.806 171.671 158.927 172.856 154.673C175.256 146.058 174.245 137.964 169.984 134.193C164.566 129.4 157.992 124.619 157.992 124.619L157.338 110.519C157.338 110.519 176.165 100.26 180.136 94.622C181.183 93.1364 182.448 85.9688 176.165 88.5591C169.875 91.1493 161.846 98.101 156.385 97.3837C155.105 97.2186 151.222 93.1936 151.222 93.1936L127.318 88.521Z'
-        stroke='#364B6A'
-        strokeWidth='4'
-        strokeMiterlimit='10'
-      />
-    </g>
-    <g filter='url(#filter5_d_1912_728)'>
-      <path
-        d='M140.5 102C150.717 102 159 93.9411 159 84C159 74.0589 150.717 66 140.5 66C130.283 66 122 74.0589 122 84C122 93.9411 130.283 102 140.5 102Z'
-        fill='#8AE3FF'
-      />
-      <path
-        d='M140.5 102C150.717 102 159 93.9411 159 84C159 74.0589 150.717 66 140.5 66C130.283 66 122 74.0589 122 84C122 93.9411 130.283 102 140.5 102Z'
-        stroke='#364B6A'
-        strokeWidth='4'
-        strokeMiterlimit='10'
-      />
-    </g>
-    <defs>
-      <filter
-        id='filter0_d_1912_728'
-        x='0'
-        y='0'
-        width='349'
-        height='353'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dx='-4' dy='8' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0.0794444 0 0 0 0 0.108167 0 0 0 0 0.366667 0 0 0 0.4 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-      <filter
-        id='filter1_d_1912_728'
-        x='73'
-        y='185.593'
-        width='72.2469'
-        height='102.228'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dx='-4' dy='4' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-      <filter
-        id='filter2_d_1912_728'
-        x='140.77'
-        y='169.367'
-        width='72.247'
-        height='118.46'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dx='-4' dy='4' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-      <filter
-        id='filter3_d_1912_728'
-        x='209.909'
-        y='114.838'
-        width='72.2469'
-        height='172.983'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dx='-4' dy='4' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-      <filter
-        id='filter4_d_1912_728'
-        x='91.0007'
-        y='85.9995'
-        width='91.9993'
-        height='101'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dx='-4' dy='4' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-      <filter
-        id='filter5_d_1912_728'
-        x='116'
-        y='64'
-        width='49'
-        height='48'
-        filterUnits='userSpaceOnUse'
-        colorInterpolationFilters='sRGB'
-      >
-        <feFlood floodOpacity='0' result='BackgroundImageFix' />
-        <feColorMatrix
-          in='SourceAlpha'
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
-          result='hardAlpha'
-        />
-        <feOffset dy='4' />
-        <feGaussianBlur stdDeviation='2' />
-        <feComposite in2='hardAlpha' operator='out' />
-        <feColorMatrix
-          type='matrix'
-          values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
-        />
-        <feBlend
-          mode='normal'
-          in2='BackgroundImageFix'
-          result='effect1_dropShadow_1912_728'
-        />
-        <feBlend
-          mode='normal'
-          in='SourceGraphic'
-          in2='effect1_dropShadow_1912_728'
-          result='shape'
-        />
-      </filter>
-    </defs>
+    <path
+      d='M46.3184 48.521C46.3184 48.521 35.3812 62.8752 24.9166 74.9884C13.3467 88.3776 25.8257 88.7902 25.8257 88.7902C25.8257 88.7902 36.5447 73.2361 43.8459 70.011C49.4308 67.5414 48.4128 81.5211 45.9984 93.9136C43.5841 106.306 40.3698 116.07 37.89 123.085C33.9631 134.176 35.0685 136.278 39.8826 136.805C45.9766 137.478 45.8603 137.122 49.1836 123.739C51.4816 114.496 60.3899 90.9614 60.3899 90.9614C60.3899 90.9614 59.6772 85.927 70.7745 93.0819C80.65 99.4432 81.8789 103.183 79.7482 115.143C79.1082 118.743 79.7555 120.724 84.4533 120.755C91.2963 120.806 90.6709 118.927 91.8562 114.673C94.256 106.058 93.2452 97.964 88.9838 94.1929C83.5661 89.3997 76.9921 84.6192 76.9921 84.6192L76.3376 70.5189C76.3376 70.5189 95.1651 60.2596 99.1356 54.622C100.183 53.1364 101.448 45.9688 95.165 48.5591C88.8747 51.1493 80.8463 58.101 75.3849 57.3837C74.105 57.2186 70.2218 53.1936 70.2218 53.1936L46.3184 48.521Z'
+      fill='#8AE3FF'
+      stroke='#364B6A'
+      strokeWidth='4'
+      strokeMiterlimit='10'
+    />
+    <path
+      d='M59.5 62C69.7172 62 78 53.9411 78 44C78 34.0589 69.7172 26 59.5 26C49.2827 26 41 34.0589 41 44C41 53.9411 49.2827 62 59.5 62Z'
+      fill='#8AE3FF'
+      stroke='#364B6A'
+      strokeWidth='4'
+      strokeMiterlimit='10'
+    />
   </svg>
 )
 export default BeginnerHacks
