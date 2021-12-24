@@ -42,15 +42,15 @@
   }
 
   &__image {
-    margin-top: 15px;
+    align-self: center;
     border-radius: 100px;
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     object-fit: cover;
     user-select: none;
     // we can't use gradient for the border, so we're using a svg instead
     //box-sizing: border-box;
-    //border: 10px solid #9198e5;
+    //border: 10px solid #e29dbf;
   }
 
   &__container {
