@@ -1,0 +1,83 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.schedule-table {
+  position: relative;
+  width: 100%;
+
+  &__table {
+    min-height: 300px;
+    margin: 0 50px;
+    padding: 20px 30px;
+    background: linear-gradient(180deg, rgba(91, 62, 128, 0.64) 0%, rgba(86, 114, 170, 0.78) 100%);
+    box-shadow: 0 4px 8px rgba(193, 194, 207, 0.74);
+    border-radius: 20px;
+
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  &__date {
+    padding: 0 0 10px;
+    text-align: center;
+    border-bottom: 2px solid #9fc5ff;
+
+    font-weight: bold;
+    color: #ced6fa;
+    font-size: 28px;
+
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 20px;
+    }
+  }
+
+  &__event {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid #9fc5ff;
+    color: #d3ddff;
+    font-size: 22px;
+    width: 100%;
+
+    @include responsiveness.screen(smallest, phone) {
+      font-size: 14px;
+    }
+
+    &__time {
+      margin: 0;
+      padding: 6px 20px;
+      width: 16%;
+      border-right: 2px solid #9fc5ff;
+
+      @include responsiveness.screen(large-tablet) {
+        width: 20%;
+      }
+    }
+
+    &__text {
+      margin: 0;
+      padding: 6px 20px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 2em;
+    width: 30px;
+    cursor: pointer;
+
+    &--previous {
+      left: 0;
+    }
+
+    &--next {
+      right: 0;
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+  }
+}

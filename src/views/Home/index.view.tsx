@@ -7,6 +7,7 @@ import About from "./components/About"
 // import Tracks from "./components/Tracks"
 import Landing from "./components/Landing"
 import Milestones from "./components/Milestones"
+import Schedule from "./components/Schedule"
 import NavBar from "../../components/NavBar/NavBar"
 import Footer from "../../components/Footer/Footer"
 import footerTheme from "../../Props/footer/footerTheme"
@@ -19,6 +20,7 @@ const HomeView: React.FC = () => (
     <Landing />
     <About />
     <Milestones />
+    <Schedule />
     <FAQ />
     {/* <Tracks />
     <FAQ />

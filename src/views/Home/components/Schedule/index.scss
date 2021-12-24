@@ -1,0 +1,47 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.schedule-component {
+  margin-top: -1px;
+  padding: 14px 0 40px 0;
+  // TODO: make sure this is right
+  background: linear-gradient(#b0b6f7, #D3DDFF, #b0b6f7);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+
+    @include typography.title;
+    font-size: 52px;
+    font-style: italic;
+    color: #8172AD;
+
+    @include responsiveness.screen(big-desktop) {
+      font-size: 60px;
+    }
+
+    @include responsiveness.screen(phone, tablet) {
+      font-size: 40px;
+    }
+
+    @include responsiveness.screen(smallest) {
+      font-size: 30px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 4vw;
+    width: 70%;
+    max-width: 1500px;
+
+    @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
+      width: initial;
+    }
+  }
+}
