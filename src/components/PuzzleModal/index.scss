@@ -18,7 +18,7 @@
   color: white;
   box-shadow: rgba(0, 0, 0, 0.712) 0px 1px 8px;
   border-radius: .5em;
-  padding: 2em;
+  padding: 1em;
 
   &--exit {
     position: absolute;
@@ -36,7 +36,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: .5em;
   }
 }
 

@@ -41,7 +41,7 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
   }
   const SuccessMessage = (
     <div className='successMessage'>
-      That&#34;s correct!
+      That&apos;s correct!
       <a href={link} target='_blank' rel='noreferrer'>
         {" Click here "}
       </a>
