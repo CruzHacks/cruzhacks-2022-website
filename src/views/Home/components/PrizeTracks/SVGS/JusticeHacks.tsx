@@ -3,12 +3,10 @@ import "./Background.scss"
 
 const JusticeHacks: React.FC = () => (
   <svg
-    width='341'
-    height='341'
-    viewBox='0 0 341 341'
+    viewBox='0 0 330 330'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className='svg-shadow track-img-dimensions-golden'
+    className='svg-shadow track-img-dimensions-justice'
   >
     <path
       d='M80 160.117V136.148C80 133.855 82.0773 132 84.6443 132H260.746C263.313 132 265.39 133.855 265.39 136.148V160.117C265.39 162.41 263.313 164.265 260.746 164.265H84.6443C82.0821 164.265 80 162.406 80 160.117Z'

@@ -9,22 +9,37 @@ import UIUXHacks from "./SVGS/UIUXHacks"
 
 interface CircleProps {
   image: any
+  hoverText: string
 }
 
 const Tracks = [
-  [<HealthHacks />, 0],
-  [<EarthHacks />, 1],
-  [<JusticeHacks />, 2],
-  [<BeginnerHacks />, 3],
-  [<GoldenStateHacks />, 4],
-  [<UIUXHacks />, 5],
+  [<HealthHacks />, "Health Hacks", 0],
+  [<JusticeHacks />, "Justice Hacks", 2],
+  [<EarthHacks />, "Earth Hacks", 1],
+  [<BeginnerHacks />, "Beginner Hacks", 3],
+  [<GoldenStateHacks />, "Golden State Hacks", 4],
+  [<UIUXHacks />, "UI UX Hacks", 5],
 ]
 
-const Circle: React.FC<CircleProps> = ({ image }: CircleProps) => (
-  <div className='prizeTracks__images__container'>
-    <div className='prizeTracks__images__container--image'>{image}</div>
-  </div>
-)
+const Circle: React.FC<CircleProps> = ({ image, hoverText }: CircleProps) => {
+  const [isHovered, setHover] = React.useState<boolean>(false)
+  return (
+    <div
+      className='prizeTracks__images__container'
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {isHovered ? (
+        <div className='prizeTracks__images__container--hover'>
+          <div>
+            {hoverText}
+          </div>
+        </div>
+      ) : null}
+      <div className='prizeTracks__images__container--image'>{image}</div>
+    </div>
+  )
+}
 
 const PrizeTracks: React.FC = () => (
   <div className='prizeTracks'>
@@ -37,7 +52,11 @@ const PrizeTracks: React.FC = () => (
     </div>
     <div className='prizeTracks__images'>
       {Tracks.map(image => (
-        <Circle image={image[0]} key={image[1] as number} />
+        <Circle
+          image={image[0]}
+          hoverText={image[1] as string}
+          key={image[2] as number}
+        />
       ))}
     </div>
   </div>

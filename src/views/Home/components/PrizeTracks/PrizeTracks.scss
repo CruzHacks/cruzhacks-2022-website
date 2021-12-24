@@ -31,6 +31,7 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    align-items: center;
     &__container {
       margin: 40px 50px;
       width: 341px;
@@ -42,6 +43,22 @@
       justify-content: center;
       align-items: center;
       box-shadow: -4px 8px 4px rgba(20, 28, 94, 0.4); 
+      &--hover {
+        background-color: #162C7B;
+        opacity: 0.76;
+        color: white;
+        border-radius: 50%;
+        width: inherit;
+        aspect-ratio: 1/1;
+        position: absolute;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include typography.title;
+        font-style: italic;
+        text-align: center;
+      }
       &--image {
         text-align: center;
       }
