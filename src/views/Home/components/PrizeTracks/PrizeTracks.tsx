@@ -21,8 +21,8 @@ const Tracks = [
 ]
 
 const Circle: React.FC<CircleProps> = ({ image }: CircleProps) => (
-  <div className='prizeTracks__images--circle__container'>
-    <div className='prizeTracks__images--circle__container--image'>{image}</div>
+  <div className='prizeTracks__images__container'>
+    <div className='prizeTracks__images__container--image'>{image}</div>
   </div>
 )
 
@@ -37,7 +37,7 @@ const PrizeTracks: React.FC = () => (
     </div>
     <div className='prizeTracks__images'>
       {Tracks.map(image => (
-        <Circle image={image[0]} />
+        <Circle image={image[0]} key={image[1] as number} />
       ))}
     </div>
   </div>

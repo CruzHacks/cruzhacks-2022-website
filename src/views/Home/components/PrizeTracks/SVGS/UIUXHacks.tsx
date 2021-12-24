@@ -8,7 +8,7 @@ const UIUXHacks: React.FC = () => (
     viewBox='0 0 246 198'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className='UIUX svg-shadow'
+    className='UIUX svg-shadow track-img-dimensions'
   >
     <g filter='url(#filter0_d_1912_766)'>
       <path

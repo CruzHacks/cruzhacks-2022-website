@@ -8,7 +8,7 @@ const HealthHacks = () => (
     viewBox='0 0 230 244'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className='svg-shadow'
+    className='svg-shadow track-img-dimensions'
   >
     <g id='health_hacks'>
       <path

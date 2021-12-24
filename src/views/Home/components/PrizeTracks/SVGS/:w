@@ -8,7 +8,7 @@
 }
 
 .track-img-dimensions-golden {
-  width: 100%;
+  width: 80%;
   max-width: 270px;
 }
 

@@ -7,7 +7,7 @@ const BeginnerHacks = () => (
     viewBox='0 0 202 240'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className='svg-shadow'
+    className='svg-shadow track-img-dimensions'
   >
     <path
       d='M2 230.712V154.703C2 150.779 5.60072 147.593 10.0503 147.593H54.1967C58.6394 147.593 62.2469 150.773 62.2469 154.703V230.712C62.2469 234.635 58.6462 237.821 54.1967 237.821H10.0503C5.60072 237.821 2 234.641 2 230.712Z'

@@ -8,7 +8,7 @@ const EarthHacks: React.FC = () => (
     viewBox='0 0 214 277'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
-    className='svg-shadow'
+    className='svg-shadow track-img-dimensions'
   >
     <path
       d='M107.273 171.173L133.816 138.916'
