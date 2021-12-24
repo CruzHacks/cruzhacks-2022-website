@@ -31,9 +31,7 @@ const Circle: React.FC<CircleProps> = ({ image, hoverText }: CircleProps) => {
     >
       {isHovered ? (
         <div className='prizeTracks__images__container--hover'>
-          <div>
-            {hoverText}
-          </div>
+          <div>{hoverText}</div>
         </div>
       ) : null}
       <div className='prizeTracks__images__container--image'>{image}</div>
