@@ -33,11 +33,12 @@
     border-radius: 100px;
   }
 
-  &__img-overlay {
-    width: 100%;
+  &__img-border {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   &__image {

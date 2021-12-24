@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./index.scss"
 import { CardProps } from "Props/props"
-import { ReactComponent as ImgOverlay } from "images/speakers/overlay.svg"
+import { ReactComponent as ImgBorder } from "images/speakers/border.svg"
 
 const SpeakerCard: React.FC<CardProps> = ({
   name,
@@ -10,7 +10,7 @@ const SpeakerCard: React.FC<CardProps> = ({
 }: CardProps) => (
   <div className='speaker-card'>
     <div className='speaker-card__img-container'>
-      <ImgOverlay className='speaker-card__img-overlay' />
+      <ImgBorder className='speaker-card__img-border' />
       <img src={imgSrc} alt={name} className='speaker-card__image' />
     </div>
 
