@@ -10,7 +10,6 @@ import PuzzleModal from "components/PuzzleModal"
 
 const Landing: React.FC = () => {
   const [mobile, setMobile] = useState(window.innerWidth <= 768)
-  const [isPuzzleHidden, setIsPuzzleHidden] = useState(true)
 
   useEffect(() => {
     const resize = () => setMobile(window.innerWidth <= 768)
@@ -24,22 +23,6 @@ const Landing: React.FC = () => {
     visual = <VisualMobile className='landing-component__visual' />
   }
 
-  const clickableTitle = (
-    <div
-      className='landing-component__title'
-      role='button'
-      tabIndex={0}
-      onClick={() => {
-        setIsPuzzleHidden(false)
-      }}
-      onKeyDown={() => {
-        setIsPuzzleHidden(false)
-      }}
-    >
-      CruzHacks 2022
-    </div>
-  )
-
   return (
     <div className='landing-component'>
       <div className='landing-component__container'>
@@ -48,12 +31,11 @@ const Landing: React.FC = () => {
         <div className='landing-component__section'>
           <div className='landing-component__text-box'>
             <PuzzleModal
-              targetElement={clickableTitle}
               question='Unscramble this word: actakhohn'
               answer='hackathon'
-              display={isPuzzleHidden}
-              handleExit={() => setIsPuzzleHidden(true)}
-            />
+            >
+              <div className='landing-component__title'>CruzHacks 2022</div>
+            </PuzzleModal>
             <div className='landing-component__textContainer'>
               <div className='landing-component__description'>
                 CruzHacks is the largest hackathon in Santa Cruz. Each year, we
