@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   height: 150px;
-  width: 225px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +19,8 @@
   box-shadow: rgba(0, 0, 0, 0.712) 0px 1px 8px;
   border-radius: .5em;
   padding: 1em;
+  gap: 1em;
+  text-align: center;
 
   &--exit {
     position: absolute;
@@ -37,6 +39,11 @@
     align-items: center;
     justify-content: center;
   }
+  &--success {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+  }
 }
 
 .puzzlemodal__input {
@@ -48,7 +55,6 @@
   &--error {
     border-radius: .25em;
     border: none;
-    max-width: 400px;
     @include typography.text;
     color: black;
     border: 1px solid red;

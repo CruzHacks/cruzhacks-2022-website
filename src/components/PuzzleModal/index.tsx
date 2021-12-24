@@ -40,12 +40,12 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
     }
   }
   const SuccessMessage = (
-    <div className='successMessage'>
-      That&apos;s correct!
+    <div className='puzzlemodal__container--success'>
+      That&apos;s correct!&#8239;
       <a href={link} target='_blank' rel='noreferrer'>
-        {" Click here "}
+        Click here
       </a>
-      to earn your CruzCoins points!
+      &#8239;to earn your CruzCoins points!
     </div>
   )
   const questionaire = (
