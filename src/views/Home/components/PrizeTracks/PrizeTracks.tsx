@@ -1,6 +1,5 @@
 import * as React from "react"
 import "./PrizeTracks.scss"
-import "./Background.scss"
 import { ReactComponent as HealthHacks } from "images/tracks/health_hacks.svg"
 import { ReactComponent as BeginnerHacks } from "images/tracks/beginner_hacks.svg"
 import { ReactComponent as EarthHacks } from "images/tracks/earth_hacks.svg"
