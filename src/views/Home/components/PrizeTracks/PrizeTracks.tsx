@@ -24,7 +24,7 @@ const Tracks = [
     2,
   ],
   [
-    <EarthHacks className='svg-shadow track-img-dimensions' />,
+    <EarthHacks className='svg-shadow track-img-dimensions-earth' />,
     "Earth Hacks",
     1,
   ],
@@ -55,7 +55,7 @@ const Circle: React.FC<CircleProps> = ({ image, hoverText }: CircleProps) => {
     >
       {isHovered ? (
         <div className='prizeTracks__images__container--hover'>
-          <div>{hoverText}</div>
+          <div className='unselectable'>{hoverText}</div>
         </div>
       ) : null}
       <div className='prizeTracks__images__container--image'>{image}</div>
