@@ -1,11 +1,12 @@
 import * as React from "react"
 import "./PrizeTracks.scss"
-import HealthHacks from "./SVGS/HealthHacks"
-import BeginnerHacks from "./SVGS/BeginnerHacks"
-import EarthHacks from "./SVGS/EarthHacks"
-import GoldenStateHacks from "./SVGS/GoldenStateHacks"
-import JusticeHacks from "./SVGS/JusticeHacks"
-import UIUXHacks from "./SVGS/UIUXHacks"
+import "./Background.scss"
+import { ReactComponent as HealthHacks } from "images/tracks/health_hacks.svg"
+import { ReactComponent as BeginnerHacks } from "images/tracks/beginner_hacks.svg"
+import { ReactComponent as EarthHacks } from "images/tracks/earth_hacks.svg"
+import { ReactComponent as GoldenStateHacks } from "images/tracks/golden_state_hacks.svg"
+import { ReactComponent as JusticeHacks } from "images/tracks/justice_hacks.svg"
+import { ReactComponent as UIUXHacks } from "images/tracks/ui_ux_hacks.svg"
 
 interface CircleProps {
   image: any
@@ -13,12 +14,36 @@ interface CircleProps {
 }
 
 const Tracks = [
-  [<HealthHacks />, "Health Hacks", 0],
-  [<JusticeHacks />, "Justice Hacks", 2],
-  [<EarthHacks />, "Earth Hacks", 1],
-  [<BeginnerHacks />, "Beginner Hacks", 3],
-  [<GoldenStateHacks />, "Golden State Hacks", 4],
-  [<UIUXHacks />, "UI UX Hacks", 5],
+  [
+    <HealthHacks className='svg-shadow track-img-dimensions' />,
+    "Health Hacks",
+    0,
+  ],
+  [
+    <JusticeHacks className='svg-shadow track-img-dimensions-justice' />,
+    "Justice Hacks",
+    2,
+  ],
+  [
+    <EarthHacks className='svg-shadow track-img-dimensions' />,
+    "Earth Hacks",
+    1,
+  ],
+  [
+    <BeginnerHacks className='svg-shadow track-img-dimensions' />,
+    "Beginner Hacks",
+    3,
+  ],
+  [
+    <GoldenStateHacks className='track-img-dimensions-golden' />,
+    "Golden State Hacks",
+    4,
+  ],
+  [
+    <UIUXHacks className='svg-shadow track-img-dimensions UIUX' />,
+    "UI UX Hacks",
+    5,
+  ],
 ]
 
 const Circle: React.FC<CircleProps> = ({ image, hoverText }: CircleProps) => {
