@@ -14,32 +14,32 @@ interface CircleProps {
 
 const Tracks = [
   [
-    <HealthHacks className='svg-shadow track-img-dimensions' />,
+    <HealthHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions' />,
     "Health Hacks",
     0,
   ],
   [
-    <JusticeHacks className='svg-shadow track-img-dimensions-justice' />,
+    <JusticeHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-justice' />,
     "Justice Hacks",
     2,
   ],
   [
-    <EarthHacks className='svg-shadow track-img-dimensions-earth' />,
+    <EarthHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-earth' />,
     "Earth Hacks",
     1,
   ],
   [
-    <BeginnerHacks className='svg-shadow track-img-dimensions' />,
+    <BeginnerHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions' />,
     "Beginner Hacks",
     3,
   ],
   [
-    <GoldenStateHacks className='track-img-dimensions-golden' />,
+    <GoldenStateHacks className='prizeTracks--track-img-dimensions-golden' />,
     "Golden State Hacks",
     4,
   ],
   [
-    <UIUXHacks className='svg-shadow track-img-dimensions UIUX' />,
+    <UIUXHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions UIUX' />,
     "UI UX Hacks",
     5,
   ],
@@ -55,7 +55,7 @@ const Circle: React.FC<CircleProps> = ({ image, hoverText }: CircleProps) => {
     >
       {isHovered ? (
         <div className='prizeTracks__images__container--hover'>
-          <div className='unselectable'>{hoverText}</div>
+          <div className='prizeTracks--unselectable'>{hoverText}</div>
         </div>
       ) : null}
       <div className='prizeTracks__images__container--image'>{image}</div>
