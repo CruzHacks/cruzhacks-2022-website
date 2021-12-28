@@ -14,10 +14,12 @@ const Partners: React.FC = () => {
       <div className='partners-container__rows'>
         {partnerRows.map(row => (
           <div className='partners-container__partners' key={row.key}>
-            {row.row.map(({ image, url, key }: PartnerProps) => (
-              <a href={url} key={key} className='partners-container__partner'>
+            {row.row.map(({ image, key }: PartnerProps) => (
+              <div key={key} className='partners-container__partner'>
+                {/* <a href={url} key={key} className='partners-container__partner'> */}
                 <img src={image} alt='' className='partners-container__image' />
-              </a>
+                {/* </a> */}
+              </div>
             ))}
           </div>
         ))}

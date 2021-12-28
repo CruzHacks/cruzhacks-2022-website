@@ -26,14 +26,16 @@ const Sponsors: React.FC = () => {
       <div className='sponsors-container__rows'>
         {sponsorData.map(data => (
           <div className='sponsors-container__row' key={data.sponsorTier}>
-            {data.sponsors.map(({ image, url, key }: SponsorProps) => (
-              <a href={url} key={key} className='sponsors-container__sponsor'>
+            {data.sponsors.map(({ image, key }: SponsorProps) => (
+              <div key={key} className='sponsors-container__sponsor'>
+                {/* <a href={url} key={key} className='sponsors-container__sponsor'> */}
                 <img
                   src={image}
                   alt=''
                   className='sponsors-container__sponsor-tier'
                 />
-              </a>
+                {/* </a> */}
+              </div>
             ))}
           </div>
         ))}
