@@ -56,6 +56,7 @@
       width: 16%;
       min-width: 16%;
       border-right: 2px solid #9fc5ff;
+      color: #E2C8EE;
 
       @include responsiveness.screen(smallest, phone, tablet) {
         padding: 8px 10px;
