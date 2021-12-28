@@ -19,7 +19,9 @@ const SpeakerCard: React.FC<CardProps> = ({
       <div className='speaker-card__name'>{name}</div>
       <div className='speaker-card__title'>
         {title.split("\n").map(val => (
-          <div className='speaker-card__title__line'>{val}</div>
+          <div key={btoa(val)} className='speaker-card__title__line'>
+            {val}
+          </div>
         ))}
       </div>
     </div>
