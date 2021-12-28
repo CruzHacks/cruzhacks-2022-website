@@ -8,7 +8,7 @@
   &__table {
     min-height: 300px;
     margin: 0 50px;
-    padding: 20px 30px;
+    padding: 20px 30px 40px;
     background: linear-gradient(180deg, rgba(91, 62, 128, 0.64) 0%, rgba(86, 114, 170, 0.78) 100%);
     box-shadow: 0 4px 8px rgba(193, 194, 207, 0.74);
     border-radius: 20px;
@@ -16,9 +16,15 @@
     font-family: "Lato", sans-serif;
     font-style: normal;
     font-weight: normal;
+
+    @include responsiveness.screen(smallest, phone) {
+      margin: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 
-  &__date {
+  &__header {
     padding: 0 0 10px;
     text-align: center;
     border-bottom: 2px solid #9fc5ff;
@@ -34,31 +40,52 @@
 
   &__event {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     border-bottom: 2px solid #9fc5ff;
     color: #d3ddff;
-    font-size: 22px;
+    font-size: 20px;
     width: 100%;
 
-    @include responsiveness.screen(smallest, phone) {
-      font-size: 14px;
+    @include responsiveness.screen(smallest, phone, tablet) {
+      font-size: 16px;
     }
 
     &__time {
       margin: 0;
-      padding: 6px 20px;
+      padding: 8px 20px;
       width: 16%;
+      min-width: 16%;
       border-right: 2px solid #9fc5ff;
 
-      @include responsiveness.screen(large-tablet) {
-        width: 20%;
+      @include responsiveness.screen(smallest, phone, tablet) {
+        padding: 8px 10px;
+        width: 24%;
+        min-width: 24%;
+      }
+
+      @include responsiveness.screen(smallest) {
+        padding: 8px 5px;
+        width: 75px;
+        min-width: 75px;
       }
     }
 
     &__text {
       margin: 0;
-      padding: 6px 20px;
+      padding: 8px 20px;
+
+      @include responsiveness.screen(smallest, phone, tablet) {
+        padding: 8px 10px;
+      }
+    }
+  }
+
+  &__arrows {
+    @include responsiveness.screen(smallest, phone) {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      margin: 20px 0 0;
     }
   }
 
@@ -66,7 +93,9 @@
     position: absolute;
     top: 2em;
     width: 30px;
+    height: 30px;
     cursor: pointer;
+    user-select: none; // so users don't select text when double clicking the arrows
 
     &--previous {
       left: 0;
@@ -78,6 +107,11 @@
 
     &--disabled {
       cursor: not-allowed;
+    }
+
+    @include responsiveness.screen(smallest, phone) {
+      position: relative;
+      top: 0;
     }
   }
 }

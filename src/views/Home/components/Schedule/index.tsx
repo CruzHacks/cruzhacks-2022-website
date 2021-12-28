@@ -8,6 +8,9 @@ const Schedule: React.FC = () => (
     <div className='schedule-component__header'>Schedule</div>
     <div className='schedule-component__container'>
       <ScheduleTable schedule={schedule} />
+      <div className='schedule-component__footnote'>
+        All times listed are in PST.
+      </div>
     </div>
   </div>
 )
