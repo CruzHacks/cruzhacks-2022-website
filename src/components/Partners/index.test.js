@@ -9,3 +9,4 @@ describe("Testing Partners", () => {
     render(<Partners />)
   })
 })
+  
