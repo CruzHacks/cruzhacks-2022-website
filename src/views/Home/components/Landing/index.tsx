@@ -48,9 +48,9 @@ const Landing: React.FC = () => {
                   className='landing-component__button'
                   modifier='primary'
                   label='sponsor button'
-                  href='mailto:sponsor@cruzhacks.com'
+                  href='https://docs.google.com/forms/d/e/1FAIpQLSfXrKQS69kBkP6J5yfJRKP9XqDOqk_AW3Cq-Ya-kEXTfQOHUg/viewform'
                 >
-                  become a sponsor
+                  mentor/judge application
                 </Button>
                 <Button
                   className='landing-component__button'
@@ -59,7 +59,7 @@ const Landing: React.FC = () => {
                   href='/portal'
                   redirect
                 >
-                  apply now
+                  hacker apps closed
                 </Button>
               </div>
             </div>
