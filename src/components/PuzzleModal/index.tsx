@@ -42,7 +42,12 @@ const PuzzleModal: React.FC<PuzzleProps> = ({
   const SuccessMessage = (
     <div className='puzzlemodal__container--success'>
       That&apos;s correct!&#8239;
-      <a href={link} target='_blank' rel='noreferrer'>
+      <a
+        href={link}
+        target='_blank'
+        rel='noreferrer'
+        className='puzzlemodal__container--success__link'
+      >
         Click here
       </a>
       &#8239;to earn your CruzCoins points!
