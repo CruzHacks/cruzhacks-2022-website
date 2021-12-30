@@ -63,7 +63,7 @@ export const row3: PartnerProps[] = [
   },
   {
     image: stickermule,
-    url: "",
+    url: "http://hackp.ac/mlh-stickermule-hackathons",
     key: "stickermule",
   },
 ]
