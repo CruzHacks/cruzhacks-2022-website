@@ -4,8 +4,7 @@
 .schedule-component {
   margin-top: -1px;
   padding: 14px 0 40px 0;
-  // TODO: make sure this is right
-  background: linear-gradient(#b0b6f7, #D3DDFF, #b0b6f7);
+  background: linear-gradient(rgba(191, 196, 253, 0.65) 1.08%, #9CD7E4);
 
   &__header {
     display: flex;

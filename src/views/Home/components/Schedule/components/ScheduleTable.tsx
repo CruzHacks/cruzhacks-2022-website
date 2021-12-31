@@ -42,12 +42,15 @@ const ScheduleTable: React.FC<ScheduleTableProps> = ({
     <div className='schedule-table'>
       <div className='schedule-table__table'>
         <div className='schedule-table__header'>{current.date}</div>
-        {current.events.map(event => (
-          <div key={event.name} className='schedule-table__event'>
-            <div className='schedule-table__event__time'>{event.time}</div>
-            <div className='schedule-table__event__text'>{event.name}</div>
-          </div>
-        ))}
+        <div className='schedule-table__container'>
+          {current.events.map(event => (
+            <div key={event.name} className='schedule-table__event'>
+              <div className='schedule-table__event__time'>{event.time}</div>
+              <div className='schedule-table__event__divider' />
+              <div className='schedule-table__event__text'>{event.name}</div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className='schedule-table__arrows'>
         <LeftArrow
