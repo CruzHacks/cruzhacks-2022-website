@@ -6,7 +6,7 @@
   width: 100%;
 
   &__table {
-    min-height: 300px;
+    min-height: 600px;
     margin: 0 50px;
     padding: 20px 30px 40px;
     background: linear-gradient(180deg, rgba(91, 62, 128, 0.64) 0%, rgba(86, 114, 170, 0.78) 100%);
@@ -17,7 +17,12 @@
     font-style: normal;
     font-weight: normal;
 
+    @include responsiveness.screen(tablet) {
+      min-height: 500px;
+    }
+
     @include responsiveness.screen(smallest, phone) {
+      min-height: 500px;
       margin: 0;
       padding-left: 10px;
       padding-right: 10px;
@@ -52,14 +57,14 @@
 
     &__time {
       margin: 0;
-      padding: 8px 20px;
+      padding: 15px 20px;
       width: 16%;
       min-width: 16%;
       border-right: 2px solid #9fc5ff;
       color: #E2C8EE;
 
       @include responsiveness.screen(smallest, phone, tablet) {
-        padding: 8px 10px;
+        padding: 10px;
         width: 24%;
         min-width: 24%;
       }
@@ -73,10 +78,10 @@
 
     &__text {
       margin: 0;
-      padding: 8px 20px;
+      padding: 15px 20px;
 
       @include responsiveness.screen(smallest, phone, tablet) {
-        padding: 8px 10px;
+        padding: 10px;
       }
     }
   }
