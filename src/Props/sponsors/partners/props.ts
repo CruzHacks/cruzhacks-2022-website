@@ -17,17 +17,17 @@ export interface PartnerProps {
 export const row1: PartnerProps[] = [
   {
     image: mlh,
-    url: "",
+    url: "https://mlh.io/",
     key: "mlh",
   },
   {
     image: woodstocks,
-    url: "",
+    url: "https://woodstockscruz.com/",
     key: "woodstocks",
   },
   {
     image: googleCloud,
-    url: "",
+    url: "https://cloud.google.com/",
     key: "googleCloud",
   },
 ]
@@ -35,17 +35,17 @@ export const row1: PartnerProps[] = [
 export const row2: PartnerProps[] = [
   {
     image: axure,
-    url: "",
+    url: "https://www.axure.com/",
     key: "axure",
   },
   {
     image: balsamiq,
-    url: "",
+    url: "https://balsamiq.com/",
     key: "balsamiq",
   },
   {
     image: wolfram,
-    url: "",
+    url: "https://www.wolfram.com/",
     key: "wolfram",
   },
 ]
@@ -53,12 +53,12 @@ export const row2: PartnerProps[] = [
 export const row3: PartnerProps[] = [
   {
     image: echo3D,
-    url: "",
+    url: "https://www.echo3d.co/",
     key: "echo3D",
   },
   {
     image: earthhacks,
-    url: "",
+    url: "https://earthhacks.io/",
     key: "earthhacks",
   },
   {

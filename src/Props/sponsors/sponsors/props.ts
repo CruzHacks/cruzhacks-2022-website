@@ -22,17 +22,17 @@ export interface SponsorProps {
 export const kiloSponsors: SponsorProps[] = [
   {
     image: scWorks,
-    url: "",
+    url: "https://www.santacruzworks.org/",
     key: "scWorks",
   },
   {
     image: ssVentures,
-    url: "",
+    url: "https://www.linkedin.com/in/bud-colligan-1793022/",
     key: "ssVentures",
   },
   {
     image: cross,
-    url: "",
+    url: "https://cross.ucsc.edu/2022-osre/osre2022apps.html",
     key: "cross",
   },
 ]
@@ -40,22 +40,22 @@ export const kiloSponsors: SponsorProps[] = [
 export const megaSponsors: SponsorProps[] = [
   {
     image: citris,
-    url: "",
+    url: "https://citris.sites.ucsc.edu/",
     key: "citris",
   },
   {
     image: arts,
-    url: "",
+    url: "https://arts.ucsc.edu/",
     key: "arts",
   },
   {
     image: digitalNest,
-    url: "",
+    url: "https://digitalnest.org/",
     key: "digitalNest",
   },
   {
     image: progress,
-    url: "",
+    url: "https://www.progress.com/",
     key: "progress",
   },
 ]
@@ -63,12 +63,12 @@ export const megaSponsors: SponsorProps[] = [
 export const gigaSponsors: SponsorProps[] = [
   {
     image: qb3,
-    url: "",
+    url: "https://qb3.soe.ucsc.edu/",
     key: "qb3",
   },
   {
     image: baskin,
-    url: "",
+    url: "https://engineering.ucsc.edu/",
     key: "baskin",
   },
 ]
@@ -76,12 +76,12 @@ export const gigaSponsors: SponsorProps[] = [
 export const teraSponsors: SponsorProps[] = [
   {
     image: cied,
-    url: "",
+    url: "https://cied.ucsc.edu/",
     key: "cied",
   },
   {
     image: genomics,
-    url: "",
+    url: "https://genomics.ucsc.edu/",
     key: "genomics",
   },
 ]
