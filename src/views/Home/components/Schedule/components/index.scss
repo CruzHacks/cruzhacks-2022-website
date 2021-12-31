@@ -67,7 +67,13 @@
       color: #E2C8EE;
       text-align: center;
 
-      @include responsiveness.screen(smallest, phone, tablet) {
+      @include responsiveness.screen(tablet) {
+        padding: 0 10px;
+        width: 20%;
+        min-width: 20%;
+      }
+
+      @include responsiveness.screen(smallest, phone) {
         padding: 0 10px;
         width: 24%;
         min-width: 24%;
