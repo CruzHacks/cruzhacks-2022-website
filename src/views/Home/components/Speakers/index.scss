@@ -52,6 +52,10 @@
       @include responsiveness.screen(smallest, phone) {
         width: 90%;
       }
+
+      @include responsiveness.screen(big-desktop) {
+        display: none;
+      }
     }
   }
 
