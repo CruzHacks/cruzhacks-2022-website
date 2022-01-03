@@ -1,0 +1,75 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.speakers-component {
+  margin-top: -1px;
+  padding: 40px 0 40px 0;
+  background: linear-gradient(179.99deg, #AFCFFD 1.08%, #D4D8FD);
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    &__text {
+      padding: 10px 20px;
+      border-radius: 24px;
+      background: #ffffff;
+      width: fit-content;
+
+      @include typography.header-text;
+      font-size: 52px;
+      color: #334276;
+
+      @include responsiveness.screen(phone, tablet) {
+        font-size: 40px;
+      }
+
+      @include responsiveness.screen(smallest) {
+        font-size: 30px;
+      }
+    }
+
+    &__hr {
+      align-self: start;
+      margin-top: 10px;
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+      width: 70%;
+      height: 10px;
+      background: #4A5887;
+
+      @include responsiveness.screen(big-desktop) {
+        width: 60%;
+      }
+
+      @include responsiveness.screen(tablet, large-tablet) {
+        width: 80%;
+      }
+
+      @include responsiveness.screen(smallest, phone) {
+        width: 90%;
+      }
+
+      @include responsiveness.screen(big-desktop) {
+        display: none;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 50px auto;
+    padding: 0 4vw;
+    max-width: 1200px;
+
+    @include responsiveness.screen(smallest, phone) {
+      padding: 0 1vw;
+    }
+  }
+}
