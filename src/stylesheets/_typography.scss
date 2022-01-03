@@ -23,6 +23,13 @@
   // separating this out in case we need to apply additional styling to the buttons.
 }
 
+@mixin header-text {
+  color: var(--color-text-primary);
+  font-family: "Source Sans Pro", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+}
+
 @mixin our-team-text {
   color: var(--color-text-primary);
   font-family: "Lato", sans-serif;
