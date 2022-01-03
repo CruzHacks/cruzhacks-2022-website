@@ -1,0 +1,75 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.puzzlemodal__container {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 150px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(49, 85, 119);
+  @include typography.text;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.712) 0px 1px 8px;
+  border-radius: .5em;
+  padding: 1em;
+  gap: 1em;
+  text-align: center;
+
+  &--exit {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: none;
+    color: red;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  &--form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  &--success {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    &__link {
+      color: inherit;
+    }
+  }
+}
+
+.puzzlemodal__input {
+  border-radius: .25em;
+  border: none;
+  @include typography.text;
+  color: black;
+
+  &--error {
+    border-radius: .25em;
+    border: none;
+    @include typography.text;
+    color: black;
+    border: 1px solid red;
+  }
+}
+.puzzlemodal__error {
+  color: red;
+}
+
+.displayed {
+  transform: scale(1);
+}
+.hidden {
+  transform: scale(0);
+}
