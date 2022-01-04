@@ -12,6 +12,7 @@ import FAQ from "./components/FAQ"
 import Sponsors from "./components/Sponsors"
 import Footer from "../../components/Footer/Footer"
 import footerTheme from "../../Props/footer/footerTheme"
+import PrizeTracks from "./components/PrizeTracks/PrizeTracks"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
@@ -20,7 +21,7 @@ const HomeView: React.FC = () => (
     <Landing />
     <About />
     <Milestones />
-    {/* <Tracks /> */}
+    <PrizeTracks />
     <Speakers />
     <Schedule />
     <FAQ />
