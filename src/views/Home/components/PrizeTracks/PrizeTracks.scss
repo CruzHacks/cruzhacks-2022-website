@@ -1,0 +1,113 @@
+@use "~stylesheets/typography";
+
+.prizeTracks {
+  background: linear-gradient(179.99deg, #E39DD7 1.08%, #BEB5FE 45.9%, #B0D0FE 99.99%);
+  display: flex;
+  margin-top: -1px;
+  flex-direction: column;
+  align-items: center;
+  &__title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &__container {
+      width: 524px;
+      max-width: 90%;
+      height: 106px;
+      background-color: #32578E;
+      border-radius: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      &--header {
+        @include typography.title;
+        font-size: 70px;
+        text-shadow: 5px 0px #777CE7;
+      }
+    }
+  }
+  
+  &__images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1600px;
+    align-items: center;
+    &__container {
+      margin: 40px 50px;
+      width: 20vw;
+      height: 20vw;
+      min-width: 260px;
+      min-height: 260px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      box-shadow: -4px 8px 4px rgba(20, 28, 94, 0.4); 
+      &--hover {
+        background-color: #162C7B;
+        opacity: 0.76;
+        color: white;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include typography.title;
+        font-style: italic;
+        text-align: center;
+      }
+      &--image {
+        text-align: center;
+      }
+    }
+  }
+  
+  &--svg-shadow {
+    filter: drop-shadow(0px 5px 5px rgb(0 0 0 / 0.4));
+  }
+
+  &--track-img-dimensions {
+    min-width: 10vw;
+    width: 65%;
+  }
+
+  &--track-img-dimensions-golden {
+    min-width: 15vw;
+    width: 75%;
+  }
+
+  &--track-img-dimensions-earth {
+    width: 65%;
+    min-width: 10vw;
+  }
+
+  &--track-img-dimensions-justice {
+    min-width: 17vw;
+    width: 85%;
+  }
+
+  &--unselectable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  &--UIUX {
+    margin-left: 35px;
+    margin-top: 25px;
+  }
+
+  &--svg-mask {
+    mask-type: alpha
+  }
+}
+
