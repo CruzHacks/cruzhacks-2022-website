@@ -39,8 +39,8 @@ const Tracks = [
     4,
   ],
   [
-    <UIUXHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions UIUX' />,
-    "UI UX Hacks",
+    <UIUXHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions prizeTracks--UIUX' />,
+    "UI/UX Hacks",
     5,
   ],
 ]

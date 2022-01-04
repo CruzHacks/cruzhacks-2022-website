@@ -74,20 +74,23 @@
   }
 
   &--track-img-dimensions {
-    width: 75%;
+    min-width: 10vw;
+    width: 65%;
   }
 
   &--track-img-dimensions-golden {
-    width: 85%;
+    min-width: 15vw;
+    width: 75%;
   }
 
   &--track-img-dimensions-earth {
-    width: 60%;
+    width: 65%;
+    min-width: 10vw;
   }
 
   &--track-img-dimensions-justice {
-    width: 90%;
-    max-width: 260px;
+    min-width: 17vw;
+    width: 85%;
   }
 
   &--unselectable {
