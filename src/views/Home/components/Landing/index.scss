@@ -3,10 +3,10 @@
 
 .landing-component {
   position: relative;
-  background: linear-gradient(180deg, #81CBD6 0%, #E6F3FF 51.56%, #8194D6 100%);
+  background: linear-gradient(180deg, #81CBD6 0%, #E6F3FF 51.56%, #8296D9 100%);
 
   @include responsiveness.screen(smallest, phone, tablet) {
-    background: linear-gradient(180deg, #CDFCFF 13.21%, #7484D7 93.15%);
+    background: linear-gradient(180deg, #CDFCFF 13.21%, #8296D9 100%);
   }
 
   &__container {
