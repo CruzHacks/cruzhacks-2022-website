@@ -19,7 +19,7 @@ const footerThemes: FooterTheme = {
     hillColor: "#445D88",
   },
   homeFooter: {
-    bgColor: "#27739D",
+    bgColor: "#467A94",
     iconFill: "#FFEAEA",
     iconStroke: "#3289BA",
     textColor: "#FFFFFF",
