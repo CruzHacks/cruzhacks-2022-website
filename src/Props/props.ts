@@ -17,6 +17,7 @@ export interface MilestoneProps {
   milestoneName: string
   milestoneStat: string
   id: string
+  hasModal?: boolean
 }
 
 export interface AboutProps {
