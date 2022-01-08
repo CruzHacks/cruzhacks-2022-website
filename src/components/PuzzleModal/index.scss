@@ -12,14 +12,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color: rgb(49, 85, 119);
   @include typography.text;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.712) 0px 1px 8px;
   border-radius: .5em;
-  padding: 1em;
-  gap: 1em;
+  padding: 1.25em;
+  gap: .25em;
   text-align: center;
 
   &--exit {
