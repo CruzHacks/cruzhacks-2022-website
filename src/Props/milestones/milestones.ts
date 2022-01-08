@@ -23,6 +23,7 @@ const milestoneResults: MilestoneProps[] = [
     milestoneName: "Projects",
     milestoneStat: "35+",
     id: "projects",
+    hasModal: true,
   },
   {
     image: schools,
