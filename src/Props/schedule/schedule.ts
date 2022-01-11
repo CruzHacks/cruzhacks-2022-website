@@ -12,7 +12,7 @@ export const schedule: ScheduleDate[] = [
   {
     date: "Friday, January 14, 2022",
     events: [
-      { name: "Swag Distribution Starts", time: "" },
+      { name: "Swag Distribution Starts", time: "3:00 PM" },
       { name: "Event Begins", time: "5:00 PM" },
       { name: "Swag Distribution Ends", time: "" },
       { name: "Opening Ceremony", time: "7:00 PM" },
