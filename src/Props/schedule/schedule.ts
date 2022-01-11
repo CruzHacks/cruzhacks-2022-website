@@ -27,6 +27,7 @@ export const schedule: ScheduleDate[] = [
       { name: "Pitching for Hackers", time: "9:00 AM" },
       { name: "Intro to Algorithm / Applications", time: "10:00 AM" },
       { name: "Tech Interviews", time: "" },
+      { name: "Swag Distribution Starts", time: "11:00 AM" },
       { name: "Intro to Github", time: "11:00 AM" },
       { name: "Swag Distribution Starts", time: "" },
       { name: "What Could Go Wrong", time: "" },
