@@ -24,7 +24,7 @@ const Tracks = [
     2,
   ],
   [
-    <EducationHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-earth' />,
+    <EducationHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-education' />,
     "Education Hacks",
     1,
   ],
