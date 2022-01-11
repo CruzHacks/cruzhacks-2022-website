@@ -1,16 +1,18 @@
 import * as React from "react"
 import "./index.scss"
 import MLHBadge from "components/MLHBadge/MLHBadge"
-import About from "./components/About"
-// import FAQ from "./components/FAQ"
-// import Sponsors from "./components/Sponsors"
-// import Tracks from "./components/Tracks"
-import Landing from "./components/Landing"
-import Milestones from "./components/Milestones"
 import NavBar from "../../components/NavBar/NavBar"
+import Landing from "./components/Landing"
+import About from "./components/About"
+import Milestones from "./components/Milestones"
+// import Tracks from "./components/Tracks"
+import Speakers from "./components/Speakers"
+import Schedule from "./components/Schedule"
+import FAQ from "./components/FAQ"
+import Sponsors from "./components/Sponsors"
 import Footer from "../../components/Footer/Footer"
 import footerTheme from "../../Props/footer/footerTheme"
-import FAQ from "./components/FAQ"
+import PrizeTracks from "./components/PrizeTracks/PrizeTracks"
 
 const HomeView: React.FC = () => (
   <div className='home-view'>
@@ -19,10 +21,11 @@ const HomeView: React.FC = () => (
     <Landing />
     <About />
     <Milestones />
+    <PrizeTracks />
+    <Speakers />
+    <Schedule />
     <FAQ />
-    {/* <Tracks />
-    <FAQ />
-    <Sponsors /> */}
+    <Sponsors />
     <Footer theme={footerTheme.homeFooter} />
   </div>
 )

@@ -1,0 +1,95 @@
+@use "./stylesheets/responsiveness";
+@use "./stylesheets/typography";
+
+.sponsors-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1vh;
+    &__header {
+        padding: 0 10px 0 10px;
+        font-family: "Source Sans Pro", "sans-serif";
+        font-style: normal;
+        text-align: center;
+        color: #FFFFFF;
+        border: 7px solid #FFFFFF;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        @include responsiveness.font($responsive: 4.1vw, $min: 22px, $max: 90px);
+        @include responsiveness.screen(smallest, phone) {
+            line-height: 22px;
+            border-width: 4px;
+        }
+        @include responsiveness.screen(tablet, large-tablet) {
+            line-height: 36px;
+        }
+        @include responsiveness.screen(small-laptop, desktop) {
+            line-height: 63px;
+        }
+        @include responsiveness.screen(big-desktop) {
+            line-height: 70px;
+        }
+    }
+    
+    &__text {
+        font-family: Lato, "sans-serif";
+        font-style: italic;
+        font-weight: 400;
+        @include responsiveness.font($responsive: 3.1vw, $min: 12px, $max: 40px);
+        line-height: 48px;
+        text-align: center;
+        color: #FFFFFF;
+        @include responsiveness.screen(small-laptop, desktop, big-desktop) {
+            margin: 48px 0 48px 0;
+        }
+    }
+
+    &__rows {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80vw;
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        max-width: 1400px;
+    }
+    &__sponsor {
+        margin: 0 1vw 1vh 1vw;
+        @include responsiveness.screen(smallest, phone) {
+            height: 50%;
+        }
+        @include responsiveness.screen(tablet, large-tablet) {
+            height: 70%; 
+        }
+        @include responsiveness.screen(small-laptop, desktop) {
+            height: 90%;
+        }
+        @include responsiveness.screen(big-desktop) {
+            height: 110%;
+        }
+    }
+
+    &__sponsor-tier {
+        width: 100%;
+        @include responsiveness.screen(smallest, phone) {
+            max-height: 70px;
+        }
+        @include responsiveness.screen(tablet, large-tablet) {
+            max-height: 90px; 
+        }
+        @include responsiveness.screen(small-laptop, desktop) {
+            max-height: 120px;
+        }
+        @include responsiveness.screen(big-desktop) {
+            max-height: 150px;
+        }
+    }
+}
