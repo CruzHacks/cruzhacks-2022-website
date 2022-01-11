@@ -2,7 +2,7 @@ import * as React from "react"
 import "./PrizeTracks.scss"
 import { ReactComponent as HealthHacks } from "images/tracks/health_hacks.svg"
 import { ReactComponent as BeginnerHacks } from "images/tracks/beginner_hacks.svg"
-import { ReactComponent as EarthHacks } from "images/tracks/earth_hacks.svg"
+import { ReactComponent as EducationHacks } from "images/tracks/education_hacks.svg"
 import { ReactComponent as GoldenStateHacks } from "images/tracks/golden_state_hacks.svg"
 import { ReactComponent as JusticeHacks } from "images/tracks/justice_hacks.svg"
 import { ReactComponent as UIUXHacks } from "images/tracks/ui_ux_hacks.svg"
@@ -24,8 +24,8 @@ const Tracks = [
     2,
   ],
   [
-    <EarthHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-earth' />,
-    "Earth Hacks",
+    <EducationHacks className='prizeTracks--svg-shadow prizeTracks--track-img-dimensions-education' />,
+    "Education Hacks",
     1,
   ],
   [
