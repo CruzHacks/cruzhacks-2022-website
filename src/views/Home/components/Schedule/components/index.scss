@@ -49,7 +49,7 @@
     height: 500px;
 
     @include responsiveness.screen(desktop, big-desktop) {
-      height: 800px;
+      height: 900px;
     }
   }
 
