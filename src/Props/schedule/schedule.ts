@@ -41,7 +41,7 @@ export const schedule: ScheduleDate[] = [
       { name: "Intro to Python", time: "3:00 PM" },
       { name: "Intro to React", time: "4:00 PM" },
       { name: "Environmental Innovation Guided Discussion", time: "" },
-      { name: "MLH Event: Security Challenge", time: "" },
+      { name: "MLH Event: Security Challenge", time: "5:30 PM" },
     ],
   },
   {
