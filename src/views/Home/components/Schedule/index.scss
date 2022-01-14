@@ -37,7 +37,7 @@
     margin: 0 auto;
     padding: 0 4vw;
     width: 80%;
-    max-width: 1500px;
+    max-width: 1300px;
 
     @include responsiveness.screen(smallest, phone, tablet, large-tablet) {
       width: initial;
