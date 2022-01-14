@@ -4,7 +4,7 @@ import images from "./images"
 const speakerCards: CardProps[] = [
   {
     name: "Antonio Xu Liu",
-    title: "Senior Strategy Program Manager\n@ National Grid",
+    title: "Manager\n Special Projects DEI\n@ National Grid",
     imgSrc: images.aLiu,
     LinkedInLink: "",
   },
