@@ -22,7 +22,7 @@
     display: table;
     // height: 1400px;
     width: 80%;
-    max-width: 1600px;
+    max-width: 1400px;
     @include responsiveness.screen(smallest) {
       padding: 0px;
     }
@@ -79,7 +79,6 @@
     padding-right: 2px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   &__questionsandanswersitems {
     // width: 30vh;
