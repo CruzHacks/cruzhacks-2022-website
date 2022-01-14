@@ -18,13 +18,17 @@ export const schedule: ScheduleDate[] = [
       { name: "Opening Ceremony", time: "7:00 PM" },
       { name: "Hacking Begins", time: "9:00 PM" },
       { name: "Resume/Cover Letter", time: "10:00 PM" },
-      { name: "Equity In Tech", time: "10:30 PM" },
+      { name: "MLH Event: Bob Ross Painting", time: "" },
+      { name: "Equity In Tech", time: "10:45 PM" },
     ],
   },
   {
     date: "Saturday, January 15, 2022",
     events: [
-      { name: "Pitching for Hackers", time: "9:00 AM" },
+      {
+        name: "Adding a Backend and Database to Your App in 3 Lines",
+        time: "9:00 AM",
+      },
       { name: "Intro to Algorithm / Applications", time: "10:00 AM" },
       { name: "Tech Interviews", time: "" },
       { name: "Intro to Github", time: "11:00 AM" },
@@ -37,6 +41,7 @@ export const schedule: ScheduleDate[] = [
       { name: "Intro to Python", time: "3:00 PM" },
       { name: "Intro to React", time: "4:00 PM" },
       { name: "Environmental Innovation Guided Discussion", time: "" },
+      { name: "MLH Event: Security Challenge", time: "" },
     ],
   },
   {
