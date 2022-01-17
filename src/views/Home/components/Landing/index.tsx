@@ -6,7 +6,6 @@ import { ReactComponent as HillsMobile } from "images/landing/landing-hills-mobi
 import "./index.scss"
 import Button from "components/Button/Button"
 import EmailSubscription from "components/EmailSubscription"
-import PuzzleModal from "components/PuzzleModal"
 
 const Landing: React.FC = () => {
   const [mobile, setMobile] = useState(window.innerWidth <= 768)
@@ -30,12 +29,7 @@ const Landing: React.FC = () => {
 
         <div className='landing-component__section'>
           <div className='landing-component__text-box'>
-            <PuzzleModal
-              question='Unscramble this word: actakhohn'
-              answer='hackathon'
-            >
-              <div className='landing-component__title'>CruzHacks 2022</div>
-            </PuzzleModal>
+            <div className='landing-component__title'>CruzHacks 2022</div>
             <div className='landing-component__textContainer'>
               <div className='landing-component__description'>
                 CruzHacks is the largest hackathon in Santa Cruz. Each year, we
@@ -53,19 +47,18 @@ const Landing: React.FC = () => {
                 <Button
                   className='landing-component__button'
                   modifier='primary'
-                  label='sponsor button'
-                  href='https://docs.google.com/forms/d/e/1FAIpQLSfXrKQS69kBkP6J5yfJRKP9XqDOqk_AW3Cq-Ya-kEXTfQOHUg/viewform'
+                  label='devpost button'
+                  href='https://cruzhacks-2022.devpost.com/'
                 >
-                  mentor/judge application
+                  2022 Devpost!
                 </Button>
                 <Button
                   className='landing-component__button'
                   label='apps button'
                   modifier='primary'
-                  href='/portal'
-                  redirect
+                  href='mailto:sponsor@cruzhacks.com'
                 >
-                  hacker apps closed
+                  Sponsor Us!
                 </Button>
               </div>
             </div>
