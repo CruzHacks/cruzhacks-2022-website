@@ -56,9 +56,9 @@ const Landing: React.FC = () => {
                   className='landing-component__button'
                   label='apps button'
                   modifier='primary'
-                  href='mailto:sponsor@cruzhacks.com'
+                  href='https://forms.gle/2RZE3x4KTcr1WAuF8'
                 >
-                  Sponsor Us!
+                  2023 Organizer Application
                 </Button>
               </div>
             </div>
