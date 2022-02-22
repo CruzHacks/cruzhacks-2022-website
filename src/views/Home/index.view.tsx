@@ -20,6 +20,7 @@ const HomeView: React.FC = () => (
     <NavBar theme='home' />
     <Landing />
     <About />
+    <button type='button' aria-label='ass' onClick={() => window.close()} />
     <Milestones />
     <PrizeTracks />
     <Speakers />
