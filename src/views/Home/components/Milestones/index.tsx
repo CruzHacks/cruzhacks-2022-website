@@ -11,7 +11,7 @@ const Milestones: React.FC = () => (
       <div className='milestones-component__header'>
         <div className='milestones-component__header-circle'>
           <div className='milestones-component__header-text'>
-            Milestones of 2021
+            Milestones of 2022
           </div>
           <BorderMobile className='milestones-component__header-border' />
         </div>

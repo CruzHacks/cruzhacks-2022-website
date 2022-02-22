@@ -4,9 +4,17 @@
 .faq-component {
   margin-top: -1px;
   padding-top: 40px;
+  padding-bottom: 40px;
   background-size: cover;
   background: linear-gradient(#9DD7E5, #70AACB);
+  &__questionsandanswers {
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
   &__box {
+    min-height: 1000px;
     margin: auto;
     border: 7px solid rgba(255, 255, 255, 0.75);
     border-radius: 59px;
@@ -14,9 +22,7 @@
     display: table;
     // height: 1400px;
     width: 80%;
-    @include responsiveness.screen(phone, desktop, big-desktop) {
-      width: 60%;
-    }
+    max-width: 1400px;
     @include responsiveness.screen(smallest) {
       padding: 0px;
     }
@@ -55,7 +61,7 @@
     font-family: Lato, sans-serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
+    @include responsiveness.font($responsive: 4.1vw, $min: 18px, $max: 24px);
     line-height: auto;
     color: #ffffff;
     display: block;
@@ -66,13 +72,13 @@
     clear: both;
   }
   &__column {
-    vertical-align: middle;
-    float: left;
     width: 33%;
     @include responsiveness.screen(smallest, phone, tablet) {
       width: 100%;
     }
     padding-right: 2px;
+    display: flex;
+    flex-direction: column;
   }
   &__questionsandanswersitems {
     // width: 30vh;
