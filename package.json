@@ -30,6 +30,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "firebase-tools": "^9.14.0",
     "jest-junit": "^12.2.0",
+    "nanoid": "^3.3.3",
     "postcss-normalize": "^10.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

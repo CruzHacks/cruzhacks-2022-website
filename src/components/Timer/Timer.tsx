@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { nanoid } from "nanoid"
 import "./Timer.scss"
 
 interface Timer {
@@ -62,8 +63,8 @@ const TimeRemaining: React.FC = () => {
         <div className='timer-component__clock'>
           <div className='timer-component__remaining'>
             {" "}
-            {timeLeft.days.split("").map((char, index) => (
-              <div className='timer-component__char' key={index.toString()}>
+            {timeLeft.days.split("").map(char => (
+              <div className='timer-component__char' key={nanoid()}>
                 {char}
               </div>
             ))}
@@ -74,8 +75,8 @@ const TimeRemaining: React.FC = () => {
         <div className='timer-component__clock'>
           <div className='timer-component__remaining'>
             {" "}
-            {timeLeft.hours.split("").map((char, index) => (
-              <div className='timer-component__char' key={index.toString()}>
+            {timeLeft.hours.split("").map(char => (
+              <div className='timer-component__char' key={nanoid()}>
                 {char}
               </div>
             ))}
@@ -86,8 +87,8 @@ const TimeRemaining: React.FC = () => {
         <div className='timer-component__clock'>
           <div className='timer-component__remaining'>
             {" "}
-            {timeLeft.minutes.split("").map((char, index) => (
-              <div className='timer-component__char' key={index.toString()}>
+            {timeLeft.minutes.split("").map(char => (
+              <div className='timer-component__char' key={nanoid()}>
                 {char}
               </div>
             ))}
@@ -97,8 +98,8 @@ const TimeRemaining: React.FC = () => {
         :
         <div className='timer-component__clock'>
           <div className='timer-component__remaining'>
-            {timeLeft.seconds.split("").map((char, index) => (
-              <div className='timer-component__char' key={index.toString()}>
+            {timeLeft.seconds.split("").map(char => (
+              <div className='timer-component__char' key={nanoid()}>
                 {char}
               </div>
             ))}
