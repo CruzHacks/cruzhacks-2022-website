@@ -70,6 +70,7 @@ Button.defaultProps = {
   href: undefined,
   onClick: undefined,
   redirect: false,
+  modifier: "primary",
 }
 
 export default Button
