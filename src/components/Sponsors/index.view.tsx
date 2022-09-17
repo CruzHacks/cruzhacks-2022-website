@@ -17,9 +17,7 @@ const Sponsors: React.FC = () => {
   ]
   return (
     <div className='sponsors-container'>
-      <div className='sponsors-container__header'>
-        Thank you to our Sponsors
-      </div>
+      <div className='sponsors-container__header'>2022 Sponsors</div>
       <div className='sponsors-container__text'>
         Powered by CIED and the UCSC Genomics Institute
       </div>
