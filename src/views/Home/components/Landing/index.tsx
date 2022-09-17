@@ -29,7 +29,7 @@ const Landing: React.FC = () => {
 
         <div className='landing-component__section'>
           <div className='landing-component__text-box'>
-            <div className='landing-component__title'>CruzHacks 2022</div>
+            <div className='landing-component__title'>CruzHacks 2023</div>
             <div className='landing-component__textContainer'>
               <div className='landing-component__description'>
                 CruzHacks is the largest hackathon in Santa Cruz. Each year, we
@@ -52,14 +52,14 @@ const Landing: React.FC = () => {
                 >
                   2022 Devpost!
                 </Button>
-                <Button
+                {/**<Button
                   className='landing-component__button'
                   label='apps button'
                   modifier='primary'
                   href='https://forms.gle/2RZE3x4KTcr1WAuF8'
                 >
                   2023 Organizer Application
-                </Button>
+                </Button>*/}
               </div>
             </div>
           </div>
