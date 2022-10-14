@@ -5,7 +5,6 @@ import { ReactComponent as Hills } from "images/landing/landing-hills.svg"
 import { ReactComponent as HillsMobile } from "images/landing/landing-hills-mobile.svg"
 import "./index.scss"
 import Button from "components/Button/Button"
-import EmailSubscription from "components/EmailSubscription"
 
 const Landing: React.FC = () => {
   const [mobile, setMobile] = useState(window.innerWidth <= 768)
@@ -40,9 +39,6 @@ const Landing: React.FC = () => {
               <div className='landing-component__dates'>
                 January 13-15, 2023 &nbsp;&middot;&nbsp; In-Person @ UCSC
               </div>
-              <div className='landing-component__subscriptionContainer'>
-                <EmailSubscription />
-              </div>
               <div className='landing-component__buttonContainer'>
                 <Button
                   className='landing-component__button'
@@ -50,7 +46,7 @@ const Landing: React.FC = () => {
                   label='devpost button'
                   href='https://cruzhacks-2022.devpost.com/'
                 >
-                  2022 Devpost!
+                  2022 Project Submissions
                 </Button>
                 {/** <Button
                   className='landing-component__button'
